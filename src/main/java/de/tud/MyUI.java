@@ -20,7 +20,7 @@ import com.vaadin.ui.VerticalLayout;
  * overridden to add component to the user interface and initialize non-component functionality.
  */
 @Theme("mytheme")
-public class MyUI extends UI {
+public class MyUI extends UI {                 //Kommentar
 
     @Override
     protected void init(VaadinRequest vaadinRequest) {
