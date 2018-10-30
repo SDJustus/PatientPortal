@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <meta name="design-properties" content="{&quot;RULERS_VISIBLE&quot;:true,&quot;GUIDELINES_VISIBLE&quot;:false,&quot;SNAP_TO_OBJECTS&quot;:true,&quot;SNAP_TO_GRID&quot;:true,&quot;SNAPPING_DISTANCE&quot;:10,&quot;GENERATE_GETTERS&quot;:false,&quot;JAVA_SOURCES_ROOT&quot;:&quot;src&quot;,&quot;THEME&quot;:&quot;valo&quot;}">
+  <meta name="vaadin-version" content="8.1.5">
+ </head>
+ <body>
+  <vaadin-horizontal-layout size-full margin>
+   <vaadin-form-layout width-auto height="300px" margin :middle>
+    <vaadin-date-time-field _id="datePicker"></vaadin-date-time-field>
+    <vaadin-vertical-layout width="456px" height="240px" margin="false" _id="verticalLayout">
+     <vaadin-label plain-text>
+       Depression: 
+     </vaadin-label>
+     <vaadin-horizontal-layout width="270px" height="90px" :expand="0.1">
+      <vaadin-image width="90px" height="90px" _id="goodSmiley"></vaadin-image>
+      <vaadin-image width="90px" height="90px" _id="middleSmiley"></vaadin-image>
+      <vaadin-image style-name="smileys" width="90px" height="90px" _id="badSmiley"></vaadin-image>
+     </vaadin-horizontal-layout>
+     <vaadin-horizontal-layout height="60px"></vaadin-horizontal-layout>
+     <vaadin-horizontal-layout width="270px" :expand="0.1">
+      <vaadin-label plain-text _id="goodlabel" :middle :center></vaadin-label>
+      <vaadin-label plain-text _id="middlelabel" :middle :center></vaadin-label>
+      <vaadin-label plain-text _id="badlabel" :middle :center></vaadin-label>
+     </vaadin-horizontal-layout>
+     <vaadin-label style-name="moodtextlabel" height="20px" plain-text _id="moodLabel"></vaadin-label>
+     <vaadin-button height="40px" plain-text _id="saveButton" :expand="0.1">
+       Speichern 
+     </vaadin-button>
+     <vaadin-horizontal-layout height="15px"></vaadin-horizontal-layout>
+    </vaadin-vertical-layout>
+    <vaadin-grid height="400px" data-item-type="de.tud.Model.DataModelDiary" _id="table"></vaadin-grid>
+   </vaadin-form-layout>
+  </vaadin-horizontal-layout>
+ </body>
+</html>
