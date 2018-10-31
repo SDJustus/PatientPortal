@@ -1,4 +1,9 @@
 package de.tud.Model;
 
-public class Depression implements Symptom {
+public class Depression extends Symptom {
+
+    public Depression() {
+        super();
+    }
+
 }

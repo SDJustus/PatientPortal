@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Person {
     enum Gender{
-        FEMALE, MALE, OTHER
+        FEMALE, MALE
     }
     private String givenName;
     private String familyName;

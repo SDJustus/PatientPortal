@@ -1,4 +1,12 @@
 package de.tud.Model;
 
-public interface Symptom {
+public abstract class Symptom {
+
+    enum Strengh{
+        WEAK, MIDDLE, SEVERE
+    }
+    private Strengh strengh;
+
+
+
 }
