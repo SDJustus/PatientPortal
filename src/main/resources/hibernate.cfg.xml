@@ -6,17 +6,17 @@
   <session-factory>
 
     <!-- database connection properties -->
-    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/bookstore?serverTimezone=Europe/Brussels</property>
+    <property name="hibernate.connection.driver_class">org.mariadb.jdbc.Driver</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306?serverTimezone=UTC</property>
     <property name="hibernate.connection.username">root</property>
     <property name="hibernate.connection.password"></property>
-    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+    <property name="hibernate.dialect">org.hibernate.dialect.MariaDB103Dialect</property>
 
     <!-- show mysql queries output in console -->
     <property name="hibernate.show_sql">true</property>
 
     <!-- manage automatic database creation -->
-    <property name="hibernate.hbm2ddl.auto">create-drop</property>
+    <property name="hibernate.hbm2ddl.auto">update</property>
 
     <!-- add resources here -->
 
