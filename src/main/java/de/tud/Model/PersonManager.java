@@ -68,40 +68,57 @@ public class PersonManager {
         session.close();
         System.out.println("Successfully created " + p.toString());
         return p.getId();
-
     }
 
     public static List<Person> read() {
         Session session = getSessionFactory().openSession();
         List<Person> persons = session.createQuery("FROM Person").list();
         session.close();
-        System.out.println("Found " + persons.size() + " Employees");
+        System.out.println("Found " + persons.size() + " persons");
         return persons;
-
     }
 
     public static void update(Person p) {
         Session session = getSessionFactory().openSession();
-        session.beginTransaction();
-        Person person = (Person) session.load(Person.class, p.getId());
-        person.setGivenName(p.getGivenName());
-        person.setFamilyName(p.getFamilyName());
-        session.getTransaction().commit();
-        session.close();
-        System.out.println("Successfully updated " + p.toString());
 
+        try {
+            session.beginTransaction();
+            Person person = (Person) session.load(Person.class, p.getId());
+            person.setGivenName(p.getGivenName());
+            person.setFamilyName(p.getFamilyName());
+            session.getTransaction().commit();
+            System.out.println("Successfully updated " + p.toString());
+        }
+        catch(Exception e){
+            if (session.getTransaction() != null)
+            session.getTransaction().rollback();
+            System.out.println("Upadate on " + p.toString() + " failed");
+        }
+        finally {
+            session.close();
+        }
     }
 
     public static void delete(Integer id) {
 
         Session session = getSessionFactory().openSession();
-        session.beginTransaction();
-        Person p = findByID(id);
-        session.delete(p);
-        session.getTransaction().commit();
-        session.close();
-        System.out.println("Successfully deleted " + p.toString());
 
+        try{
+            session.beginTransaction();
+            Person p = findByID(id);
+            session.delete(p);
+            session.getTransaction().commit();
+            System.out.println("Successfully deleted " + p.toString());
+        }
+        catch (Exception e){
+            if (session.getTransaction() != null){
+                session.getTransaction().rollback();
+                System.out.println("Deletion failed");
+                }
+        }
+        finally {
+            session.close();
+        }
     }
 
     public static Person findByID(Integer id) {
@@ -113,14 +130,21 @@ public class PersonManager {
 
     public static void deleteAll() {
         Session session = getSessionFactory().openSession();
-        session.beginTransaction();
-        Query query = session.createQuery("DELETE FROM Person ");
-        query.executeUpdate();
-        session.getTransaction().commit();
-        session.close();
-        System.out.println("Successfully deleted all employees.");
 
+        try {
+            session.beginTransaction();
+            Query query = session.createQuery("DELETE FROM Person ");
+            query.executeUpdate();
+            session.getTransaction().commit();
+            System.out.println("Successfully deleted all persons.");
+        }
+        catch (Exception e){
+            session.getTransaction().rollback();
+            System.out.println("Deletion of all persons failed");
+        }
+        finally {
+            session.close();
+        }
     }
-
 }
 
