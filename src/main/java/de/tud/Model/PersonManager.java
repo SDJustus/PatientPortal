@@ -52,7 +52,7 @@ public class PersonManager {
 
     public static SessionFactory getSessionFactory() {
         Configuration configuration = new Configuration().configure();
-        configuration.addAnnotatedClass(de.tud.Model.Person.class);
+        configuration.addAnnotatedClass(de.tud.Model.Person.class).addAnnotatedClass(de.tud.Model.Address.class);
         StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder()
                 .applySettings(configuration.getProperties());
         SessionFactory sessionFactory = configuration

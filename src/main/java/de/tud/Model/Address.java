@@ -1,13 +1,26 @@
 package de.tud.Model;
 
-import java.io.Serializable;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
-public class Address implements Serializable {
+@Entity(name = "Address")
+@Table(name = "Address")
+public class Address{
 
+    @Column(name = "address_street")
     private String street;
+
+    @Column(name = "address_number")
     private String number;
+
+    @Column(name = "address_postCode")
     private int postCode;
+
+    @Column(name = "address_city")
     private String city;
+
+    @Column(name = "address_country")
     private String country;
 
     public String getStreet() {

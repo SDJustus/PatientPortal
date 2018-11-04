@@ -35,6 +35,7 @@ public class Person {
     private String familyName;
 
     @Column(name = "person_gender")
+    @Enumerated(EnumType.ORDINAL)
     private Gender gender;
 
     @Column(name = "person_email")
@@ -46,7 +47,7 @@ public class Person {
     @Column(name = "person_phone")
     private String phone;
 
-    @Column(name = "person_address")
+    @OneToMany(mappedBy = "Address")
     private Address address;
 
     public int getId(){
