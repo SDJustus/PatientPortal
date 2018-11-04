@@ -5,7 +5,6 @@
 <hibernate-configuration>
   <session-factory>
 
-    
     <!-- database connection properties -->
     <property name="hibernate.dialect">org.hibernate.dialect.MariaDB103Dialect</property>
     <property name="hibernate.connection.driver_class">org.mariadb.jdbc.Driver</property>
