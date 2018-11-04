@@ -2,10 +2,10 @@ package de.tud.Model;
 
 public abstract class Symptom {
 
-    enum Strengh{
+    enum Strength{
         WEAK, MIDDLE, SEVERE
     }
-    private Strengh strengh;
+    private Strength strength;
 
 
 
