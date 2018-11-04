@@ -5,6 +5,7 @@ import com.vaadin.server.*;
 import com.vaadin.ui.*;
 import java.util.*;
 import de.tud.Model.DataModelDiary;
+import de.tud.Model.Symptom;
 import de.tud.View.*;
 
 
@@ -44,7 +45,7 @@ public class TagebuchImplementierung extends Tagebuch {
         goodSmiley.setId("smileybild");
         middleSmiley.setId("smileybild");
         badSmiley.setId("smileybild");
-;
+
 
 
         //Event Handler für Klick auf die Smileys
@@ -94,14 +95,29 @@ public class TagebuchImplementierung extends Tagebuch {
                 if(datePicker.getValue() != null && !choice.equals("")){
                         String datum = datePicker.getValue().toString();
                         String mood = choice;
+                        if(mood.equals("stark"))
+                    {
+                        tagebuch.add(new DataModelDiary(datum, new Symptom(Symptom.Strength.SEVERE) {
+                        }));
+                    }
+                    if(mood.equals("mäßig"))
+                    {
+                        tagebuch.add(new DataModelDiary(datum, new Symptom(Symptom.Strength.MIDDLE) {
+                        }));
+                    }
+                    if(mood.equals("keine"))
+                    {
+                        tagebuch.add(new DataModelDiary(datum, new Symptom(Symptom.Strength.WEAK) {
+                        }));
+                    }
 
-                        tagebuch.add(new DataModelDiary(datum, choice));
+
 
                         table.setItems(tagebuch);
                     Notification.show("Eintrag erfolgreich gespeichert");
 
                 }
-                return;
+
 
             }
         });
