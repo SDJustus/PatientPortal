@@ -6,15 +6,16 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 
 import javax.persistence.Query;
+import java.time.LocalDate;
 import java.util.List;
 
 public class PersonManager {
     public static void main(String[] args) {
-
+        Address address = new Address("as", "1", 19287, "abc", "abc");
         Person person1 = new Person("Max", "Mustermann", Person.Gender.MALE,
-                "max.mustermann@musterprovider.de", null, "01234567890", new Address("as", "1", 19287, "abc", "abc") );
+                "max.mustermann@musterprovider.de", null, "01234567890", address);
         Person person2 = new Person("Maxi", "Musterfrau", Person.Gender.FEMALE,
-                "maxi.musterfrau@musterprovider.de", null, "01234567890", null);
+                "maxi.musterfrau@musterprovider.de", LocalDate.of(2000,1,1), "01234567890", address);
         System.out.println(" =======CREATE =======");
         create(person1);
         create(person2);

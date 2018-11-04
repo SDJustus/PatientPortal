@@ -35,7 +35,7 @@ public class Person {
     private String familyName;
 
     @Column(name = "person_gender")
-    @Enumerated(EnumType.ORDINAL)
+    @Enumerated(EnumType.STRING)
     private Gender gender;
 
     @Column(name = "person_email")
