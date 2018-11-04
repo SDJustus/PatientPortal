@@ -2,9 +2,9 @@ package de.tud.Model;
 
 public class DataModelDiary {
     private String date;
-    private String symptom;
+    private Symptom symptom;
 
-    public DataModelDiary(String date, String symptom){
+    public DataModelDiary(String date, Symptom symptom){
         this.date = date;
         this.symptom = symptom;
     }
@@ -17,11 +17,11 @@ public class DataModelDiary {
         this.date = date;
     }
 
-    public String getSymptom() {
+    public Symptom getSymptom() {
         return symptom;
     }
 
-    public void setSymptom(String symptom) {
+    public void setSymptom(Symptom symptom) {
         this.symptom = symptom;
     }
 }
