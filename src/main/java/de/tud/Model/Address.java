@@ -1,12 +1,15 @@
 package de.tud.Model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.List;
 
-@Entity(name = "Address")
-@Table(name = "Address")
+@Entity
+@Table(name = "address")
 public class Address{
+
+    @Id
+    @GeneratedValue
+    private int id;
 
     @Column(name = "address_street")
     private String street;
@@ -22,6 +25,27 @@ public class Address{
 
     @Column(name = "address_country")
     private String country;
+/*
+    @OneToMany(
+            cascade = CascadeType.ALL,
+            orphanRemoval = true)
+    private List<Person> personList;*/
+
+    public Address(String street, String number, int postCode, String city, String country) {
+        this.street = street;
+        this.number = number;
+        this.postCode = postCode;
+        this.city = city;
+        this.country = country;
+    }
+/*
+    public List<Person> getPersonList() {
+        return personList;
+    }
+
+    public void setPersonList(List<Person> personList) {
+        this.personList = personList;
+    }*/
 
     public String getStreet() {
         return street;

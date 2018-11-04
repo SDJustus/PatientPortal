@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "Person")
+@Table(name = "person")
 public class Person {
     public Person() {
     }
@@ -47,7 +47,8 @@ public class Person {
     @Column(name = "person_phone")
     private String phone;
 
-    @OneToMany(mappedBy = "Address")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "address_id")
     private Address address;
 
     public int getId(){

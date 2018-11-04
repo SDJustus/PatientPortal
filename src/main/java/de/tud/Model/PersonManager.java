@@ -12,7 +12,7 @@ public class PersonManager {
     public static void main(String[] args) {
 
         Person person1 = new Person("Max", "Mustermann", Person.Gender.MALE,
-                "max.mustermann@musterprovider.de", null, "01234567890", null );
+                "max.mustermann@musterprovider.de", null, "01234567890", new Address("as", "1", 19287, "abc", "abc") );
         Person person2 = new Person("Maxi", "Musterfrau", Person.Gender.FEMALE,
                 "maxi.musterfrau@musterprovider.de", null, "01234567890", null);
         System.out.println(" =======CREATE =======");
@@ -63,6 +63,9 @@ public class PersonManager {
     public static Integer create(Person p) {
         Session session = getSessionFactory().openSession();
         session.beginTransaction();
+        if(p.getAddress() != null) {
+            session.save(p.getAddress());
+        }
         session.save(p);
         session.getTransaction().commit();
         session.close();
