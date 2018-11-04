@@ -1,19 +1,59 @@
 package de.tud.Model;
 
+import javax.persistence.*;
 import java.time.LocalDate;
-import java.util.List;
 
+@Entity
+@Table(name = "person")
 public class Person {
+    public Person() {
+    }
+
     enum Gender{
         FEMALE, MALE
     }
+
+    public Person(String givenName, String familyName, Gender gender, String email, LocalDate birthday, String phone, Address address) {
+        this.givenName = givenName;
+        this.familyName = familyName;
+        this.gender = gender;
+        this.email = email;
+        this.birthday = birthday;
+        this.phone = phone;
+        this.address = address;
+    }
+
+    @Id
+    @GeneratedValue
+    @Column(name = "person_id")
+    private int id;
+
+    @Column(name = "person_givenName")
     private String givenName;
+
+    @Column(name = "person_familyName")
     private String familyName;
+
+    @Column(name = "person_gender")
+    @Enumerated(EnumType.ORDINAL)
     private Gender gender;
+
+    @Column(name = "person_email")
     private String email;
+
+    @Column(name = "person_birthday")
     private LocalDate birthday;
+
+    @Column(name = "person_phone")
     private String phone;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "address_id")
     private Address address;
+
+    public int getId(){
+        return id;
+    }
 
     public String getGivenName() {
         return givenName;

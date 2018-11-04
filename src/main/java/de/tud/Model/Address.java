@@ -1,12 +1,51 @@
 package de.tud.Model;
 
-public class Address {
+import javax.persistence.*;
+import java.util.List;
 
+@Entity
+@Table(name = "address")
+public class Address{
+
+    @Id
+    @GeneratedValue
+    private int id;
+
+    @Column(name = "address_street")
     private String street;
+
+    @Column(name = "address_number")
     private String number;
+
+    @Column(name = "address_postCode")
     private int postCode;
+
+    @Column(name = "address_city")
     private String city;
+
+    @Column(name = "address_country")
     private String country;
+/*
+    @OneToMany(
+            cascade = CascadeType.ALL,
+            orphanRemoval = true)
+    private List<Person> personList;*/
+
+    public Address(String street, String number, int postCode, String city, String country) {
+        this.street = street;
+        this.number = number;
+        this.postCode = postCode;
+        this.city = city;
+        this.country = country;
+    }
+/*
+    public List<Person> getPersonList() {
+        return personList;
+    }
+
+    public void setPersonList(List<Person> personList) {
+        this.personList = personList;
+    }*/
 
     public String getStreet() {
         return street;
