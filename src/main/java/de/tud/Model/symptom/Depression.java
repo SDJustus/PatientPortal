@@ -1,4 +1,6 @@
-package de.tud.Model;
+package de.tud.Model.symptom;
+
+import de.tud.Model.symptom.Symptom;
 
 public class Depression extends Symptom {
 
@@ -6,6 +8,11 @@ public class Depression extends Symptom {
     {
         super(s);
 
+    }
+
+    @Override
+    public String toString() {
+        return "Depression: " + this.getStrength();
     }
 
 }

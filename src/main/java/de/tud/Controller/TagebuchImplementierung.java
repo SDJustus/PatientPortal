@@ -5,7 +5,8 @@ import com.vaadin.server.*;
 import com.vaadin.ui.*;
 import java.util.*;
 import de.tud.Model.DataModelDiary;
-import de.tud.Model.Symptom;
+import de.tud.Model.symptom.Depression;
+import de.tud.Model.symptom.Symptom;
 import de.tud.View.*;
 
 
@@ -95,24 +96,20 @@ public class TagebuchImplementierung extends Tagebuch {
                 if(datePicker.getValue() != null && !choice.equals("")){
                         String datum = datePicker.getValue().toString();
                         String mood = choice;
-                        if(mood.equals("stark"))
-                    {
-                        tagebuch.add(new DataModelDiary(datum, new Symptom(Symptom.Strength.SEVERE) {
-                        }));
-                    }
-                    if(mood.equals("mäßig"))
-                    {
-                        tagebuch.add(new DataModelDiary(datum, new Symptom(Symptom.Strength.MIDDLE) {
-                        }));
-                    }
-                    if(mood.equals("keine"))
-                    {
-                        tagebuch.add(new DataModelDiary(datum, new Symptom(Symptom.Strength.WEAK) {
-                        }));
-                    }
 
-
-
+                //TODO: change mood Type to enum and implement Symptomfactory instead of concret Symptom
+                switch (mood) {
+                    case "stark":
+                        tagebuch.add(new DataModelDiary(datum, new Depression(Symptom.Strength.SEVERE)));
+                        break;
+                    case "mäßig":
+                        tagebuch.add(new DataModelDiary(datum, new Depression(Symptom.Strength.MIDDLE)));
+                        break;
+                    case "keine":
+                        tagebuch.add(new DataModelDiary(datum, new Depression(Symptom.Strength.WEAK)));
+                        break;
+                    default: throw new IllegalArgumentException("received wrong mood");
+                }
                         table.setItems(tagebuch);
                     Notification.show("Eintrag erfolgreich gespeichert");
 
