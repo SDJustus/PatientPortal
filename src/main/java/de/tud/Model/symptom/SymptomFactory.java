@@ -21,7 +21,7 @@ public class SymptomFactory {
             case "Spasticity":
                 return new Spasticity(strength);
             default:
-                throw new IllegalArgumentException("can't create Symptom from className!");
+                throw new IllegalArgumentException("can't create Symptom from className!" + className);
         }
 
     }
