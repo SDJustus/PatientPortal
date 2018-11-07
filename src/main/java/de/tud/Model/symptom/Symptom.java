@@ -1,4 +1,4 @@
-package de.tud.Model;
+package de.tud.Model.symptom;
 
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -35,10 +35,16 @@ public abstract class Symptom {
         this.strength = strength;
     }
 
-    @Override
-    public String toString(){
-        return getClass().getSimpleName() + ": " + strength;
+    public Strength getStrength(){
+        return strength;
     }
+
+    public void setStrength(Strength strength){
+        this.strength = strength;
+    }
+
+    @Override
+    public abstract String toString();
 
 
 

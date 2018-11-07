@@ -1,5 +1,7 @@
 package de.tud.Model;
 
+import de.tud.Model.symptom.Symptom;
+
 public class DataModelDiary {
     private String date;
     private Symptom symptom;
