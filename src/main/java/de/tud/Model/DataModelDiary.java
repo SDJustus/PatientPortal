@@ -1,8 +1,20 @@
 package de.tud.Model;
 
+import javax.persistence.*;
+
+
+@Entity
+@Table(name = "Diary")
 public class DataModelDiary {
+
     private String date;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "symptom_id")
     private Symptom symptom;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "diary_id")
+    private long diaryID;
 
     public DataModelDiary(String date, Symptom symptom){
         this.date = date;

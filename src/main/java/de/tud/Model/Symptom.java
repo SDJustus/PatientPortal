@@ -1,5 +1,9 @@
 package de.tud.Model;
 
+import javax.persistence.*;
+
+@Entity
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public abstract class Symptom {
 
     public enum Strength{
@@ -20,8 +24,21 @@ public abstract class Symptom {
             }
         }
     }
-
+    @Enumerated(EnumType.STRING)
    private Strength strength;
+
+    public long getSymptomId() {
+        return symptomId;
+    }
+
+    public void setSymptomId(long symptomId) {
+        this.symptomId = symptomId;
+    }
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.TABLE)
+    @Column (name = "symptom_id")
+    protected long symptomId;
 
 
     protected Symptom (Strength strength)

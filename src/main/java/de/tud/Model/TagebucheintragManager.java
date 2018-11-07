@@ -6,14 +6,27 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 
 import javax.persistence.Query;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
 public class TagebucheintragManager {
 
+    public static void main(String[] args) {
+        List<DataModelDiary> tagebucheintragList = new ArrayList<>();
+                tagebucheintragList.add(new DataModelDiary("20181010", new Depression(Symptom.Strength.SEVERE)));
+        Tagebucheintrag tagebucheintrag = new Tagebucheintrag( tagebucheintragList, 1001010, "200202");
+        create(tagebucheintrag);
+
+    }
+
     public static SessionFactory getSessionFactory() {
         Configuration configuration = new Configuration().configure();
-        configuration.addAnnotatedClass(de.tud.Model.Tagebucheintrag.class).addAnnotatedClass(de.tud.Model.Person.class);
+        configuration.addAnnotatedClass(de.tud.Model.Tagebucheintrag.class)
+        .addAnnotatedClass(de.tud.Model.DataModelDiary.class)
+                .addAnnotatedClass(de.tud.Model.Symptom.class)
+        .addAnnotatedClass(de.tud.Model.Depression.class);
+
         StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder()
                 .applySettings(configuration.getProperties());
         SessionFactory sessionFactory = configuration
@@ -24,7 +37,8 @@ public class TagebucheintragManager {
     public static long create(Tagebucheintrag te) {                 //CREATE
         Session session = getSessionFactory().openSession();
         session.beginTransaction();
-
+            session.save(te.getSymptoms().get(0).getSymptom());
+            session.save(te.getSymptoms().get(0));
         session.save(te);
         session.getTransaction().commit();
         session.close();
@@ -56,7 +70,7 @@ public class TagebucheintragManager {
         try {
             session.beginTransaction();
             Tagebucheintrag entry = session.get(Tagebucheintrag.class, updatedEntry.getPersonId());
-            entry.setSymptoms(updatedEntry.getSymptoms());
+            entry.setSymptom(updatedEntry.getSymptoms());
             entry.setDate(updatedEntry.getDate());
             session.getTransaction().commit();
             System.out.println("Successfully updated " + updatedEntry.toString());
@@ -116,4 +130,3 @@ public class TagebucheintragManager {
     }
 }
 
-}

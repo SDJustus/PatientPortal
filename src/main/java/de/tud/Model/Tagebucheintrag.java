@@ -1,12 +1,9 @@
-package de.tud.View;
+package de.tud.Model;
 
 
 import de.tud.Model.DataModelDiary;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,7 +12,8 @@ import java.util.List;
 public class Tagebucheintrag {
 
     @Column(name = "symptoms")
-    private List<DataModelDiary> symptoms;
+    @ElementCollection(targetClass = DataModelDiary.class)
+    private List<DataModelDiary> symptoms = new ArrayList<>();
 
     @Column(name = "date")
     private String date;
