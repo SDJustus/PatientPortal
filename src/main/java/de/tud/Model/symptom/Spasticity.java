@@ -1,5 +1,8 @@
 package de.tud.Model.symptom;
 
+import javax.persistence.Entity;
+
+@Entity
 public class Spasticity extends Symptom {
 
     protected Spasticity(Strength strength) {

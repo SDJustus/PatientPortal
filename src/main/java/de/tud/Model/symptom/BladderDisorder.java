@@ -1,5 +1,8 @@
 package de.tud.Model.symptom;
 
+import javax.persistence.Entity;
+
+@Entity
 public class BladderDisorder extends Symptom{
 
     protected BladderDisorder(Strength strength) {
