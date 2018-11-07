@@ -23,6 +23,7 @@
     <!-- add resources here -->
     <mapping class="de.tud.Model.Person"/>
     <mapping class="de.tud.Model.Address"/>
+    <mapping class="de.tud.Model.Tagebucheintrag"/>
 
 
   </session-factory>
