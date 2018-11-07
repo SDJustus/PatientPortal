@@ -1,6 +1,12 @@
 package de.tud.Model;
 
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.MappedSuperclass;
+
+@MappedSuperclass
 public abstract class Symptom {
+
 
     public enum Strength{
         WEAK{
@@ -20,7 +26,7 @@ public abstract class Symptom {
             }
         }
     }
-
+    @Enumerated(EnumType.STRING)
    private Strength strength;
 
 
