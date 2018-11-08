@@ -37,8 +37,8 @@ public class TagebucheintragManager {
     public static long create(Tagebucheintrag te) {                 //CREATE
         Session session = getSessionFactory().openSession();
         session.beginTransaction();
-            session.save(te.getSymptoms().get(0).getSymptom());
-            session.save(te.getSymptoms().get(0));
+        session.save(te.getSymptoms().get(0).getSymptom());
+        session.save(te.getSymptoms().get(0));
         session.save(te);
         session.getTransaction().commit();
         session.close();

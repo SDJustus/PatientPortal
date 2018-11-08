@@ -36,7 +36,7 @@ public abstract class Symptom {
     }
 
     @Id
-    @GeneratedValue(strategy = GenerationType.TABLE)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column (name = "symptom_id")
     protected long symptomId;
 
