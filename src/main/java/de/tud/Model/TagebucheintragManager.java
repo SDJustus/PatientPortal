@@ -8,6 +8,7 @@ import org.hibernate.cfg.Configuration;
 
 import javax.persistence.Query;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,8 +16,8 @@ public class TagebucheintragManager {
 
     public static void main(String[] args) {
         List<DataModelDiary> tagebucheintragList = new ArrayList<>();
-                tagebucheintragList.add(new DataModelDiary("20181010", new Depression(Symptom.Strength.SEVERE)));
-        Tagebucheintrag tagebucheintrag = new Tagebucheintrag( tagebucheintragList, "200202");
+                tagebucheintragList.add(new DataModelDiary(LocalDateTime.of(2018, 4, 3, 13, 42), new Depression(Symptom.Strength.SEVERE)));
+        Tagebucheintrag tagebucheintrag = new Tagebucheintrag( tagebucheintragList, LocalDateTime.of(2018, 3, 4, 12, 42));
         create(tagebucheintrag);
 
         List<Tagebucheintrag> tagebucheintragList1 = read();

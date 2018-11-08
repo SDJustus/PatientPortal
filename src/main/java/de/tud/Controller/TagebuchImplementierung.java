@@ -3,6 +3,8 @@ package de.tud.Controller;
 import com.vaadin.event.MouseEvents;
 import com.vaadin.server.*;
 import com.vaadin.ui.*;
+
+import java.time.LocalDateTime;
 import java.util.*;
 import de.tud.Model.DataModelDiary;
 import de.tud.Model.Symptom;
@@ -93,7 +95,7 @@ public class TagebuchImplementierung extends Tagebuch {
                  angezeigt werden */
 
                 if(datePicker.getValue() != null && !choice.equals("")){
-                        String datum = datePicker.getValue().toString();
+                        LocalDateTime datum = datePicker.getValue();
                         String mood = choice;
                         if(mood.equals("stark"))
                     {

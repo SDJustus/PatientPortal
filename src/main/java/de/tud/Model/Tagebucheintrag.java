@@ -4,6 +4,8 @@ package de.tud.Model;
 import de.tud.Model.DataModelDiary;
 
 import javax.persistence.*;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,7 +22,8 @@ public class Tagebucheintrag {
     private List<DataModelDiary> symptoms = new ArrayList<>();
 
     @Column(name = "date")
-    private String date;
+    private LocalDateTime date;
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -29,13 +32,13 @@ public class Tagebucheintrag {
 
 
 
-    public void setDate(String date) { this.date = date;
+    public void setDate(LocalDateTime date) { this.date = date;
     }
 
     public void setSymptom(List<DataModelDiary> list){ this.symptoms=list;
     }
 
-    public String getDate(){ return date;
+    public LocalDateTime getDate(){ return date;
     }
 
     public List<DataModelDiary> getSymptoms() { return symptoms;
@@ -48,7 +51,7 @@ public class Tagebucheintrag {
     }
 
 
-    public Tagebucheintrag(List<DataModelDiary> list, String date){
+    public Tagebucheintrag(List<DataModelDiary> list, LocalDateTime date){
         symptoms = new ArrayList<DataModelDiary>();
         symptoms = list;
         this.date = date;
