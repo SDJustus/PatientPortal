@@ -1,5 +1,6 @@
 package de.tud.Model;
 
+import de.tud.View.Tagebuch;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
@@ -18,6 +19,9 @@ public class TagebucheintragManager {
         Tagebucheintrag tagebucheintrag = new Tagebucheintrag( tagebucheintragList, "200202");
         create(tagebucheintrag);
 
+        List<Tagebucheintrag> tagebucheintragList1 = read();
+        System.out.println(tagebucheintragList1);
+
     }
 
     public static SessionFactory getSessionFactory() {
@@ -25,7 +29,8 @@ public class TagebucheintragManager {
         configuration.addAnnotatedClass(de.tud.Model.Tagebucheintrag.class)
         .addAnnotatedClass(de.tud.Model.DataModelDiary.class)
                 .addAnnotatedClass(de.tud.Model.Symptom.class)
-        .addAnnotatedClass(de.tud.Model.Depression.class);
+        .addAnnotatedClass(Depression.class);
+
 
         StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder()
                 .applySettings(configuration.getProperties());
@@ -48,18 +53,13 @@ public class TagebucheintragManager {
         return te.getPersonId();
     }
 
-    public static List<Tagebucheintrag> read(String date, int id) {     //READ AS LIST
+    public static List<Tagebucheintrag> read() {     //READ AS LIST
         List<Tagebucheintrag> relevantEntries = new ArrayList<>();
 
         Session session = getSessionFactory().openSession();
-        List<Tagebucheintrag> entries = session.createQuery("FROM diary_entry").list();
+        List<Tagebucheintrag> entries = session.createQuery("FROM Tagebucheintrag").list();
         session.close();
         System.out.println("Found at least one entry for this day");
-        for (Tagebucheintrag listEntry : entries) {
-            if (listEntry.getPersonId() == id && listEntry.getDate() == date) {
-                relevantEntries.add(listEntry);
-            }
-        }
         return relevantEntries;
     }
 
@@ -85,18 +85,22 @@ public class TagebucheintragManager {
             session.close();
         }
     }
+    public static Tagebucheintrag findByID(long id) {
+        Session session = getSessionFactory().openSession();
+        Tagebucheintrag tagebucheintrag = (Tagebucheintrag) session.load(Tagebucheintrag.class, id);
+        session.close();
+        return tagebucheintrag;
+    }
 
-    public static void delete(Integer id, String date) {            //DELETE SINGLE
-        List<Tagebucheintrag> delList = new ArrayList<>();
+    public static void delete(long id) {            //DELETE SINGLE
+        Tagebucheintrag tagebucheintrag;
 
         Session session = getSessionFactory().openSession();
 
         try{
             session.beginTransaction();
-            delList = read(date,id);
-            for(Tagebucheintrag te: delList) {
-                session.delete(te);
-            }
+            tagebucheintrag = findByID(id);
+                session.delete(tagebucheintrag);
             session.getTransaction().commit();
             System.out.println("Successfully deleted ");
         }

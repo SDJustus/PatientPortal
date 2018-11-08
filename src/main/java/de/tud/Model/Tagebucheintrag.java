@@ -11,6 +11,10 @@ import java.util.List;
 @Table(name = "diary_entry")
 public class Tagebucheintrag {
 
+    public Tagebucheintrag(){
+
+    }
+
     @Column(name = "symptoms")
     @ElementCollection(targetClass = DataModelDiary.class)
     private List<DataModelDiary> symptoms = new ArrayList<>();
