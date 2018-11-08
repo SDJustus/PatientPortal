@@ -19,6 +19,7 @@ public class Tagebucheintrag {
     private String date;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "person_id")
     private long person_id;
 
@@ -43,10 +44,9 @@ public class Tagebucheintrag {
     }
 
 
-    public Tagebucheintrag(List<DataModelDiary> list, int person_id, String date){
+    public Tagebucheintrag(List<DataModelDiary> list, String date){
         symptoms = new ArrayList<DataModelDiary>();
         symptoms = list;
-        this.person_id = person_id;
         this.date = date;
     }
 }

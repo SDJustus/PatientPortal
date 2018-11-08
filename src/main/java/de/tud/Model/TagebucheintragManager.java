@@ -15,7 +15,7 @@ public class TagebucheintragManager {
     public static void main(String[] args) {
         List<DataModelDiary> tagebucheintragList = new ArrayList<>();
                 tagebucheintragList.add(new DataModelDiary("20181010", new Depression(Symptom.Strength.SEVERE)));
-        Tagebucheintrag tagebucheintrag = new Tagebucheintrag( tagebucheintragList, 1001010, "200202");
+        Tagebucheintrag tagebucheintrag = new Tagebucheintrag( tagebucheintragList, "200202");
         create(tagebucheintrag);
 
     }
@@ -37,8 +37,9 @@ public class TagebucheintragManager {
     public static long create(Tagebucheintrag te) {                 //CREATE
         Session session = getSessionFactory().openSession();
         session.beginTransaction();
-        session.save(te.getSymptoms().get(0).getSymptom());
-        session.save(te.getSymptoms().get(0));
+        for (DataModelDiary d: te.getSymptoms()){
+        session.save(d.getSymptom());
+        session.save(d);}
         session.save(te);
         session.getTransaction().commit();
         session.close();
