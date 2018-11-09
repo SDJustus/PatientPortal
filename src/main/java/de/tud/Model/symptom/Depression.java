@@ -1,4 +1,4 @@
-package de.tud.Model;
+package de.tud.Model.symptom;
 
 import javax.persistence.Entity;
 
@@ -9,6 +9,11 @@ public class Depression extends Symptom {
     {
         super(s);
 
+    }
+
+    @Override
+    public String toString() {
+        return "Depression: " + this.getStrength();
     }
 
 }

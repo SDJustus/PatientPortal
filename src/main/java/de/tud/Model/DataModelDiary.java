@@ -1,12 +1,14 @@
 package de.tud.Model;
 
+
 import javax.persistence.*;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
+import de.tud.Model.symptom.Symptom;
 
 
 @Entity
 @Table(name = "Diary")
+
 public class DataModelDiary {
 
     private LocalDateTime date;
