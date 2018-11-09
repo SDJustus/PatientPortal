@@ -15,7 +15,7 @@ import de.tud.View.*;
 public class TagebuchImplementierung extends Tagebuch {
 
 
-    private List<DataModelDiary> tagebuch = new ArrayList<DataModelDiary>();
+    private List<DataModelDiary> tagebuch;
     private String choice;
 
     @Override
@@ -24,6 +24,10 @@ public class TagebuchImplementierung extends Tagebuch {
     }
 
     public TagebuchImplementierung(){
+        tagebuch = new ArrayList<DataModelDiary>();
+
+
+
         //Smiley Bilder laden
         goodSmiley.setSource(new ClassResource("/gut.png"));
         middleSmiley.setSource(new ClassResource("/mittel.png"));
@@ -41,6 +45,7 @@ public class TagebuchImplementierung extends Tagebuch {
         //Beschriftung der Tabellenzeilen
         table.addColumn(DataModelDiary::getDate).setCaption("Datum");
         table.addColumn(DataModelDiary::getSymptom).setCaption("Ausprägung der Symptome");
+
 
         
         //Definition von CSS-Styleklasse für Zoom Effekt der Smileys
