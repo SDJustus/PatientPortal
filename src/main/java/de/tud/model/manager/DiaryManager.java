@@ -54,8 +54,12 @@ public class DiaryManager implements EntityManager<Diary> {
 
 
 
-    public void addDiaryEntry(DiaryEntry diaryEntry){
-        Set<DiaryEntry>
+    public void addDiaryEntry(DiaryEntry diaryEntry, long id){
+        Session session = getSessionFactory().openSession();
+        session.beginTransaction();
+        session.get(Diary.class, id).getDiaryEntries().add(diaryEntry);
+        session.getTransaction().commit();
+        session.close();
     }
 
     @Override
