@@ -1,4 +1,4 @@
-package de.tud.View;
+package de.tud.view;
 
 import com.vaadin.ui.*;
 import com.vaadin.navigator.View;

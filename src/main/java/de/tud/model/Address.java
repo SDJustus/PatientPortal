@@ -1,7 +1,6 @@
-package de.tud.Model;
+package de.tud.model;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @Table(name = "address")

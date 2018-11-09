@@ -1,16 +1,14 @@
-package de.tud.Model;
+package de.tud.model;
 
-
-import de.tud.Model.DataModelDiary;
 
 import javax.persistence.*;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @Table(name = "diary_entry")
+@Deprecated
 public class Tagebucheintrag {
 
     public Tagebucheintrag(){
@@ -18,8 +16,8 @@ public class Tagebucheintrag {
     }
 
     @Column(name = "symptoms")
-    @ElementCollection(targetClass = DataModelDiary.class)
-    private List<DataModelDiary> symptoms = new ArrayList<>();
+    @ElementCollection(targetClass = Diary.class)
+    private List<Diary> symptoms = new ArrayList<>();
 
     @Column(name = "date")
     private LocalDateTime date;
@@ -35,13 +33,13 @@ public class Tagebucheintrag {
     public void setDate(LocalDateTime date) { this.date = date;
     }
 
-    public void setSymptom(List<DataModelDiary> list){ this.symptoms=list;
+    public void setSymptom(List<Diary> list){ this.symptoms=list;
     }
 
     public LocalDateTime getDate(){ return date;
     }
 
-    public List<DataModelDiary> getSymptoms() { return symptoms;
+    public List<Diary> getSymptoms() { return symptoms;
     }
 
     public void setPersonId(long personId) { this.person_id = personId;
@@ -51,8 +49,8 @@ public class Tagebucheintrag {
     }
 
 
-    public Tagebucheintrag(List<DataModelDiary> list, LocalDateTime date){
-        symptoms = new ArrayList<DataModelDiary>();
+    public Tagebucheintrag(List<Diary> list, LocalDateTime date){
+        symptoms = new ArrayList<Diary>();
         symptoms = list;
         this.date = date;
     }

@@ -1,4 +1,4 @@
-package de.tud.Controller;
+package de.tud.controller;
 
 
 import com.vaadin.annotations.VaadinServletConfiguration;
@@ -7,7 +7,7 @@ import com.vaadin.server.*;
 import com.vaadin.ui.*;
 import com.vaadin.navigator.Navigator;
 import com.vaadin.ui.themes.ValoTheme;
-import de.tud.View.*;
+import de.tud.view.*;
 
 import javax.servlet.annotation.WebServlet;
 
@@ -51,7 +51,7 @@ public class PatientPortalMenu extends UI {
         //CssLayout menu = new CssLayout(title,view1, view2);
         menu.addStyleName(ValoTheme.MENU_ROOT);
 
-        //View Container = alles was rechts vom Menu ist, wo Inhalte angezeigt werden
+        //view Container = alles was rechts vom Menu ist, wo Inhalte angezeigt werden
         CssLayout viewContainer = new CssLayout();
 
 

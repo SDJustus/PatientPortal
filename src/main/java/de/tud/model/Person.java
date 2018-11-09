@@ -1,4 +1,4 @@
-package de.tud.Model;
+package de.tud.model;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -9,7 +9,7 @@ public class Person {
     public Person() {
     }
 
-    enum Gender{
+    public enum Gender{
         FEMALE, MALE
     }
 
@@ -26,7 +26,7 @@ public class Person {
     @Id
     @GeneratedValue
     @Column(name = "person_id")
-    private int id;
+    private long id;
 
     @Column(name = "person_givenName")
     private String givenName;
@@ -51,7 +51,9 @@ public class Person {
     @JoinColumn(name = "address_id")
     private Address address;
 
-    public int getId(){
+    private Diary diary;
+
+    public Long getId(){
         return id;
     }
 
@@ -110,4 +112,13 @@ public class Person {
     public void setAddress(Address address) {
         this.address = address;
     }
+
+    public Diary getDiary() {
+        return diary;
+    }
+
+    public void setDiary(Diary diary) {
+        this.diary = diary;
+    }
 }
+

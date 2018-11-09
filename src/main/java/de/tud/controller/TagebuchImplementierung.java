@@ -1,4 +1,4 @@
-package de.tud.Controller;
+package de.tud.controller;
 
 import com.vaadin.event.MouseEvents;
 import com.vaadin.server.*;
@@ -6,17 +6,17 @@ import com.vaadin.ui.*;
 
 import java.time.LocalDateTime;
 import java.util.*;
-import de.tud.Model.DataModelDiary;
-import de.tud.Model.symptom.Depression;
-import de.tud.Model.symptom.Symptom;
-import de.tud.View.*;
+import de.tud.model.Diary;
+import de.tud.model.symptom.Depression;
+import de.tud.model.symptom.Symptom;
+import de.tud.view.*;
 
 
 
 public class TagebuchImplementierung extends Tagebuch {
 
 
-    private List<DataModelDiary> tagebuch = new ArrayList<DataModelDiary>();
+    private List<Diary> tagebuch = new ArrayList<Diary>();
     private String choice;
 
     @Override
@@ -40,8 +40,8 @@ public class TagebuchImplementierung extends Tagebuch {
 
         });
         //Beschriftung der Tabellenzeilen
-        table.addColumn(DataModelDiary::getDate).setCaption("Datum");
-        table.addColumn(DataModelDiary::getSymptom).setCaption("Ausprägung der Symptome");
+        table.addColumn(Diary::getDate).setCaption("Datum");
+        table.addColumn(Diary::getSymptom).setCaption("Ausprägung der Symptome");
 
         
         //Definition von CSS-Styleklasse für Zoom Effekt der Smileys
@@ -102,13 +102,13 @@ public class TagebuchImplementierung extends Tagebuch {
                 //TODO: change mood Type to enum and implement Symptomfactory instead of concret Symptom
                 switch (mood) {
                     case "stark":
-                        tagebuch.add(new DataModelDiary(datum, new Depression(Symptom.Strength.SEVERE)));
+                        tagebuch.add(new Diary(datum, new Depression(Symptom.Strength.SEVERE)));
                         break;
                     case "mäßig":
-                        tagebuch.add(new DataModelDiary(datum, new Depression(Symptom.Strength.MIDDLE)));
+                        tagebuch.add(new Diary(datum, new Depression(Symptom.Strength.MIDDLE)));
                         break;
                     case "keine":
-                        tagebuch.add(new DataModelDiary(datum, new Depression(Symptom.Strength.WEAK)));
+                        tagebuch.add(new Diary(datum, new Depression(Symptom.Strength.WEAK)));
                         break;
                     default: throw new IllegalArgumentException("received wrong mood");
                 }

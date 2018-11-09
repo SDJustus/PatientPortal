@@ -1,4 +1,6 @@
-package de.tud.Model;
+package de.tud.model.manager;
+
+import de.tud.model.Person;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -6,54 +8,55 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 
 import javax.persistence.Query;
-import java.time.LocalDate;
 import java.util.List;
 
-public class PersonManager {
-    public static void main(String[] args) {
-        Address address = new Address("as", "1", 19287, "abc", "abc");
-        Person person1 = new Person("Max", "Mustermann", Person.Gender.MALE,
-                "max.mustermann@musterprovider.de", null, "01234567890", address);
-        Person person2 = new Person("Maxi", "Musterfrau", Person.Gender.FEMALE,
-                "maxi.musterfrau@musterprovider.de", LocalDate.of(2000,1,1), "01234567890", address);
-        System.out.println(" =======CREATE =======");
-        create(person1);
-        create(person2);
-        /*
-        System.out.println(" =======READ =======");
-        List<Person> personList = read();
-        for(Person p: personList) {
-            System.out.println(p.toString());
-        }
-        System.out.println(" =======UPDATE =======");
-        person1.setFamilyName("newName");
-        person1.setGivenName("Mary Rose");
-        update(person1);
-        System.out.println(" =======READ =======");
-        List<Person> personList2 = read();
-        for(Person p: personList2) {
-            System.out.println(p.toString());
-        }
-        System.out.println(" =======DELETE ======= ");
-        delete(person2.getId());
-        System.out.println(" =======READ =======");
-        List<Person> personList3 = read();
-        for(Person p: personList3) {
-            System.out.println(p.toString());
-        }
-        System.out.println(" =======DELETE ALL ======= ");
-        deleteAll();
-        System.out.println(" =======READ =======");
-        List<Person> personList4 = read();
-        for(Person p: personList4) {
-            System.out.println(p.toString());
-        }
-        System.exit(0);*/
-    }
+public class PersonManager implements EntityManager<Person> {
 
-    public static SessionFactory getSessionFactory() {
+    /*
+      public static void main(String[] args) {
+
+          Address address = new Address("as", "1", 19287, "abc", "abc");
+          Person person1 = new Person("Max", "Mustermann", Person.Gender.MALE,
+                  "max.mustermann@musterprovider.de", null, "01234567890", address);
+          Person person2 = new Person("Maxi", "Musterfrau", Person.Gender.FEMALE,
+                  "maxi.musterfrau@musterprovider.de", LocalDate.of(2000,1,1), "01234567890", address);
+          System.out.println(" =======CREATE =======");
+          personManager.create(person1);
+
+          System.out.println(" =======READ =======");
+          List<Person> personList = read();
+          for(Person p: personList) {
+              System.out.println(p.toString());
+          }
+          System.out.println(" =======UPDATE =======");
+          person1.setFamilyName("newName");
+          person1.setGivenName("Mary Rose");
+          update(person1);
+          System.out.println(" =======READ =======");
+          List<Person> personList2 = read();
+          for(Person p: personList2) {
+              System.out.println(p.toString());
+          }
+          System.out.println(" =======DELETE ======= ");
+          delete(person2.getId());
+          System.out.println(" =======READ =======");
+          List<Person> personList3 = read();
+          for(Person p: personList3) {
+              System.out.println(p.toString());
+          }
+          System.out.println(" =======DELETE ALL ======= ");
+          deleteAll();
+          System.out.println(" =======READ =======");
+          List<Person> personList4 = read();
+          for(Person p: personList4) {
+              System.out.println(p.toString());
+          }
+          System.exit(0);
+      }
+  */
+    public SessionFactory getSessionFactory() {
         Configuration configuration = new Configuration().configure();
-        configuration.addAnnotatedClass(de.tud.Model.Person.class).addAnnotatedClass(de.tud.Model.Address.class);
+        configuration.addAnnotatedClass(de.tud.model.Person.class).addAnnotatedClass(de.tud.model.Address.class);
         StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder()
                 .applySettings(configuration.getProperties());
         SessionFactory sessionFactory = configuration
@@ -61,20 +64,20 @@ public class PersonManager {
         return sessionFactory;
     }
 
-    public static Integer create(Person p) {
+    public Long create(Person person) {
         Session session = getSessionFactory().openSession();
         session.beginTransaction();
-        if(p.getAddress() != null) {
-            session.save(p.getAddress());
+        if(person.getAddress() != null) {
+            session.save(person.getAddress());
         }
-        session.save(p);
+        session.save(person);
         session.getTransaction().commit();
         session.close();
-        System.out.println("Successfully created " + p.toString());
-        return p.getId();
+        System.out.println("Successfully created " + person.toString());
+        return person.getId();
     }
 
-    public static List<Person> read() {
+    public List<Person> read() {
         Session session = getSessionFactory().openSession();
         List<Person> persons = session.createQuery("FROM Person").list();
         session.close();
@@ -82,7 +85,7 @@ public class PersonManager {
         return persons;
     }
 
-    public static void update(Person p) {
+    public void update(Person p) {
         Session session = getSessionFactory().openSession();
 
         try {
@@ -103,7 +106,8 @@ public class PersonManager {
         }
     }
 
-    public static void delete(Integer id) {
+    @Override
+    public void delete(Long id) {
 
         Session session = getSessionFactory().openSession();
 
@@ -125,14 +129,16 @@ public class PersonManager {
         }
     }
 
-    public static Person findByID(Integer id) {
+    @Override
+    public Person findByID(Long id) {
         Session session = getSessionFactory().openSession();
         Person p = (Person) session.load(Person.class, id);
         session.close();
         return p;
     }
 
-    public static void deleteAll() {
+
+    public void deleteAll() {
         Session session = getSessionFactory().openSession();
 
         try {

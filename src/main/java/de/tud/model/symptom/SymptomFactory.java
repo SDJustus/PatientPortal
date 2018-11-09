@@ -1,4 +1,4 @@
-package de.tud.Model.symptom;
+package de.tud.model.symptom;
 
 public class SymptomFactory {
 

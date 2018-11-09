@@ -1,22 +1,24 @@
-package de.tud.Model;
+package de.tud.model.manager;
 
-import de.tud.View.Tagebuch;
+import de.tud.model.Diary;
+import de.tud.model.Tagebucheintrag;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 
 import javax.persistence.Query;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+@Deprecated
 public class TagebucheintragManager {
-
+/*
     public static void main(String[] args) {
-        List<DataModelDiary> tagebucheintragList = new ArrayList<>();
-                tagebucheintragList.add(new DataModelDiary(LocalDateTime.of(2018, 4, 3, 13, 42), new Depression(Symptom.Strength.SEVERE)));
+        List<Diary> tagebucheintragList = new ArrayList<>();
+                tagebucheintragList.add(new Diary(LocalDateTime.of(2018, 4, 3, 13, 42),
+                        new de.tud.model.symptom.Depression(de.tud.model.symptom.Symptom.Strength.SEVERE)));
         Tagebucheintrag tagebucheintrag = new Tagebucheintrag( tagebucheintragList, LocalDateTime.of(2018, 3, 4, 12, 42));
         create(tagebucheintrag);
 
@@ -27,10 +29,10 @@ public class TagebucheintragManager {
 
     public static SessionFactory getSessionFactory() {
         Configuration configuration = new Configuration().configure();
-        configuration.addAnnotatedClass(de.tud.Model.Tagebucheintrag.class)
-        .addAnnotatedClass(de.tud.Model.DataModelDiary.class)
-                .addAnnotatedClass(de.tud.Model.Symptom.class)
-        .addAnnotatedClass(Depression.class);
+        configuration.addAnnotatedClass(de.tud.model.Tagebucheintrag.class)
+        .addAnnotatedClass(Diary.class)
+                .addAnnotatedClass(de.tud.model.symptom.Symptom.class)
+        .addAnnotatedClass(de.tud.model.symptom.Depression.class);
 
 
         StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder()
@@ -43,7 +45,7 @@ public class TagebucheintragManager {
     public static long create(Tagebucheintrag te) {                 //CREATE
         Session session = getSessionFactory().openSession();
         session.beginTransaction();
-        for (DataModelDiary d: te.getSymptoms()){
+        for (Diary d: te.getSymptoms()){
         session.save(d.getSymptom());
         session.save(d);}
         session.save(te);
@@ -133,6 +135,6 @@ public class TagebucheintragManager {
         finally {
             session.close();
         }
-    }
+    }*/
 }
 

@@ -1,12 +1,11 @@
-package de.tud.Model.symptom;
+package de.tud.model.symptom;
 
 import javax.persistence.Entity;
 
 @Entity
 public class Depression extends Symptom {
 
-    public Depression(Strength s)
-    {
+    public Depression(Strength s) {
         super(s);
 
     }

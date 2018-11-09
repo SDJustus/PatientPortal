@@ -1,7 +1,7 @@
-package de.tud.View;
+package de.tud.view;
 import com.vaadin.ui.*;
 import com.vaadin.navigator.View;
-import de.tud.Controller.TagebuchImplementierung;
+import de.tud.controller.TagebuchImplementierung;
 
 public class TagebuchView extends Composite implements View {
 
