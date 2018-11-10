@@ -21,16 +21,25 @@ public class DiaryManager extends EntityManager<Diary> {
         System.out.println("Found " + diary.size() + " diaries");
         return diary;
     }
-
-
-    public void update(Diary entity) {
-
-    }
-
-    public void addDiaryEntry(DiaryEntry diaryEntry, long id){
+    //TODO: test this!
+    public void addDiaryEntry(DiaryEntry diaryEntry, Long diaryId){
         Session session = getSessionFactory().openSession();
         session.beginTransaction();
-        session.get(Diary.class, id).getDiaryEntries().add(diaryEntry);
+        Set<DiaryEntry> diaryEntries = session.get(Diary.class, diaryId).getDiaryEntries();
+        for (DiaryEntry diaryEntry1 : diaryEntries){
+            if (diaryEntry.getId().equals(diaryEntry1.getId()))
+                diaryEntries.remove(diaryEntry1);
+        }
+        diaryEntries.add(diaryEntry);
+        session.getTransaction().commit();
+        session.close();
+    }
+
+    //TODO: See if this works
+    public void removeDiaryEntry(DiaryEntry diaryEntry, Long diaryId){
+        Session session = getSessionFactory().openSession();
+        session.beginTransaction();
+        session.get(Diary.class, diaryId).getDiaryEntries().remove(diaryEntry);
         session.getTransaction().commit();
         session.close();
     }
