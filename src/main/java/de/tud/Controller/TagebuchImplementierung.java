@@ -54,7 +54,7 @@ public class TagebuchImplementierung extends Tagebuch {
             public void click(MouseEvents.ClickEvent clickEvent) {
                 middleLabel.setValue("");
                 badLabel.setValue("");
-                goodlabel.setValue("keine");
+                goodlabel.setValue("schwach");
                 choice = goodlabel.getValue();
             }
         });

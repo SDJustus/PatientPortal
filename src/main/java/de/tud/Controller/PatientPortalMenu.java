@@ -2,6 +2,10 @@ package de.tud.Controller;
 
 
 import com.vaadin.annotations.VaadinServletConfiguration;
+import com.vaadin.data.TreeData;
+import com.vaadin.data.provider.TreeDataProvider;
+import com.vaadin.event.selection.SelectionEvent;
+import com.vaadin.event.selection.SelectionListener;
 import com.vaadin.icons.VaadinIcons;
 import com.vaadin.server.*;
 import com.vaadin.ui.*;
@@ -34,6 +38,8 @@ public class PatientPortalMenu extends UI {
         profilbild.setId("profilbild");
 
 
+
+
         //Button zum Patiententagebuch
         Button view1 = new Button("Patiententagebuch",
                 e -> getNavigator().navigateTo("Patiententagebuch"));
@@ -45,9 +51,26 @@ public class PatientPortalMenu extends UI {
         view2.addStyleNames(ValoTheme.BUTTON_LINK, ValoTheme.MENU_ITEM);
         view2.setIcon(VaadinIcons.AMBULANCE);
 
+        //Menu tree
+        Tree<String> menuTree = new Tree<>();
+
+        TreeData<String> menuTreeData = new TreeData<>();
+
+        //add tree items with hierachy
+        menuTreeData.addItem(null,"Patiententagebuch");
+        menuTreeData.addItem("Patiententagebuch","Eintrag hinzufügen");
+        menuTreeData.addItem("Patiententagebuch","Vitaldaten einfügen");
+
+        //add data to tree
+        TreeDataProvider inMemoryDataProvider = new TreeDataProvider<>(menuTreeData);
+        menuTree.setDataProvider(inMemoryDataProvider);
+
+
+
+
 
         //Integration der MenuItems
-        CssLayout menu = new CssLayout(title, profilbild,view1, view2);
+        CssLayout menu = new CssLayout(title, profilbild,view1, view2,menuTree);
         //CssLayout menu = new CssLayout(title,view1, view2);
         menu.addStyleName(ValoTheme.MENU_ROOT);
 
@@ -66,6 +89,32 @@ public class PatientPortalMenu extends UI {
         navigator.addView("", DefaultView.class);
         navigator.addView("Patiententagebuch", TagebuchView.class);
 
+        //add functions to tree items -> listen for selection change then navigate
+
+        menuTree.addSelectionListener(new SelectionListener<String>() {
+            @Override
+            public void selectionChange(SelectionEvent<String> selectionEvent) {
+
+                System.out.println(menuTree.getSelectedItems().toString());
+                switch (menuTree.getSelectedItems().toString())
+                {
+
+                    case "[Vitaldaten einfügen]":
+                    {
+                        navigator.navigateTo("");
+                        System.out.println(menuTree.getSelectedItems().toString());
+                    }
+                    case "[Eintrag hinzufügen]":
+                    {
+                        navigator.navigateTo("Patiententagebuch");
+                        System.out.println(menuTree.getSelectedItems().toString());
+                    }
+
+                }
+
+
+            }
+        });
 
     }
     @WebServlet(urlPatterns = "/*", name = "MyUIServlet", asyncSupported = true)
