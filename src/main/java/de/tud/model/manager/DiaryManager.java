@@ -2,10 +2,9 @@ package de.tud.model.manager;
 
 import de.tud.model.Diary;
 import de.tud.model.DiaryEntry;
+
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
-import org.hibernate.cfg.Configuration;
+
 
 import javax.persistence.Query;
 import java.util.List;
@@ -42,6 +41,20 @@ public class DiaryManager extends EntityManager<Diary> {
         session.get(Diary.class, diaryId).getDiaryEntries().remove(diaryEntry);
         session.getTransaction().commit();
         session.close();
+    }
+
+    public DiaryEntry getDiaryEntryById(Long diaryId, Long diaryEntryId){
+        Session session = getSessionFactory().openSession();
+        Set<DiaryEntry> diaryEntries = session.load(Diary.class, diaryId).getDiaryEntries();
+        DiaryEntry diaryEntry = null;
+        for(DiaryEntry diaryEntry1: diaryEntries) {
+            if (diaryEntry1.getId().equals(diaryEntryId))
+                diaryEntry = diaryEntry1;
+        }
+        session.close();
+        if(diaryEntry == null)
+            throw new IllegalArgumentException("No DiaryEntry exists with the given ID: " + diaryEntryId);
+        return diaryEntry;
     }
 
     @Override
