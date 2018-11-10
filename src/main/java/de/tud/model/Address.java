@@ -24,11 +24,9 @@ public class Address{
 
     @Column(name = "address_country")
     private String country;
-/*
-    @OneToMany(
-            cascade = CascadeType.ALL,
-            orphanRemoval = true)
-    private List<Person> personList;*/
+
+    @OneToOne(mappedBy = "address")
+    private Person person;
 
     public Address(String street, String number, int postCode, String city, String country) {
         this.street = street;

@@ -67,9 +67,6 @@ public class PersonManager implements EntityManager<Person> {
     public Long create(Person person) {
         Session session = getSessionFactory().openSession();
         session.beginTransaction();
-        if(person.getAddress() != null) {
-            session.save(person.getAddress());
-        }
         session.save(person);
         session.getTransaction().commit();
         session.close();

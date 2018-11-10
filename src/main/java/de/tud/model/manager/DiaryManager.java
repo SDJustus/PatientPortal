@@ -9,6 +9,7 @@ import org.hibernate.cfg.Configuration;
 
 import javax.persistence.Query;
 import java.util.List;
+import java.util.Set;
 
 public class DiaryManager implements EntityManager<Diary> {
 
@@ -50,12 +51,6 @@ public class DiaryManager implements EntityManager<Diary> {
 
     public void update(Diary entity) {
 
-    }
-
-
-
-    public void addDiaryEntry(DiaryEntry diaryEntry){
-        Set<DiaryEntry>
     }
 
     @Override

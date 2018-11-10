@@ -1,10 +1,13 @@
 package de.tud.model;
 
+import org.hibernate.annotations.Cascade;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
 @Table(name = "person")
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class Person {
     public Person() {
     }
@@ -24,7 +27,7 @@ public class Person {
     }
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "person_id")
     private long id;
 
@@ -47,10 +50,12 @@ public class Person {
     @Column(name = "person_phone")
     private String phone;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "address_id")
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @PrimaryKeyJoinColumn
     private Address address;
 
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @PrimaryKeyJoinColumn
     private Diary diary;
 
     public Long getId(){

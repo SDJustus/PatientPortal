@@ -1,6 +1,8 @@
 package de.tud.model;
 
 
+import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.*;
 import java.util.Set;
 
@@ -10,7 +12,9 @@ import java.util.Set;
 public class Diary {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name="person_id", unique=true, nullable=false)
+    @GeneratedValue(generator="gen")
+    @GenericGenerator(name="gen", strategy="foreign", parameters={@org.hibernate.annotations.Parameter(name="property", value="person")})
     private long id;
 
     @OneToMany(fetch = FetchType.LAZY,
@@ -18,9 +22,10 @@ public class Diary {
                 cascade = CascadeType.ALL)
     @JoinColumn(name = "diary_id")
     private Set<DiaryEntry> diaryEntries;
-/*
+
+
     private Person person;
-*/
+
     public Diary() {
     }
 
