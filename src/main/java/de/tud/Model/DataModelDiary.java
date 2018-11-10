@@ -1,19 +1,33 @@
 package de.tud.Model;
 
-public class DataModelDiary {
-    private String date;
-    private Symptom symptom;
+import javax.persistence.*;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
-    public DataModelDiary(String date, Symptom symptom){
+
+@Entity
+@Table(name = "Diary")
+public class DataModelDiary {
+
+    private LocalDateTime date;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "symptom_id")
+    private Symptom symptom;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "diary_id")
+    private long diaryID;
+
+    public DataModelDiary(LocalDateTime date, Symptom symptom){
         this.date = date;
         this.symptom = symptom;
     }
 
-    public String getDate() {
+    public LocalDateTime getDate() {
         return date;
     }
 
-    public void setDate(String date) {
+    public void setDate(LocalDateTime date) {
         this.date = date;
     }
 

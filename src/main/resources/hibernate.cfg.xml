@@ -23,6 +23,11 @@
     <!-- add resources here -->
     <mapping class="de.tud.Model.Person"/>
     <mapping class="de.tud.Model.Address"/>
+    <mapping class="de.tud.Model.Tagebucheintrag"/>
+    <mapping class="de.tud.Model.DataModelDiary"/>
+    <mapping class="de.tud.Model.Symptom"/>
+    <mapping class="de.tud.Model.Depression"/>
+
 
 
   </session-factory>
