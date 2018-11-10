@@ -8,7 +8,7 @@ import java.time.LocalDate;
 @Entity
 @Table(name = "person")
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-public class Person {
+public class Person extends EntityObject{
     public Person() {
     }
 

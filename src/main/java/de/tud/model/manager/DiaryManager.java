@@ -11,33 +11,7 @@ import javax.persistence.Query;
 import java.util.List;
 import java.util.Set;
 
-public class DiaryManager implements EntityManager<Diary> {
-
-    @Override
-    public SessionFactory getSessionFactory() {
-        Configuration configuration = new Configuration().configure();
-        configuration.addAnnotatedClass(Diary.class)
-                .addAnnotatedClass(de.tud.model.DiaryEntry.class)
-                .addAnnotatedClass(de.tud.model.symptom.Symptom.class)
-                .addAnnotatedClass(de.tud.model.symptom.Depression.class);
-
-        StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder()
-                .applySettings(configuration.getProperties());
-        SessionFactory sessionFactory = configuration
-                .buildSessionFactory(builder.build());
-        return sessionFactory;
-    }
-
-    @Override
-    public Long create(Diary entity) {
-        Session session = getSessionFactory().openSession();
-        session.beginTransaction();
-        session.save(entity);
-        session.getTransaction().commit();
-        session.close();
-        System.out.println("Successfully created " + entity.toString());
-        return entity.getId();
-    }
+public class DiaryManager extends EntityManager<Diary> {
 
     @Override
     public List<Diary> read() {

@@ -10,7 +10,7 @@ import org.hibernate.cfg.Configuration;
 import javax.persistence.Query;
 import java.util.List;
 
-public class PersonManager implements EntityManager<Person> {
+public class PersonManager extends EntityManager<Person> {
 
     /*
       public static void main(String[] args) {
@@ -54,25 +54,6 @@ public class PersonManager implements EntityManager<Person> {
           System.exit(0);
       }
   */
-    public SessionFactory getSessionFactory() {
-        Configuration configuration = new Configuration().configure();
-        configuration.addAnnotatedClass(de.tud.model.Person.class).addAnnotatedClass(de.tud.model.Address.class);
-        StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder()
-                .applySettings(configuration.getProperties());
-        SessionFactory sessionFactory = configuration
-                .buildSessionFactory(builder.build());
-        return sessionFactory;
-    }
-
-    public Long create(Person person) {
-        Session session = getSessionFactory().openSession();
-        session.beginTransaction();
-        session.save(person);
-        session.getTransaction().commit();
-        session.close();
-        System.out.println("Successfully created " + person.toString());
-        return person.getId();
-    }
 
     public List<Person> read() {
         Session session = getSessionFactory().openSession();

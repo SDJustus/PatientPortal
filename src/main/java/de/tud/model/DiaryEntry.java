@@ -8,7 +8,7 @@ import java.util.Set;
 
 @Entity
 @Table(name = "diary_entry")
-public class DiaryEntry {
+public class DiaryEntry extends EntityObject {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
@@ -24,7 +24,7 @@ public class DiaryEntry {
         this.symptom = symptom;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 

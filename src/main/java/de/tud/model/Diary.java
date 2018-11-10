@@ -9,7 +9,7 @@ import java.util.Set;
 
 @Entity
 @Table(name = "diary")
-public class Diary {
+public class Diary extends EntityObject {
 
     @Id
     @Column(name="person_id", unique=true, nullable=false)
@@ -29,12 +29,8 @@ public class Diary {
     public Diary() {
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
     }
 
     public Set<DiaryEntry> getDiaryEntries() {

@@ -4,11 +4,11 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "address")
-public class Address{
+public class Address extends EntityObject{
 
     @Id
     @GeneratedValue
-    private int id;
+    private long id;
 
     @Column(name = "address_street")
     private String street;
@@ -82,5 +82,10 @@ public class Address{
 
     public void setCountry(String country) {
         this.country = country;
+    }
+
+    @Override
+    public Long getId() {
+        return id;
     }
 }
