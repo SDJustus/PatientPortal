@@ -23,6 +23,8 @@ public class DiaryEntry extends EntityObject {
         return date;
     }
 
+    public DiaryEntry(){}
+
     public DiaryEntry(LocalDateTime date, Set<Symptom> symptom){
         this.date = date;
         this.symptom = symptom;
