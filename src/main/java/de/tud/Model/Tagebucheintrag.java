@@ -16,10 +16,9 @@ public class Tagebucheintrag {
     public Tagebucheintrag(){
 
     }
-
-    @Column(name = "symptoms")
-    @ElementCollection(targetClass = DataModelDiary.class)
-    private List<DataModelDiary> symptoms = new ArrayList<>();
+    @Column(name = "SymptomID")
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private List<Symptom> symptoms = new ArrayList<>();
 
     @Column(name = "date")
     private LocalDateTime date;
@@ -35,13 +34,13 @@ public class Tagebucheintrag {
     public void setDate(LocalDateTime date) { this.date = date;
     }
 
-    public void setSymptom(List<DataModelDiary> list){ this.symptoms=list;
+    public void setSymptom(List<Symptom> list){ this.symptoms=list;
     }
 
     public LocalDateTime getDate(){ return date;
     }
 
-    public List<DataModelDiary> getSymptoms() { return symptoms;
+    public List<Symptom> getSymptoms() { return symptoms;
     }
 
     public void setPersonId(long personId) { this.person_id = personId;
@@ -51,8 +50,8 @@ public class Tagebucheintrag {
     }
 
 
-    public Tagebucheintrag(List<DataModelDiary> list, LocalDateTime date){
-        symptoms = new ArrayList<DataModelDiary>();
+    public Tagebucheintrag(List<Symptom> list, LocalDateTime date){
+        symptoms = new ArrayList<Symptom>();
         symptoms = list;
         this.date = date;
     }

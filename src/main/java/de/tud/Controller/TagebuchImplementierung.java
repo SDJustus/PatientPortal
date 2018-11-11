@@ -6,8 +6,8 @@ import com.vaadin.ui.*;
 
 import java.time.LocalDateTime;
 import java.util.*;
-import de.tud.Model.DataModelDiary;
-import de.tud.Model.Symptom;
+
+import de.tud.Model.*;
 import de.tud.View.*;
 
 
@@ -15,7 +15,7 @@ import de.tud.View.*;
 public class TagebuchImplementierung extends Tagebuch {
 
 
-    private List<DataModelDiary> tagebuch;
+    private List<DataModelDiary> tagebuch = new ArrayList<DataModelDiary>();
     private String choice;
 
     @Override
@@ -24,9 +24,11 @@ public class TagebuchImplementierung extends Tagebuch {
     }
 
     public TagebuchImplementierung(){
-        tagebuch = new ArrayList<DataModelDiary>();
-
-
+        //Tagebucheinträge laden
+        if(!TagebucheintragManager.read().isEmpty()){
+            tagebuch = loadDiaryEntries();
+            table.setItems(tagebuch);
+        }
 
         //Smiley Bilder laden
         goodSmiley.setSource(new ClassResource("/gut.png"));
@@ -46,12 +48,13 @@ public class TagebuchImplementierung extends Tagebuch {
         table.addColumn(DataModelDiary::getDate).setCaption("Datum");
         table.addColumn(DataModelDiary::getSymptom).setCaption("Ausprägung der Symptome");
 
-
-        
         //Definition von CSS-Styleklasse für Zoom Effekt der Smileys
         goodSmiley.setId("smileybild");
         middleSmiley.setId("smileybild");
         badSmiley.setId("smileybild");
+
+        //saveButton standardmäßig deaktiviert, ersten wenn Eingabe getätigt wurde, dann Aktivierung
+        saveButton.setEnabled(false);
 
 
 
@@ -63,6 +66,7 @@ public class TagebuchImplementierung extends Tagebuch {
                 badLabel.setValue("");
                 goodlabel.setValue("keine");
                 choice = goodlabel.getValue();
+                checkSaveButton();
             }
         });
         middleSmiley.addClickListener(new MouseEvents.ClickListener() {
@@ -72,6 +76,7 @@ public class TagebuchImplementierung extends Tagebuch {
                 badLabel.setValue("");
                 middleLabel.setValue("mäßig");
                 choice = middleLabel.getValue();
+                checkSaveButton();
 
             }
         });
@@ -82,9 +87,11 @@ public class TagebuchImplementierung extends Tagebuch {
                 middleLabel.setValue("");
                 badLabel.setValue("stark");
                 choice = badLabel.getValue();
+                checkSaveButton();
 
             }
         });
+
 
         //Event Handler für Klick auf den Speicher Button
         saveButton.addClickListener(new Button.ClickListener() {
@@ -100,41 +107,56 @@ public class TagebuchImplementierung extends Tagebuch {
                  angezeigt werden */
 
                 if(datePicker.getValue() != null && !choice.equals("")){
-                        LocalDateTime datum = datePicker.getValue();
-                        String mood = choice;
-                        if(mood.equals("stark"))
-                    {
-                        tagebuch.add(new DataModelDiary(datum, new Symptom(Symptom.Strength.SEVERE) {
-                        }));
-                    }
-                    if(mood.equals("mäßig"))
-                    {
+                    LocalDateTime datum = datePicker.getValue();
+                    String mood = choice;
+                        if(mood.equals("stark")) {
+                            tagebuch.add(new DataModelDiary(datum, new Symptom(Symptom.Strength.SEVERE) {
+                            }));
+                            saveDiaryEntry(new Depression(Symptom.Strength.SEVERE));
+
+
+                        }if(mood.equals("mäßig")) {
+
                         tagebuch.add(new DataModelDiary(datum, new Symptom(Symptom.Strength.MIDDLE) {
                         }));
-                    }
-                    if(mood.equals("keine"))
-                    {
+                        saveDiaryEntry(new Depression(Symptom.Strength.MIDDLE));
+                        }
+
+                        if(mood.equals("keine")) {
                         tagebuch.add(new DataModelDiary(datum, new Symptom(Symptom.Strength.WEAK) {
                         }));
-                    }
+                        saveDiaryEntry(new Depression(Symptom.Strength.WEAK));
+                        }
 
-
-
+                        tagebuch = loadDiaryEntries();
                         table.setItems(tagebuch);
-                    Notification.show("Eintrag erfolgreich gespeichert");
-
+                        Notification.show("Eintrag erfolgreich gespeichert");
                 }
-
-
             }
         });
-
-
-
-
-
     }
 
+    public void checkSaveButton(){
+        if(datePicker.getValue() != null && !choice.equals("")){
+            saveButton.setEnabled(true);
+        }
+    }
+    public void saveDiaryEntry(Symptom symptom){
+            ArrayList<Symptom> entry = new ArrayList<>();
+            entry.add(symptom);
+            TagebucheintragManager.create(new Tagebucheintrag(entry, datePicker.getValue()));
+    }
+
+    public List<DataModelDiary> loadDiaryEntries(){
+            List<Tagebucheintrag> tagebucheintragList = TagebucheintragManager.read();
+            List<DataModelDiary> dateEntriesForUI = new ArrayList<>();
+
+
+            for(Tagebucheintrag t:tagebucheintragList){
+               dateEntriesForUI.add(new DataModelDiary(t.getDate(), t.getSymptoms().get(0)));
+            }
+        return dateEntriesForUI;
+    }
 
 
 

@@ -7,9 +7,13 @@ import com.vaadin.server.*;
 import com.vaadin.ui.*;
 import com.vaadin.navigator.Navigator;
 import com.vaadin.ui.themes.ValoTheme;
+import de.tud.Model.Address;
+import de.tud.Model.Person;
+import de.tud.Model.PersonManager;
 import de.tud.View.*;
 
 import javax.servlet.annotation.WebServlet;
+import java.time.LocalDate;
 
 
 public class PatientPortalMenu extends UI {
@@ -65,6 +69,8 @@ public class PatientPortalMenu extends UI {
         Navigator navigator = new Navigator(this, viewContainer);
         navigator.addView("", DefaultView.class);
         navigator.addView("Patiententagebuch", TagebuchView.class);
+
+
 
 
     }

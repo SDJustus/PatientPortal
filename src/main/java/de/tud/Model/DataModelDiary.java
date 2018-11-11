@@ -5,17 +5,13 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 
-@Entity
-@Table(name = "Diary")
+
 public class DataModelDiary {
 
     private LocalDateTime date;
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "symptom_id")
+
     private Symptom symptom;
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "diary_id")
+
     private long diaryID;
 
     public DataModelDiary(LocalDateTime date, Symptom symptom){

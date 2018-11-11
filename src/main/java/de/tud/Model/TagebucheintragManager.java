@@ -15,13 +15,14 @@ import java.util.List;
 public class TagebucheintragManager {
 
     public static void main(String[] args) {
-        List<DataModelDiary> tagebucheintragList = new ArrayList<>();
+       /* List<DataModelDiary> tagebucheintragList = new ArrayList<>();
                 tagebucheintragList.add(new DataModelDiary(LocalDateTime.of(2018, 4, 3, 13, 42), new Depression(Symptom.Strength.SEVERE)));
-        Tagebucheintrag tagebucheintrag = new Tagebucheintrag( tagebucheintragList, LocalDateTime.of(2018, 3, 4, 12, 42));
+
+       /Tagebucheintrag tagebucheintrag = new Tagebucheintrag( tagebucheintragList, LocalDateTime.of(2018, 3, 4, 12, 42));
         create(tagebucheintrag);
 
-        List<Tagebucheintrag> tagebucheintragList1 = read();
-        System.out.println(tagebucheintragList1);
+        //List<Tagebucheintrag> tagebucheintragList1 = read();
+        //System.out.println(tagebucheintragList1); */
 
     }
 
@@ -43,9 +44,11 @@ public class TagebucheintragManager {
     public static long create(Tagebucheintrag te) {                 //CREATE
         Session session = getSessionFactory().openSession();
         session.beginTransaction();
+        /*
         for (DataModelDiary d: te.getSymptoms()){
-        session.save(d.getSymptom());
-        session.save(d);}
+            session.save(d.getSymptom());
+            session.save(d);
+        }*/
         session.save(te);
         session.getTransaction().commit();
         session.close();
@@ -55,13 +58,15 @@ public class TagebucheintragManager {
     }
 
     public static List<Tagebucheintrag> read() {     //READ AS LIST
-        List<Tagebucheintrag> relevantEntries = new ArrayList<>();
+        //List<Tagebucheintrag> relevantEntries = new ArrayList<>();
 
         Session session = getSessionFactory().openSession();
-        List<Tagebucheintrag> entries = session.createQuery("FROM Tagebucheintrag").list();
+        //session.createQuery("from Tagebucheintrag ");
+
+        List<Tagebucheintrag> entries = (List<Tagebucheintrag>) session.createQuery("FROM Tagebucheintrag").list();
+
         session.close();
-        System.out.println("Found at least one entry for this day");
-        return relevantEntries;
+        return entries;
     }
 
 
@@ -116,6 +121,7 @@ public class TagebucheintragManager {
         }
     }
 
+    /*
     public static void deleteAll() {                                   //DELETE ALL
         Session session = getSessionFactory().openSession();
 
@@ -134,5 +140,6 @@ public class TagebucheintragManager {
             session.close();
         }
     }
+    */
 }
 

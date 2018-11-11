@@ -1,5 +1,7 @@
 package de.tud.Model;
 
+import javafx.beans.property.SimpleStringProperty;
+
 import javax.persistence.*;
 
 @Entity
@@ -48,11 +50,13 @@ public abstract class Symptom {
 
     @Override
     public String toString(){
-        return getClass().getSimpleName() + ": " + strength;
+
+        return  getClass().getSimpleName() + ": " + strength;
     }
 
+    public Symptom(){
 
-
+    }
 
 
 
