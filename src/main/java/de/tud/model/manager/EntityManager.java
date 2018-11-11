@@ -1,7 +1,10 @@
 package de.tud.model.manager;
 
 import de.tud.model.Diary;
+import de.tud.model.DiaryEntry;
 import de.tud.model.EntityObject;
+import de.tud.model.symptom.Symptom;
+import de.tud.model.symptom.SymptomFactory;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
@@ -14,14 +17,15 @@ public abstract class EntityManager<T extends EntityObject> {
     public SessionFactory getSessionFactory(){
         Configuration configuration = new Configuration().configure();
         //TODO: Test if the config with pachages work...
-        configuration.addPackage("de.tud.model").addPackage("de.tud.model.symptom");
+        configuration.addAnnotatedClass(Diary.class).addAnnotatedClass(DiaryEntry.class).addAnnotatedClass(SymptomFactory.class).addAnnotatedClass(Symptom.class)
+                .addAnnotatedClass(DiaryManager.class);
         StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder()
                 .applySettings(configuration.getProperties());
         SessionFactory sessionFactory = configuration
                 .buildSessionFactory(builder.build());
         return sessionFactory;
     }
-    public Long create(T entity){
+    public long create(T entity){
         Session session = getSessionFactory().openSession();
         session.beginTransaction();
         session.save(entity);

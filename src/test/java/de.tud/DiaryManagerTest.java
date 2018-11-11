@@ -55,9 +55,10 @@ public class DiaryManagerTest {
     @Test
     public void createTest(){
 
-        int id = Math.toIntExact(dm.create(new Diary()));
+        long id = dm.create(new Diary());
 
-        Session session = dm.getSessionFactory().openSession();
+        SessionFactory sessionfac = dm.getSessionFactory();
+        Session session = sessionfac.openSession();
 
         assertTrue(session.get(Diary.class, id)!=null && session.get(Diary.class, id).getClass()==Diary.class);
 

@@ -11,10 +11,12 @@ import java.util.Set;
 @Table(name = "diary")
 public class Diary extends EntityObject {
 
-    @Id
+    /*@Id
     @Column(name="person_id", unique=true, nullable=false)
     @GeneratedValue(generator="gen")
-    @GenericGenerator(name="gen", strategy="foreign", parameters={@org.hibernate.annotations.Parameter(name="property", value="person")})
+    @GenericGenerator(name="gen", strategy="foreign", parameters={@org.hibernate.annotations.Parameter(name="property", value="person")})   */
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     @OneToMany(fetch = FetchType.LAZY,
