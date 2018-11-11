@@ -24,7 +24,7 @@ public class Diary extends EntityObject {
     private Set<DiaryEntry> diaryEntries;
 
 
-    private Person person;
+    //private Person person; //TODO: correct this (unused)
 
     public Diary() {
     }

@@ -13,6 +13,10 @@ public class DiaryEntry extends EntityObject {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private LocalDateTime date;
+
+    @OneToMany(fetch = FetchType.LAZY,
+            orphanRemoval = true,
+            cascade = CascadeType.ALL)
     private Set<Symptom> symptom;
 
     public LocalDateTime getDate() {

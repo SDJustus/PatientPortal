@@ -27,11 +27,11 @@ public class DiaryManagerTest {
     private Set<Symptom> symptom1;
     private Set<Symptom> symptom2;
     private SymptomFactory factory;
-    private LocalDateTime testTime;
+    private static LocalDateTime testTime;
     private DiaryManager dm;
 
     @BeforeAll
-    public void timeSetter(){
+    public static void timeSetter(){
         testTime = LocalDateTime.now();
     }
 
@@ -53,12 +53,9 @@ public class DiaryManagerTest {
 
 
     @Test
-    public void createTest() throws Exception{
+    public void createTest(){
 
-        //Configuration configuration = new Configuration().configure();
-        //SessionFactory fac = configuration.buildSessionFactory();
-
-        int id = toIntExact(dm.create(new Diary()));
+        int id = Math.toIntExact(dm.create(new Diary()));
 
         Session session = dm.getSessionFactory().openSession();
 
