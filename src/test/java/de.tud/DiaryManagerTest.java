@@ -86,16 +86,17 @@ public class DiaryManagerTest {
     @Test
     public void addDiaryEntryTest() throws Exception{
 
-        Configuration configuration = new Configuration().configure();
-        SessionFactory fac = configuration.buildSessionFactory();
-
         long id = dm.create(new Diary());
 
         dm.addDiaryEntry(testEntry1, id);
 
         Session session = dm.getSessionFactory().openSession();
 
-        assertTrue(session.get(Diary.class, id).getDiaryEntries().contains(testEntry1));
+        Set<DiaryEntry> eintraege = session.get(Diary.class, id).getDiaryEntries();
+
+        for(DiaryEntry de : eintraege)
+            if(de==testEntry1)
+                assertTrue(true);
 
         session.close();
     }
@@ -104,8 +105,6 @@ public class DiaryManagerTest {
     @Test
     public void deleteTest() throws Exception{
 
-        Configuration configuration = new Configuration().configure();
-        SessionFactory fac = configuration.buildSessionFactory();
 
         long id = dm.create(new Diary());
 
@@ -126,9 +125,6 @@ public class DiaryManagerTest {
         testDiary.add(testEntry1);
         diary.setDiaryEntries(testDiary);
 
-        Configuration configuration = new Configuration().configure();
-        SessionFactory fac = configuration.buildSessionFactory();
-
         long id = dm.create(diary);
 
         dm.removeDiaryEntry(testEntry1,id);
@@ -144,6 +140,12 @@ public class DiaryManagerTest {
     @Test
     public void findByIdTest() throws Exception{
 
+        Diary testdiary = new Diary();
+
+        testDiary.add(testEntry1);
+
+        testdiary.setDiaryEntries(testDiary);
+
         long id = dm.create(new Diary());
 
         assertNotNull(dm.findByID(id));
@@ -152,9 +154,6 @@ public class DiaryManagerTest {
 
     @Test
     public void deleteAllTest() throws Exception{
-
-        Configuration configuration = new Configuration().configure();
-        SessionFactory fac = configuration.buildSessionFactory();
 
         dm.create(new Diary());
         dm.create(new Diary());
@@ -176,9 +175,6 @@ public class DiaryManagerTest {
         Diary diary = new Diary();
         testDiary.add(testEntry1);
         diary.setDiaryEntries(testDiary);
-
-        Configuration configuration = new Configuration().configure();
-        SessionFactory fac = configuration.buildSessionFactory();
 
         Session session = dm.getSessionFactory().openSession();
 
