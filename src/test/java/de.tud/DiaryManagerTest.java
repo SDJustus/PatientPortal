@@ -1,5 +1,8 @@
-package de.tud.model;
+package de.tud;
 
+
+import de.tud.model.Diary;
+import de.tud.model.DiaryEntry;
 import de.tud.model.manager.DiaryManager;
 import de.tud.model.symptom.Symptom;
 import de.tud.model.symptom.SymptomFactory;
@@ -52,12 +55,12 @@ public class DiaryManagerTest {
     @Test
     public void createTest() throws Exception{
 
-        Configuration configuration = new Configuration().configure();
-        SessionFactory fac = configuration.buildSessionFactory();
+        //Configuration configuration = new Configuration().configure();
+        //SessionFactory fac = configuration.buildSessionFactory();
 
         int id = toIntExact(dm.create(new Diary()));
 
-        Session session = fac.openSession();
+        Session session = dm.getSessionFactory().openSession();
 
         assertTrue(session.get(Diary.class, id)!=null && session.get(Diary.class, id).getClass()==Diary.class);
 
@@ -92,7 +95,7 @@ public class DiaryManagerTest {
 
         dm.addDiaryEntry(testEntry1, id);
 
-        Session session = fac.openSession();
+        Session session = dm.getSessionFactory().openSession();
 
         assertTrue(session.get(Diary.class, id).getDiaryEntries().contains(testEntry1));
 
@@ -110,7 +113,7 @@ public class DiaryManagerTest {
 
         dm.delete(id);
 
-        Session session = fac.openSession();
+        Session session = dm.getSessionFactory().openSession();
 
         assertTrue(session.get(Diary.class, id)==null);
 
@@ -132,7 +135,7 @@ public class DiaryManagerTest {
 
         dm.removeDiaryEntry(testEntry1,id);
 
-        Session session = fac.openSession();
+        Session session = dm.getSessionFactory().openSession();
 
         assertFalse(session.get(Diary.class, id).getDiaryEntries().contains(testEntry1));
 
@@ -161,7 +164,7 @@ public class DiaryManagerTest {
 
         dm.deleteAll();
 
-        Session session = fac.openSession();
+        Session session = dm.getSessionFactory().openSession();
 
         assertTrue(session.createQuery("FROM Diary").list().isEmpty());
 
@@ -179,7 +182,7 @@ public class DiaryManagerTest {
         Configuration configuration = new Configuration().configure();
         SessionFactory fac = configuration.buildSessionFactory();
 
-        Session session = fac.openSession();
+        Session session = dm.getSessionFactory().openSession();
 
         long diaryId = dm.create(diary);
 
