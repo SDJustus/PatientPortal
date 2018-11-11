@@ -1,5 +1,7 @@
-package de.tud.model;
+package de.tud;
 
+import de.tud.model.Diary;
+import de.tud.model.DiaryEntry;
 import de.tud.model.manager.DiaryManager;
 import de.tud.model.symptom.Symptom;
 import de.tud.model.symptom.SymptomFactory;

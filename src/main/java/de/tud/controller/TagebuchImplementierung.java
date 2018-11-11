@@ -39,10 +39,12 @@ public class TagebuchImplementierung extends Tagebuch {
            table.setWidth(""+0.7*e.getWidth());
 
         });
+        //TODO: implement correct statements
+        /*
         //Beschriftung der Tabellenzeilen
         table.addColumn(Diary::getDate).setCaption("Datum");
         table.addColumn(Diary::getSymptom).setCaption("Ausprägung der Symptome");
-
+        */
         
         //Definition von CSS-Styleklasse für Zoom Effekt der Smileys
         goodSmiley.setId("smileybild");
@@ -98,7 +100,8 @@ public class TagebuchImplementierung extends Tagebuch {
                 if(datePicker.getValue() != null && !choice.equals("")){
                         LocalDateTime datum = datePicker.getValue();
                         String mood = choice;
-
+                //TODO: implement correct statements
+                        /*
                 //TODO: change mood Type to enum and implement Symptomfactory instead of concret Symptom
                 switch (mood) {
                     case "stark":
@@ -111,7 +114,7 @@ public class TagebuchImplementierung extends Tagebuch {
                         tagebuch.add(new Diary(datum, new Depression(Symptom.Strength.WEAK)));
                         break;
                     default: throw new IllegalArgumentException("received wrong mood");
-                }
+                }*/
                         table.setItems(tagebuch);
                     Notification.show("Eintrag erfolgreich gespeichert");
 
