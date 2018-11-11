@@ -82,7 +82,7 @@ public class DiaryManager extends EntityManager<Diary> {
     @Override
     public Diary findByID(Long id) {
         Session session = getSessionFactory().openSession();
-        Diary diary = (Diary) session.load(Diary.class, id);
+        Diary diary = session.load(Diary.class, id);
         session.close();
         return diary;
     }

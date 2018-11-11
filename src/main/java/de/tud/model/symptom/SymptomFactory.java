@@ -2,6 +2,7 @@ package de.tud.model.symptom;
 
 public class SymptomFactory {
 
+
     public static Symptom createSymptomByClass(String className, Symptom.Strength strength) {
         switch (className) {
             case "Ache":
