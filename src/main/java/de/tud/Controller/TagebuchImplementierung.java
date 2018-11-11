@@ -1,12 +1,16 @@
 package de.tud.Controller;
 
 import com.vaadin.event.MouseEvents;
+import com.vaadin.event.selection.SingleSelectionEvent;
+import com.vaadin.event.selection.SingleSelectionListener;
 import com.vaadin.server.*;
+import com.vaadin.shared.Registration;
 import com.vaadin.ui.*;
 
 import java.time.LocalDateTime;
 import java.util.*;
 import de.tud.Model.DataModelDiary;
+import de.tud.Model.Depression;
 import de.tud.Model.Symptom;
 import de.tud.View.*;
 
@@ -17,6 +21,7 @@ public class TagebuchImplementierung extends Tagebuch {
 
     private List<DataModelDiary> tagebuch = new ArrayList<DataModelDiary>();
     private String choice;
+    private String selectedSymptom;
 
     @Override
     public void setStyleName(String style, boolean add) {
@@ -24,6 +29,8 @@ public class TagebuchImplementierung extends Tagebuch {
     }
 
     public TagebuchImplementierung(){
+
+
         //Smiley Bilder laden
         goodSmiley.setSource(new ClassResource("/gut.png"));
         middleSmiley.setSource(new ClassResource("/mittel.png"));
@@ -47,6 +54,31 @@ public class TagebuchImplementierung extends Tagebuch {
         goodSmiley.setId("smileybild");
         middleSmiley.setId("smileybild");
         badSmiley.setId("smileybild");
+
+        //adding symptoms to the combobox
+
+        List<String> symptomList = new ArrayList<>();
+        symptomList.add("Depression");
+        symptomList.add("Schmerzen");
+        symptomList.add("Spastik");
+        symptomList.add("Kognitive Störung");
+        symptomList.add("Spastik am rechten Arm");
+        symptomList.add("Spastik am linken Arm");
+        symptomList.add("Spastik am linken Bein");
+        //.... to be continued -> eventuell später als Symptome speichern und dann als toString übergeben?
+
+        //adding symptoms
+        symptomBox.setItems(symptomList);
+
+        //listener for selectedSymptom
+
+        symptomBox.addSelectionListener(new SingleSelectionListener() {
+            @Override
+            public void selectionChange(SingleSelectionEvent singleSelectionEvent) {
+                selectedSymptom = symptomBox.getSelectedItem().toString();
+            }
+        });
+
 
 
 
@@ -94,6 +126,7 @@ public class TagebuchImplementierung extends Tagebuch {
                 einen Wert hat, dann kann der Eintrag in der Tabelle gespeichert bzw
                  angezeigt werden */
 
+
                 if(datePicker.getValue() != null && !choice.equals("")){
                         LocalDateTime datum = datePicker.getValue();
                         String mood = choice;
@@ -117,7 +150,7 @@ public class TagebuchImplementierung extends Tagebuch {
 
                         table.setItems(tagebuch);
                     Notification.show("Eintrag erfolgreich gespeichert");
-
+                    symptomBox.setSelectedItem(null);
                 }
 
 
@@ -129,6 +162,9 @@ public class TagebuchImplementierung extends Tagebuch {
 
 
     }
+
+
+
 
 
 
