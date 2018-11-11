@@ -1,6 +1,5 @@
 package de.tud.model;
 
-import clojure.lang.IFn;
 import de.tud.model.manager.DiaryManager;
 import de.tud.model.symptom.Symptom;
 import de.tud.model.symptom.SymptomFactory;
@@ -25,7 +24,7 @@ public class DiaryManagerTest {
     private Set<Symptom> symptom1;
     private Set<Symptom> symptom2;
     private SymptomFactory factory;
-    LocalDateTime testTime;
+    private LocalDateTime testTime;
     private DiaryManager dm;
 
     @BeforeAll
