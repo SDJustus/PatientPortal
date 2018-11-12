@@ -16,7 +16,7 @@ public class TagebuchImplementierung extends Tagebuch {
 
 
     private List<DataModelDiary> tagebuch = new ArrayList<DataModelDiary>();
-    private String choice;
+    private String choice = "";
 
     @Override
     public void setStyleName(String style, boolean add) {
@@ -24,11 +24,13 @@ public class TagebuchImplementierung extends Tagebuch {
     }
 
     public TagebuchImplementierung(){
+
         //Tagebucheinträge laden
-        if(!TagebucheintragManager.read().isEmpty()){
+        if(!TagebucheintragManager.read().isEmpty()) {
             tagebuch = loadDiaryEntries();
             table.setItems(tagebuch);
         }
+        datePicker.addValueChangeListener(event -> checkSaveButton());
 
         //Smiley Bilder laden
         goodSmiley.setSource(new ClassResource("/gut.png"));
@@ -36,11 +38,11 @@ public class TagebuchImplementierung extends Tagebuch {
         badSmiley.setSource(new ClassResource("/schlecht.png"));
 
         //Einstellungen für Größe der Tabelle
-        table.setHeight(""+0.7*Page.getCurrent().getBrowserWindowHeight());
+        table.setHeight(""+0.3*Page.getCurrent().getBrowserWindowHeight());
         table.setWidth(""+0.7*Page.getCurrent().getBrowserWindowWidth());
 
         UI.getCurrent().getPage().addBrowserWindowResizeListener(e -> {
-           table.setHeight(""+0.7*e.getHeight());
+           table.setHeight(""+0.3*e.getHeight());
            table.setWidth(""+0.7*e.getWidth());
 
         });
@@ -56,6 +58,7 @@ public class TagebuchImplementierung extends Tagebuch {
         //saveButton standardmäßig deaktiviert, ersten wenn Eingabe getätigt wurde, dann Aktivierung
         saveButton.setEnabled(false);
 
+       
 
 
         //Event Handler für Klick auf die Smileys
@@ -132,8 +135,10 @@ public class TagebuchImplementierung extends Tagebuch {
                         table.setItems(tagebuch);
                         Notification.show("Eintrag erfolgreich gespeichert");
                 }
+
             }
         });
+
     }
 
     public void checkSaveButton(){
