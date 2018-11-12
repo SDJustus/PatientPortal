@@ -164,13 +164,10 @@ public class TagebuchImplementierung extends Tagebuch {
 
 
             for(DiaryEntry diaryEntry : tagebucheintragList){
-                for(Symptom symptom : diaryEntry.getSymptom()){
-                    System.out.println(symptom);
-                    diaryEntriesForUI.add(new DiaryEntryTableViewAdapter(diaryEntry.getDate().toString(), symptom));
-                }
-
+                    for(Symptom s:diaryEntry.getSymptom()){
+                        diaryEntriesForUI.add(new DiaryEntryTableViewAdapter(diaryEntry.getDate().toString(), s));
+                    }
             }
-
         return diaryEntriesForUI;
     }
 }
