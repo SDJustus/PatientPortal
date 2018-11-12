@@ -12,6 +12,11 @@ import java.util.Set;
 
 public class DiaryManager extends EntityManager<Diary> {
 
+    private static final DiaryManager INSTANCE = new DiaryManager();
+
+    public static DiaryManager getInstance(){
+        return INSTANCE;
+    }
     @Override
     public List<Diary> read() {
         Session session = getSessionFactory().openSession();
