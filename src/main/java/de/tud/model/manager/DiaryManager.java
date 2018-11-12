@@ -45,13 +45,14 @@ public class DiaryManager extends EntityManager<Diary> {
 
     public DiaryEntry getDiaryEntryById(Long diaryId, Long diaryEntryId){
         Session session = getSessionFactory().openSession();
-        Set<DiaryEntry> diaryEntries = session.load(Diary.class, diaryId).getDiaryEntries();
+        Set<DiaryEntry> diaryEntries = session.get(Diary.class, diaryId).getDiaryEntries();
+        session.close();
         DiaryEntry diaryEntry = null;
         for(DiaryEntry diaryEntry1: diaryEntries) {
             if (diaryEntry1.getId().equals(diaryEntryId))
                 diaryEntry = diaryEntry1;
         }
-        session.close();
+
         if(diaryEntry == null)
             throw new IllegalArgumentException("No DiaryEntry exists with the given ID: " + diaryEntryId);
         return diaryEntry;

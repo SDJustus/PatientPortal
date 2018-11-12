@@ -17,7 +17,9 @@ public abstract class EntityManager<T extends EntityObject> {
     public SessionFactory getSessionFactory(){
         Configuration configuration = new Configuration().configure();
         //TODO: Test if the config with pachages work...
-        configuration.addAnnotatedClass(Diary.class).addAnnotatedClass(DiaryEntry.class).addAnnotatedClass(SymptomFactory.class).addAnnotatedClass(Symptom.class)
+        configuration.addAnnotatedClass(Diary.class).addAnnotatedClass(DiaryEntry.class)
+                .addAnnotatedClass(SymptomFactory.class)
+                .addAnnotatedClass(Symptom.class)
                 .addAnnotatedClass(DiaryManager.class);
         StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder()
                 .applySettings(configuration.getProperties());
