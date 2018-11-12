@@ -17,7 +17,7 @@ public class TagebuchImplementierung extends Tagebuch {
 
 
     private List<Diary> tagebuch = new ArrayList<Diary>();
-    private String choice;
+    private String choice = "";
 
     @Override
     public void setStyleName(String style, boolean add) {
@@ -25,31 +25,40 @@ public class TagebuchImplementierung extends Tagebuch {
     }
 
     public TagebuchImplementierung(){
+
+        //Tagebucheinträge laden
+        if(!TagebucheintragManager.read().isEmpty()) {
+            tagebuch = loadDiaryEntries();
+            table.setItems(tagebuch);
+        }
+        datePicker.addValueChangeListener(event -> checkSaveButton());
+
         //Smiley Bilder laden
         goodSmiley.setSource(new ClassResource("/gut.png"));
         middleSmiley.setSource(new ClassResource("/mittel.png"));
         badSmiley.setSource(new ClassResource("/schlecht.png"));
 
         //Einstellungen für Größe der Tabelle
-        table.setHeight(""+0.7*Page.getCurrent().getBrowserWindowHeight());
+        table.setHeight(""+0.3*Page.getCurrent().getBrowserWindowHeight());
         table.setWidth(""+0.7*Page.getCurrent().getBrowserWindowWidth());
 
         UI.getCurrent().getPage().addBrowserWindowResizeListener(e -> {
-           table.setHeight(""+0.7*e.getHeight());
+           table.setHeight(""+0.3*e.getHeight());
            table.setWidth(""+0.7*e.getWidth());
 
         });
-        //TODO: implement correct statements
-        /*
         //Beschriftung der Tabellenzeilen
-        table.addColumn(Diary::getDate).setCaption("Datum");
-        table.addColumn(Diary::getSymptom).setCaption("Ausprägung der Symptome");
-        */
-        
+        table.addColumn(DataModelDiary::getDate).setCaption("Datum");
+        table.addColumn(DataModelDiary::getSymptom).setCaption("Ausprägung der Symptome");
+
         //Definition von CSS-Styleklasse für Zoom Effekt der Smileys
         goodSmiley.setId("smileybild");
         middleSmiley.setId("smileybild");
         badSmiley.setId("smileybild");
+
+        //saveButton standardmäßig deaktiviert, ersten wenn Eingabe getätigt wurde, dann Aktivierung
+        saveButton.setEnabled(false);
+
 
 
 
@@ -61,6 +70,7 @@ public class TagebuchImplementierung extends Tagebuch {
                 badLabel.setValue("");
                 goodlabel.setValue("keine");
                 choice = goodlabel.getValue();
+                checkSaveButton();
             }
         });
         middleSmiley.addClickListener(new MouseEvents.ClickListener() {
@@ -70,6 +80,7 @@ public class TagebuchImplementierung extends Tagebuch {
                 badLabel.setValue("");
                 middleLabel.setValue("mäßig");
                 choice = middleLabel.getValue();
+                checkSaveButton();
 
             }
         });
@@ -80,9 +91,11 @@ public class TagebuchImplementierung extends Tagebuch {
                 middleLabel.setValue("");
                 badLabel.setValue("stark");
                 choice = badLabel.getValue();
+                checkSaveButton();
 
             }
         });
+
 
         //Event Handler für Klick auf den Speicher Button
         saveButton.addClickListener(new Button.ClickListener() {
@@ -98,36 +111,58 @@ public class TagebuchImplementierung extends Tagebuch {
                  angezeigt werden */
 
                 if(datePicker.getValue() != null && !choice.equals("")){
-                        LocalDateTime datum = datePicker.getValue();
-                        String mood = choice;
-                //TODO: implement correct statements
-                        /*
-                //TODO: change mood Type to enum and implement Symptomfactory instead of concret Symptom
-                switch (mood) {
-                    case "stark":
-                        tagebuch.add(new Diary(datum, new Depression(Symptom.Strength.SEVERE)));
-                        break;
-                    case "mäßig":
-                        tagebuch.add(new Diary(datum, new Depression(Symptom.Strength.MIDDLE)));
-                        break;
-                    case "keine":
-                        tagebuch.add(new Diary(datum, new Depression(Symptom.Strength.WEAK)));
-                        break;
-                    default: throw new IllegalArgumentException("received wrong mood");
-                }*/
-                        table.setItems(tagebuch);
-                    Notification.show("Eintrag erfolgreich gespeichert");
+                    LocalDateTime datum = datePicker.getValue();
+                    String mood = choice;
+                        if(mood.equals("stark")) {
+                            tagebuch.add(new DataModelDiary(datum, new Symptom(Symptom.Strength.SEVERE) {
+                            }));
+                            saveDiaryEntry(new Depression(Symptom.Strength.SEVERE));
 
+
+                        }if(mood.equals("mäßig")) {
+
+                        tagebuch.add(new DataModelDiary(datum, new Symptom(Symptom.Strength.MIDDLE) {
+                        }));
+                        saveDiaryEntry(new Depression(Symptom.Strength.MIDDLE));
+                        }
+
+                        if(mood.equals("keine")) {
+                        tagebuch.add(new DataModelDiary(datum, new Symptom(Symptom.Strength.WEAK) {
+                        }));
+                        saveDiaryEntry(new Depression(Symptom.Strength.WEAK));
+                        }
+
+                        tagebuch = loadDiaryEntries();
+                        table.setItems(tagebuch);
+                        Notification.show("Eintrag erfolgreich gespeichert");
                 }
 
 
             }
         });
 
+    }
+
+    public void checkSaveButton(){
+        if(datePicker.getValue() != null && !choice.equals("")){
+            saveButton.setEnabled(true);
+        }
+    }
+    public void saveDiaryEntry(Symptom symptom){
+            ArrayList<Symptom> entry = new ArrayList<>();
+            entry.add(symptom);
+            TagebucheintragManager.create(new Tagebucheintrag(entry, datePicker.getValue()));
+    }
+
+    public List<DataModelDiary> loadDiaryEntries(){
+            List<Tagebucheintrag> tagebucheintragList = TagebucheintragManager.read();
+            List<DataModelDiary> dateEntriesForUI = new ArrayList<>();
 
 
-
-
+            for(Tagebucheintrag t:tagebucheintragList){
+               dateEntriesForUI.add(new DataModelDiary(t.getDate(), t.getSymptoms().get(0)));
+            }
+        return dateEntriesForUI;
     }
 
 
