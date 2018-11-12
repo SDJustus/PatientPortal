@@ -7,6 +7,7 @@ import com.vaadin.ui.*;
 import java.time.LocalDateTime;
 import java.util.*;
 import de.tud.model.Diary;
+import de.tud.model.manager.DiaryManager;
 import de.tud.model.symptom.Depression;
 import de.tud.model.symptom.Symptom;
 import de.tud.view.*;
@@ -25,6 +26,15 @@ public class TagebuchImplementierung extends Tagebuch {
     }
 
     public TagebuchImplementierung(){
+        DiaryManager diaryManager = new DiaryManager();
+
+        if(!diaryManager.read().isEmpty()) {
+            tagebuch = loadDiaryEntries();
+            table.setItems(tagebuch);
+        }
+        datePicker.addValueChangeListener(event -> checkSaveButton());
+
+
         //Smiley Bilder laden
         goodSmiley.setSource(new ClassResource("/gut.png"));
         middleSmiley.setSource(new ClassResource("/mittel.png"));
