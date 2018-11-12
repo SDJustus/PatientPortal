@@ -57,8 +57,9 @@ public abstract class Symptom {
     }
 
     @Override
-    public abstract String toString();
-
+    public String toString(){
+       return strength.toString();
+    }
 
 
 

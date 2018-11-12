@@ -1,11 +1,9 @@
 package de.tud.model.manager;
 
+import de.tud.model.DiaryEntry;
 import de.tud.model.Person;
 
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
-import org.hibernate.cfg.Configuration;
 
 import javax.persistence.Query;
 import java.util.List;

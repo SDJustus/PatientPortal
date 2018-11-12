@@ -6,7 +6,8 @@ import com.vaadin.ui.*;
 
 import java.time.LocalDateTime;
 import java.util.*;
-import de.tud.model.Diary;
+import de.tud.model.*;
+import de.tud.model.DiaryEntryTableViewAdapter;
 import de.tud.model.manager.DiaryManager;
 import de.tud.model.symptom.Depression;
 import de.tud.model.symptom.Symptom;
@@ -17,8 +18,9 @@ import de.tud.view.*;
 public class TagebuchImplementierung extends Tagebuch {
 
 
-    private List<Diary> tagebuch = new ArrayList<Diary>();
+    private List<DiaryEntryTableViewAdapter> tagebuch = new ArrayList<>();
     private String choice;
+    DiaryManager diaryManager;
 
     @Override
     public void setStyleName(String style, boolean add) {
@@ -26,13 +28,13 @@ public class TagebuchImplementierung extends Tagebuch {
     }
 
     public TagebuchImplementierung(){
-        DiaryManager diaryManager = new DiaryManager();
+        diaryManager = new DiaryManager();
 
-        if(!diaryManager.read().isEmpty()) {
+        if(!diaryManager.readDiaryEntry().isEmpty()) {
             tagebuch = loadDiaryEntries();
             table.setItems(tagebuch);
         }
-        datePicker.addValueChangeListener(event -> checkSaveButton());
+        //datePicker.addValueChangeListener(event -> checkSaveButton());
 
 
         //Smiley Bilder laden
@@ -41,21 +43,21 @@ public class TagebuchImplementierung extends Tagebuch {
         badSmiley.setSource(new ClassResource("/schlecht.png"));
 
         //Einstellungen für Größe der Tabelle
-        table.setHeight(""+0.7*Page.getCurrent().getBrowserWindowHeight());
+        table.setHeight(""+0.3*Page.getCurrent().getBrowserWindowHeight());
         table.setWidth(""+0.7*Page.getCurrent().getBrowserWindowWidth());
 
         UI.getCurrent().getPage().addBrowserWindowResizeListener(e -> {
-           table.setHeight(""+0.7*e.getHeight());
+           table.setHeight(""+0.3*e.getHeight());
            table.setWidth(""+0.7*e.getWidth());
 
         });
         //TODO: implement correct statements
-        /*
+
         //Beschriftung der Tabellenzeilen
-        table.addColumn(Diary::getDate).setCaption("Datum");
-        table.addColumn(Diary::getSymptom).setCaption("Ausprägung der Symptome");
-        */
-        
+        table.addColumn(DiaryEntryTableViewAdapter::getDate).setCaption("Datum");
+        table.addColumn(DiaryEntryTableViewAdapter::getSymptom).setCaption("Ausprägung der Symptome");
+
+
         //Definition von CSS-Styleklasse für Zoom Effekt der Smileys
         goodSmiley.setId("smileybild");
         middleSmiley.setId("smileybild");
@@ -111,36 +113,64 @@ public class TagebuchImplementierung extends Tagebuch {
                         LocalDateTime datum = datePicker.getValue();
                         String mood = choice;
                 //TODO: implement correct statements
-                        /*
+
                 //TODO: change mood Type to enum and implement Symptomfactory instead of concret Symptom
+                    Set<Symptom> symptoms = new HashSet<>();
+
                 switch (mood) {
                     case "stark":
-                        tagebuch.add(new Diary(datum, new Depression(Symptom.Strength.SEVERE)));
+                        symptoms.add(new Depression(Symptom.Strength.SEVERE));
+                        saveDiaryEntry(datum, symptoms);
+                        //tagebuch.add(new DiaryEntryTableViewAdapter(datum, symptoms));
                         break;
                     case "mäßig":
-                        tagebuch.add(new Diary(datum, new Depression(Symptom.Strength.MIDDLE)));
+                        //tagebuch.add(new Diary(datum, new Depression(Symptom.Strength.MIDDLE)));
+                        symptoms.add(new Depression(Symptom.Strength.MIDDLE));
+                        saveDiaryEntry(datum, symptoms);
                         break;
                     case "keine":
-                        tagebuch.add(new Diary(datum, new Depression(Symptom.Strength.WEAK)));
+                        //tagebuch.add(new Diary(datum, new Depression(Symptom.Strength.WEAK)));
+                        symptoms.add(new Depression(Symptom.Strength.WEAK));
                         break;
                     default: throw new IllegalArgumentException("received wrong mood");
-                }*/
-                        table.setItems(tagebuch);
+
+                     }
+
+                     loadDiaryEntries();
+                    table.setItems(tagebuch);
                     Notification.show("Eintrag erfolgreich gespeichert");
-
                 }
-
-
             }
         });
-
-
-
-
-
     }
 
+    public void checkSaveButton(){
+        if(datePicker.getValue() != null && !choice.equals("")){
+            saveButton.setEnabled(true);
+        }
+    }
+
+    public void saveDiaryEntry(LocalDateTime datum, Set<Symptom> symptoms){
+        DiaryEntry diaryEntry = new DiaryEntry(datum , symptoms);
+        diaryManager.addDiaryEntry(diaryEntry,diaryEntry.getId());
+    }
+
+    public List<DiaryEntryTableViewAdapter> loadDiaryEntries(){
+        List<DiaryEntry> tagebucheintragList = diaryManager.readDiaryEntry();
+        List<DiaryEntryTableViewAdapter> diaryEntriesForUI = new ArrayList<>();
+
+            System.out.println(tagebucheintragList.size());
+        System.out.println(tagebucheintragList.get(0).getDate());
 
 
+            for(DiaryEntry diaryEntry : tagebucheintragList){
+                for(Symptom symptom : diaryEntry.getSymptom()){
+                    System.out.println(symptom);
+                    diaryEntriesForUI.add(new DiaryEntryTableViewAdapter(diaryEntry.getDate().toString(), symptom));
+                }
 
+            }
+
+        return diaryEntriesForUI;
+    }
 }

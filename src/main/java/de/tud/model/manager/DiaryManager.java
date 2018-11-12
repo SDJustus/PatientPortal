@@ -7,6 +7,7 @@ import org.hibernate.Session;
 
 
 import javax.persistence.Query;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
@@ -15,21 +16,37 @@ public class DiaryManager extends EntityManager<Diary> {
     @Override
     public List<Diary> read() {
         Session session = getSessionFactory().openSession();
-        List<Diary> diary = session.createQuery("FROM Diary").list();
+        List<DiaryEntry> diary = session.createQuery("FROM DiaryEntry").list();
         session.close();
         System.out.println("Found " + diary.size() + " diaries");
+
+        return new ArrayList<>();
+    }
+
+    public List<DiaryEntry> readDiaryEntry() {
+        Session session = getSessionFactory().openSession();
+        List<DiaryEntry> diary = session.createQuery("FROM DiaryEntry").list();
+        session.close();
+        System.out.println("Found " + diary.size() + " diaries");
+
         return diary;
     }
+
+
+
+
     //TODO: test this!
     public void addDiaryEntry(DiaryEntry diaryEntry, Long diaryId){
         Session session = getSessionFactory().openSession();
         session.beginTransaction();
-        Set<DiaryEntry> diaryEntries = session.get(Diary.class, diaryId).getDiaryEntries();
+        session.save(diaryEntry);
+        //Set<DiaryEntry> diaryEntries = session.get(Diary.class, diaryId).getDiaryEntries();
+        /*
         for (DiaryEntry diaryEntry1 : diaryEntries){
             if (diaryEntry.getId().equals(diaryEntry1.getId()))
                 diaryEntries.remove(diaryEntry1);
-        }
-        diaryEntries.add(diaryEntry);
+        }*/
+        //diaryEntries.add(diaryEntry);
         session.getTransaction().commit();
         session.close();
     }
