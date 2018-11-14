@@ -15,7 +15,7 @@ import de.tud.view.*;
 
 
 
-public class TagebuchImplementierung extends Tagebuch {
+public class DiaryImplementation extends Tagebuch {
 
 
     private List<DiaryEntryTableViewAdapter> tagebuch = new ArrayList<>();
@@ -27,7 +27,7 @@ public class TagebuchImplementierung extends Tagebuch {
 
     }
 
-    public TagebuchImplementierung(){
+    public DiaryImplementation(){
         diaryManager = new DiaryManager();
 
         if(!diaryManager.readDiaryEntry().isEmpty()) {
@@ -136,7 +136,7 @@ public class TagebuchImplementierung extends Tagebuch {
 
                      }
 
-                     loadDiaryEntries();
+                     tagebuch = loadDiaryEntries();
                     table.setItems(tagebuch);
                     Notification.show("Eintrag erfolgreich gespeichert");
                 }

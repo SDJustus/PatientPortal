@@ -43,7 +43,8 @@ public class PatientPortalMenu extends UI {
         //Button z.B. zum Medikationsplan
         Button view2 = new Button("Medikationsplan", e -> getNavigator().navigateTo("view2"));
         view2.addStyleNames(ValoTheme.BUTTON_LINK, ValoTheme.MENU_ITEM);
-        view2.setIcon(VaadinIcons.AMBULANCE);
+        view2.setIcon(VaadinIcons.AMBULANCE, ValoTheme.MENU_PART_LARGE_ICONS);
+        view2.setIcon(VaadinIcons.DOCTOR, ValoTheme.MENU_PART_LARGE_ICONS);
 
 
         //Integration der MenuItems

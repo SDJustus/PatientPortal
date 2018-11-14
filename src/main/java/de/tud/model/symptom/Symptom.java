@@ -5,7 +5,7 @@ import javax.persistence.*;
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 
-public abstract class Symptom {
+public class Symptom {
 
 
     public enum Strength{
@@ -61,7 +61,7 @@ public abstract class Symptom {
        return strength.toString();
     }
 
-
+    public Symptom(){}
 
 
 
