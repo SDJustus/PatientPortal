@@ -9,6 +9,9 @@ public class Depression extends Symptom {
         super(s);
 
     }
+    public Depression(){
+
+    }
 
     @Override
     public String toString() {

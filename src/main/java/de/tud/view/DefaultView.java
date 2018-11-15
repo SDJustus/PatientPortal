@@ -17,7 +17,6 @@ public class DefaultView extends Composite implements View {
                 "#smileybild:{transition: transform .2s;}+" +
                 ".v-panel{padding-bottom: 80px;}");
 
-
         formLayout.setSpacing(true);
         Panel panel = new Panel();
         panel.setSizeFull();
@@ -36,15 +35,12 @@ public class DefaultView extends Composite implements View {
         formLayout.addComponents(new SymptomSelectionViewFactory("Spastik").getSymptomSelectionView());
         formLayout.addComponents(new SymptomSelectionViewFactory("Schmerzen").getSymptomSelectionView());
 
-
-
         formLayout.setSizeUndefined();
         formLayout.setMargin(true);
         panel.setContent(formLayout);
 
 
         //formLayout.setExpandRatio(formLayout.getComponent(0), 0.1f);
-
         HorizontalLayout horizontalLayout = new HorizontalLayout();
         horizontalLayout.setSpacing(true);
         horizontalLayout.setMargin(true);
@@ -56,6 +52,8 @@ public class DefaultView extends Composite implements View {
 
         horizontalLayout.addComponents(panel, new VerticalLayout(save,grid));
         setCompositionRoot(horizontalLayout);
+
+        //setCompositionRoot(label);
     }
 
 }

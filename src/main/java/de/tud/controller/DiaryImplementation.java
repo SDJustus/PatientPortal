@@ -1,5 +1,6 @@
 package de.tud.controller;
 
+import com.vaadin.data.HasValue;
 import com.vaadin.event.MouseEvents;
 import com.vaadin.server.*;
 import com.vaadin.ui.*;
@@ -21,6 +22,7 @@ public class DiaryImplementation extends Tagebuch {
     private List<DiaryEntryTableViewAdapter> tagebuch = new ArrayList<>();
     private String choice;
     DiaryManager diaryManager;
+    Diary diary = new Diary();
 
     @Override
     public void setStyleName(String style, boolean add) {
@@ -29,6 +31,8 @@ public class DiaryImplementation extends Tagebuch {
 
     public DiaryImplementation(){
         diaryManager = new DiaryManager();
+        saveButton.setEnabled(false);
+
 
         if(!diaryManager.readDiaryEntry().isEmpty()) {
             tagebuch = loadDiaryEntries();
@@ -52,6 +56,12 @@ public class DiaryImplementation extends Tagebuch {
 
         });
         //TODO: implement correct statements
+        datePicker.addValueChangeListener(new HasValue.ValueChangeListener<LocalDateTime>() {
+            @Override
+            public void valueChange(HasValue.ValueChangeEvent<LocalDateTime> valueChangeEvent) {
+                checkSaveButton();
+            }
+        });
 
         //Beschriftung der Tabellenzeilen
         table.addColumn(DiaryEntryTableViewAdapter::getDate).setCaption("Datum");
@@ -73,6 +83,7 @@ public class DiaryImplementation extends Tagebuch {
                 badLabel.setValue("");
                 goodlabel.setValue("keine");
                 choice = goodlabel.getValue();
+                checkSaveButton();
             }
         });
         middleSmiley.addClickListener(new MouseEvents.ClickListener() {
@@ -82,6 +93,7 @@ public class DiaryImplementation extends Tagebuch {
                 badLabel.setValue("");
                 middleLabel.setValue("mäßig");
                 choice = middleLabel.getValue();
+                checkSaveButton();
 
             }
         });
@@ -92,6 +104,7 @@ public class DiaryImplementation extends Tagebuch {
                 middleLabel.setValue("");
                 badLabel.setValue("stark");
                 choice = badLabel.getValue();
+                checkSaveButton();
 
             }
         });
@@ -112,10 +125,9 @@ public class DiaryImplementation extends Tagebuch {
                 if(datePicker.getValue() != null && !choice.equals("")){
                         LocalDateTime datum = datePicker.getValue();
                         String mood = choice;
-                //TODO: implement correct statements
 
-                //TODO: change mood Type to enum and implement Symptomfactory instead of concret Symptom
                     Set<Symptom> symptoms = new HashSet<>();
+
 
                 switch (mood) {
                     case "stark":
@@ -131,15 +143,16 @@ public class DiaryImplementation extends Tagebuch {
                     case "keine":
                         //tagebuch.add(new Diary(datum, new Depression(Symptom.Strength.WEAK)));
                         symptoms.add(new Depression(Symptom.Strength.WEAK));
+                        saveDiaryEntry(datum, symptoms);
                         break;
                     default: throw new IllegalArgumentException("received wrong mood");
 
                      }
-
                      tagebuch = loadDiaryEntries();
                     table.setItems(tagebuch);
                     Notification.show("Eintrag erfolgreich gespeichert");
                 }
+
             }
         });
     }
@@ -151,13 +164,25 @@ public class DiaryImplementation extends Tagebuch {
     }
 
     public void saveDiaryEntry(LocalDateTime datum, Set<Symptom> symptoms){
+
         DiaryEntry diaryEntry = new DiaryEntry(datum , symptoms);
-        diaryManager.addDiaryEntry(diaryEntry,diaryEntry.getId());
+        HashSet<DiaryEntry> diaryEntries = new HashSet<>();
+        diaryEntries.add(diaryEntry);
+
+        diary.setDiaryEntries(diaryEntries);
+        DiaryManager.getInstance().addDiary(diary);
+
+        //diaryManager.addDiaryEntry(diaryEntry,diaryEntry.getId());
     }
+
 
     public List<DiaryEntryTableViewAdapter> loadDiaryEntries(){
         List<DiaryEntry> tagebucheintragList = diaryManager.readDiaryEntry();
         List<DiaryEntryTableViewAdapter> diaryEntriesForUI = new ArrayList<>();
+
+        List<Diary> diaries = diaryManager.read();
+        System.out.println(diaries.size());
+        System.out.println(diaries.get(0).getDiaryEntries().size());
 
             System.out.println(tagebucheintragList.size());
         System.out.println(tagebucheintragList.get(0).getDate());
@@ -166,6 +191,7 @@ public class DiaryImplementation extends Tagebuch {
             for(DiaryEntry diaryEntry : tagebucheintragList){
                     for(Symptom s:diaryEntry.getSymptom()){
                         diaryEntriesForUI.add(new DiaryEntryTableViewAdapter(diaryEntry.getDate().toString(), s));
+                        s.toString();
                     }
             }
         return diaryEntriesForUI;

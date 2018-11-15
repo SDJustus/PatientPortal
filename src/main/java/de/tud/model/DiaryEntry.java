@@ -14,10 +14,10 @@ public class DiaryEntry extends EntityObject {
     private long id;
     private LocalDateTime date;
 
-    /*@OneToMany(fetch = FetchType.EAGER,
+    @OneToMany(fetch = FetchType.EAGER,
             orphanRemoval = true,
-            cascade = CascadeType.ALL)*/
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+            cascade = CascadeType.ALL)
+    //@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Set<Symptom> symptom;
 
     public LocalDateTime getDate() {

@@ -19,9 +19,7 @@ public class Diary extends EntityObject {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @OneToMany(fetch = FetchType.LAZY,
-                orphanRemoval = true,
-                cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "diary_id")
     private Set<DiaryEntry> diaryEntries;
 

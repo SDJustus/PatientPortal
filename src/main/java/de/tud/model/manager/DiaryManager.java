@@ -21,22 +21,31 @@ public class DiaryManager extends EntityManager<Diary> {
     @Override
     public List<Diary> read() {
         Session session = getSessionFactory().openSession();
-        List<DiaryEntry> diary = session.createQuery("FROM DiaryEntry").list();
-        session.close();
-        System.out.println("Found " + diary.size() + " diaries");
-
-        return new ArrayList<>();
-    }
-
-    public List<DiaryEntry> readDiaryEntry() {
-        Session session = getSessionFactory().openSession();
-        List<DiaryEntry> diary = session.createQuery("FROM DiaryEntry").list();
+        List<Diary> diary = session.createQuery("FROM Diary").list();
         session.close();
         System.out.println("Found " + diary.size() + " diaries");
 
         return diary;
     }
 
+    public List<DiaryEntry> readDiaryEntry() {
+        Session session = getSessionFactory().openSession();
+        List<DiaryEntry> diary = session.createQuery("FROM DiaryEntry").list();
+        session.close();
+        //System.out.println("Found " + diary.size() + " diaries");
+
+        return diary;
+    }
+
+    //Bei Erstellung von einem Patienten
+    public void addDiary(Diary diary){
+        Session session = getSessionFactory().openSession();
+        session.beginTransaction();
+        session.save(diary);
+
+        session.getTransaction().commit();
+        session.close();
+    }
 
 
 
