@@ -58,7 +58,7 @@ public class Symptom {
 
     @Override
     public String toString(){
-       return strength.toString();
+       return getClass().getSimpleName()+": "+strength.toString();
     }
 
     public Symptom(){}

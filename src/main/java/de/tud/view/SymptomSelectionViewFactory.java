@@ -6,6 +6,7 @@ import com.vaadin.ui.*;
 import com.vaadin.ui.themes.ValoTheme;
 import de.tud.model.symptom.Depression;
 import de.tud.model.symptom.Symptom;
+import sun.jvm.hotspot.debugger.cdbg.Sym;
 
 public class SymptomSelectionViewFactory {
     String symptom;
@@ -16,12 +17,11 @@ public class SymptomSelectionViewFactory {
     Label goodLabel;
     Label middleLabel;
     Label badLabel;
-
+    Symptom.Strength choice;
 
 
     public SymptomSelectionViewFactory(String symptomname){
         this.symptom = symptomname;
-        getSymptomSelectionView();
     }
 
 
@@ -106,6 +106,7 @@ public class SymptomSelectionViewFactory {
                 middleLabel.setValue("");
                 badLabel.setValue("");
                 goodLabel.setValue("keine");
+                choice = Symptom.Strength.WEAK;
             }
         });
         middleSmiley.addClickListener(new MouseEvents.ClickListener() {
@@ -114,6 +115,7 @@ public class SymptomSelectionViewFactory {
                 goodLabel.setValue("");
                 badLabel.setValue("");
                 middleLabel.setValue("mäßig");
+                choice = Symptom.Strength.MIDDLE;
 
             }
         });
@@ -123,9 +125,16 @@ public class SymptomSelectionViewFactory {
                 goodLabel.setValue("");
                 middleLabel.setValue("");
                 badLabel.setValue("stark");
+                choice = Symptom.Strength.SEVERE;
             }
         });
 
+    }
+    public Symptom.Strength getSelection(){
+        return this.choice;
+    }
+    public String getSymptomName(){
+        return this.symptom;
     }
 
 

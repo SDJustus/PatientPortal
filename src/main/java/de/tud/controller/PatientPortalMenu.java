@@ -7,6 +7,8 @@ import com.vaadin.server.*;
 import com.vaadin.ui.*;
 import com.vaadin.navigator.Navigator;
 import com.vaadin.ui.themes.ValoTheme;
+import de.tud.model.Diary;
+import de.tud.model.manager.DiaryManager;
 import de.tud.view.*;
 
 import javax.servlet.annotation.WebServlet;

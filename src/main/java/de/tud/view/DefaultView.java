@@ -46,6 +46,14 @@ public class DefaultView extends Composite implements View {
         horizontalLayout.setMargin(true);
 
         Button save = new Button("Speichern");
+        save.addClickListener(new Button.ClickListener() {
+            @Override
+            public void buttonClick(Button.ClickEvent clickEvent) {
+
+            }
+        });
+
+
         Grid<DiaryEntryTableViewAdapter> grid = new Grid<>();
         grid.addColumn(DiaryEntryTableViewAdapter::getSymptom).setCaption("Ausprägung der Symptome");
 
