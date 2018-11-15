@@ -186,7 +186,9 @@ public class DiaryManagerTest {
 
         long entryId = iter.next().getId();
 
-        assertEquals(testEntry1 ,dm.getDiaryEntryById(diaryId,entryId));
+         DiaryEntry diaryEntry = dm.getDiaryEntryById(diaryId, entryId);
+
+        assertEquals(testEntry1 ,diaryEntry);
 
         session.close();
     }
