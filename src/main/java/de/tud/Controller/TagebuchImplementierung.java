@@ -22,6 +22,7 @@ public class TagebuchImplementierung extends Tagebuch {
     public void setStyleName(String style, boolean add) {
 
     }
+    //andere Änderung
 
     public TagebuchImplementierung(){
         //Tagebucheinträge laden
