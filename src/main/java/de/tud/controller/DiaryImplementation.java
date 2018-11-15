@@ -159,6 +159,10 @@ public class DiaryImplementation extends Tagebuch {
     }
 
     public void checkSaveButton(){
+        if(choice == null){
+            saveButton.setEnabled(false);
+            return;
+        }
         if(datePicker.getValue() != null && !choice.equals("")){
             saveButton.setEnabled(true);
         }
