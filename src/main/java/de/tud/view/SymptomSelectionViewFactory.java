@@ -4,20 +4,20 @@ import com.vaadin.event.MouseEvents;
 import com.vaadin.server.ClassResource;
 import com.vaadin.ui.*;
 import com.vaadin.ui.themes.ValoTheme;
-import de.tud.model.symptom.Depression;
-import de.tud.model.symptom.Symptom;
+import de.tud.model.symptom.*;
 import sun.jvm.hotspot.debugger.cdbg.Sym;
 
 public class SymptomSelectionViewFactory {
-    String symptom;
-    Image goodSmiley;
-    Image middleSmiley;
-    Image badSmiley;
+    private String symptom;
+    private Symptom symptomArt;
+    private Image goodSmiley;
+    private Image middleSmiley;
+    private Image badSmiley;
 
-    Label goodLabel;
-    Label middleLabel;
-    Label badLabel;
-    Symptom.Strength choice;
+    private Label goodLabel;
+    private Label middleLabel;
+    private Label badLabel;
+    private Symptom.Strength choice;
 
 
     public SymptomSelectionViewFactory(String symptomname){
@@ -107,6 +107,7 @@ public class SymptomSelectionViewFactory {
                 badLabel.setValue("");
                 goodLabel.setValue("keine");
                 choice = Symptom.Strength.WEAK;
+                symptomArt = SymptomFactory.createSymptomByClass(symptom, choice);
             }
         });
         middleSmiley.addClickListener(new MouseEvents.ClickListener() {
@@ -116,6 +117,7 @@ public class SymptomSelectionViewFactory {
                 badLabel.setValue("");
                 middleLabel.setValue("mäßig");
                 choice = Symptom.Strength.MIDDLE;
+                symptomArt = SymptomFactory.createSymptomByClass(symptom, choice);
 
             }
         });
@@ -126,6 +128,7 @@ public class SymptomSelectionViewFactory {
                 middleLabel.setValue("");
                 badLabel.setValue("stark");
                 choice = Symptom.Strength.SEVERE;
+                symptomArt = SymptomFactory.createSymptomByClass(symptom, choice);
             }
         });
 
@@ -135,6 +138,9 @@ public class SymptomSelectionViewFactory {
     }
     public String getSymptomName(){
         return this.symptom;
+    }
+    public Symptom getSymptomArt(){
+        return  this.symptomArt;
     }
 
 

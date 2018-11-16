@@ -168,6 +168,7 @@ public class DiaryImplementation extends Tagebuch {
         }
     }
 
+
     public void saveDiaryEntry(LocalDateTime datum, Set<Symptom> symptoms){
 
         DiaryEntry diaryEntry = new DiaryEntry(datum , symptoms);
