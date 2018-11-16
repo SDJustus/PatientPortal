@@ -170,13 +170,12 @@ public class DiaryImplementation extends Tagebuch {
 
 
     public void saveDiaryEntry(LocalDateTime datum, Set<Symptom> symptoms){
-
         DiaryEntry diaryEntry = new DiaryEntry(datum , symptoms);
         HashSet<DiaryEntry> diaryEntries = new HashSet<>();
         diaryEntries.add(diaryEntry);
 
         diary.setDiaryEntries(diaryEntries);
-        DiaryManager.getInstance().addDiary(diary);
+        diaryManager.addDiary(diary);
 
         //diaryManager.addDiaryEntry(diaryEntry,diaryEntry.getId());
     }
@@ -185,13 +184,6 @@ public class DiaryImplementation extends Tagebuch {
     public List<DiaryEntryTableViewAdapter> loadDiaryEntries(){
         List<DiaryEntry> tagebucheintragList = diaryManager.readDiaryEntry();
         List<DiaryEntryTableViewAdapter> diaryEntriesForUI = new ArrayList<>();
-
-        List<Diary> diaries = diaryManager.read();
-        System.out.println(diaries.size());
-        System.out.println(diaries.get(0).getDiaryEntries().size());
-
-            System.out.println(tagebucheintragList.size());
-        System.out.println(tagebucheintragList.get(0).getDate());
 
 
             for(DiaryEntry diaryEntry : tagebucheintragList){

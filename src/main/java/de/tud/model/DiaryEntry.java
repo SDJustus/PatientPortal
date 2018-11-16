@@ -17,7 +17,6 @@ public class DiaryEntry extends EntityObject {
     @OneToMany(fetch = FetchType.EAGER,
             orphanRemoval = true,
             cascade = CascadeType.ALL)
-    //@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Set<Symptom> symptom;
 
     public LocalDateTime getDate() {

@@ -14,7 +14,7 @@ import java.util.HashMap;
 
 public class DefaultView extends Composite implements View {
     VerticalLayout formLayout = new VerticalLayout();
-    //com.vaadin.ui.Label label = new com.vaadin.ui.Label("Das ist die Startseite des Patientenportals.");
+    com.vaadin.ui.Label label = new com.vaadin.ui.Label("Das ist die Startseite des Patientenportals.");
     Button save = new Button("Speichern");
 
     public DefaultView(){
@@ -23,7 +23,7 @@ public class DefaultView extends Composite implements View {
                 ".v-panel{padding-bottom: 80px;}");
 
         //save.setEnabled(false);
-
+    /*
         formLayout.setSpacing(true);
         Panel panel = new Panel();
         panel.setSizeFull();
@@ -54,12 +54,12 @@ public class DefaultView extends Composite implements View {
         }
 
 
-        /*
+
         formLayout.addComponents(new SymptomSelectionViewFactory("Depression").getSymptomSelectionView());
         formLayout.addComponents(new SymptomSelectionViewFactory("Müdigkeit").getSymptomSelectionView());
         formLayout.addComponents(new SymptomSelectionViewFactory("Spastik").getSymptomSelectionView());
         formLayout.addComponents(new SymptomSelectionViewFactory("Schmerzen").getSymptomSelectionView());
-        */
+
 
         formLayout.setSizeUndefined();
         formLayout.setMargin(true);
@@ -111,12 +111,12 @@ public class DefaultView extends Composite implements View {
         */
 
 
-
+        /*
 
         horizontalLayout.addComponents(panel, new VerticalLayout(save,grid));
-        setCompositionRoot(horizontalLayout);
+        setCompositionRoot(horizontalLayout);  */
 
-        //setCompositionRoot(label);
+        setCompositionRoot(label);
     }
 
 }
