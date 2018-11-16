@@ -5,7 +5,6 @@ import com.vaadin.server.ClassResource;
 import com.vaadin.ui.*;
 import com.vaadin.ui.themes.ValoTheme;
 import de.tud.model.symptom.*;
-import sun.jvm.hotspot.debugger.cdbg.Sym;
 
 public class SymptomSelectionViewFactory {
     private String symptom;

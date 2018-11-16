@@ -9,6 +9,9 @@ public class CognitiveDisorder extends Symptom {
         super(strength);
     }
 
+    public CognitiveDisorder(){
+
+    }
     @Override
     public String toString() {
         return "Kognitive Störung: " + this.getStrength();

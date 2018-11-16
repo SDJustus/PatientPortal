@@ -9,6 +9,9 @@ public class BladderDisorder extends Symptom{
         super(strength);
     }
 
+    public BladderDisorder(){
+
+    }
     @Override
     public String toString() {
         return "Blasenstörung: " + this.getStrength();

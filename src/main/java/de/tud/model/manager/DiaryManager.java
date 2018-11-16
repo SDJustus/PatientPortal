@@ -28,13 +28,13 @@ public class DiaryManager extends EntityManager<Diary> {
         return diary;
     }
 
-    public List<DiaryEntry> readDiaryEntry() {
+    public Set<DiaryEntry> readDiaryEntriesByDiary(Long diaryId) {
         Session session = getSessionFactory().openSession();
-        List<DiaryEntry> diary = session.createQuery("FROM DiaryEntry").list();
+        Set<DiaryEntry> diaryEntries = session.get(Diary.class, diaryId).getDiaryEntries();
         session.close();
         //System.out.println("Found " + diary.size() + " diaries");
 
-        return diary;
+        return diaryEntries;
     }
 
     //Bei Erstellung von einem Patienten
@@ -54,13 +54,13 @@ public class DiaryManager extends EntityManager<Diary> {
         Session session = getSessionFactory().openSession();
         session.beginTransaction();
         session.save(diaryEntry);
-        //Set<DiaryEntry> diaryEntries = session.get(Diary.class, diaryId).getDiaryEntries();
-        /*
+        Set<DiaryEntry> diaryEntries = session.get(Diary.class, diaryId).getDiaryEntries();
+
         for (DiaryEntry diaryEntry1 : diaryEntries){
             if (diaryEntry.getId().equals(diaryEntry1.getId()))
                 diaryEntries.remove(diaryEntry1);
-        }*/
-        //diaryEntries.add(diaryEntry);
+        }
+        diaryEntries.add(diaryEntry);
         session.getTransaction().commit();
         session.close();
     }

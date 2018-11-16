@@ -3,8 +3,7 @@ package de.tud.model.manager;
 import de.tud.model.Diary;
 import de.tud.model.DiaryEntry;
 import de.tud.model.EntityObject;
-import de.tud.model.symptom.Symptom;
-import de.tud.model.symptom.SymptomFactory;
+import de.tud.model.symptom.*;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
@@ -17,10 +16,19 @@ public abstract class EntityManager<T extends EntityObject> {
     public SessionFactory getSessionFactory(){
         Configuration configuration = new Configuration().configure();
         //TODO: Test if the config with pachages work...
-        configuration.addAnnotatedClass(Diary.class).addAnnotatedClass(DiaryEntry.class)
+        configuration.addAnnotatedClass(Diary.class)
+                .addAnnotatedClass(DiaryEntry.class)
                 .addAnnotatedClass(SymptomFactory.class)
                 .addAnnotatedClass(Symptom.class)
-                .addAnnotatedClass(DiaryManager.class);
+                .addAnnotatedClass(Depression.class)
+        .addAnnotatedClass(Ache.class)
+        .addAnnotatedClass(BladderDisorder.class)
+        .addAnnotatedClass(BowelDisorder.class)
+        .addAnnotatedClass(CognitiveDisorder.class)
+        .addAnnotatedClass(Fatigue.class)
+        .addAnnotatedClass(GaitDisorder.class)
+        .addAnnotatedClass(Spasticity.class);
+
         StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder()
                 .applySettings(configuration.getProperties());
         SessionFactory sessionFactory = configuration

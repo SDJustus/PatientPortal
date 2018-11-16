@@ -8,6 +8,9 @@ public class GaitDisorder extends Symptom {
         super(strength);
     }
 
+    public GaitDisorder(){
+
+    }
     @Override
     public String toString() {
         return null;

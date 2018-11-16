@@ -8,6 +8,9 @@ public class Fatigue extends Symptom {
         super(strength);
     }
 
+    public Fatigue(){
+
+    }
     @Override
     public String toString() {
         return "Fatigue: " + this.getStrength();

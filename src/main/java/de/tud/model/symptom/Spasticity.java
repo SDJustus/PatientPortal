@@ -9,6 +9,9 @@ public class Spasticity extends Symptom {
         super(strength);
     }
 
+    public Spasticity(){
+
+    }
     @Override
     public String toString() {
         return "Spastik: " + this.getStrength();

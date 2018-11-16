@@ -9,6 +9,10 @@ public class Ache extends Symptom {
         super(strength);
     }
 
+    public Ache(){
+
+    }
+
     @Override
     public String toString() {
         return "Schmerzen: " + this.getStrength();

@@ -22,8 +22,9 @@ public class DiaryImplementation extends Tagebuch {
 
     private List<DiaryEntryTableViewAdapter> tagebuch = new ArrayList<>();
     private String choice;
+    private long diaryId;
     DiaryManager diaryManager;
-    Diary diary = new Diary();
+    Diary diary;
 
     @Override
     public void setStyleName(String style, boolean add) {
@@ -31,11 +32,14 @@ public class DiaryImplementation extends Tagebuch {
     }
 
     public DiaryImplementation(){
+
         diaryManager = new DiaryManager();
+        diary = diaryManager.read().get(0);
+        diaryId = diary.getId();
         saveButton.setEnabled(false);
 
 
-        if(!diaryManager.readDiaryEntry().isEmpty()) {
+        if(!diaryManager.readDiaryEntriesByDiary(diaryId).isEmpty()) {
             tagebuch = loadDiaryEntries();
             table.setItems(tagebuch);
         }
@@ -171,18 +175,13 @@ public class DiaryImplementation extends Tagebuch {
 
     public void saveDiaryEntry(LocalDateTime datum, Set<Symptom> symptoms){
         DiaryEntry diaryEntry = new DiaryEntry(datum , symptoms);
-        HashSet<DiaryEntry> diaryEntries = new HashSet<>();
-        diaryEntries.add(diaryEntry);
+        diaryManager.addDiaryEntry(diaryEntry, diaryId);
 
-        diary.setDiaryEntries(diaryEntries);
-        diaryManager.addDiary(diary);
-
-        //diaryManager.addDiaryEntry(diaryEntry,diaryEntry.getId());
     }
 
 
     public List<DiaryEntryTableViewAdapter> loadDiaryEntries(){
-        List<DiaryEntry> tagebucheintragList = diaryManager.readDiaryEntry();
+        Set<DiaryEntry> tagebucheintragList = diaryManager.readDiaryEntriesByDiary(diaryId);
         List<DiaryEntryTableViewAdapter> diaryEntriesForUI = new ArrayList<>();
 
 

@@ -51,6 +51,17 @@ public class DiaryManagerTest {
 
     }
 
+    @Test
+    void shouldGetAllDiaryEntriesFromDiary(){
+        long id = dm.create(new Diary());
+        dm.addDiaryEntry(testEntry1, id);
+
+        Set<DiaryEntry> diaryEntries = dm.readDiaryEntriesByDiary(id);
+
+        assertEquals(diaryEntries.toString(), " ");
+    }
+
+
 
     @Test
     public void createTest(){
