@@ -4,19 +4,17 @@ import com.vaadin.event.MouseEvents;
 import com.vaadin.event.selection.SingleSelectionEvent;
 import com.vaadin.event.selection.SingleSelectionListener;
 import com.vaadin.server.*;
-import com.vaadin.shared.Registration;
 import com.vaadin.ui.*;
 
 import java.time.LocalDateTime;
 import java.util.*;
 import de.tud.Model.DataModelDiary;
-import de.tud.Model.Depression;
 import de.tud.Model.Symptom;
 import de.tud.View.*;
 
 
 
-public class TagebuchImplementierung extends Tagebuch {
+public class Tagebuch2Implementierung extends Tagebuch2 {
 
 
     private List<DataModelDiary> tagebuch = new ArrayList<DataModelDiary>();
@@ -28,7 +26,7 @@ public class TagebuchImplementierung extends Tagebuch {
 
     }
 
-    public TagebuchImplementierung(){
+    public Tagebuch2Implementierung(){
 
 
         //Smiley Bilder laden
