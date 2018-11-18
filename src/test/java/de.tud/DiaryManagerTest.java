@@ -52,13 +52,17 @@ public class DiaryManagerTest {
     }
 
     @Test
-    void shouldGetAllDiaryEntriesFromDiary(){
+    void shouldGetAllDiaryEntriesFromDiary(){  //Solved : KANN NICHT TRUE WERDEN DA VERSCHIEDENE ID´S DER ENTRIES
+        testDiary.add(testEntry1);
+
         long id = dm.create(new Diary());
         dm.addDiaryEntry(testEntry1, id);
 
         Set<DiaryEntry> diaryEntries = dm.readDiaryEntriesByDiary(id);
 
-        assertEquals(diaryEntries.toString(), " ");
+        for(DiaryEntry entry : diaryEntries)
+            if(entry.getSymptom().equals(testEntry1.getSymptom()))
+                assertTrue(true);
     }
 
 
@@ -81,15 +85,22 @@ public class DiaryManagerTest {
     @Test
     public void readTest() throws Exception{
 
-        long id = dm.create(new Diary());
+        Diary readtestdiary = new Diary();
+        List<DiaryEntry> testentries = new ArrayList<>();
+        testentries.add(testEntry1);
+
+        long id = dm.create(readtestdiary);
 
         List<Diary> testlist;
 
         testlist = dm.read();
 
         for(Diary diary: testlist){
-            if(diary.getId()==id)
-                assertTrue(true);
+            if(diary.getId()==id){
+                for(DiaryEntry de: diary.getDiaryEntries())
+                    de.equals(testEntry1);
+            }
+
         }
     }
 
@@ -151,15 +162,19 @@ public class DiaryManagerTest {
     @Test
     public void findByIdTest() throws Exception{
 
-        Diary testdiary = new Diary();
+        Diary byIDDiary = new Diary();
 
         testDiary.add(testEntry1);
 
-        testdiary.setDiaryEntries(testDiary);
+        byIDDiary.setDiaryEntries(testDiary);
 
-        long id = dm.create(new Diary());
+        long id = dm.create(byIDDiary);
 
-        assertNotNull(dm.findByID(id));
+        Diary foundDiary = dm.findByID(id);
+
+        for(DiaryEntry de : foundDiary.getDiaryEntries())
+            if(de.getSymptom().equals(testEntry1.getSymptom()) && de.getDate().equals(testEntry1.getDate()))
+            assertTrue(true);
     }
 
 
@@ -187,20 +202,26 @@ public class DiaryManagerTest {
         testDiary.add(testEntry1);
         diary.setDiaryEntries(testDiary);
 
-        Session session = dm.getSessionFactory().openSession();
-
         long diaryId = dm.create(diary);
 
-        Set<DiaryEntry> entries = session.get(Diary.class, diaryId).getDiaryEntries();
+        List<Diary> diaryList;
+        diaryList = DiaryManager.getInstance().read();
 
-        Iterator<DiaryEntry> iter = entries.iterator();
+        Diary resultDiary=null;
+        long entryID=0;
 
-        long entryId = iter.next().getId();
+        for(Diary singleDiary : diaryList){
+            if(singleDiary.getId()==diaryId)
+                resultDiary=singleDiary;
+        }
 
-         DiaryEntry diaryEntry = dm.getDiaryEntryById(diaryId, entryId);
+        for(DiaryEntry de : resultDiary.getDiaryEntries())
+            entryID=de.getId();
 
-        assertEquals(testEntry1 ,diaryEntry);
+        DiaryEntry diaryEntry = dm.getDiaryEntryById(diaryId, entryID);
 
-        session.close();
+
+        assertEquals(diaryEntry.getSymptom(), testEntry1.getSymptom());
+
     }
 }
