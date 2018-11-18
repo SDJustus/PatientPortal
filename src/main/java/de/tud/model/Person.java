@@ -1,15 +1,18 @@
-package de.tud.Model;
+package de.tud.model;
+
+import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
 @Table(name = "person")
-public class Person {
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+public class Person extends EntityObject{
     public Person() {
     }
 
-    enum Gender{
+    public enum Gender{
         FEMALE, MALE
     }
 
@@ -24,9 +27,9 @@ public class Person {
     }
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "person_id")
-    private int id;
+    private long id;
 
     @Column(name = "person_givenName")
     private String givenName;
@@ -47,11 +50,15 @@ public class Person {
     @Column(name = "person_phone")
     private String phone;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "address_id")
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @PrimaryKeyJoinColumn
     private Address address;
 
-    public int getId(){
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @PrimaryKeyJoinColumn
+    private Diary diary;
+
+    public Long getId(){
         return id;
     }
 
@@ -110,4 +117,13 @@ public class Person {
     public void setAddress(Address address) {
         this.address = address;
     }
+
+    public Diary getDiary() {
+        return diary;
+    }
+
+    public void setDiary(Diary diary) {
+        this.diary = diary;
+    }
 }
+

@@ -1,12 +1,12 @@
-package de.tud.Model;
-
-import javafx.beans.property.SimpleStringProperty;
+package de.tud.model.symptom;
 
 import javax.persistence.*;
 
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+
 public abstract class Symptom {
+
 
     public enum Strength{
         WEAK{
@@ -48,15 +48,20 @@ public abstract class Symptom {
         this.strength = strength;
     }
 
+    public Strength getStrength(){
+        return strength;
+    }
+
+    public void setStrength(Strength strength){
+        this.strength = strength;
+    }
+
     @Override
     public String toString(){
-
-        return  getClass().getSimpleName() + ": " + strength;
+       return getClass().getSimpleName()+": "+strength.toString();
     }
 
-    public Symptom(){
-
-    }
+    public Symptom(){}
 
 
 

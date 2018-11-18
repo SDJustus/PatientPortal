@@ -1,15 +1,14 @@
-package de.tud.Model;
+package de.tud.model;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @Table(name = "address")
-public class Address{
+public class Address extends EntityObject{
 
     @Id
     @GeneratedValue
-    private int id;
+    private long id;
 
     @Column(name = "address_street")
     private String street;
@@ -25,11 +24,9 @@ public class Address{
 
     @Column(name = "address_country")
     private String country;
-/*
-    @OneToMany(
-            cascade = CascadeType.ALL,
-            orphanRemoval = true)
-    private List<Person> personList;*/
+
+    @OneToOne(mappedBy = "address")
+    private Person person;
 
     public Address(String street, String number, int postCode, String city, String country) {
         this.street = street;
@@ -85,5 +82,10 @@ public class Address{
 
     public void setCountry(String country) {
         this.country = country;
+    }
+
+    @Override
+    public Long getId() {
+        return id;
     }
 }

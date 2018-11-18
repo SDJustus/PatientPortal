@@ -1,4 +1,4 @@
-package de.tud.Model;
+package de.tud.model;
 
 import java.time.LocalDate;
 

@@ -1,4 +1,4 @@
-package de.tud.Controller;
+package de.tud.controller;
 
 
 import com.vaadin.annotations.VaadinServletConfiguration;
@@ -7,13 +7,11 @@ import com.vaadin.server.*;
 import com.vaadin.ui.*;
 import com.vaadin.navigator.Navigator;
 import com.vaadin.ui.themes.ValoTheme;
-import de.tud.Model.Address;
-import de.tud.Model.Person;
-import de.tud.Model.PersonManager;
-import de.tud.View.*;
+import de.tud.model.Diary;
+import de.tud.model.manager.DiaryManager;
+import de.tud.view.*;
 
 import javax.servlet.annotation.WebServlet;
-import java.time.LocalDate;
 
 
 public class PatientPortalMenu extends UI {
@@ -47,7 +45,8 @@ public class PatientPortalMenu extends UI {
         //Button z.B. zum Medikationsplan
         Button view2 = new Button("Medikationsplan", e -> getNavigator().navigateTo("view2"));
         view2.addStyleNames(ValoTheme.BUTTON_LINK, ValoTheme.MENU_ITEM);
-        view2.setIcon(VaadinIcons.AMBULANCE);
+        view2.setIcon(VaadinIcons.AMBULANCE, ValoTheme.MENU_PART_LARGE_ICONS);
+        view2.setIcon(VaadinIcons.DOCTOR, ValoTheme.MENU_PART_LARGE_ICONS);
 
 
         //Integration der MenuItems
@@ -55,7 +54,7 @@ public class PatientPortalMenu extends UI {
         //CssLayout menu = new CssLayout(title,view1, view2);
         menu.addStyleName(ValoTheme.MENU_ROOT);
 
-        //View Container = alles was rechts vom Menu ist, wo Inhalte angezeigt werden
+        //view Container = alles was rechts vom Menu ist, wo Inhalte angezeigt werden
         CssLayout viewContainer = new CssLayout();
 
 
@@ -69,8 +68,6 @@ public class PatientPortalMenu extends UI {
         Navigator navigator = new Navigator(this, viewContainer);
         navigator.addView("", DefaultView.class);
         navigator.addView("Patiententagebuch", TagebuchView.class);
-
-
 
 
     }

@@ -1,7 +1,7 @@
-package de.tud.View;
+package de.tud.view;
 import com.vaadin.ui.*;
 import com.vaadin.navigator.View;
-import de.tud.Controller.TagebuchImplementierung;
+import de.tud.controller.DiaryImplementation;
 
 public class TagebuchView extends Composite implements View {
 
@@ -10,7 +10,7 @@ public class TagebuchView extends Composite implements View {
 
         //tbl.setStyleName(".v-horizontal-layout{margin-left: 0 !important; left: 0px !important;}");
         //setCompositionRoot(new TagebucheintragImpl());
-        setCompositionRoot(new TagebuchImplementierung());
+        setCompositionRoot(new DiaryImplementation());
 
 
     }
