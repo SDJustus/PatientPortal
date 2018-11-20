@@ -47,7 +47,7 @@ public class DiaryManagerTest {
         symptom2 = new HashSet<>();
             symptom2.add(factory.createSymptomByClass("GaitDisorder",Symptom.Strength.WEAK));
             symptom2.add(factory.createSymptomByClass("Ache",Symptom.Strength.WEAK));
-        testEntry1 = new DiaryEntry(testTime , symptom1, new VitalDataSet());                               //VitalDataSet is only a placeholder waiting for correct implementation
+        testEntry1 = new DiaryEntry(testTime , symptom1, new VitalDataSet());                               //TODO: Replace "new VitalDaraSet" - it is only a placeholder
 
 
     }

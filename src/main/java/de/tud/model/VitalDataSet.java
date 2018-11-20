@@ -14,7 +14,7 @@ public class VitalDataSet extends EntityObject {
     private float height;
     @Column(name = "weight")
     private float weight;
-    @Column(name = "blood_pressure_first_value")
+    @Column(name = "blood_pressure_first_value")                                            // Blood Pressure ist stored in 2 Variables because it is measured in 2 Numbers ...e.g. 120/90
     private short bloodPressureFirstValue;
     @Column(name = "blood_pressure_second_value")
     private short bloodPressureSecondValue;

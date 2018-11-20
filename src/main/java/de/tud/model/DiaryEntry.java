@@ -51,4 +51,12 @@ public class DiaryEntry extends EntityObject {
     public void setSymptom(Set<Symptom> symptom) {
         this.symptom = symptom;
     }
+
+    public void setVitalDataSet(VitalDataSet vitalDataSet){
+        this.vitalDataSet=vitalDataSet;
+    }
+
+    public VitalDataSet getVitalDataSet(){
+        return this.vitalDataSet;
+    }
 }

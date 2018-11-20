@@ -35,8 +35,8 @@ public class DiaryTest {
             symptomSet.add(factory.createSymptomByClass("Depression", Symptom.Strength.WEAK));
         symptomSet = new HashSet<>();
         symptomSet.add(factory.createSymptomByClass("Fatigue", Symptom.Strength.SEVERE));
-        testEntry1 = new DiaryEntry(testTime, symptomSet, new VitalDataSet());                          //VitalDataSet is only a placeholder waiting for correct implementation
-        testEntry2 = new DiaryEntry(testTime, symptomSet2, new VitalDataSet());                         //VitalDataSet is only a placeholder waiting for correct implementation
+        testEntry1 = new DiaryEntry(testTime, symptomSet, new VitalDataSet());                          //TODO: Replace "new VitalDaraSet" - it is only a placeholder
+        testEntry2 = new DiaryEntry(testTime, symptomSet2, new VitalDataSet());                         //TODO: Replace "new VitalDaraSet" - it is only a placeholder
         testDiaryEntrySet = new HashSet<>();
             testDiaryEntrySet.add(testEntry1);
             testDiaryEntrySet.add(testEntry2);
