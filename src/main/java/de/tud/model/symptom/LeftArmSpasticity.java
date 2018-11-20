@@ -3,13 +3,13 @@ package de.tud.model.symptom;
 import javax.persistence.Entity;
 
 @Entity
-public class Spasticity extends Symptom {
+public class LeftArmSpasticity extends Symptom {
 
-    protected Spasticity(Strength strength) {
+    protected LeftArmSpasticity(Strength strength) {
         super(strength);
     }
 
-    public Spasticity(){
+    public LeftArmSpasticity(){
 
     }
     @Override

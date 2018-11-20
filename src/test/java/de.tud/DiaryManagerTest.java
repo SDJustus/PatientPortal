@@ -43,7 +43,7 @@ public class DiaryManagerTest {
         testDiary = new HashSet<>();
         symptom1 = new HashSet<>();
             symptom1.add(factory.createSymptomByClass("Fatigue",Symptom.Strength.MIDDLE));
-            symptom1.add(factory.createSymptomByClass("Spasticity", Symptom.Strength.SEVERE));
+            symptom1.add(factory.createSymptomByClass("RightArmSpasticity", Symptom.Strength.SEVERE));
         symptom2 = new HashSet<>();
             symptom2.add(factory.createSymptomByClass("GaitDisorder",Symptom.Strength.WEAK));
             symptom2.add(factory.createSymptomByClass("Ache",Symptom.Strength.WEAK));
