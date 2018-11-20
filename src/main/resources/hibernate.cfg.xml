@@ -25,6 +25,7 @@
     <mapping class="de.tud.model.Address"/>
     <mapping class="de.tud.model.Diary"/>
     <mapping class="de.tud.model.DiaryEntry"/>
+    <mapping class="de.tud.model.VitalDataSet"/>
     <mapping class="de.tud.model.symptom.Symptom"/>
     <mapping class="de.tud.model.symptom.Depression"/>
     <mapping class="de.tud.model.symptom.Ache"/>
@@ -34,10 +35,6 @@
     <mapping class="de.tud.model.symptom.Fatigue"/>
     <mapping class="de.tud.model.symptom.GaitDisorder"/>
     <mapping class="de.tud.model.symptom.Spasticity"/>
-
-
-
-
 
   </session-factory>
 </hibernate-configuration>
