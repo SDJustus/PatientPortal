@@ -3,6 +3,7 @@ package de.tud;
 
 import de.tud.model.Diary;
 import de.tud.model.DiaryEntry;
+import de.tud.model.VitalDataSet;
 import de.tud.model.manager.DiaryManager;
 import de.tud.model.symptom.Symptom;
 import de.tud.model.symptom.SymptomFactory;
@@ -46,7 +47,7 @@ public class DiaryManagerTest {
         symptom2 = new HashSet<>();
             symptom2.add(factory.createSymptomByClass("GaitDisorder",Symptom.Strength.WEAK));
             symptom2.add(factory.createSymptomByClass("Ache",Symptom.Strength.WEAK));
-        testEntry1 = new DiaryEntry(testTime , symptom1);
+        testEntry1 = new DiaryEntry(testTime , symptom1, new VitalDataSet());                               //VitalDataSet is only a placeholder waiting for correct implementation
 
 
     }
