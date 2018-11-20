@@ -21,13 +21,16 @@ public abstract class EntityManager<T extends EntityObject> {
                 .addAnnotatedClass(SymptomFactory.class)
                 .addAnnotatedClass(Symptom.class)
                 .addAnnotatedClass(Depression.class)
-        .addAnnotatedClass(Ache.class)
-        .addAnnotatedClass(BladderDisorder.class)
-        .addAnnotatedClass(BowelDisorder.class)
-        .addAnnotatedClass(CognitiveDisorder.class)
-        .addAnnotatedClass(Fatigue.class)
-        .addAnnotatedClass(GaitDisorder.class)
-        .addAnnotatedClass(Spasticity.class);
+                .addAnnotatedClass(Ache.class)
+                .addAnnotatedClass(BladderDisorder.class)
+                .addAnnotatedClass(BowelDisorder.class)
+                .addAnnotatedClass(CognitiveDisorder.class)
+                .addAnnotatedClass(Fatigue.class)
+                .addAnnotatedClass(GaitDisorder.class)
+                .addAnnotatedClass(LeftArmSpasticity.class)
+                .addAnnotatedClass(RightArmSpasticity.class)
+                .addAnnotatedClass(LeftLegSpasticity.class)
+                .addAnnotatedClass(RightLegSpasticity.class);
 
         StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder()
                 .applySettings(configuration.getProperties());

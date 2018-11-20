@@ -19,8 +19,15 @@ public class SymptomFactory {
                 return new Fatigue(strength);
             case "GaitDisorder":
                 return new GaitDisorder(strength);
-            case "Spasticity":
-                return new Spasticity(strength);
+            case "LeftLegSpasticity":
+                return new LeftLegSpasticity(strength);
+            case "RightLegSpasticity":
+                return new RightLegSpasticity(strength);
+            case "LeftArmSpasticity":
+                return new LeftArmSpasticity(strength);
+            case "RightArmSpasticity":
+                return new RightArmSpasticity(strength);
+
             default:
                 throw new IllegalArgumentException("can't create Symptom from className!" + className);
         }
