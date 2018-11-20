@@ -3,6 +3,7 @@ package de.tud.model.manager;
 import de.tud.model.Diary;
 import de.tud.model.DiaryEntry;
 import de.tud.model.EntityObject;
+import de.tud.model.VitalDataSet;
 import de.tud.model.symptom.*;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -30,7 +31,8 @@ public abstract class EntityManager<T extends EntityObject> {
                 .addAnnotatedClass(LeftArmSpasticity.class)
                 .addAnnotatedClass(RightArmSpasticity.class)
                 .addAnnotatedClass(LeftLegSpasticity.class)
-                .addAnnotatedClass(RightLegSpasticity.class);
+                .addAnnotatedClass(RightLegSpasticity.class)
+                .addAnnotatedClass(VitalDataSet.class);
 
         StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder()
                 .applySettings(configuration.getProperties());
