@@ -1,32 +1,52 @@
 package de.tud.view;
 
-import com.vaadin.server.Page;
 import com.vaadin.ui.*;
+import java.util.ArrayList;
 import com.vaadin.navigator.View;
-import de.tud.model.DiaryEntryTableViewAdapter;
-import de.tud.model.symptom.Depression;
-import de.tud.model.symptom.Symptom;
-
 import java.time.LocalDateTime;
-import  java.util.ArrayList;
-import java.util.HashMap;
+import java.util.*;
+import com.vaadin.server.*;
+import de.tud.model.DiaryEntryTableViewAdapter;
 
 
 public class DefaultView extends Composite implements View {
-    VerticalLayout formLayout = new VerticalLayout();
-    com.vaadin.ui.Label label = new com.vaadin.ui.Label("Das ist die Startseite des Patientenportals.");
-    Button save = new Button("Speichern");
+
+    private HorizontalLayout horizontalLayout = new HorizontalLayout(); //Seitenstruktur
+    private VerticalLayout verticalLayout = new VerticalLayout();  //Vertical Layout wird in horizontal Layout gepackt
+    private DateTimeField dateTimeField = new DateTimeField(); //wird in Vertical Layout gepackt
+    private GridLayout gridLayout = new GridLayout(2,2); // wird auch in Vertical Layout gepackt, evtl. Panel später einfügen zum Scrollen
+    //com.vaadin.ui.Label label = new com.vaadin.ui.Label("Das ist die Startseite des Patientenportals.");
+    private static Button save = new Button("Speichern");
+
+    private List<DiaryEntryTableViewAdapter> tagebuch = new ArrayList<>();
 
     public DefaultView(){
         UI.getCurrent().getPage().getStyles().add("#smileybild:hover{transform: scale(1.2);}"+
                 "#smileybild:{transition: transform .2s;}+" +
                 ".v-panel{padding-bottom: 80px;}");
 
-        //save.setEnabled(false);
-    /*
-        formLayout.setSpacing(true);
+        //save Button ausschalten standardmäßig
+        save.setEnabled(false);
+
+        //DatePicker
+        DateTimeField dateTimeField = new DateTimeField();
+        verticalLayout.addComponent(dateTimeField);
+
+
+        verticalLayout.setSpacing(true);
+        verticalLayout.setSizeUndefined();
+        verticalLayout.setMargin(true);
+
+
+        //GridLayout hinzufügen
+        verticalLayout.addComponent(gridLayout);
+
+        /*
         Panel panel = new Panel();
+        panel.setContent(gridLayout);
+        verticalLayout.addComponent(panel);
         panel.setSizeFull();
+
 
         panel.setHeight(""+0.9*Page.getCurrent().getBrowserWindowHeight());
         panel.setWidth(""+-200+Page.getCurrent().getBrowserWindowWidth());
@@ -36,12 +56,11 @@ public class DefaultView extends Composite implements View {
             panel.setWidth(""+-200+e.getWidth());
 
         });
+        */
 
         ArrayList<String> mySymptoms = new ArrayList<String>();
         mySymptoms.add("Depression");
-        mySymptoms.add("Müdigkeit");
-        mySymptoms.add("Spastik");
-        mySymptoms.add("Schmerzen");
+        mySymptoms.add("Fatigue");
 
         //SymptomSelectionView Objekte erstellen
         ArrayList<SymptomSelectionViewFactory> symptomSelectionViewFactories = new ArrayList<>();
@@ -50,23 +69,12 @@ public class DefaultView extends Composite implements View {
         }
         //Boxen zum Format Layout hinzufügen
         for(SymptomSelectionViewFactory symptomSelectionViewFactory:symptomSelectionViewFactories){
-            formLayout.addComponent(symptomSelectionViewFactory.getSymptomSelectionView());
+            gridLayout.addComponent(symptomSelectionViewFactory.getSymptomSelectionView());
         }
 
 
 
-        formLayout.addComponents(new SymptomSelectionViewFactory("Depression").getSymptomSelectionView());
-        formLayout.addComponents(new SymptomSelectionViewFactory("Müdigkeit").getSymptomSelectionView());
-        formLayout.addComponents(new SymptomSelectionViewFactory("Spastik").getSymptomSelectionView());
-        formLayout.addComponents(new SymptomSelectionViewFactory("Schmerzen").getSymptomSelectionView());
-
-
-        formLayout.setSizeUndefined();
-        formLayout.setMargin(true);
-        panel.setContent(formLayout);
-
-
-        //formLayout.setExpandRatio(formLayout.getComponent(0), 0.1f);
+        //verticalLayout.setExpandRatio(verticalLayout.getComponent(0), 0.1f);
         HorizontalLayout horizontalLayout = new HorizontalLayout();
         horizontalLayout.setSpacing(true);
         horizontalLayout.setMargin(true);
@@ -88,35 +96,29 @@ public class DefaultView extends Composite implements View {
                     }
                     System.out.println(s.getSymptomName() +" "+ s.getSelection());
                     hashMap.put(s.getSymptomName(), s.getSelection().toString());
+
                     diaryEntryTableViewAdapter.add(new DiaryEntryTableViewAdapter(LocalDateTime.now().toString(), s.getSymptomArt()));
 
                 }
                 if(hashMap.isEmpty()){
                     Notification.show("Es muss mindestens ein Symptom ausgewählt werden!");
+                    return;
                 }
-                grid.setItems(diaryEntryTableViewAdapter);
+                tagebuch = diaryEntryTableViewAdapter;
+                grid.setItems(tagebuch);
             }
         });
 
 
-        /*
-        public void saveButton(){
-            for (SymptomSelectionViewFactory symptomSelectionViewFactory : symptomSelectionViewFactories) {
-                if (symptomSelectionViewFactory.getSelection() == null) {
-                    save.setEnabled(false);
-                    return;
-                }
-            }
-        }
-        */
+        horizontalLayout.addComponents(verticalLayout ,new VerticalLayout(save,grid));
+        setCompositionRoot(horizontalLayout);
 
-
-        /*
-
-        horizontalLayout.addComponents(panel, new VerticalLayout(save,grid));
-        setCompositionRoot(horizontalLayout);  */
-
-        setCompositionRoot(label);
+        //setCompositionRoot(label);
     }
+
+    public static void setSaveButton(boolean value){
+        save.setEnabled(value);
+    }
+
 
 }
