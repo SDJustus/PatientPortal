@@ -12,8 +12,10 @@ import de.tud.model.DiaryEntryTableViewAdapter;
 public class DefaultView extends Composite implements View {
 
     private HorizontalLayout horizontalLayout = new HorizontalLayout(); //Seitenstruktur
-    private VerticalLayout verticalLayout = new VerticalLayout();  //Vertical Layout wird in horizontal Layout gepackt
+    private HorizontalLayout menuBar = new HorizontalLayout();
+    private static VerticalLayout verticalLayout = new VerticalLayout();  //Vertical Layout wird in horizontal Layout gepackt
     private DateTimeField dateTimeField = new DateTimeField(); //wird in Vertical Layout gepackt
+    private Button newEntry = new Button("Neuer Eintrag");
     private GridLayout gridLayout = new GridLayout(2,2); // wird auch in Vertical Layout gepackt, evtl. Panel später einfügen zum Scrollen
     //com.vaadin.ui.Label label = new com.vaadin.ui.Label("Das ist die Startseite des Patientenportals.");
     private static Button save = new Button("Speichern");
@@ -27,19 +29,20 @@ public class DefaultView extends Composite implements View {
 
         //save Button ausschalten standardmäßig
         save.setEnabled(false);
-
         //DatePicker
         DateTimeField dateTimeField = new DateTimeField();
+        menuBar.addComponents(dateTimeField, save, newEntry);
+
+
+
         verticalLayout.addComponent(dateTimeField);
 
-
-        verticalLayout.setSpacing(true);
         verticalLayout.setSizeUndefined();
-        verticalLayout.setMargin(true);
 
 
         //GridLayout hinzufügen
-        verticalLayout.addComponent(gridLayout);
+        verticalLayout.addComponent(new SymptomSelectionViewFactory().getSymptomSelectionView());
+
 
         /*
         Panel panel = new Panel();
@@ -57,7 +60,7 @@ public class DefaultView extends Composite implements View {
 
         });
         */
-
+/*
         ArrayList<String> mySymptoms = new ArrayList<String>();
         mySymptoms.add("Depression");
         mySymptoms.add("Fatigue");
@@ -108,9 +111,9 @@ public class DefaultView extends Composite implements View {
                 grid.setItems(tagebuch);
             }
         });
+        */
 
-
-        horizontalLayout.addComponents(verticalLayout ,new VerticalLayout(save,grid));
+        horizontalLayout.addComponents(verticalLayout);
         setCompositionRoot(horizontalLayout);
 
         //setCompositionRoot(label);
@@ -118,6 +121,17 @@ public class DefaultView extends Composite implements View {
 
     public static void setSaveButton(boolean value){
         save.setEnabled(value);
+    }
+
+
+    public ComboBox<String> addComboBox(List<String> symptoms){
+        ComboBox<String> comboBox = new ComboBox<>();
+        comboBox.setItems(symptoms);
+        return comboBox;
+    }
+
+    public static void addNewSymptom(){
+        verticalLayout.addComponents(new SymptomSelectionViewFactory().getSymptomSelectionView());
     }
 
 

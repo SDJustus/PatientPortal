@@ -11,21 +11,21 @@ public class SymptomFactory {
                 return new BladderDisorder(strength);
             case "BowelDisorder":
                 return new BowelDisorder(strength);
-            case "CognitiveDisorder":
+            case "Kognitive Störung":
                 return new CognitiveDisorder(strength);
             case "Depression":
                 return new Depression(strength);
-            case "Fatigue":
+            case "Müdigkeit":
                 return new Fatigue(strength);
-            case "GaitDisorder":
+            case "Gehstörung":
                 return new GaitDisorder(strength);
-            case "LeftLegSpasticity":
+            case "Spastik im linken Bein":
                 return new LeftLegSpasticity(strength);
-            case "RightLegSpasticity":
+            case "Spastik im rechten Bein":
                 return new RightLegSpasticity(strength);
-            case "LeftArmSpasticity":
+            case "Spastik im linken Arm":
                 return new LeftArmSpasticity(strength);
-            case "RightArmSpasticity":
+            case "Spastik im rechten Arm":
                 return new RightArmSpasticity(strength);
 
             default:
