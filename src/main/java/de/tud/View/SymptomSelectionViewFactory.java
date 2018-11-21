@@ -1,5 +1,6 @@
 package de.tud.view;
 
+import clojure.lang.PersistentStructMap;
 import com.vaadin.event.MouseEvents;
 import com.vaadin.server.ClassResource;
 import com.vaadin.ui.*;
@@ -107,6 +108,7 @@ public class SymptomSelectionViewFactory {
                 goodLabel.setValue("keine");
                 choice = Symptom.Strength.WEAK;
                 symptomArt = SymptomFactory.createSymptomByClass(symptom, choice);
+                DefaultView.setSaveButton(true);
             }
         });
         middleSmiley.addClickListener(new MouseEvents.ClickListener() {
@@ -117,6 +119,7 @@ public class SymptomSelectionViewFactory {
                 middleLabel.setValue("mäßig");
                 choice = Symptom.Strength.MIDDLE;
                 symptomArt = SymptomFactory.createSymptomByClass(symptom, choice);
+                DefaultView.setSaveButton(true);
 
             }
         });
@@ -128,6 +131,7 @@ public class SymptomSelectionViewFactory {
                 badLabel.setValue("stark");
                 choice = Symptom.Strength.SEVERE;
                 symptomArt = SymptomFactory.createSymptomByClass(symptom, choice);
+                DefaultView.setSaveButton(true);
             }
         });
 
@@ -141,6 +145,7 @@ public class SymptomSelectionViewFactory {
     public Symptom getSymptomArt(){
         return  this.symptomArt;
     }
+
 
 
 }

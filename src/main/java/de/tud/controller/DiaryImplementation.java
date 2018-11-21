@@ -13,8 +13,7 @@ import de.tud.model.manager.DiaryManager;
 import de.tud.model.symptom.Depression;
 import de.tud.model.symptom.Symptom;
 import de.tud.model.symptom.SymptomFactory;
-import de.tud.view.*;
-
+import de.tud.view.Tagebuch;
 
 
 public class DiaryImplementation extends Tagebuch {
@@ -174,11 +173,10 @@ public class DiaryImplementation extends Tagebuch {
 
 
     public void saveDiaryEntry(LocalDateTime datum, Set<Symptom> symptoms){
-        DiaryEntry diaryEntry = new DiaryEntry(datum , symptoms,new VitalDataSet());        //TODO: Replace "new VitalDaraSet" - it is only a placeholder
+        DiaryEntry diaryEntry = new DiaryEntry(datum , symptoms, new VitalDataSet());        //TODO: Replace "new VitalDaraSet" - it is only a placeholder
         diaryManager.addDiaryEntry(diaryEntry, diaryId);
 
     }
-
 
     public List<DiaryEntryTableViewAdapter> loadDiaryEntries(){
         Set<DiaryEntry> tagebucheintragList = diaryManager.readDiaryEntriesByDiary(diaryId);
