@@ -30,6 +30,7 @@ public class DiaryManagerTest {
     private SymptomFactory factory;
     private static LocalDateTime testTime;
     private DiaryManager dm;
+    private VitalDataSet vds;
 
     @BeforeAll
     public static void timeSetter(){
@@ -40,14 +41,22 @@ public class DiaryManagerTest {
     public void initializer(){
         factory = new SymptomFactory();
         dm = new DiaryManager();
+
+        vds = new VitalDataSet();
+        vds.setBloodPressureFirstValue(123);
+        vds.setBloodPressureSecondValue(90);
+        vds.setHeartRate(103);
+        vds.setHeight(173);
+        vds.setWeight(80);
+
         testDiary = new HashSet<>();
         symptom1 = new HashSet<>();
-            symptom1.add(factory.createSymptomByClass("Fatigue",Symptom.Strength.MIDDLE));
-            symptom1.add(factory.createSymptomByClass("RightArmSpasticity", Symptom.Strength.SEVERE));
+        symptom1.add(factory.createSymptomByClass("Fatigue",Symptom.Strength.MIDDLE));
+        symptom1.add(factory.createSymptomByClass("RightArmSpasticity", Symptom.Strength.SEVERE));
         symptom2 = new HashSet<>();
-            symptom2.add(factory.createSymptomByClass("GaitDisorder",Symptom.Strength.WEAK));
-            symptom2.add(factory.createSymptomByClass("Ache",Symptom.Strength.WEAK));
-        testEntry1 = new DiaryEntry(testTime , symptom1, new VitalDataSet());                               //TODO: Replace "new VitalDaraSet" - it is only a placeholder
+        symptom2.add(factory.createSymptomByClass("GaitDisorder",Symptom.Strength.WEAK));
+        symptom2.add(factory.createSymptomByClass("Ache",Symptom.Strength.WEAK));
+        testEntry1 = new DiaryEntry(testTime , symptom1, vds);
 
     }
 
@@ -242,4 +251,28 @@ public class DiaryManagerTest {
         assertEquals(diaryEntry.getSymptom(), testEntry1.getSymptom());
 
     }
+
+    @Test
+    public void VitalDataGetterSetterTest(){
+
+        Diary diary = new Diary();
+        testDiary.add(testEntry1);
+        diary.setDiaryEntries(testDiary);
+
+        long id = dm.create(diary);
+
+        List<Diary> readDiary = dm.read();
+
+        for(Diary rd : readDiary){
+            if(rd.getId().equals(id)){
+                for(DiaryEntry de : rd.getDiaryEntries()){
+                    if(de.getVitalDataSet().equals(vds))
+                        assertTrue(true);
+                }
+            }
+        }
+
+
+    }
+
 }
