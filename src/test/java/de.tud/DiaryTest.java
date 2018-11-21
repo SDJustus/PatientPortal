@@ -2,6 +2,7 @@ package de.tud;
 
 import de.tud.model.Diary;
 import de.tud.model.DiaryEntry;
+import de.tud.model.VitalDataSet;
 import de.tud.model.symptom.Symptom;
 import de.tud.model.symptom.SymptomFactory;
 import org.junit.jupiter.api.BeforeEach;
@@ -34,8 +35,8 @@ public class DiaryTest {
             symptomSet.add(factory.createSymptomByClass("Depression", Symptom.Strength.WEAK));
         symptomSet = new HashSet<>();
         symptomSet.add(factory.createSymptomByClass("Fatigue", Symptom.Strength.SEVERE));
-        testEntry1 = new DiaryEntry(testTime, symptomSet);
-        testEntry2 = new DiaryEntry(testTime, symptomSet2);
+        testEntry1 = new DiaryEntry(testTime, symptomSet, new VitalDataSet());                          //TODO: Replace "new VitalDaraSet" - it is only a placeholder
+        testEntry2 = new DiaryEntry(testTime, symptomSet2, new VitalDataSet());                         //TODO: Replace "new VitalDaraSet" - it is only a placeholder
         testDiaryEntrySet = new HashSet<>();
             testDiaryEntrySet.add(testEntry1);
             testDiaryEntrySet.add(testEntry2);

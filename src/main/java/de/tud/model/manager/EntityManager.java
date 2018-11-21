@@ -3,6 +3,7 @@ package de.tud.model.manager;
 import de.tud.model.Diary;
 import de.tud.model.DiaryEntry;
 import de.tud.model.EntityObject;
+import de.tud.model.VitalDataSet;
 import de.tud.model.symptom.*;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -21,13 +22,17 @@ public abstract class EntityManager<T extends EntityObject> {
                 .addAnnotatedClass(SymptomFactory.class)
                 .addAnnotatedClass(Symptom.class)
                 .addAnnotatedClass(Depression.class)
-        .addAnnotatedClass(Ache.class)
-        .addAnnotatedClass(BladderDisorder.class)
-        .addAnnotatedClass(BowelDisorder.class)
-        .addAnnotatedClass(CognitiveDisorder.class)
-        .addAnnotatedClass(Fatigue.class)
-        .addAnnotatedClass(GaitDisorder.class)
-        .addAnnotatedClass(Spasticity.class);
+                .addAnnotatedClass(Ache.class)
+                .addAnnotatedClass(BladderDisorder.class)
+                .addAnnotatedClass(BowelDisorder.class)
+                .addAnnotatedClass(CognitiveDisorder.class)
+                .addAnnotatedClass(Fatigue.class)
+                .addAnnotatedClass(GaitDisorder.class)
+                .addAnnotatedClass(LeftArmSpasticity.class)
+                .addAnnotatedClass(RightArmSpasticity.class)
+                .addAnnotatedClass(LeftLegSpasticity.class)
+                .addAnnotatedClass(RightLegSpasticity.class)
+                .addAnnotatedClass(VitalDataSet.class);
 
         StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder()
                 .applySettings(configuration.getProperties());

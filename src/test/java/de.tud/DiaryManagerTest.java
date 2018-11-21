@@ -3,6 +3,7 @@ package de.tud;
 
 import de.tud.model.Diary;
 import de.tud.model.DiaryEntry;
+import de.tud.model.VitalDataSet;
 import de.tud.model.manager.DiaryManager;
 import de.tud.model.symptom.Symptom;
 import de.tud.model.symptom.SymptomFactory;
@@ -29,6 +30,7 @@ public class DiaryManagerTest {
     private SymptomFactory factory;
     private static LocalDateTime testTime;
     private DiaryManager dm;
+    private VitalDataSet vds;
 
     @BeforeAll
     public static void timeSetter(){
@@ -39,20 +41,27 @@ public class DiaryManagerTest {
     public void initializer(){
         factory = new SymptomFactory();
         dm = new DiaryManager();
+
+        vds = new VitalDataSet();
+        vds.setBloodPressureFirstValue(123);
+        vds.setBloodPressureSecondValue(90);
+        vds.setHeartRate(103);
+        vds.setHeight(173);
+        vds.setWeight(80);
+
         testDiary = new HashSet<>();
         symptom1 = new HashSet<>();
-            symptom1.add(factory.createSymptomByClass("Fatigue",Symptom.Strength.MIDDLE));
-            symptom1.add(factory.createSymptomByClass("Spasticity", Symptom.Strength.SEVERE));
+        symptom1.add(factory.createSymptomByClass("Fatigue",Symptom.Strength.MIDDLE));
+        symptom1.add(factory.createSymptomByClass("RightArmSpasticity", Symptom.Strength.SEVERE));
         symptom2 = new HashSet<>();
-            symptom2.add(factory.createSymptomByClass("GaitDisorder",Symptom.Strength.WEAK));
-            symptom2.add(factory.createSymptomByClass("Ache",Symptom.Strength.WEAK));
-        testEntry1 = new DiaryEntry(testTime , symptom1);
-
+        symptom2.add(factory.createSymptomByClass("GaitDisorder",Symptom.Strength.WEAK));
+        symptom2.add(factory.createSymptomByClass("Ache",Symptom.Strength.WEAK));
+        testEntry1 = new DiaryEntry(testTime , symptom1, vds);
 
     }
 
     @Test
-    void shouldGetAllDiaryEntriesFromDiary(){  //Solved : KANN NICHT TRUE WERDEN DA VERSCHIEDENE ID´S DER ENTRIES
+    void shouldGetAllDiaryEntriesFromDiary(){
         testDiary.add(testEntry1);
 
         long id = dm.create(new Diary());
@@ -62,7 +71,7 @@ public class DiaryManagerTest {
 
         for(DiaryEntry entry : diaryEntries)
             if(entry.getSymptom().equals(testEntry1.getSymptom()))
-                assertTrue(true);
+                assertEquals(entry.getSymptom(), testEntry1.getSymptom());
     }
 
 
@@ -75,7 +84,8 @@ public class DiaryManagerTest {
         SessionFactory sessionfac = dm.getSessionFactory();
         Session session = sessionfac.openSession();
 
-        assertTrue(session.get(Diary.class, id)!=null && session.get(Diary.class, id).getClass()==Diary.class);
+        assertNotNull(session.get(Diary.class, id));
+        assertTrue(session.get(Diary.class, id).getClass().equals(Diary.class));
 
         session.close();
     }
@@ -83,7 +93,7 @@ public class DiaryManagerTest {
 
 
     @Test
-    public void readTest() throws Exception{
+    public void readTest(){
 
         Diary readtestdiary = new Diary();
         List<DiaryEntry> testentries = new ArrayList<>();
@@ -106,7 +116,7 @@ public class DiaryManagerTest {
 
 
     @Test
-    public void addDiaryEntryTest() throws Exception{
+    public void addDiaryEntryTest(){
 
         long id = dm.create(new Diary());
 
@@ -125,7 +135,7 @@ public class DiaryManagerTest {
 
 
     @Test
-    public void deleteTest() throws Exception{
+    public void deleteTest(){
 
 
         long id = dm.create(new Diary());
@@ -141,7 +151,7 @@ public class DiaryManagerTest {
 
 
     @Test
-    public void removeDiaryEntryTest() throws Exception{
+    public void removeDiaryEntryTest(){
 
         Diary diary = new Diary();
         testDiary.add(testEntry1);
@@ -160,7 +170,7 @@ public class DiaryManagerTest {
 
 
     @Test
-    public void findByIdTest() throws Exception{
+    public void findByIdTest(){
 
         Diary byIDDiary = new Diary();
 
@@ -172,19 +182,35 @@ public class DiaryManagerTest {
 
         Diary foundDiary = dm.findByID(id);
 
-        for(DiaryEntry de : foundDiary.getDiaryEntries())
-            if(de.getSymptom().equals(testEntry1.getSymptom()) && de.getDate().equals(testEntry1.getDate()))
-            assertTrue(true);
+        assertNotNull(foundDiary);
+        assertEquals(foundDiary.getId(), byIDDiary.getId());
+        assertEquals(foundDiary.getDiaryEntries().size(), byIDDiary.getDiaryEntries().size());
+        Iterator foundDiaryIterator = foundDiary.getDiaryEntries().iterator();
+        Iterator byIdDiaryIterator = byIDDiary.getDiaryEntries().iterator();
+        while(foundDiaryIterator.hasNext() && byIdDiaryIterator.hasNext()){
+            DiaryEntry foundDiaryEntry = (DiaryEntry)foundDiaryIterator.next();
+            DiaryEntry byIDDiaryEntry = (DiaryEntry) byIdDiaryIterator.next();
+            assertEquals(foundDiaryEntry.getSymptom().size(), byIDDiaryEntry.getSymptom().size());
+            Iterator foundSymptomIterator = foundDiaryEntry.getSymptom().iterator();
+            Iterator byIDSymptomIterator = byIDDiaryEntry.getSymptom().iterator();
+            while(foundSymptomIterator.hasNext()&& byIdDiaryIterator.hasNext()){
+                Symptom foundSymptom = (Symptom) foundSymptomIterator.next();
+                Symptom byIDSymptom = (Symptom) byIDSymptomIterator.next();
+                assertEquals(foundSymptom.getSymptomId(), byIDSymptom.getSymptomId());
+                assertEquals(foundSymptom.getClass().getSimpleName(), byIDSymptom.getClass().getSimpleName());
+
+            }
+        }
     }
 
 
     @Test
-    public void deleteAllTest() throws Exception{
-
+    public void deleteAllTest(){
+/*
         dm.create(new Diary());
         dm.create(new Diary());
         dm.create(new Diary());
-
+*/
         dm.deleteAll();
 
         Session session = dm.getSessionFactory().openSession();
@@ -192,11 +218,12 @@ public class DiaryManagerTest {
         assertTrue(session.createQuery("FROM Diary").list().isEmpty());
 
         session.close();
+
     }
 
 
     @Test
-    public void getDiaryEntryByIdTest() throws Exception{
+    public void getDiaryEntryByIdTest(){
 
         Diary diary = new Diary();
         testDiary.add(testEntry1);
@@ -224,4 +251,28 @@ public class DiaryManagerTest {
         assertEquals(diaryEntry.getSymptom(), testEntry1.getSymptom());
 
     }
+
+    @Test
+    public void VitalDataGetterSetterTest(){
+
+        Diary diary = new Diary();
+        testDiary.add(testEntry1);
+        diary.setDiaryEntries(testDiary);
+
+        long id = dm.create(diary);
+
+        List<Diary> readDiary = dm.read();
+
+        for(Diary rd : readDiary){
+            if(rd.getId().equals(id)){
+                for(DiaryEntry de : rd.getDiaryEntries()){
+                    if(de.getVitalDataSet().equals(vds))
+                        assertTrue(true);
+                }
+            }
+        }
+
+
+    }
+
 }

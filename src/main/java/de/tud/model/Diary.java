@@ -1,6 +1,9 @@
 package de.tud.model;
 
 
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -19,8 +22,10 @@ public class Diary extends EntityObject {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @OneToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "diary_id")
+    @Cascade({org.hibernate.annotations.CascadeType.ALL})
+    @Fetch(value = FetchMode.SUBSELECT)
     private Set<DiaryEntry> diaryEntries;
 
 
