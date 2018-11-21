@@ -56,6 +56,7 @@ public abstract class Symptom {
         this.strength = strength;
     }
 
+    //TODO: adjust all toString-Methods
     @Override
     public String toString(){
        return getClass().getSimpleName()+": "+strength.toString();

@@ -3,6 +3,7 @@ package de.tud.model.manager;
 import de.tud.model.Diary;
 import de.tud.model.DiaryEntry;
 
+import de.tud.model.VitalDataSet;
 import org.hibernate.Session;
 
 
@@ -18,6 +19,8 @@ public class DiaryManager extends EntityManager<Diary> {
     public static DiaryManager getInstance(){
         return INSTANCE;
     }
+
+
     @Override
     public List<Diary> read() {
         Session session = getSessionFactory().openSession();
@@ -37,7 +40,8 @@ public class DiaryManager extends EntityManager<Diary> {
         return diaryEntries;
     }
 
-    //Bei Erstellung von einem Patienten
+    //Bei Erstellung von einem
+    @Deprecated
     public void addDiary(Diary diary){
         Session session = getSessionFactory().openSession();
         session.beginTransaction();
@@ -47,9 +51,6 @@ public class DiaryManager extends EntityManager<Diary> {
         session.close();
     }
 
-
-
-    //TODO: test this!
     public void addDiaryEntry(DiaryEntry diaryEntry, Long diaryId){
         Session session = getSessionFactory().openSession();
         session.beginTransaction();
@@ -65,7 +66,6 @@ public class DiaryManager extends EntityManager<Diary> {
         session.close();
     }
 
-    //TODO: See if this works
     public void removeDiaryEntry(DiaryEntry diaryEntry, Long diaryId){
         Session session = getSessionFactory().openSession();
         session.beginTransaction();
@@ -114,27 +114,19 @@ public class DiaryManager extends EntityManager<Diary> {
     @Override
     public Diary findByID(Long id) {
         Session session = getSessionFactory().openSession();
-        Diary diary = session.load(Diary.class, id);
+        Diary diary = session.get(Diary.class, id);
         session.close();
         return diary;
     }
 
     public void deleteAll() {
         Session session = getSessionFactory().openSession();
-
-        try {
-            session.beginTransaction();
-            Query query = session.createQuery("DELETE FROM Diary ");
-            query.executeUpdate();
-            session.getTransaction().commit();
-            System.out.println("Successfully deleted all diaries.");
+        session.getTransaction().begin();
+        List<Diary> diaryList = read();
+        for(Diary diary : diaryList){
+            session.delete(diary);
         }
-        catch (Exception e){
-            session.getTransaction().rollback();
-            System.out.println("Deletion of all diaries failed");
-        }
-        finally {
-            session.close();
-        }
+        session.getTransaction().commit();
+       session.close();
     }
 }

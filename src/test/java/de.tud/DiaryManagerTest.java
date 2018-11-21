@@ -49,11 +49,10 @@ public class DiaryManagerTest {
             symptom2.add(factory.createSymptomByClass("Ache",Symptom.Strength.WEAK));
         testEntry1 = new DiaryEntry(testTime , symptom1, new VitalDataSet());                               //TODO: Replace "new VitalDaraSet" - it is only a placeholder
 
-
     }
 
     @Test
-    void shouldGetAllDiaryEntriesFromDiary(){  //Solved : KANN NICHT TRUE WERDEN DA VERSCHIEDENE ID´S DER ENTRIES
+    void shouldGetAllDiaryEntriesFromDiary(){
         testDiary.add(testEntry1);
 
         long id = dm.create(new Diary());
@@ -63,7 +62,7 @@ public class DiaryManagerTest {
 
         for(DiaryEntry entry : diaryEntries)
             if(entry.getSymptom().equals(testEntry1.getSymptom()))
-                assertTrue(true);
+                assertEquals(entry.getSymptom(), testEntry1.getSymptom());
     }
 
 
@@ -76,7 +75,8 @@ public class DiaryManagerTest {
         SessionFactory sessionfac = dm.getSessionFactory();
         Session session = sessionfac.openSession();
 
-        assertTrue(session.get(Diary.class, id)!=null && session.get(Diary.class, id).getClass()==Diary.class);
+        assertNotNull(session.get(Diary.class, id));
+        assertTrue(session.get(Diary.class, id).getClass().equals(Diary.class));
 
         session.close();
     }
@@ -84,7 +84,7 @@ public class DiaryManagerTest {
 
 
     @Test
-    public void readTest() throws Exception{
+    public void readTest(){
 
         Diary readtestdiary = new Diary();
         List<DiaryEntry> testentries = new ArrayList<>();
@@ -107,7 +107,7 @@ public class DiaryManagerTest {
 
 
     @Test
-    public void addDiaryEntryTest() throws Exception{
+    public void addDiaryEntryTest(){
 
         long id = dm.create(new Diary());
 
@@ -126,7 +126,7 @@ public class DiaryManagerTest {
 
 
     @Test
-    public void deleteTest() throws Exception{
+    public void deleteTest(){
 
 
         long id = dm.create(new Diary());
@@ -142,7 +142,7 @@ public class DiaryManagerTest {
 
 
     @Test
-    public void removeDiaryEntryTest() throws Exception{
+    public void removeDiaryEntryTest(){
 
         Diary diary = new Diary();
         testDiary.add(testEntry1);
@@ -161,7 +161,7 @@ public class DiaryManagerTest {
 
 
     @Test
-    public void findByIdTest() throws Exception{
+    public void findByIdTest(){
 
         Diary byIDDiary = new Diary();
 
@@ -173,19 +173,35 @@ public class DiaryManagerTest {
 
         Diary foundDiary = dm.findByID(id);
 
-        for(DiaryEntry de : foundDiary.getDiaryEntries())
-            if(de.getSymptom().equals(testEntry1.getSymptom()) && de.getDate().equals(testEntry1.getDate()))
-            assertTrue(true);
+        assertNotNull(foundDiary);
+        assertEquals(foundDiary.getId(), byIDDiary.getId());
+        assertEquals(foundDiary.getDiaryEntries().size(), byIDDiary.getDiaryEntries().size());
+        Iterator foundDiaryIterator = foundDiary.getDiaryEntries().iterator();
+        Iterator byIdDiaryIterator = byIDDiary.getDiaryEntries().iterator();
+        while(foundDiaryIterator.hasNext() && byIdDiaryIterator.hasNext()){
+            DiaryEntry foundDiaryEntry = (DiaryEntry)foundDiaryIterator.next();
+            DiaryEntry byIDDiaryEntry = (DiaryEntry) byIdDiaryIterator.next();
+            assertEquals(foundDiaryEntry.getSymptom().size(), byIDDiaryEntry.getSymptom().size());
+            Iterator foundSymptomIterator = foundDiaryEntry.getSymptom().iterator();
+            Iterator byIDSymptomIterator = byIDDiaryEntry.getSymptom().iterator();
+            while(foundSymptomIterator.hasNext()&& byIdDiaryIterator.hasNext()){
+                Symptom foundSymptom = (Symptom) foundSymptomIterator.next();
+                Symptom byIDSymptom = (Symptom) byIDSymptomIterator.next();
+                assertEquals(foundSymptom.getSymptomId(), byIDSymptom.getSymptomId());
+                assertEquals(foundSymptom.getClass().getSimpleName(), byIDSymptom.getClass().getSimpleName());
+
+            }
+        }
     }
 
 
     @Test
-    public void deleteAllTest() throws Exception{
-
+    public void deleteAllTest(){
+/*
         dm.create(new Diary());
         dm.create(new Diary());
         dm.create(new Diary());
-
+*/
         dm.deleteAll();
 
         Session session = dm.getSessionFactory().openSession();
@@ -193,11 +209,12 @@ public class DiaryManagerTest {
         assertTrue(session.createQuery("FROM Diary").list().isEmpty());
 
         session.close();
+
     }
 
 
     @Test
-    public void getDiaryEntryByIdTest() throws Exception{
+    public void getDiaryEntryByIdTest(){
 
         Diary diary = new Diary();
         testDiary.add(testEntry1);
