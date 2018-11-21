@@ -1,15 +1,22 @@
 package de.tud.view;
 
 import clojure.lang.PersistentStructMap;
+import com.vaadin.data.HasValue;
+import com.vaadin.event.FieldEvents;
 import com.vaadin.event.MouseEvents;
 import com.vaadin.server.ClassResource;
 import com.vaadin.ui.*;
 import com.vaadin.ui.themes.ValoTheme;
 import de.tud.model.symptom.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class SymptomSelectionViewFactory {
     private String symptom;
     private Symptom symptomArt;
+    private Label symptomName;
+
     private Image goodSmiley;
     private Image middleSmiley;
     private Image badSmiley;
@@ -18,6 +25,7 @@ public class SymptomSelectionViewFactory {
     private Label middleLabel;
     private Label badLabel;
     private Symptom.Strength choice;
+    private ComboBox<String> comboBox;
 
 
     public SymptomSelectionViewFactory(String symptomname){
@@ -25,21 +33,50 @@ public class SymptomSelectionViewFactory {
     }
 
 
-    public VerticalLayout getSymptomSelectionView(){
+    public GridLayout getSymptomSelectionView(){
+        GridLayout gridLayout= new GridLayout(2,3);
+        //Label erzeugen für Beschriftung
+        symptomName = new Label("Bitte Symptom auswählen.");
+
+        //ComboBox erzeugen
+        comboBox = new ComboBox<>();
+        List<String> symptomList = new ArrayList<>();
+        symptomList.add("Depression");
+        symptomList.add("Schmerzen");
+        symptomList.add("Spastik");
+        symptomList.add("Kognitive Störung");
+        symptomList.add("Spastik am rechten Arm");
+        symptomList.add("Spastik am linken Arm");
+        symptomList.add("Spastik am linken Bein");
+        comboBox.setItems(symptomList);
+
+
+        comboBox.addValueChangeListener(new HasValue.ValueChangeListener<String>() {
+            @Override
+            public void valueChange(HasValue.ValueChangeEvent<String> valueChangeEvent) {
+                symptomName.setValue(valueChangeEvent.getValue());
+                symptomName.addStyleName(ValoTheme.LABEL_BOLD);
+            }
+        });
+
+
+
         //Vertical Layout Container erzeugen
         VerticalLayout verticalLayout = new VerticalLayout();
-        verticalLayout.setWidth("456px");
+        verticalLayout.setWidth("360px");
         verticalLayout.setHeight("240px");
 
+        /*
         //Text Label für Symptom erzeugen
         Label symptomName = new Label(symptom+":");
         symptomName.addStyleName(ValoTheme.LABEL_BOLD);
+        */
 
 
         //Horizontal Layout für Smiley Bilder erzeugen
         HorizontalLayout horizontalLayout = new HorizontalLayout();
-        horizontalLayout.setWidth("270px");
-        horizontalLayout.setHeight("120px");
+        horizontalLayout.setWidth("360px");
+        horizontalLayout.setHeight("80px");
 
         //SmileyBilder zu Horizontal Layout hinzufügen
         goodSmiley = new Image();
@@ -76,7 +113,7 @@ public class SymptomSelectionViewFactory {
 
         //Beschriftungen der Smileys
         HorizontalLayout horizontalLayout1 = new HorizontalLayout();
-        horizontalLayout1.setWidth("270px");
+        horizontalLayout1.setWidth("360px");
         horizontalLayout1.setHeight("3px");
 
 
@@ -95,8 +132,16 @@ public class SymptomSelectionViewFactory {
         HorizontalLayout spacer = new HorizontalLayout();
         horizontalLayout.setSpacing(true);
 
-        verticalLayout.addComponents(symptomName, horizontalLayout, spacer,horizontalLayout1);
-        return verticalLayout;
+        gridLayout.addComponent(comboBox, 0,1 );
+        gridLayout.addComponent(symptomName, 1,0);
+        gridLayout.addComponent(horizontalLayout, 1,1);
+        gridLayout.addComponent(horizontalLayout1, 1, 2);
+        gridLayout.setSpacing(true);
+        //verticalLayout.addComponents(symptomName, horizontalLayout, spacer,horizontalLayout1);
+
+
+
+        return gridLayout;
     }
 
     private void addClickListenerForSmileys(){
@@ -145,7 +190,9 @@ public class SymptomSelectionViewFactory {
     public Symptom getSymptomArt(){
         return  this.symptomArt;
     }
-
+    public void setComboBoxItems(List<String> symptoms){
+        comboBox.setItems(symptoms);
+    }
 
 
 }

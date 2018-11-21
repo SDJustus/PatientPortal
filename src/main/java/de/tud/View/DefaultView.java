@@ -39,7 +39,12 @@ public class DefaultView extends Composite implements View {
 
 
         //GridLayout hinzufügen
-        verticalLayout.addComponent(gridLayout);
+        verticalLayout.addComponent(new SymptomSelectionViewFactory("Depression").getSymptomSelectionView());
+
+
+
+
+
 
         /*
         Panel panel = new Panel();
@@ -57,7 +62,7 @@ public class DefaultView extends Composite implements View {
 
         });
         */
-
+/*
         ArrayList<String> mySymptoms = new ArrayList<String>();
         mySymptoms.add("Depression");
         mySymptoms.add("Fatigue");
@@ -108,9 +113,9 @@ public class DefaultView extends Composite implements View {
                 grid.setItems(tagebuch);
             }
         });
+        */
 
-
-        horizontalLayout.addComponents(verticalLayout ,new VerticalLayout(save,grid));
+        horizontalLayout.addComponents(verticalLayout);
         setCompositionRoot(horizontalLayout);
 
         //setCompositionRoot(label);
@@ -118,6 +123,13 @@ public class DefaultView extends Composite implements View {
 
     public static void setSaveButton(boolean value){
         save.setEnabled(value);
+    }
+
+
+    public ComboBox<String> addComboBox(List<String> symptoms){
+        ComboBox<String> comboBox = new ComboBox<>();
+        comboBox.setItems(symptoms);
+        return comboBox;
     }
 
 
