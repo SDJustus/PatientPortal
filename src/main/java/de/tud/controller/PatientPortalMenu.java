@@ -3,6 +3,7 @@ package de.tud.controller;
 
 import com.vaadin.annotations.VaadinServletConfiguration;
 import com.vaadin.icons.VaadinIcons;
+import com.vaadin.navigator.View;
 import com.vaadin.server.*;
 import com.vaadin.ui.*;
 import com.vaadin.navigator.Navigator;
@@ -48,9 +49,16 @@ public class PatientPortalMenu extends UI {
         view2.setIcon(VaadinIcons.AMBULANCE, ValoTheme.MENU_PART_LARGE_ICONS);
         view2.setIcon(VaadinIcons.DOCTOR, ValoTheme.MENU_PART_LARGE_ICONS);
 
+        //Button Vitaldaten
+
+        Button view3 = new Button("Vitaldaten",
+                e -> getNavigator().navigateTo("VitalData"));
+        view1.setIcon(VaadinIcons.TASKS);
+        view1.addStyleNames( ValoTheme.BUTTON_LINK, ValoTheme.MENU_ITEM);
+
 
         //Integration der MenuItems
-        CssLayout menu = new CssLayout(title, profilbild,view1, view2);
+        CssLayout menu = new CssLayout(title, profilbild,view1, view2, view3);
         //CssLayout menu = new CssLayout(title,view1, view2);
         menu.addStyleName(ValoTheme.MENU_ROOT);
 
@@ -68,6 +76,7 @@ public class PatientPortalMenu extends UI {
         Navigator navigator = new Navigator(this, viewContainer);
         navigator.addView("", DefaultView.class);
         navigator.addView("Patiententagebuch", TagebuchView.class);
+        navigator.addView("VitalData", VitalDataView.class);
 
 
     }
