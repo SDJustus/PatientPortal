@@ -5,11 +5,11 @@ public class SymptomFactory {
 
     public static Symptom createSymptomByClass(String className, Symptom.Strength strength) {
         switch (className) {
-            case "Ache":
+            case "Schmerzen":
                 return new Ache(strength);
-            case "BladderDisorder":
+            case "Blasenstörung":
                 return new BladderDisorder(strength);
-            case "BowelDisorder":
+            case "Darmstörung":
                 return new BowelDisorder(strength);
             case "Kognitive Störung":
                 return new CognitiveDisorder(strength);

@@ -7,6 +7,7 @@ import com.vaadin.data.provider.TreeDataProvider;
 import com.vaadin.event.selection.SelectionEvent;
 import com.vaadin.event.selection.SelectionListener;
 import com.vaadin.icons.VaadinIcons;
+import com.vaadin.navigator.View;
 import com.vaadin.server.*;
 import com.vaadin.ui.*;
 import com.vaadin.navigator.Navigator;
@@ -46,10 +47,9 @@ public class PatientPortalMenu extends UI {
         view1.addStyleNames( ValoTheme.BUTTON_LINK, ValoTheme.MENU_ITEM);
 
         //Button z.B. zum Medikationsplan
-        Button view2 = new Button("Medikationsplan", e -> getNavigator().navigateTo("view2"));
+        Button view2 = new Button("Auswertung", e -> getNavigator().navigateTo("Auswertung"));
         view2.addStyleNames(ValoTheme.BUTTON_LINK, ValoTheme.MENU_ITEM);
-        view2.setIcon(VaadinIcons.AMBULANCE, ValoTheme.MENU_PART_LARGE_ICONS);
-        view2.setIcon(VaadinIcons.DOCTOR, ValoTheme.MENU_PART_LARGE_ICONS);
+        view2.setIcon(VaadinIcons.CHART, ValoTheme.MENU_PART_LARGE_ICONS);
 
         //Menu tree
         Tree<String> menuTree = new Tree<>();
@@ -60,6 +60,7 @@ public class PatientPortalMenu extends UI {
         menuTreeData.addItem(null,"Patiententagebuch");
         menuTreeData.addItem("Patiententagebuch","Eintrag hinzufügen");
         menuTreeData.addItem("Patiententagebuch","Vitaldaten einfügen");
+        menuTreeData.addItem("Patiententagebuch", "Auswertung");
 
         //add data to tree
         TreeDataProvider inMemoryDataProvider = new TreeDataProvider<>(menuTreeData);
@@ -86,6 +87,7 @@ public class PatientPortalMenu extends UI {
         Navigator navigator = new Navigator(this, viewContainer);
         navigator.addView("", DefaultView.class);
         navigator.addView("Patiententagebuch", TagebuchView.class);
+        navigator.addView("Auswertung", AuswertungView.class);
 
         //add functions to tree items -> listen for selection change then navigate
 
@@ -106,6 +108,10 @@ public class PatientPortalMenu extends UI {
                     {
                         navigator.navigateTo("Patiententagebuch");
                         System.out.println(menuTree.getSelectedItems().toString());
+                    }
+                    case "[Auswertung]":
+                    {
+                        navigator.navigateTo("Auswertung");
                     }
 
                 }

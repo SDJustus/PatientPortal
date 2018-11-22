@@ -12,7 +12,5 @@ public class GaitDisorder extends Symptom {
 
     }
     @Override
-    public String toString() {
-        return null;
-    }
+    public String toString() {return "Gehstörung: " + this.getStrength();}
 }

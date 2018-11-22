@@ -1,14 +1,11 @@
 package de.tud.view;
 
-import clojure.lang.PersistentStructMap;
 import com.vaadin.data.HasValue;
-import com.vaadin.event.FieldEvents;
 import com.vaadin.event.MouseEvents;
 import com.vaadin.server.ClassResource;
 import com.vaadin.ui.*;
 import com.vaadin.ui.themes.ValoTheme;
 import de.tud.model.symptom.*;
-import java.util.ArrayList;
 import java.util.List;
 
 public class SymptomSelectionViewFactory {
@@ -26,6 +23,8 @@ public class SymptomSelectionViewFactory {
     private Symptom.Strength choice;
     private ComboBox<String> comboBox;
     private Button addNextSymptom;
+    private int selectionCounter;   //um dafür zu sorgen, dass nur einmal der Button "+weiteres Symptom" erscheint
+    private List<String> symptomList;
 
 
     public SymptomSelectionViewFactory(){
@@ -34,27 +33,34 @@ public class SymptomSelectionViewFactory {
     public GridLayout getSymptomSelectionView(){
         GridLayout gridLayout= new GridLayout(3,3);
         //Label erzeugen für Beschriftung
-        symptomName = new Label("Bitte Symptom auswählen.");
+        symptomName = new Label("Bitte ein Symptom auswählen.");
+
+        //save Button aussschalten
+        DefaultView.setSaveButtonEnabled(false);
 
         //ComboBox erzeugen
         comboBox = new ComboBox<>();
-        List<String> symptomList = new ArrayList<>();
-        symptomList.add("Depression");
-        symptomList.add("Schmerzen");
-        symptomList.add("Spastik");
-        symptomList.add("Kognitive Störung");
-        symptomList.add("Spastik am rechten Arm");
-        symptomList.add("Spastik am linken Arm");
-        symptomList.add("Spastik am linken Bein");
-        comboBox.setItems(symptomList);
+        comboBox.setWidth("250px");
+        comboBox.setItems(DefaultView.getSymptomsList());
 
         comboBox.addValueChangeListener(new HasValue.ValueChangeListener<String>() {
             @Override
             public void valueChange(HasValue.ValueChangeEvent<String> valueChangeEvent) {
+
                 symptomName.setValue(valueChangeEvent.getValue());
                 symptomName.addStyleName(ValoTheme.LABEL_BOLD);
                 selectedSymptom = valueChangeEvent.getValue();
+
+                if(selectionCounter == 1){
+                    return;
+                }
+                if(DefaultView.getSymptomsList().size() == 1){
+                    addNextSymptom.setVisible(false);
+                    return;
+                }
                 addNextSymptom.setEnabled(true);
+                addNextSymptom.setVisible(true);
+                selectionCounter = 1;
             }
         });
 
@@ -105,7 +111,7 @@ public class SymptomSelectionViewFactory {
         //Beschriftungen der Smileys
         HorizontalLayout horizontalLayout1 = new HorizontalLayout();
         horizontalLayout1.setWidth("270px");
-        horizontalLayout1.setHeight("3px");
+        horizontalLayout1.setHeight("1px");
 
 
         goodLabel = new Label("keine");
@@ -128,22 +134,21 @@ public class SymptomSelectionViewFactory {
         spacer2.setWidth("50px");
 
         //weiteres Symptom hinzufügen
-        addNextSymptom = new Button("+");
+        addNextSymptom = new Button("+ weiteres Symptom");
         addNextSymptom.setEnabled(false);
+        addNextSymptom.setVisible(false);
         addClickListenerToAddNextSymptom();
-        HorizontalLayout h3 = new HorizontalLayout();
-        h3.addComponents(comboBox, addNextSymptom);
 
 
-        gridLayout.addComponent(h3, 0,1 );
+
+        gridLayout.addComponent(comboBox, 0,1 );
+        gridLayout.addComponent(addNextSymptom,0,2);
         gridLayout.addComponent(spacer2, 1,2);
         gridLayout.addComponent(symptomName, 2,0);
         gridLayout.addComponent(horizontalLayout, 2,1);
         gridLayout.addComponent(horizontalLayout1, 2, 2);
         gridLayout.setSpacing(true);
         //verticalLayout.addComponents(symptomName, horizontalLayout, spacer,horizontalLayout1);
-
-
 
         return gridLayout;
     }
@@ -158,31 +163,35 @@ public class SymptomSelectionViewFactory {
                     goodLabel.setValue("keine");
                     choice = Symptom.Strength.WEAK;
                     symptomArt = SymptomFactory.createSymptomByClass(symptomName.getValue(), choice);
-                    DefaultView.setSaveButton(true);
+                    DefaultView.setSaveButtonEnabled(true);
                 }
             }
         });
         middleSmiley.addClickListener(new MouseEvents.ClickListener() {
             @Override
             public void click(MouseEvents.ClickEvent clickEvent) {
-                goodLabel.setValue("");
-                badLabel.setValue("");
-                middleLabel.setValue("mäßig");
-                choice = Symptom.Strength.MIDDLE;
-                symptomArt = SymptomFactory.createSymptomByClass(symptomName.getValue(), choice);
-                DefaultView.setSaveButton(true);
+                if(checkComboBox()== true) {
+                    goodLabel.setValue("");
+                    badLabel.setValue("");
+                    middleLabel.setValue("mäßig");
+                    choice = Symptom.Strength.MIDDLE;
+                    symptomArt = SymptomFactory.createSymptomByClass(symptomName.getValue(), choice);
+                    DefaultView.setSaveButtonEnabled(true);
+                }
 
             }
         });
         badSmiley.addClickListener(new MouseEvents.ClickListener() {
             @Override
             public void click(MouseEvents.ClickEvent clickEvent) {
-                goodLabel.setValue("");
-                middleLabel.setValue("");
-                badLabel.setValue("stark");
-                choice = Symptom.Strength.SEVERE;
-                symptomArt = SymptomFactory.createSymptomByClass(symptomName.getValue(), choice);
-                DefaultView.setSaveButton(true);
+                if(checkComboBox()== true) {
+                    goodLabel.setValue("");
+                    middleLabel.setValue("");
+                    badLabel.setValue("stark");
+                    choice = Symptom.Strength.SEVERE;
+                    symptomArt = SymptomFactory.createSymptomByClass(symptomName.getValue(), choice);
+                    DefaultView.setSaveButtonEnabled(true);
+                }
             }
         });
 
@@ -191,7 +200,16 @@ public class SymptomSelectionViewFactory {
         addNextSymptom.addClickListener(new Button.ClickListener() {
             @Override
             public void buttonClick(Button.ClickEvent clickEvent) {
-                DefaultView.addNewSymptom();
+                SymptomSelectionViewFactory symptomSelectionViewFactory = new SymptomSelectionViewFactory();
+                DefaultView.getSymptomsList().remove(selectedSymptom);
+                if(DefaultView.getSymptomsList().size() == 0){
+                    addNextSymptom.setVisible(false);
+                    return;
+                }
+                symptomSelectionViewFactory.setSymptomListItems(DefaultView.getSymptomsList());
+
+                DefaultView.addNewSymptom(symptomSelectionViewFactory);
+                addNextSymptom.setVisible(false);
             }
         });
     }
@@ -205,15 +223,20 @@ public class SymptomSelectionViewFactory {
     public Symptom getSymptomArt(){
         return  this.symptomArt;
     }
-    public void setComboBoxItems(List<String> symptoms){
-        comboBox.setItems(symptoms);
+
+
+    public void setSymptomListItems(List<String> symptomList){
+        this.symptomList = symptomList;
     }
     public boolean checkComboBox(){
         if(selectedSymptom == null){
-            Notification.show("Bitte Symptom auswählen!");
+            Notification.show("Bitte ein Symptom auswählen!");
             return false;
         }
         return true;
+    }
+    public String getSelectedSymptom(){
+        return this.selectedSymptom;
     }
 
 
