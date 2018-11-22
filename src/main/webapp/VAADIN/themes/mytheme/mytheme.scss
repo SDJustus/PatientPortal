@@ -28,11 +28,16 @@
 
 // For more information, see: https://vaadin.com/book/-/page/themes.valo.html
 // Example variants can be copy/pasted from https://vaadin.com/wiki/-/wiki/Main/Valo+Examples
+$mat-background-color: #fafafa; // #fafafa for a light and #303030 for a dark theme
+$v-focus-color: #00BCD4; // (You can find colors at materialpalette.com) $v-focus-color is supposed to be your accent color
+// Note: " ... Using colors from the Material Design palette is optional. ... "
 
 @import "../valo/valo.scss";
-
+@import "../material/material.scss";
 @mixin mytheme {
+  @include material;
   @include valo;
+
 
   // Insert your own theme rules here
 }

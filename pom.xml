@@ -107,11 +107,17 @@
 			<artifactId>stepper</artifactId>
 			<version>2.4.0</version>
 		</dependency>
+        <dependency>
+            <groupId>com.vaadin</groupId>
+            <artifactId>vaadin-material-theme</artifactId>
+            <version>1.2.0</version>
+        </dependency>
 		<dependency>
-			<groupId>org.vaadin.addons</groupId>
-			<artifactId>fontawesomelabel</artifactId>
-			<version>1.4.0</version>
+			<groupId>com.github.appreciated</groupId>
+			<artifactId>material</artifactId>
+			<version>1.1.8</version>
 		</dependency>
+
 
 	</dependencies>
 

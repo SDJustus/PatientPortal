@@ -2,18 +2,19 @@
 <html>
  <head>
   <meta charset="UTF-8">
-  <meta name="design-properties" content="{&quot;RULERS_VISIBLE&quot;:true,&quot;GUIDELINES_VISIBLE&quot;:false,&quot;SNAP_TO_OBJECTS&quot;:true,&quot;SNAP_TO_GRID&quot;:true,&quot;SNAPPING_DISTANCE&quot;:10,&quot;GENERATE_GETTERS&quot;:false,&quot;JAVA_SOURCES_ROOT&quot;:&quot;src/main/java&quot;,&quot;THEME&quot;:&quot;mytheme&quot;}">
+  <meta name="design-properties" content="{&quot;RULERS_VISIBLE&quot;:true,&quot;GUIDELINES_VISIBLE&quot;:false,&quot;SNAP_TO_OBJECTS&quot;:true,&quot;SNAP_TO_GRID&quot;:true,&quot;SNAPPING_DISTANCE&quot;:10,&quot;GENERATE_GETTERS&quot;:false,&quot;JAVA_SOURCES_ROOT&quot;:&quot;src/main/java&quot;,&quot;THEME&quot;:&quot;material&quot;}">
   <meta name="vaadin-version" content="8.1.5">
   <meta name="package-mapping" content="com_kbdunn_vaadin_addons_fontawesome:com.kbdunn.vaadin.addons.fontawesome">
   <meta name="package-mapping" content="org_vaadin_risto_stepper:org.vaadin.risto.stepper">
  </head>
  <body>
   <vaadin-form-layout caption="Vitaldaten eingeben:" size-full margin>
-   <vaadin-horizontal-layout icon="https://image.flaticon.com/icons/png/128/131/131044.png" width="456px" height="146px" margin _id="weight">
-    <vaadin-label style-name="bold" width="103px" height="24px" plain-text _id="weightLabel" :middle :center>
+   <vaadin-horizontal-layout style-name="layoutwithborder CARD_1" width="456px" height="160px" margin _id="weight">
+    <vaadin-image source="waage.png" width="90px" height-full _id="weightPicture"></vaadin-image>
+    <vaadin-label width="103px" height="24px" plain-text _id="weightLabel" :middle :center>
       Gewicht: 
     </vaadin-label>
-    <org_vaadin_risto_stepper-float-stepper width="148px" height="41px" _id="weightStepper" :middle :center></org_vaadin_risto_stepper-float-stepper>
+    <org_vaadin_risto_stepper-float-stepper style-name="Undefined width" width="142px" height="48px" _id="weightStepper" :middle :center></org_vaadin_risto_stepper-float-stepper>
    </vaadin-horizontal-layout>
   </vaadin-form-layout>
  </body>
