@@ -1,6 +1,8 @@
 package de.tud.controller;
 
 
+import com.github.appreciated.material.MaterialTheme;
+import com.vaadin.annotations.Theme;
 import com.vaadin.annotations.VaadinServletConfiguration;
 import com.vaadin.icons.VaadinIcons;
 import com.vaadin.navigator.View;
@@ -14,7 +16,7 @@ import de.tud.view.*;
 
 import javax.servlet.annotation.WebServlet;
 
-
+@Theme("mytheme")
 public class PatientPortalMenu extends UI {
     @Override
     public void init(VaadinRequest request) {
@@ -28,7 +30,7 @@ public class PatientPortalMenu extends UI {
 
         //Titel des Menüs
         Label title = new Label("Patientenportal");
-        title.addStyleName(ValoTheme.MENU_TITLE);
+        title.addStyleName(MaterialTheme.MENU_TITLE);
 
         //Profilbild
         Image profilbild = new Image("", new ClassResource("/profilbild.png"));
@@ -41,11 +43,11 @@ public class PatientPortalMenu extends UI {
         Button view1 = new Button("Patiententagebuch",
                 e -> getNavigator().navigateTo("Patiententagebuch"));
         view1.setIcon(VaadinIcons.TASKS);
-        view1.addStyleNames( ValoTheme.BUTTON_LINK, ValoTheme.MENU_ITEM);
+        view1.addStyleNames(MaterialTheme.BUTTON_LINK, MaterialTheme.MENU_ITEM);
 
         //Button z.B. zum Medikationsplan
         Button view2 = new Button("Medikationsplan", e -> getNavigator().navigateTo("view2"));
-        view2.addStyleNames(ValoTheme.BUTTON_LINK, ValoTheme.MENU_ITEM);
+        view2.addStyleNames(MaterialTheme.BUTTON_LINK, MaterialTheme.MENU_ITEM);
         view2.setIcon(VaadinIcons.AMBULANCE, ValoTheme.MENU_PART_LARGE_ICONS);
         view2.setIcon(VaadinIcons.DOCTOR, ValoTheme.MENU_PART_LARGE_ICONS);
 
@@ -54,13 +56,13 @@ public class PatientPortalMenu extends UI {
         Button view3 = new Button("Vitaldaten",
                 e -> getNavigator().navigateTo("VitalData"));
         view1.setIcon(VaadinIcons.TASKS);
-        view1.addStyleNames( ValoTheme.BUTTON_LINK, ValoTheme.MENU_ITEM);
+        view1.addStyleNames( MaterialTheme.BUTTON_LINK, MaterialTheme.MENU_ITEM);
 
 
         //Integration der MenuItems
         CssLayout menu = new CssLayout(title, profilbild,view1, view2, view3);
         //CssLayout menu = new CssLayout(title,view1, view2);
-        menu.addStyleName(ValoTheme.MENU_ROOT);
+        menu.addStyleName(MaterialTheme.MENU_ROOT);
 
         //view Container = alles was rechts vom Menu ist, wo Inhalte angezeigt werden
         CssLayout viewContainer = new CssLayout();

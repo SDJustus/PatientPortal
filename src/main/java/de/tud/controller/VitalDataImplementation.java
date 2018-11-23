@@ -5,6 +5,9 @@ import com.vaadin.icons.VaadinIcons;
 import com.vaadin.navigator.View;
 import com.vaadin.server.ClassResource;
 import de.tud.view.VitalData;
+import javafx.scene.paint.Material;
+
+import javax.swing.*;
 
 public class VitalDataImplementation extends VitalData implements View {
 
@@ -20,7 +23,9 @@ public VitalDataImplementation()
 
 //Setup icons
 weightPicture.setSource(new ClassResource("/waage.png"));
-weightLabel.addStyleName(MaterialTheme.CARD_2);
+
+
+weightLabel.addStyleName(MaterialTheme.LABEL_BORDERLESS);
 
 
 
@@ -31,11 +36,19 @@ weightStepper.setStepAmount(1f);
 weightStepper.setValue(0f);
 weightStepper.setNumberOfDecimals(2);
 weightStepper.setDescription("Bitte geben Sie Ihr Gewicht ein.");
-weightStepper.setIncreaseIcon(VaadinIcons.PLUS);
-weightStepper.setDecreaseIcon(VaadinIcons.MINUS);
+weightStepper.addStyleName(MaterialTheme.COMBOBOX_ALIGN_CENTER);
 
 
 
+
+
+
+//save button config
+    saveVitalData.setCaption("Speichern");
+    saveVitalData.setDescription("Speichern der Vitaldaten");
+    saveVitalData.addStyleName(MaterialTheme.BUTTON_ROUND);
+    saveVitalData.setIcon(new ClassResource("/saveicon.png"));
+    saveVitalData.addStyleName(MaterialTheme.LABEL_TINY);
 
 }
 
