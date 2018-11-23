@@ -27,6 +27,19 @@ public class VitalData extends FormLayout implements View {
     protected Image weightPicture;
     protected Label weightLabel;
     protected FloatStepper weightStepper;
+    protected HorizontalLayout height;
+    protected Image heightPicture;
+    protected Label heightLabel;
+    protected FloatStepper heightStepper;
+    protected HorizontalLayout bloodPressure;
+    protected Image bloodPressurePicture;
+    protected Label bloodPressureLabel;
+    protected FloatStepper bloodPressureStepper1;
+    protected FloatStepper bloodPressureStepper11;
+    protected HorizontalLayout heartRate;
+    protected Image heartRatePicture;
+    protected Label heartRateLabel;
+    protected FloatStepper heartRateStepper;
     protected NativeButton saveVitalData;
 
     public VitalData() {

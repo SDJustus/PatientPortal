@@ -17,9 +17,9 @@
 //$v-app-background-color: $v-background-color;
 
 // Affects the visual appearance of all components
-//$v-gradient: v-linear 8%;
-//$v-bevel-depth: 30%;
-//$v-shadow-opacity: 5%;
+$v-gradient: v-linear 8%;
+$v-bevel-depth: 30%;
+$v-shadow-opacity: 5%;
 
 // Defines colors for indicating status (focus, success, failure)
 //$v-focus-color: valo-focus-color(); // Calculates a suitable color automatically
@@ -28,8 +28,10 @@
 
 // For more information, see: https://vaadin.com/book/-/page/themes.valo.html
 // Example variants can be copy/pasted from https://vaadin.com/wiki/-/wiki/Main/Valo+Examples
-$mat-background-color: #fafafa; // #fafafa for a light and #303030 for a dark theme
-$v-focus-color: #00796B; // (You can find colors at materialpalette.com) $v-focus-color is supposed to be your accent color
+$mat-background-color: #fafafa;
+// #fafafa for a light and #303030 for a dark theme
+//$v-focus-color: #00BCD4;
+// (You can find colors at materialpalette.com) $v-focus-color is supposed to be your accent color
 // Note: " ... Using colors from the Material Design palette is optional. ... "
 
 @import "../valo/valo.scss";

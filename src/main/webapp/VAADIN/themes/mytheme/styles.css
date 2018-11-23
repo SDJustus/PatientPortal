@@ -2460,7 +2460,7 @@ body:not(.v-touch) .friendly.v-button:not(.v-disabled):not(.borderless):not(.bor
 }
 
 body:not(.v-touch) .custom.v-button:not(.v-disabled):not(.borderless):not(.borderless-colored):hover {
-	background: #00a08d;
+	background: #1a8afa;
 }
 
 body:not(.v-touch) .danger.v-button:not(.v-disabled):not(.borderless):not(.borderless-colored):hover {
@@ -2468,7 +2468,7 @@ body:not(.v-touch) .danger.v-button:not(.v-disabled):not(.borderless):not(.borde
 }
 
 body:not(.v-touch) .primary.v-button:not(.v-disabled):not(.borderless):not(.borderless-colored):hover {
-	background: #00a08d;
+	background: #1a8afa;
 }
 
 body:not(.v-touch) :not(.v-upload) > * > .v-button.borderless:not(.v-disabled):not(.borderless-colored):not(.primary):not(.friendly):not(.danger):not(.custom):hover {
@@ -2476,7 +2476,7 @@ body:not(.v-touch) :not(.v-upload) > * > .v-button.borderless:not(.v-disabled):n
 }
 
 body:not(.v-touch) .v-button:not(.v-disabled).floating-action:hover {
-	background: #00a08d;
+	background: #1a8afa;
 }
 
 body:not(.v-touch) .v-button:not(.v-disabled).floating-action:not(.flat):hover, body.v-touch .v-button.floating-action:not(.flat):active {
@@ -2498,12 +2498,12 @@ body:not(.v-touch) .v-button:not(.v-disabled).border:hover {
 
 body:not(.v-touch) .v-button:not(.v-disabled).border.custom:hover {
 	color: white;
-	background: #00796B !important;
+	background: #197de1 !important;
 }
 
 body:not(.v-touch) .v-button:not(.v-disabled).border.primary:hover {
 	color: white;
-	background: #00796B !important;
+	background: #197de1 !important;
 }
 
 body:not(.v-touch) .v-button:not(.v-disabled).border.friendly:hover {
@@ -2517,7 +2517,7 @@ body:not(.v-touch) .v-button:not(.v-disabled).border.danger:hover {
 }
 
 body:not(.v-touch) .v-button:not(.v-disabled).borderless.primary:hover, body:not(.v-touch) .v-button:not(.v-disabled).borderless-colored:hover {
-	background: rgba(0, 160, 141, 0.2) !important;
+	background: rgba(26, 138, 250, 0.2) !important;
 }
 
 body:not(.v-touch) .v-button:not(.v-disabled).borderless.friendly:hover {
@@ -2529,7 +2529,7 @@ body:not(.v-touch) .v-button:not(.v-disabled).borderless.danger:hover {
 }
 
 body:not(.v-touch) .v-button:not(.v-disabled).borderless.custom:hover {
-	background: rgba(0, 160, 141, 0.2) !important;
+	background: rgba(26, 138, 250, 0.2) !important;
 }
 
 body:not(.v-touch) .v-filterselect:not(.v-disabled) > .v-filterselect-button:hover {
@@ -2575,7 +2575,7 @@ body:not(.v-touch) .v-filterselect:not(.v-disabled) > .v-filterselect-button:hov
 	}
 
 body:not(.v-touch) .v-grid-editor-save:hover, body:not(.v-touch) .v-grid-editor-cancel:hover {
-	background: rgba(0, 121, 107, 0.2) !important;
+	background: rgba(25, 125, 225, 0.2) !important;
 }
 
 body.v-ie .v-grid-scroller {
@@ -2617,7 +2617,7 @@ body:not(.v-touch) .friendly.v-upload:not(.v-disabled):not(.borderless):not(.bor
 }
 
 body:not(.v-touch) .custom.v-upload:not(.v-disabled):not(.borderless):not(.borderless-colored):hover {
-	background: #00a08d;
+	background: #1a8afa;
 }
 
 body:not(.v-touch) .danger.v-upload:not(.v-disabled):not(.borderless):not(.borderless-colored):hover {
@@ -2625,7 +2625,7 @@ body:not(.v-touch) .danger.v-upload:not(.v-disabled):not(.borderless):not(.borde
 }
 
 body:not(.v-touch) .primary.v-upload:not(.v-disabled):not(.borderless):not(.borderless-colored):hover {
-	background: #00a08d;
+	background: #1a8afa;
 }
 
 body:not(.v-touch) .v-upload.borderless:not(.v-disabled):not(.borderless-colored):not(.primary):not(.friendly):not(.danger):not(.custom):hover {
@@ -2633,7 +2633,7 @@ body:not(.v-touch) .v-upload.borderless:not(.v-disabled):not(.borderless-colored
 }
 
 body:not(.v-touch) .v-upload:not(.v-disabled).floating-action-upload:hover {
-	background: #00a08d;
+	background: #1a8afa;
 }
 
 body:not(.v-touch) .v-upload:not(.v-disabled).floating-action-upload:not(.flat):hover, body.v-touch .v-upload.floating-action-upload:not(.flat):active {
@@ -2655,12 +2655,12 @@ body:not(.v-touch) .v-upload:not(.v-disabled).border:hover {
 
 body:not(.v-touch) .v-upload:not(.v-disabled).border.custom:hover {
 	color: white;
-	background: #00796B !important;
+	background: #197de1 !important;
 }
 
 body:not(.v-touch) .v-upload:not(.v-disabled).border.primary:hover {
 	color: white;
-	background: #00796B !important;
+	background: #197de1 !important;
 }
 
 body:not(.v-touch) .v-upload:not(.v-disabled).border.friendly:hover {
@@ -2674,7 +2674,7 @@ body:not(.v-touch) .v-upload:not(.v-disabled).border.danger:hover {
 }
 
 body:not(.v-touch) .v-upload:not(.v-disabled).borderless.primary:hover, body:not(.v-touch) .v-upload:not(.v-disabled).borderless-colored:hover {
-	background: rgba(0, 160, 141, 0.2) !important;
+	background: rgba(26, 138, 250, 0.2) !important;
 }
 
 body:not(.v-touch) .v-upload:not(.v-disabled).borderless.friendly:hover {
@@ -2686,7 +2686,7 @@ body:not(.v-touch) .v-upload:not(.v-disabled).borderless.danger:hover {
 }
 
 body:not(.v-touch) .v-upload:not(.v-disabled).borderless.custom:hover {
-	background: rgba(0, 160, 141, 0.2) !important;
+	background: rgba(26, 138, 250, 0.2) !important;
 }
 
 .v-colorpicker-popup .v-horizontallayout .v-button:hover {
@@ -2850,7 +2850,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	width: 50%;
 	opacity: 1;
 	height: 4px;
-	background-color: #00796B;
+	background-color: #197de1;
 	pointer-events: none;
 	-webkit-transition: none;
 	-moz-transition: none;
@@ -3153,7 +3153,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	right: 0;
 	bottom: 0;
 	left: 0;
-	background: #00554b;
+	background: #0957a6;
 	opacity: 0.15;
 	filter: alpha(opacity=15.0) ;
 	pointer-events: none;
@@ -3167,8 +3167,8 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-contextmenu .gwt-MenuItem-selected {
-	background: #00796B;
-	color: #e1f6f4;
+	background: #197de1;
+	color: #ecf2f8;
 	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.05);
 }
 
@@ -3196,9 +3196,9 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	height: 24px !important;
 	width: 24px !important;
 	box-sizing: border-box;
-	border: 2px solid rgba(0, 121, 107, 0.2);
-	border-top-color: #00796B;
-	border-right-color: #00796B;
+	border: 2px solid rgba(25, 125, 225, 0.2);
+	border-top-color: #197de1;
+	border-right-color: #197de1;
 	border-radius: 100%;
 	-webkit-animation: v-rotate-360 500ms infinite linear;
 	-moz-animation: v-rotate-360 500ms infinite linear;
@@ -3348,7 +3348,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 :root .mytheme .v-checkbox > input:focus ~ label:before {
-	border-color: #00796B;
+	border-color: #197de1;
 	-webkit-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.05);
 	box-shadow: 0 2px 3px rgba(0, 0, 0, 0.05);
 }
@@ -3397,7 +3397,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 :root .mytheme .v-checkbox > input:checked ~ label:after {
-	color: #00796B;
+	color: #197de1;
 }
 
 .mytheme .v-checkbox > .v-icon, .mytheme .v-checkbox > label .v-icon {
@@ -3469,7 +3469,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 :root .mytheme .v-checkbox-small > input:focus ~ label:before {
-	border-color: #00796B;
+	border-color: #197de1;
 	-webkit-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.05);
 	box-shadow: 0 2px 3px rgba(0, 0, 0, 0.05);
 }
@@ -3518,7 +3518,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 :root .mytheme .v-checkbox-small > input:checked ~ label:after {
-	color: #00796B;
+	color: #197de1;
 }
 
 .mytheme .v-checkbox-small > .v-icon, .mytheme .v-checkbox-small > label .v-icon {
@@ -3590,7 +3590,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 :root .mytheme .v-checkbox-large > input:focus ~ label:before {
-	border-color: #00796B;
+	border-color: #197de1;
 	-webkit-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.05);
 	box-shadow: 0 2px 3px rgba(0, 0, 0, 0.05);
 }
@@ -3639,7 +3639,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 :root .mytheme .v-checkbox-large > input:checked ~ label:after {
-	color: #00796B;
+	color: #197de1;
 }
 
 .mytheme .v-checkbox-large > .v-icon, .mytheme .v-checkbox-large > label .v-icon {
@@ -3730,7 +3730,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	-webkit-transition: none;
 	-moz-transition: none;
 	transition: none;
-	border-color: #00796B;
+	border-color: #197de1;
 	
 	
 }
@@ -3969,7 +3969,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	right: 0;
 	bottom: 0;
 	left: 0;
-	background: #00554b;
+	background: #0957a6;
 	opacity: 0.15;
 	filter: alpha(opacity=15.0) ;
 	pointer-events: none;
@@ -3983,8 +3983,8 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-filterselect-suggestpopup .gwt-MenuItem-selected {
-	background: #00796B;
-	color: #e1f6f4;
+	background: #197de1;
+	color: #ecf2f8;
 	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.05);
 }
 
@@ -4123,7 +4123,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	-webkit-transition: none;
 	-moz-transition: none;
 	transition: none;
-	border-color: #00796B;
+	border-color: #197de1;
 	-webkit-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.05);
 	box-shadow: 0 2px 3px rgba(0, 0, 0, 0.05);
 }
@@ -4935,7 +4935,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	-webkit-transition: none;
 	-moz-transition: none;
 	transition: none;
-	border-color: #00796B;
+	border-color: #197de1;
 	-webkit-box-shadow: none;
 	box-shadow: none;
 }
@@ -5144,7 +5144,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-grid .header-drag-table .v-grid-header  > .v-grid-drop-marker {
-	background-color: #00796B;
+	background-color: #197de1;
 	position: absolute;
 	width: 3px;
 }
@@ -5273,7 +5273,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-grid-row-selected > td {
-	background: #00796B;
+	background: #197de1;
 }
 
 .mytheme .v-grid-row-focused > td {
@@ -5396,7 +5396,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	right: 0;
 	bottom: 0;
 	left: 0;
-	border: 2px solid #00796B;
+	border: 2px solid #197de1;
 	display: none;
 	pointer-events: none;
 }
@@ -5572,7 +5572,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	top: 0;
 	left: 0;
 	width: 2px;
-	background-color: #00796B;
+	background-color: #197de1;
 	position: absolute;
 	height: 100%;
 	pointer-events: none;
@@ -5626,18 +5626,18 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-grid-row-selected  > .v-grid-cell {
-	background: #00796B;
-	color: #a6ebe3;
+	background: #197de1;
+	color: #c8dbed;
 	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.05);
-	border-color: #034d44;
+	border-color: #1d69b4;
 }
 
 .mytheme .v-grid-row-selected  > .v-grid-cell-focused:before {
-	border-color: #00dfc5;
+	border-color: #71b0ef;
 }
 
 .mytheme .v-grid-editor {
-	border-color: #00796B;
+	border-color: #197de1;
 }
 
 .mytheme .v-grid-editor-footer {
@@ -5723,7 +5723,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 
 .mytheme .v-grid-editor-save, .mytheme .v-grid-editor-cancel {
 	cursor: pointer;
-	color: #00796B;
+	color: #197de1;
 	text-decoration: none;
 	font-weight: inherit;
 	-webkit-transition: color 140ms;
@@ -5739,7 +5739,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-grid-editor-save:hover, .mytheme .v-grid-editor-cancel:hover {
-	color: #00ac98;
+	color: #4396ea;
 }
 
 .mytheme .v-grid-editor-save.v-disabled, .mytheme .v-grid-editor-cancel.v-disabled {
@@ -5804,7 +5804,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	position: absolute;
 	height: 2px;
 	width: 100%;
-	background: #00796B;
+	background: #197de1;
 	pointer-events: none;
 	border: none;
 }
@@ -5828,16 +5828,16 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	left: 0;
 	bottom: 0;
 	right: 2px;
-	border: 2px solid #00796B;
+	border: 2px solid #197de1;
 	pointer-events: none;
 }
 
 .mytheme .v-grid-row-selected.v-grid-row-drag-center:after {
-	border-color: #00463e;
+	border-color: #1463b3;
 }
 
 .mytheme .v-grid-row-selected.v-grid-row-drag-top:before, .mytheme .v-grid-row-selected.v-grid-row-drag-bottom:after {
-	background: #00463e;
+	background: #1463b3;
 }
 
 .mytheme .v-grid-body-drag-top:after {
@@ -5848,7 +5848,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	bottom: 0;
 	left: 0;
 	pointer-events: none;
-	border: 2px solid #00796B;
+	border: 2px solid #197de1;
 	z-index: 100;
 }
 
@@ -5891,7 +5891,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	-webkit-transition: none;
 	-moz-transition: none;
 	transition: none;
-	border-color: #00796B;
+	border-color: #197de1;
 	
 	
 }
@@ -6359,7 +6359,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	-webkit-transition: none;
 	-moz-transition: none;
 	transition: none;
-	border-color: #00796B;
+	border-color: #197de1;
 	
 	
 }
@@ -6584,7 +6584,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	-webkit-transition: none;
 	-moz-transition: none;
 	transition: none;
-	border-color: #00796B;
+	border-color: #197de1;
 	
 	
 }
@@ -6829,7 +6829,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-datefield-popup .v-datefield-calendarpanel-day:hover {
-	color: #00796B;
+	color: #197de1;
 }
 
 .mytheme .v-datefield-popup .v-datefield-calendarpanel-day-offmonth {
@@ -6844,8 +6844,8 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-datefield-popup .v-datefield-calendarpanel-day.v-datefield-calendarpanel-day-selected, .mytheme .v-datefield-popup .v-datefield-calendarpanel-day.v-datefield-calendarpanel-day-selected:hover {
-	color: #a6ebe3;
-	background: #00796B;
+	color: #c8dbed;
+	background: #197de1;
 	border: none;
 	font-weight: 600;
 }
@@ -6903,7 +6903,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-datefield-popup td[class*="year"] button:hover:before, .mytheme .v-datefield-popup td[class*="month"] button:hover:before {
-	color: #00796B;
+	color: #197de1;
 }
 
 .mytheme .v-datefield-popup td[class*="year"] button.outside-range, .mytheme .v-datefield-popup td[class*="month"] button.outside-range {
@@ -6938,7 +6938,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 
 .mytheme .v-datefield-popup td.v-datefield-calendarpanel-month {
 	width: 148px;
-	color: #00796B;
+	color: #197de1;
 }
 
 .mytheme .v-datefield-popup .v-datefield-calendarpanel-year td.v-datefield-calendarpanel-month {
@@ -7010,7 +7010,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-datefield-calendarpanel-day:hover {
-	color: #00796B;
+	color: #197de1;
 }
 
 .mytheme .v-datefield-calendarpanel-day-offmonth {
@@ -7025,8 +7025,8 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-datefield-calendarpanel-day.v-datefield-calendarpanel-day-selected, .mytheme .v-datefield-calendarpanel-day.v-datefield-calendarpanel-day-selected:hover {
-	color: #a6ebe3;
-	background: #00796B;
+	color: #c8dbed;
+	background: #197de1;
 	border: none;
 	font-weight: 600;
 }
@@ -7084,7 +7084,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme td[class*="year"] button:hover:before, .mytheme td[class*="month"] button:hover:before {
-	color: #00796B;
+	color: #197de1;
 }
 
 .mytheme td[class*="year"] button.outside-range, .mytheme td[class*="month"] button.outside-range {
@@ -7119,7 +7119,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 
 .mytheme td.v-datefield-calendarpanel-month {
 	width: 148px;
-	color: #00796B;
+	color: #197de1;
 }
 
 .mytheme .v-datefield-calendarpanel-year td.v-datefield-calendarpanel-month {
@@ -7661,7 +7661,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-inline-datefield-calendarpanel-day:hover {
-	color: #00796B;
+	color: #197de1;
 }
 
 .mytheme .v-inline-datefield-calendarpanel-day-offmonth {
@@ -7676,8 +7676,8 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-inline-datefield-calendarpanel-day.v-inline-datefield-calendarpanel-day-selected, .mytheme .v-inline-datefield-calendarpanel-day.v-inline-datefield-calendarpanel-day-selected:hover {
-	color: #a6ebe3;
-	background: #00796B;
+	color: #c8dbed;
+	background: #197de1;
 	border: none;
 	font-weight: 600;
 }
@@ -7735,7 +7735,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme td[class*="year"] button:hover:before, .mytheme td[class*="month"] button:hover:before {
-	color: #00796B;
+	color: #197de1;
 }
 
 .mytheme td[class*="year"] button.outside-range, .mytheme td[class*="month"] button.outside-range {
@@ -7770,7 +7770,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 
 .mytheme td.v-inline-datefield-calendarpanel-month {
 	width: 148px;
-	color: #00796B;
+	color: #197de1;
 }
 
 .mytheme .v-inline-datefield-calendarpanel-year td.v-inline-datefield-calendarpanel-month {
@@ -7902,7 +7902,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-menubar:focus:after {
-	border-color: #00796B;
+	border-color: #197de1;
 }
 
 .mytheme .v-menubar  > .v-menubar-menuitem {
@@ -8019,13 +8019,13 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-menubar > .v-menubar-menuitem-selected {
-	color: #e1f6f4;
+	color: #ecf2f8;
 	
 	
 	
 	border-radius: 0;
-	border: 0 solid #00544a;
-	background: #00796B;
+	border: 0 solid #11579d;
+	background: #197de1;
 	
 	
 	border-top-width: 0;
@@ -8106,7 +8106,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	right: 0;
 	bottom: 0;
 	left: 0;
-	background: #00554b;
+	background: #0957a6;
 	opacity: 0.15;
 	filter: alpha(opacity=15.0) ;
 	pointer-events: none;
@@ -8132,8 +8132,8 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-menubar-popup .v-menubar-menuitem-selected {
-	background: #00796B;
-	color: #e1f6f4;
+	background: #197de1;
+	color: #ecf2f8;
 	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.05);
 }
 
@@ -8212,7 +8212,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	border: none;
 	margin-right: 1px;
 	border-radius: 4px;
-	color: #00796B;
+	color: #197de1;
 	padding: 0 12px;
 	-webkit-transition: color 140ms;
 	-moz-transition: color 140ms;
@@ -8228,7 +8228,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-menubar-borderless .v-menubar-menuitem:hover {
-	color: #00ac98;
+	color: #4396ea;
 }
 
 .mytheme .v-menubar-borderless .v-menubar-menuitem:active {
@@ -8237,7 +8237,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 
 .mytheme .v-menubar-borderless .v-menubar-menuitem-checked, .mytheme .v-menubar-borderless .v-menubar-menuitem-checked:first-child {
 	border: 0 solid #afafaf;
-	color: #00796B;
+	color: #197de1;
 }
 
 .mytheme .v-menubar-borderless .v-menubar-menuitem-checked .v-menubar-menuitem-caption, .mytheme .v-menubar-borderless .v-menubar-menuitem-checked:first-child .v-menubar-menuitem-caption {
@@ -8246,12 +8246,12 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-menubar-borderless .v-menubar-menuitem-selected {
-	color: #e1f6f4;
+	color: #ecf2f8;
 	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.05);
 }
 
 .mytheme .v-menubar-borderless .v-menubar-menuitem-selected:hover {
-	color: #e1f6f4;
+	color: #ecf2f8;
 }
 
 .mytheme .v-menubar-borderless .v-menubar-menuitem-disabled, .mytheme .v-menubar-borderless .v-menubar-menuitem-disabled:hover {
@@ -8289,7 +8289,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 :root .mytheme .v-radiobutton > input:focus ~ label:before {
-	border-color: #00796B;
+	border-color: #197de1;
 	-webkit-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.05);
 	box-shadow: 0 2px 3px rgba(0, 0, 0, 0.05);
 }
@@ -8338,7 +8338,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 :root .mytheme .v-radiobutton > input:checked ~ label:after {
-	color: #00796B;
+	color: #197de1;
 }
 
 .mytheme .v-radiobutton > .v-icon, .mytheme .v-radiobutton > label .v-icon {
@@ -8383,7 +8383,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	height: 7px;
 	top: 6px;
 	left: 6px;
-	background: #00796B;
+	background: #197de1;
 }
 
 :root .mytheme .v-radiobutton > input ~ label:before, :root .mytheme .v-radiobutton > input ~ label:after {
@@ -8443,7 +8443,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 :root .mytheme .v-select-optiongroup-small .v-checkbox > input:focus ~ label:before {
-	border-color: #00796B;
+	border-color: #197de1;
 	-webkit-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.05);
 	box-shadow: 0 2px 3px rgba(0, 0, 0, 0.05);
 }
@@ -8492,7 +8492,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 :root .mytheme .v-select-optiongroup-small .v-checkbox > input:checked ~ label:after {
-	color: #00796B;
+	color: #197de1;
 }
 
 .mytheme .v-select-optiongroup-small .v-checkbox > .v-icon, .mytheme .v-select-optiongroup-small .v-checkbox > label .v-icon {
@@ -8563,7 +8563,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 :root .mytheme .v-select-optiongroup-small .v-radiobutton > input:focus ~ label:before {
-	border-color: #00796B;
+	border-color: #197de1;
 	-webkit-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.05);
 	box-shadow: 0 2px 3px rgba(0, 0, 0, 0.05);
 }
@@ -8612,7 +8612,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 :root .mytheme .v-select-optiongroup-small .v-radiobutton > input:checked ~ label:after {
-	color: #00796B;
+	color: #197de1;
 }
 
 .mytheme .v-select-optiongroup-small .v-radiobutton > .v-icon, .mytheme .v-select-optiongroup-small .v-radiobutton > label .v-icon {
@@ -8657,7 +8657,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	height: 6px;
 	top: 5px;
 	left: 5px;
-	background: #00796B;
+	background: #197de1;
 }
 
 :root .mytheme .v-select-optiongroup-small .v-radiobutton > input ~ label:before, :root .mytheme .v-select-optiongroup-small .v-radiobutton > input ~ label:after {
@@ -8717,7 +8717,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 :root .mytheme .v-select-optiongroup-large .v-checkbox > input:focus ~ label:before {
-	border-color: #00796B;
+	border-color: #197de1;
 	-webkit-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.05);
 	box-shadow: 0 2px 3px rgba(0, 0, 0, 0.05);
 }
@@ -8766,7 +8766,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 :root .mytheme .v-select-optiongroup-large .v-checkbox > input:checked ~ label:after {
-	color: #00796B;
+	color: #197de1;
 }
 
 .mytheme .v-select-optiongroup-large .v-checkbox > .v-icon, .mytheme .v-select-optiongroup-large .v-checkbox > label .v-icon {
@@ -8837,7 +8837,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 :root .mytheme .v-select-optiongroup-large .v-radiobutton > input:focus ~ label:before {
-	border-color: #00796B;
+	border-color: #197de1;
 	-webkit-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.05);
 	box-shadow: 0 2px 3px rgba(0, 0, 0, 0.05);
 }
@@ -8886,7 +8886,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 :root .mytheme .v-select-optiongroup-large .v-radiobutton > input:checked ~ label:after {
-	color: #00796B;
+	color: #197de1;
 }
 
 .mytheme .v-select-optiongroup-large .v-radiobutton > .v-icon, .mytheme .v-select-optiongroup-large .v-radiobutton > label .v-icon {
@@ -8931,7 +8931,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	height: 8px;
 	top: 7px;
 	left: 7px;
-	background: #00796B;
+	background: #197de1;
 }
 
 :root .mytheme .v-select-optiongroup-large .v-radiobutton > input ~ label:before, :root .mytheme .v-select-optiongroup-large .v-radiobutton > input ~ label:after {
@@ -8974,7 +8974,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 
 .mytheme .v-link {
 	cursor: pointer;
-	color: #00796B;
+	color: #197de1;
 	text-decoration: none;
 	font-weight: inherit;
 	-webkit-transition: color 140ms;
@@ -8983,7 +8983,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-link:hover {
-	color: #00ac98;
+	color: #4396ea;
 }
 
 .mytheme .v-link.v-disabled {
@@ -8993,7 +8993,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 
 .mytheme .v-link a {
 	cursor: pointer;
-	color: #00796B;
+	color: #197de1;
 	text-decoration: none;
 	font-weight: inherit;
 	-webkit-transition: color 140ms;
@@ -9008,7 +9008,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-link a:hover {
-	color: #00ac98;
+	color: #4396ea;
 }
 
 .mytheme .v-link a.v-disabled {
@@ -9170,7 +9170,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 .mytheme .v-window-closebox:hover, .mytheme .v-window-maximizebox:hover, .mytheme .v-window-restorebox:hover {
 	opacity: 1;
 	filter: none ;
-	color: #00796B;
+	color: #197de1;
 }
 
 .mytheme .v-window-closebox:active, .mytheme .v-window-maximizebox:active, .mytheme .v-window-restorebox:active {
@@ -9492,17 +9492,17 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 
 .mytheme .v-tree-node-focused:after {
 	opacity: 1;
-	border: 1px solid #00796B;
+	border: 1px solid #197de1;
 }
 
 .mytheme .v-tree-node-selected {
-	color: #e1f6f4;
+	color: #ecf2f8;
 	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.05);
 }
 
 .mytheme .v-tree-node-selected:after {
 	opacity: 1;
-	background: #00796B;
+	background: #197de1;
 	border: none;
 }
 
@@ -9516,10 +9516,10 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	position: absolute;
 	height: 2px;
 	width: 100%;
-	background: #00796B;
+	background: #197de1;
 	font-size: 32px;
 	line-height: 2px;
-	color: #00796B;
+	color: #197de1;
 	text-indent: -4px;
 	text-shadow: 0 0 1px #fafafa, 0 0 1px #fafafa;
 	opacity: 1;
@@ -9531,8 +9531,8 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-tree-node-caption-drag-center {
-	-webkit-box-shadow: 0 0 0 2px #00796B;
-	box-shadow: 0 0 0 2px #00796B;
+	-webkit-box-shadow: 0 0 0 2px #197de1;
+	box-shadow: 0 0 0 2px #197de1;
 	position: relative;
 	border-radius: 4px;
 }
@@ -9702,7 +9702,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-tree8 .header-drag-table .v-tree8-header  > .v-tree8-drop-marker {
-	background-color: #00796B;
+	background-color: #197de1;
 	position: absolute;
 	width: 3px;
 }
@@ -9831,7 +9831,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-tree8-row-selected > td {
-	background: #00796B;
+	background: #197de1;
 }
 
 .mytheme .v-tree8-row-focused > td {
@@ -9954,7 +9954,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	right: 0;
 	bottom: 0;
 	left: 0;
-	border: 2px solid #00796B;
+	border: 2px solid #197de1;
 	display: none;
 	pointer-events: none;
 }
@@ -10130,7 +10130,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	top: 0;
 	left: 0;
 	width: 2px;
-	background-color: #00796B;
+	background-color: #197de1;
 	position: absolute;
 	height: 100%;
 	pointer-events: none;
@@ -10184,18 +10184,18 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-tree8-row-selected  > .v-tree8-cell {
-	background: #00796B;
-	color: #a6ebe3;
+	background: #197de1;
+	color: #c8dbed;
 	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.05);
-	border-color: #034d44;
+	border-color: #1d69b4;
 }
 
 .mytheme .v-tree8-row-selected  > .v-tree8-cell-focused:before {
-	border-color: #00dfc5;
+	border-color: #71b0ef;
 }
 
 .mytheme .v-tree8-editor {
-	border-color: #00796B;
+	border-color: #197de1;
 }
 
 .mytheme .v-tree8-editor-footer {
@@ -10281,7 +10281,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 
 .mytheme .v-tree8-editor-save, .mytheme .v-tree8-editor-cancel {
 	cursor: pointer;
-	color: #00796B;
+	color: #197de1;
 	text-decoration: none;
 	font-weight: inherit;
 	-webkit-transition: color 140ms;
@@ -10297,7 +10297,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-tree8-editor-save:hover, .mytheme .v-tree8-editor-cancel:hover {
-	color: #00ac98;
+	color: #4396ea;
 }
 
 .mytheme .v-tree8-editor-save.v-disabled, .mytheme .v-tree8-editor-cancel.v-disabled {
@@ -10362,7 +10362,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	position: absolute;
 	height: 2px;
 	width: 100%;
-	background: #00796B;
+	background: #197de1;
 	pointer-events: none;
 	border: none;
 }
@@ -10386,16 +10386,16 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	left: 0;
 	bottom: 0;
 	right: 2px;
-	border: 2px solid #00796B;
+	border: 2px solid #197de1;
 	pointer-events: none;
 }
 
 .mytheme .v-tree8-row-selected.v-tree8-row-drag-center:after {
-	border-color: #00463e;
+	border-color: #1463b3;
 }
 
 .mytheme .v-tree8-row-selected.v-tree8-row-drag-top:before, .mytheme .v-tree8-row-selected.v-tree8-row-drag-bottom:after {
-	background: #00463e;
+	background: #1463b3;
 }
 
 .mytheme .v-tree8-body-drag-top:after {
@@ -10406,7 +10406,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	bottom: 0;
 	left: 0;
 	pointer-events: none;
-	border: 2px solid #00796B;
+	border: 2px solid #197de1;
 	z-index: 100;
 }
 
@@ -10514,7 +10514,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	right: 0;
 	bottom: 0;
 	left: 0;
-	border: 2px solid #00796B;
+	border: 2px solid #197de1;
 	display: none;
 	pointer-events: none;
 }
@@ -10582,12 +10582,12 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 
 .mytheme .v-tree8-row-selected::before {
 	display: block;
-	background: #00796B;
+	background: #197de1;
 }
 
 .mytheme .v-tree8:focus .v-tree8-row-selected.v-tree8-row-focused::before {
 	border-color: transparent;
-	box-shadow: inset 0 0 0 1px #a6ebe3;
+	box-shadow: inset 0 0 0 1px #c8dbed;
 }
 
 .mytheme .v-tree8-scroller-vertical {
@@ -10764,7 +10764,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-treegrid .header-drag-table .v-treegrid-header  > .v-treegrid-drop-marker {
-	background-color: #00796B;
+	background-color: #197de1;
 	position: absolute;
 	width: 3px;
 }
@@ -10893,7 +10893,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-treegrid-row-selected > td {
-	background: #00796B;
+	background: #197de1;
 }
 
 .mytheme .v-treegrid-row-focused > td {
@@ -11016,7 +11016,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	right: 0;
 	bottom: 0;
 	left: 0;
-	border: 2px solid #00796B;
+	border: 2px solid #197de1;
 	display: none;
 	pointer-events: none;
 }
@@ -11192,7 +11192,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	top: 0;
 	left: 0;
 	width: 2px;
-	background-color: #00796B;
+	background-color: #197de1;
 	position: absolute;
 	height: 100%;
 	pointer-events: none;
@@ -11246,18 +11246,18 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-treegrid-row-selected  > .v-treegrid-cell {
-	background: #00796B;
-	color: #a6ebe3;
+	background: #197de1;
+	color: #c8dbed;
 	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.05);
-	border-color: #034d44;
+	border-color: #1d69b4;
 }
 
 .mytheme .v-treegrid-row-selected  > .v-treegrid-cell-focused:before {
-	border-color: #00dfc5;
+	border-color: #71b0ef;
 }
 
 .mytheme .v-treegrid-editor {
-	border-color: #00796B;
+	border-color: #197de1;
 }
 
 .mytheme .v-treegrid-editor-footer {
@@ -11343,7 +11343,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 
 .mytheme .v-treegrid-editor-save, .mytheme .v-treegrid-editor-cancel {
 	cursor: pointer;
-	color: #00796B;
+	color: #197de1;
 	text-decoration: none;
 	font-weight: inherit;
 	-webkit-transition: color 140ms;
@@ -11359,7 +11359,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-treegrid-editor-save:hover, .mytheme .v-treegrid-editor-cancel:hover {
-	color: #00ac98;
+	color: #4396ea;
 }
 
 .mytheme .v-treegrid-editor-save.v-disabled, .mytheme .v-treegrid-editor-cancel.v-disabled {
@@ -11424,7 +11424,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	position: absolute;
 	height: 2px;
 	width: 100%;
-	background: #00796B;
+	background: #197de1;
 	pointer-events: none;
 	border: none;
 }
@@ -11448,16 +11448,16 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	left: 0;
 	bottom: 0;
 	right: 2px;
-	border: 2px solid #00796B;
+	border: 2px solid #197de1;
 	pointer-events: none;
 }
 
 .mytheme .v-treegrid-row-selected.v-treegrid-row-drag-center:after {
-	border-color: #00463e;
+	border-color: #1463b3;
 }
 
 .mytheme .v-treegrid-row-selected.v-treegrid-row-drag-top:before, .mytheme .v-treegrid-row-selected.v-treegrid-row-drag-bottom:after {
-	background: #00463e;
+	background: #1463b3;
 }
 
 .mytheme .v-treegrid-body-drag-top:after {
@@ -11468,7 +11468,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	bottom: 0;
 	left: 0;
 	pointer-events: none;
-	border: 2px solid #00796B;
+	border: 2px solid #197de1;
 	z-index: 100;
 }
 
@@ -11576,7 +11576,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	right: 0;
 	bottom: 0;
 	left: 0;
-	border: 2px solid #00796B;
+	border: 2px solid #197de1;
 	display: none;
 	pointer-events: none;
 }
@@ -11742,23 +11742,23 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-table [class*="-row"].v-selected {
-	background: #00796B;
+	background: #197de1;
 	background-origin: border-box;
-	color: #e1f6f4;
+	color: #ecf2f8;
 	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.05);
 }
 
 .mytheme .v-table [class*="-row"].v-selected  + .v-selected {
-	background: #00796B;
+	background: #197de1;
 }
 
 .mytheme .v-table [class*="-row"].v-selected  + .v-selected td {
-	border-top-color: #00796B;
+	border-top-color: #197de1;
 }
 
 .mytheme .v-table [class*="-row"].v-selected .v-table-cell-content {
 	border-color: transparent;
-	border-left-color: #034d44;
+	border-left-color: #1d69b4;
 }
 
 .mytheme .v-table [class*="-row"].v-selected .v-table-cell-content:first-child {
@@ -11794,7 +11794,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-table-focus {
-	outline: 1px solid #00796B;
+	outline: 1px solid #197de1;
 	outline-offset: -1px;
 }
 
@@ -11812,14 +11812,14 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-table-focus-slot-right {
-	border-right: 3px solid #00796B;
+	border-right: 3px solid #197de1;
 	right: -2px;
 	margin-left: -11px !important;
 }
 
 .mytheme .v-table-focus-slot-left {
 	float: left;
-	border-left: 3px solid #00796B;
+	border-left: 3px solid #197de1;
 	left: -1px;
 	right: auto;
 	margin-left: 0 !important;
@@ -11871,7 +11871,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-table-column-selector:focus:after {
-	border-color: #00796B;
+	border-color: #197de1;
 }
 
 .mytheme .v-table-column-selector:active:after {
@@ -11968,9 +11968,9 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-table-drag .v-table-body {
-	-webkit-box-shadow: 0 0 0 2px rgba(0, 121, 107, 0.5);
-	box-shadow: 0 0 0 2px rgba(0, 121, 107, 0.5);
-	border-color: #00796B;
+	-webkit-box-shadow: 0 0 0 2px rgba(25, 125, 225, 0.5);
+	box-shadow: 0 0 0 2px rgba(25, 125, 225, 0.5);
+	border-color: #197de1;
 }
 
 .mytheme .v-table-drag .v-table-body .v-table-focus {
@@ -11978,12 +11978,12 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-table-row-drag-middle .v-table-cell-content {
-	background-color: #cce4e1;
-	color: #314845;
+	background-color: #d1e5f9;
+	color: #214060;
 }
 
 .mytheme .v-table-row-drag-bottom td.v-table-cell-content {
-	border-bottom: 2px solid #00796B;
+	border-bottom: 2px solid #197de1;
 	height: 35px;
 }
 
@@ -11992,7 +11992,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-table-row-drag-top td.v-table-cell-content {
-	border-top: 2px solid #00796B;
+	border-top: 2px solid #197de1;
 	height: 36px;
 }
 
@@ -12218,7 +12218,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-splitpanel-horizontal  > div > .v-splitpanel-hsplitter div:before:focus:after {
-	border-color: #00796B;
+	border-color: #197de1;
 }
 
 .mytheme .v-splitpanel-horizontal  > div > .v-splitpanel-hsplitter div:before:active:after {
@@ -12268,7 +12268,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-splitpanel-vertical  > div > .v-splitpanel-vsplitter div:before:focus:after {
-	border-color: #00796B;
+	border-color: #197de1;
 }
 
 .mytheme .v-splitpanel-vertical  > div > .v-splitpanel-vsplitter div:before:active:after {
@@ -12315,7 +12315,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-splitpanel-horizontal.large  > div > .v-splitpanel-hsplitter div:before:focus:after {
-	border-color: #00796B;
+	border-color: #197de1;
 }
 
 .mytheme .v-splitpanel-horizontal.large  > div > .v-splitpanel-hsplitter div:before:active:after {
@@ -12379,7 +12379,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-splitpanel-vertical.large  > div > .v-splitpanel-vsplitter div:before:focus:after {
-	border-color: #00796B;
+	border-color: #197de1;
 }
 
 .mytheme .v-splitpanel-vertical.large  > div > .v-splitpanel-vsplitter div:before:active:after {
@@ -12411,10 +12411,10 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 .mytheme .v-progressbar-indicator {
 	border-radius: 4px;
 	height: inherit;
-	background: #00796B;
+	background: #197de1;
 	
 	
-	border: 0 solid #00544a;
+	border: 0 solid #11579d;
 	box-sizing: border-box;
 	max-width: 100%;
 	min-width: 8px;
@@ -12437,10 +12437,10 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	display: inline-block;
 	border-radius: 4px;
 	height: inherit;
-	background: #00796B;
+	background: #197de1;
 	
 	
-	border: 0 solid #00544a;
+	border: 0 solid #11579d;
 	box-sizing: border-box;
 	max-width: 100%;
 	width: 9px;
@@ -12451,9 +12451,9 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	height: 24px !important;
 	width: 24px !important;
 	box-sizing: border-box;
-	border: 2px solid rgba(0, 121, 107, 0.2);
-	border-top-color: #00796B;
-	border-right-color: #00796B;
+	border: 2px solid rgba(25, 125, 225, 0.2);
+	border-top-color: #197de1;
+	border-right-color: #197de1;
 	border-radius: 100%;
 	-webkit-animation: v-rotate-360 500ms infinite linear;
 	-moz-animation: v-rotate-360 500ms infinite linear;
@@ -12503,16 +12503,16 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	left: 11px;
 	width: 8px;
 	border-radius: 4px;
-	border-left: 0 solid #00544a;
+	border-left: 0 solid #11579d;
 }
 
 .mytheme .v-slider-base:after {
 	border-radius: 4px;
 	height: inherit;
-	background: #00796B;
+	background: #197de1;
 	
 	
-	border: 0 solid #00544a;
+	border: 0 solid #11579d;
 	box-sizing: border-box;
 	max-width: 100%;
 	content: "";
@@ -12560,7 +12560,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-slider-handle:before:focus:after {
-	border-color: #00796B;
+	border-color: #197de1;
 }
 
 .mytheme .v-slider-handle:before:active:after {
@@ -12569,7 +12569,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 
 .mytheme .v-slider-handle:after {
 	border: 0 solid #afafaf;
-	border-color: #00796B;
+	border-color: #197de1;
 	opacity: 0;
 	-webkit-transition: opacity 200ms;
 	-moz-transition: opacity 200ms;
@@ -12622,13 +12622,13 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	width: auto;
 	height: 8px;
 	border-left: none;
-	border-bottom: 0 solid #00544a;
+	border-bottom: 0 solid #11579d;
 }
 
 .mytheme .v-slider-vertical .v-slider-base:after {
 	height: 101%;
 	margin-left: 0;
-	background: #00796B;
+	background: #197de1;
 }
 
 .mytheme .v-slider-vertical .v-slider-handle {
@@ -12714,7 +12714,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-tabsheet-tabitemcell .v-caption:hover {
-	color: #00796B;
+	color: #197de1;
 }
 
 .mytheme .v-tabsheet-tabitemcell .v-caption.v-disabled {
@@ -12733,12 +12733,12 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-tabsheet-tabitemcell:focus .v-caption {
-	color: #00796B;
+	color: #197de1;
 }
 
 .mytheme .v-tabsheet-tabitemcell .v-tabsheet-tabitem-selected .v-caption.v-caption {
-	border-bottom-color: #00796B;
-	color: #00796B;
+	border-bottom-color: #197de1;
+	color: #197de1;
 }
 
 .mytheme .v-tabsheet-tabitemcell .v-caption-closable {
@@ -12764,12 +12764,12 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 
 .mytheme .v-tabsheet-tabitemcell .v-tabsheet-caption-close:hover {
 	background: rgba(0, 0, 0, 0.03);
-	color: #00796B;
+	color: #197de1;
 }
 
 .mytheme .v-tabsheet-tabitemcell .v-tabsheet-caption-close:active {
-	background: #00796B;
-	color: #a6ebe3;
+	background: #197de1;
+	color: #c8dbed;
 }
 
 .mytheme .v-tabsheet-scroller {
@@ -12820,13 +12820,13 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 .mytheme .v-tabsheet-scroller button:hover {
 	opacity: 1;
 	filter: none ;
-	color: #00796B;
+	color: #197de1;
 }
 
 .mytheme .v-tabsheet-scroller button:active {
 	opacity: 0.7;
 	filter: alpha(opacity=70) ;
-	color: #00796B;
+	color: #197de1;
 }
 
 .mytheme .v-tabsheet-scroller button::-moz-focus-inner {
@@ -12869,9 +12869,9 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	height: 20px !important;
 	width: 20px !important;
 	box-sizing: border-box;
-	border: 2px solid rgba(0, 121, 107, 0.2);
-	border-top-color: #00796B;
-	border-right-color: #00796B;
+	border: 2px solid rgba(25, 125, 225, 0.2);
+	border-top-color: #197de1;
+	border-right-color: #197de1;
 	border-radius: 100%;
 	-webkit-animation: v-rotate-360 500ms infinite linear;
 	-moz-animation: v-rotate-360 500ms infinite linear;
@@ -13504,7 +13504,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-calendar-bottom-spacer:hover {
-	color: #00796B;
+	color: #197de1;
 }
 
 .mytheme .v-calendar-day-number {
@@ -13518,24 +13518,24 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-calendar-day-number:hover {
-	color: #00796B;
+	color: #197de1;
 }
 
 .mytheme .v-calendar-month-day-today {
-	background: #edf3f2;
+	background: #eef3f8;
 }
 
 .mytheme .v-calendar-month-day-today .v-calendar-day-number {
 	font-weight: 400;
-	color: #00796B;
-	border-top: 2px solid #00796B;
+	color: #197de1;
+	border-top: 2px solid #197de1;
 	line-height: 24px;
 	margin: 0;
 	padding: 0 5px;
 }
 
 .mytheme .v-calendar-month-day-selected {
-	background-color: #e1edeb;
+	background-color: #e3edf7;
 }
 
 .mytheme .v-calendar-month-day-dragemphasis {
@@ -13605,7 +13605,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-calendar-current-time {
-	background: #00796B;
+	background: #197de1;
 	line-height: 1px;
 	pointer-events: none;
 	opacity: 0.5;
@@ -13614,7 +13614,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 
 .mytheme .v-calendar-current-time:before {
 	content: "\2022";
-	color: #00796B;
+	color: #197de1;
 	font-size: 22px;
 	margin-left: -0.07em;
 }
@@ -13630,7 +13630,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	right: 0;
 	bottom: -1px;
 	left: 0;
-	background: #00796B;
+	background: #197de1;
 	opacity: 0.5;
 	filter: alpha(opacity=50) ;
 	border-radius: 4px 4px 0 0;
@@ -13917,7 +13917,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-label-colored {
-	color: #00796B;
+	color: #197de1;
 }
 
 .mytheme .v-label-large {
@@ -13957,9 +13957,9 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	height: 24px !important;
 	width: 24px !important;
 	box-sizing: border-box;
-	border: 2px solid rgba(0, 121, 107, 0.2);
-	border-top-color: #00796B;
-	border-right-color: #00796B;
+	border: 2px solid rgba(25, 125, 225, 0.2);
+	border-top-color: #197de1;
+	border-right-color: #197de1;
 	border-radius: 100%;
 	-webkit-animation: v-rotate-360 500ms infinite linear;
 	-moz-animation: v-rotate-360 500ms infinite linear;
@@ -14011,7 +14011,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	right: -1px;
 	bottom: -1px;
 	left: -1px;
-	border: 0 solid #00796B;
+	border: 0 solid #197de1;
 }
 
 .mytheme .v-ddwrapper-over-top:before {
@@ -14039,7 +14039,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	border-radius: 4px;
 	opacity: 0.3;
 	filter: alpha(opacity=30.0) ;
-	background: #3cffe8;
+	background: #8abef2;
 }
 
 .mytheme .no-vertical-drag-hints .v-ddwrapper-over-bottom:before, .mytheme .no-vertical-drag-hints.v-ddwrapper-over-bottom:before {
@@ -14051,7 +14051,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	border-radius: 4px;
 	opacity: 0.3;
 	filter: alpha(opacity=30.0) ;
-	background: #3cffe8;
+	background: #8abef2;
 }
 
 .mytheme .no-horizontal-drag-hints.v-ddwrapper-over-left:before, .mytheme .no-horizontal-drag-hints .v-ddwrapper-over-left:before {
@@ -14063,7 +14063,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	border-radius: 4px;
 	opacity: 0.3;
 	filter: alpha(opacity=30.0) ;
-	background: #3cffe8;
+	background: #8abef2;
 }
 
 .mytheme .no-horizontal-drag-hints.v-ddwrapper-over-right:before, .mytheme .no-horizontal-drag-hints .v-ddwrapper-over-right:before {
@@ -14075,7 +14075,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	border-radius: 4px;
 	opacity: 0.3;
 	filter: alpha(opacity=30.0) ;
-	background: #3cffe8;
+	background: #8abef2;
 }
 
 .mytheme .v-ddwrapper-over-middle:after, .mytheme .v-ddwrapper-over-center:after {
@@ -14083,7 +14083,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	border-radius: 4px;
 	opacity: 0.3;
 	filter: alpha(opacity=30.0) ;
-	background: #3cffe8;
+	background: #8abef2;
 }
 
 .mytheme .no-box-drag-hints.v-ddwrapper:after, .mytheme .no-box-drag-hints .v-ddwrapper:after {
@@ -14133,7 +14133,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 
 .mytheme .v-popupview {
 	cursor: pointer;
-	color: #00796B;
+	color: #197de1;
 	text-decoration: none;
 	font-weight: inherit;
 	-webkit-transition: color 140ms;
@@ -14142,7 +14142,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-popupview:hover {
-	color: #00ac98;
+	color: #4396ea;
 }
 
 .mytheme .v-popupview.v-disabled {
@@ -14196,9 +14196,9 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	height: 24px !important;
 	width: 24px !important;
 	box-sizing: border-box;
-	border: 2px solid rgba(0, 121, 107, 0.2);
-	border-top-color: #00796B;
-	border-right-color: #00796B;
+	border: 2px solid rgba(25, 125, 225, 0.2);
+	border-top-color: #197de1;
+	border-right-color: #197de1;
 	border-radius: 100%;
 	-webkit-animation: v-rotate-360 500ms infinite linear;
 	-moz-animation: v-rotate-360 500ms infinite linear;
@@ -14456,7 +14456,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-Notification .v-Notification-caption {
-	color: #00796B;
+	color: #197de1;
 	font-size: 19px;
 	line-height: 1;
 }
@@ -14830,13 +14830,13 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 
 .mytheme .valo-menu {
 	height: 100%;
-	background-color: #00796B;
-	background-image: -webkit-linear-gradient(right, #00796b 0%, #00796B 9px);
-	background-image: linear-gradient(to left,#00796b 0%, #00796B 9px);
-	color: #55e7d6;
+	background-color: #197de1;
+	background-image: -webkit-linear-gradient(right, #197de1 0%, #197de1 9px);
+	background-image: linear-gradient(to left,#197de1 0%, #197de1 9px);
+	color: #97bee5;
 	font-size: 14px;
 	line-height: 30px;
-	border-right: 0 solid #00544a;
+	border-right: 0 solid #11579d;
 	white-space: nowrap;
 }
 
@@ -14850,7 +14850,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .valo-menu-part {
-	border-left: 0 solid #006357;
+	border-left: 0 solid #1466b8;
 	height: 100%;
 	padding-bottom: 37px;
 	overflow: auto;
@@ -14874,12 +14874,12 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 
 .mytheme .valo-menu-title {
 	line-height: 1.2;
-	background: #00796B;
+	background: #197de1;
 	color: white;
 	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.05);
 	padding: 12px 19px;
 	font-size: 14px;
-	border-bottom: 0 solid #00544a;
+	border-bottom: 0 solid #11579d;
 	-webkit-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.05);
 	box-shadow: 0 2px 3px rgba(0, 0, 0, 0.05);
 	text-align: center;
@@ -14887,7 +14887,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 
 .mytheme .valo-menu-title .v-menubar.v-menubar {
 	background: transparent;
-	border-color: #00544a;
+	border-color: #11579d;
 	color: inherit;
 	-webkit-box-shadow: none;
 	box-shadow: none;
@@ -14936,7 +14936,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	border: none;
 	margin-right: 1px;
 	border-radius: 4px;
-	color: #00796B;
+	color: #197de1;
 	padding: 0 12px;
 	-webkit-transition: color 140ms;
 	-moz-transition: color 140ms;
@@ -14952,7 +14952,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-menubar-user-menu .v-menubar-menuitem:hover {
-	color: #00ac98;
+	color: #4396ea;
 }
 
 .mytheme .v-menubar-user-menu .v-menubar-menuitem:active {
@@ -14961,7 +14961,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 
 .mytheme .v-menubar-user-menu .v-menubar-menuitem-checked, .mytheme .v-menubar-user-menu .v-menubar-menuitem-checked:first-child {
 	border: 0 solid #afafaf;
-	color: #00796B;
+	color: #197de1;
 }
 
 .mytheme .v-menubar-user-menu .v-menubar-menuitem-checked .v-menubar-menuitem-caption, .mytheme .v-menubar-user-menu .v-menubar-menuitem-checked:first-child .v-menubar-menuitem-caption {
@@ -14970,12 +14970,12 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-menubar-user-menu .v-menubar-menuitem-selected {
-	color: #e1f6f4;
+	color: #ecf2f8;
 	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.05);
 }
 
 .mytheme .v-menubar-user-menu .v-menubar-menuitem-selected:hover {
-	color: #e1f6f4;
+	color: #ecf2f8;
 }
 
 .mytheme .v-menubar-user-menu .v-menubar-menuitem-disabled, .mytheme .v-menubar-user-menu .v-menubar-menuitem-disabled:hover {
@@ -15011,13 +15011,13 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .valo-menu-subtitle {
-	color: #15e5cd;
+	color: #6ea8e2;
 	margin: 7px 0 7px 19px;
-	border-bottom: 0 solid #268d81;
+	border-bottom: 0 solid #3b90e5;
 }
 
 .mytheme .valo-menu-subtitle [class*="badge"] {
-	color: #53b2a7;
+	color: #70ace7;
 }
 
 .mytheme .valo-menuitems {
@@ -15048,20 +15048,20 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .valo-menu-item [class*="badge"] {
-	color: #53b2a7;
+	color: #70ace7;
 }
 
 .mytheme .valo-menu-item.selected {
-	background: #006a5d;
+	background: #1775d3;
 }
 
 .mytheme .valo-menu-item.selected .v-icon {
-	color: #00ac98;
+	color: #4396ea;
 }
 
 .mytheme .valo-menu-item.selected [class*="badge"] {
-	background: #00ac98;
-	color: #b1eee7;
+	background: #4396ea;
+	color: #d3e2f1;
 }
 
 .mytheme .valo-menu-item:focus, .mytheme .valo-menu-item:hover, .mytheme .valo-menu-item.selected {
@@ -15080,7 +15080,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .valo-menu-item [class*="badge"] {
-	background-color: #009382;
+	background-color: #2c8ae8;
 	-webkit-transition: background-color 300ms;
 	-moz-transition: background-color 300ms;
 	transition: background-color 300ms;
@@ -15093,7 +15093,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .valo-menu-part.large-icons {
-	background-color: #00796B;
+	background-color: #197de1;
 	min-width: 74px;
 	max-width: 111px;
 }
@@ -15124,7 +15124,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	border: none;
 	text-overflow: ellipsis;
 	overflow: hidden;
-	background: #005a50;
+	background: #166ec5;
 	font-size: 13px;
 	box-shadow: 0 2px 3px rgba(0, 0, 0, 0.05);
 }
@@ -15143,7 +15143,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	line-height: 1;
 	padding: 12px;
 	text-align: center;
-	border-top: 0 solid #0f8173;
+	border-top: 0 solid #2684e2;
 }
 
 .mytheme .valo-menu-part.large-icons .valo-menu-item:first-child {
@@ -15168,7 +15168,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .valo-menu-part.large-icons .valo-menu-item.selected {
-	background: #006a5d;
+	background: #1775d3;
 }
 
 .mytheme .valo-menu-part.large-icons .valo-menu-item.selected .v-icon {
@@ -15176,7 +15176,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .valo-menu-part.large-icons .valo-menu-item.selected [class*="badge"] {
-	border-color: #006a5d;
+	border-color: #1775d3;
 }
 
 .mytheme .valo-menu-part.large-icons .valo-menu-item [class*="badge"] {
@@ -15184,7 +15184,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	padding-right: 4px;
 	top: 7px;
 	right: 7px;
-	border: 2px solid #00796B;
+	border: 2px solid #197de1;
 }
 
 .mytheme .valo-menu-logo {
@@ -15194,7 +15194,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	height: 44px;
 	border-radius: 4px;
 	text-align: center;
-	background: #00796B;
+	background: #197de1;
 	color: white;
 	font-size: 25px;
 	line-height: 44px;
@@ -15208,7 +15208,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .valo-menu-responsive[width-range~="801px-1100px"] .valo-menu-part {
-	background-color: #00796B;
+	background-color: #197de1;
 	min-width: 74px;
 	max-width: 111px;
 }
@@ -15239,7 +15239,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	border: none;
 	text-overflow: ellipsis;
 	overflow: hidden;
-	background: #005a50;
+	background: #166ec5;
 	font-size: 13px;
 	box-shadow: 0 2px 3px rgba(0, 0, 0, 0.05);
 }
@@ -15258,7 +15258,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	line-height: 1;
 	padding: 12px;
 	text-align: center;
-	border-top: 0 solid #0f8173;
+	border-top: 0 solid #2684e2;
 }
 
 .mytheme .valo-menu-responsive[width-range~="801px-1100px"] .valo-menu-part .valo-menu-item:first-child {
@@ -15283,7 +15283,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .valo-menu-responsive[width-range~="801px-1100px"] .valo-menu-part .valo-menu-item.selected {
-	background: #006a5d;
+	background: #1775d3;
 }
 
 .mytheme .valo-menu-responsive[width-range~="801px-1100px"] .valo-menu-part .valo-menu-item.selected .v-icon {
@@ -15291,7 +15291,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .valo-menu-responsive[width-range~="801px-1100px"] .valo-menu-part .valo-menu-item.selected [class*="badge"] {
-	border-color: #006a5d;
+	border-color: #1775d3;
 }
 
 .mytheme .valo-menu-responsive[width-range~="801px-1100px"] .valo-menu-part .valo-menu-item [class*="badge"] {
@@ -15299,7 +15299,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	padding-right: 4px;
 	top: 7px;
 	right: 7px;
-	border: 2px solid #00796B;
+	border: 2px solid #197de1;
 }
 
 .mytheme .valo-menu-responsive[width-range~="0-800px"] {
@@ -15348,7 +15348,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	margin: 0;
 	padding: 0;
 	height: 37px;
-	color: #55e7d6;
+	color: #97bee5;
 	max-width: 30%;
 	-webkit-backface-visibility: hidden;
 }
@@ -15369,13 +15369,13 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 
 .mytheme .valo-menu-responsive[width-range~="0-800px"] .valo-menuitems {
 	height: 100%;
-	background-color: #00796B;
-	background-image: -webkit-linear-gradient(right, #00796b 0%, #00796B 9px);
-	background-image: linear-gradient(to left,#00796b 0%, #00796B 9px);
-	color: #55e7d6;
+	background-color: #197de1;
+	background-image: -webkit-linear-gradient(right, #197de1 0%, #197de1 9px);
+	background-image: linear-gradient(to left,#197de1 0%, #197de1 9px);
+	color: #97bee5;
 	font-size: 14px;
 	line-height: 30px;
-	border-right: 0 solid #00544a;
+	border-right: 0 solid #11579d;
 	white-space: nowrap;
 	position: fixed;
 	z-index: 9000;
@@ -15712,7 +15712,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme :not(.v-upload) > * > .v-button:not(.borderless):not(.border).primary {
-	background: #00796B;
+	background: #197de1;
 	color: white;
 }
 
@@ -15727,7 +15727,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme :not(.v-upload) > * > .v-button:not(.borderless):not(.border).custom {
-	background: #00796B;
+	background: #197de1;
 	color: white;
 }
 
@@ -15740,7 +15740,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-button.borderless-colored, .mytheme .v-button.link {
-	color: #00796B;
+	color: #197de1;
 }
 
 .mytheme .v-button.round {
@@ -15755,12 +15755,12 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-button.border.primary {
-	border: 1px solid #00796B;
-	color: #00796B;
+	border: 1px solid #197de1;
+	color: #197de1;
 }
 
 .mytheme .v-button.border:after {
-	border: 0px solid #00796B;
+	border: 0px solid #197de1;
 }
 
 .mytheme .v-button.border.friendly {
@@ -15774,8 +15774,8 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-button.border.custom {
-	border: 1px solid #00796B;
-	color: #00796B;
+	border: 1px solid #197de1;
+	color: #197de1;
 }
 
 .mytheme .v-button.borderless {
@@ -15787,7 +15787,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-button.borderless.primary {
-	color: #00796B;
+	color: #197de1;
 }
 
 .mytheme .v-button.borderless.friendly {
@@ -15799,7 +15799,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-button.borderless.custom {
-	color: #00796B;
+	color: #197de1;
 }
 
 .mytheme .v-button.floating-action {
@@ -15807,7 +15807,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	height: 46.25px;
 	padding: 0px;
 	border-radius: 100%;
-	background: #00796B;
+	background: #197de1;
 	color: white;
 }
 
@@ -15837,7 +15837,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 
 .mytheme .v-button.floating-action.custom {
 	color: white;
-	background: #00796B;
+	background: #197de1;
 }
 
 .mytheme .v-button.v-disabled {
@@ -15884,8 +15884,8 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme :not(.v-component-group) > .v-textfield:not(.v-datefield-textfield):not(.v-textfield-readonly):not(.v-textfield-error):not(.v-colorpicker-preview-textfield):not(.borderless):not(.floating):not(.custom):focus {
-	border-bottom: 1px solid #00796B;
-	box-shadow: 0 1px 0 0 #00796B;
+	border-bottom: 1px solid #197de1;
+	box-shadow: 0 1px 0 0 #197de1;
 }
 
 .mytheme :not(.v-component-group) > .v-textfield-error:not(.borderless):not(.floating):not(.custom):focus {
@@ -15894,20 +15894,20 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme :not(.v-component-group) > .v-textfield.custom {
-	color: #00796B;
+	color: #197de1;
 }
 
 .mytheme .v-textfield.custom::-webkit-input-placeholder {
-	color: rgba(0, 121, 107, 0.4);
+	color: rgba(25, 125, 225, 0.4);
 }
 
 .mytheme .v-caption-custom.v-caption-inline-icon {
-	color: #00796B;
+	color: #197de1;
 }
 
 .mytheme :not(.v-component-group) > .v-textfield.custom:focus {
-	border-bottom: 1px solid #00796B;
-	box-shadow: 0 1px 0 0 #00796B;
+	border-bottom: 1px solid #197de1;
+	box-shadow: 0 1px 0 0 #197de1;
 }
 
 .mytheme .v-component-group > .v-textfield {
@@ -15929,17 +15929,17 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-filterselect-focus:not(.borderless):not(.floating):not(.custom):not(.v-readonly) [class*="input"] {
-	border-bottom: 1px solid #00796B;
-	box-shadow: 0 1px 0 0 #00796B;
+	border-bottom: 1px solid #197de1;
+	box-shadow: 0 1px 0 0 #197de1;
 }
 
 .mytheme .v-filterselect.custom [class*="input"] {
-	color: #00796B !important;
+	color: #197de1 !important;
 }
 
 .mytheme .v-filterselect-focus.custom [class*="input"] {
-	border-bottom: 1px solid #00796B !important;
-	box-shadow: 0 1px 0 0 #00796B !important;
+	border-bottom: 1px solid #197de1 !important;
+	box-shadow: 0 1px 0 0 #197de1 !important;
 }
 
 .mytheme .v-filterselect.custom .v-filterselect-button {
@@ -15947,7 +15947,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-filterselect.custom [class$="button"]:before {
-	color: #00796B !important;
+	color: #197de1 !important;
 }
 
 .mytheme .v-filterselect .v-filterselect-button:hover {
@@ -16076,7 +16076,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	width: 30px !important;
 	height: 30px !important;
 	border-radius: 4px;
-	background: #00796B;
+	background: #197de1;
 	color: white;
 	animation: valo-animate-in-fade 0.3s ease;
 }
@@ -16087,7 +16087,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-slider-handle:before {
-	background: #00796B;
+	background: #197de1;
 	box-shadow: none;
 }
 
@@ -16132,8 +16132,8 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 
 .mytheme .v-label-spinner {
 	border: 2px solid #e1e1e1;
-	border-top-color: #00796B;
-	border-right-color: #00796B;
+	border-top-color: #197de1;
+	border-right-color: #197de1;
 	-webkit-animation: v-rotate-360 750ms infinite linear;
 	-moz-animation: v-rotate-360 750ms infinite linear;
 	animation: v-rotate-360 750ms infinite linear;
@@ -16199,12 +16199,12 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-menubar.primary:not(.borderless) {
-	background: #00796B;
+	background: #197de1;
 	color: white !important;
 }
 
 .mytheme .v-menubar-borderless.primary .v-menubar-menuitem {
-	color: #00796B !important;
+	color: #197de1 !important;
 }
 
 .mytheme .v-menubar.primary > .v-menubar-menuitem:not(.v-menubar-menuitem-disabled):hover, .mytheme .v-menubar.primary > .v-menubar-menuitem-selected, .mytheme .v-menubar.primary > .v-menubar-menuitem-checked {
@@ -16213,16 +16213,16 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-menubar.primary.borderless > .v-menubar-menuitem:not(.v-menubar-menuitem-disabled):hover, .mytheme .v-menubar.primary.borderless > .v-menubar-menuitem-selected, .mytheme .v-menubar.primary.borderless > .v-menubar-menuitem-checked {
-	background: rgba(0, 121, 107, 0.2);
+	background: rgba(25, 125, 225, 0.2);
 }
 
 .mytheme .v-menubar.custom:not(.borderless) {
-	background: #00796B;
+	background: #197de1;
 	color: white !important;
 }
 
 .mytheme .v-menubar-borderless.custom .v-menubar-menuitem {
-	color: #00796B !important;
+	color: #197de1 !important;
 }
 
 .mytheme .v-menubar.custom > .v-menubar-menuitem:not(.v-menubar-menuitem-disabled):hover, .mytheme .v-menubar.custom > .v-menubar-menuitem-selected, .mytheme .v-menubar.custom > .v-menubar-menuitem-checked {
@@ -16231,7 +16231,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-menubar.custom.borderless > .v-menubar-menuitem:not(.v-menubar-menuitem-disabled):hover, .mytheme .v-menubar.custom.borderless > .v-menubar-menuitem-selected, .mytheme .v-menubar.custom.borderless > .v-menubar-menuitem-checked {
-	background: rgba(0, 121, 107, 0.2);
+	background: rgba(25, 125, 225, 0.2);
 }
 
 .mytheme .v-menubar > .v-menubar-menuitem {
@@ -16305,25 +16305,25 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme :not(.v-component-group) > .v-datefield:not(.borderless):not(.floating):not(.custom) [class*="textfield"]:not(.v-textfield-readonly):focus {
-	border-bottom: 1px solid #00796B;
-	box-shadow: 0 1px 0 0 #00796B;
+	border-bottom: 1px solid #197de1;
+	box-shadow: 0 1px 0 0 #197de1;
 }
 
 .mytheme :not(.v-component-group) > .v-datefield.custom [class*="textfield"] {
-	color: #00796B;
+	color: #197de1;
 }
 
 .mytheme :not(.v-component-group) > .v-datefield.custom [class*="textfield"]:focus {
-	border-bottom: 1px solid #00796B !important;
-	box-shadow: 0 1px 0 0 #00796B !important;
+	border-bottom: 1px solid #197de1 !important;
+	box-shadow: 0 1px 0 0 #197de1 !important;
 }
 
 .mytheme .v-datefield.custom .v-datefield-button {
-	color: #00796B;
+	color: #197de1;
 }
 
 .mytheme .v-datefield.custom .v-datefield-button:hover {
-	color: #049c8a;
+	color: #318ae3;
 }
 
 .mytheme .v-datefield-error:not(.borderless):not(.floating) [class*="textfield"]:focus {
@@ -16583,7 +16583,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 
 .mytheme .v-grid-editor-save, .mytheme .v-grid-editor-cancel {
 	height: 31px;
-	color: #00796B;
+	color: #197de1;
 	transition: box-shadow 0.3s ease-out, background 0.3s;
 	padding: 0 20px;
 	border-radius: 4px;
@@ -16667,8 +16667,8 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-grid-select-all-checkbox input[type="checkbox"]:checked + label, .mytheme .v-grid-selection-checkbox input[type="checkbox"]:checked + label {
-	background: #00796B;
-	border-color: #00796B;
+	background: #197de1;
+	border-color: #197de1;
 }
 
 .mytheme .v-grid-scroller, .mytheme .v-grid-horizontal-scrollbar-deco {
@@ -16715,9 +16715,9 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-checkbox > input:checked ~ label:after {
-	background: #00796B;
+	background: #197de1;
 	color: white !important;
-	border: 2px solid #00796B;
+	border: 2px solid #197de1;
 }
 
 .mytheme .v-select-optiongroup:not(.large):not(.small) .v-checkbox > input:checked ~ label:after, .mytheme .v-checkbox:not(.large):not(.small) > input:checked ~ label:after {
@@ -16778,7 +16778,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-radiobutton > input ~ label:after {
-	background: #00796B !important;
+	background: #197de1 !important;
 	transform: scale(0);
 	transition: transform 0.2s ease-out !important;
 }
@@ -16788,7 +16788,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-radiobutton > input:checked ~ label:before {
-	border: 2px solid #00796B !important;
+	border: 2px solid #197de1 !important;
 }
 
 .mytheme .v-radiobutton > input ~ label:before {
@@ -17194,7 +17194,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-upload:not(.borderless):not(.border).primary {
-	background: #00796B;
+	background: #197de1;
 	color: white;
 }
 
@@ -17209,7 +17209,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-upload:not(.borderless):not(.border).custom {
-	background: #00796B;
+	background: #197de1;
 	color: white;
 }
 
@@ -17218,12 +17218,12 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-upload:not(.borderless):not(.border).primary {
-	background: #00796B;
+	background: #197de1;
 	color: white;
 }
 
 .mytheme .v-upload.borderless-colored, .mytheme .v-upload.link {
-	color: #00796B;
+	color: #197de1;
 }
 
 .mytheme .v-upload.round {
@@ -17237,12 +17237,12 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-upload.border.primary {
-	border: 1px solid #00796B;
-	color: #00796B;
+	border: 1px solid #197de1;
+	color: #197de1;
 }
 
 .mytheme .v-upload.border:after {
-	border: 0px solid #00796B;
+	border: 0px solid #197de1;
 }
 
 .mytheme .v-upload.border.friendly {
@@ -17256,8 +17256,8 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-upload.border.custom {
-	border: 1px solid #00796B;
-	color: #00796B;
+	border: 1px solid #197de1;
+	color: #197de1;
 }
 
 .mytheme .v-upload.borderless {
@@ -17265,7 +17265,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-upload.borderless.primary {
-	color: #00796B;
+	color: #197de1;
 }
 
 .mytheme .v-upload.borderless.friendly {
@@ -17277,7 +17277,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-upload.borderless.custom {
-	color: #00796B;
+	color: #197de1;
 }
 
 .mytheme .v-upload.floating-action-upload {
@@ -17285,7 +17285,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	height: 56px;
 	padding: 0px;
 	border-radius: 100%;
-	background: #00796B;
+	background: #197de1;
 	color: white;
 }
 
@@ -17307,7 +17307,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 
 .mytheme .v-upload.floating-action-upload.custom {
 	color: white;
-	background: #00796B;
+	background: #197de1;
 }
 
 .mytheme .v-upload.v-disabled {
@@ -17407,7 +17407,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	left: 0px;
 	line-height: 44px !important;
 	height: 44px !important;
-	color: #a6ebe3;
+	color: #c8dbed;
 	z-index: 9002 !important;
 }
 
@@ -17438,7 +17438,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 
 .mytheme .v-menubar-user-menu .v-menubar-menuitem:hover {
 	color: inherit !important;
-	background: rgba(166, 235, 227, 0.1);
+	background: rgba(200, 219, 237, 0.1);
 }
 
 .mytheme .valo-menu-part {
@@ -17446,7 +17446,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-menubar-user-menu .v-menubar-menuitem-selected:hover {
-	color: #00796B;
+	color: #197de1;
 }
 
 .mytheme .valo-menu-item:focus, .mytheme .valo-menu-item:hover, .mytheme .valo-menu-item.selected {
@@ -17473,7 +17473,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .valo-menu-item [class*="badge"] {
-	color: #a6ebe3 !important;
+	color: #c8dbed !important;
 	border-radius: 30px !important;
 	padding: 4px 7px;
 	top: 11px !important;
@@ -17486,8 +17486,8 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	pointer-events: none;
 	border: 3px solid #e1e1e1;
 	background: #fafafa;
-	border-top-color: #00796B;
-	border-right-color: #00796B;
+	border-top-color: #197de1;
+	border-right-color: #197de1;
 	border-radius: 100%;
 	-webkit-animation: v-rotate-360 750ms infinite linear;
 	-moz-animation: v-rotate-360 750ms infinite linear;
