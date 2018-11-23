@@ -1,7 +1,12 @@
 package de.tud.model.symptom;
 
+
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 public class SymptomFactory {
 
+    private static final Logger logger = Logger.getLogger(SymptomFactory.class.getName());
 
     public static Symptom createSymptomByClass(String className, Symptom.Strength strength) {
         switch (className) {
@@ -30,6 +35,20 @@ public class SymptomFactory {
 
             default:
                 throw new IllegalArgumentException("can't create Symptom from className!" + className);
+        }
+
+    }
+    public static Symptom createSymptomByClass(Class<? extends Symptom> className, Symptom.Strength strength) {
+        try {
+            Symptom symptom = className.newInstance();
+            symptom.setStrength(strength);
+            return symptom;
+        } catch (InstantiationException e) {
+            logger.log(Level.SEVERE, "an");
+            return null;
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+            return null;
         }
 
     }

@@ -13,6 +13,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.junit.jupiter.api.*;
 
+import javax.interceptor.ExcludeClassInterceptors;
 import java.time.LocalDateTime;
 import java.util.*;
 
@@ -194,6 +195,12 @@ public class DiaryManagerTest {
         }
     }
 
+    @Test
+    public void shouldGetDiaryFromNotExistingId(){
+        assertThrows(IllegalArgumentException.class, ()->{
+            dm.findByID(99999L);
+        }, "There was no Diary with the given ID!");
+    }
 
     @Test
     public void deleteAllTest(){
