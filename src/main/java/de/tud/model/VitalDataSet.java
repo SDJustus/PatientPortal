@@ -15,11 +15,11 @@ public class VitalDataSet extends EntityObject {
     @Column(name = "weight")
     private float weight;
     @Column(name = "blood_pressure_first_value")                                            // Blood Pressure ist stored in 2 Variables because it is measured in 2 Numbers ...e.g. 120/90
-    private short bloodPressureFirstValue;
+    private int bloodPressureFirstValue;
     @Column(name = "blood_pressure_second_value")
-    private short bloodPressureSecondValue;
+    private int bloodPressureSecondValue;
     @Column(name = "heart_rate")
-    private short heartRate;
+    private int heartRate;
 
     public VitalDataSet(){}
 
@@ -47,27 +47,27 @@ public class VitalDataSet extends EntityObject {
         this.weight = weight;
     }
 
-    public short getBloodPressureFirstValue() {
+    public int getBloodPressureFirstValue() {
         return bloodPressureFirstValue;
     }
 
-    public void setBloodPressureFirstValue(short bloodPressureFirstValue) {
+    public void setBloodPressureFirstValue(int bloodPressureFirstValue) {
         this.bloodPressureFirstValue = bloodPressureFirstValue;
     }
 
-    public short getBloodPressureSecondValue() {
+    public int getBloodPressureSecondValue() {
         return bloodPressureSecondValue;
     }
 
-    public void setBloodPressureSecondValue(short bloodPressureSecondValue) {
+    public void setBloodPressureSecondValue(int bloodPressureSecondValue) {
         this.bloodPressureSecondValue = bloodPressureSecondValue;
     }
 
-    public short getHeartRate() {
+    public int getHeartRate() {
         return heartRate;
     }
 
-    public void setHeartRate(short heartRate) {
+    public void setHeartRate(int heartRate) {
         this.heartRate = heartRate;
     }
 
