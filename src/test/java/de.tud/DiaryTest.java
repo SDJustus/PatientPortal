@@ -3,6 +3,8 @@ package de.tud;
 import de.tud.model.Diary;
 import de.tud.model.DiaryEntry;
 import de.tud.model.VitalDataSet;
+import de.tud.model.symptom.Depression;
+import de.tud.model.symptom.Fatigue;
 import de.tud.model.symptom.Symptom;
 import de.tud.model.symptom.SymptomFactory;
 import org.junit.jupiter.api.BeforeEach;
@@ -25,6 +27,7 @@ public class DiaryTest {
     private SymptomFactory factory;
     private static LocalDateTime testTime;
     private Diary testDiary;
+    private VitalDataSet vitalDataSet;
 
 
     @BeforeEach
@@ -32,9 +35,10 @@ public class DiaryTest {
         testTime = LocalDateTime.now();
         factory = new SymptomFactory();
         symptomSet = new HashSet<>();
-            symptomSet.add(factory.createSymptomByClass("Depression", Symptom.Strength.WEAK));
+        vitalDataSet = new VitalDataSet();
+            symptomSet.add(factory.createSymptomByClass(Depression.class, Symptom.Strength.WEAK));
         symptomSet = new HashSet<>();
-        symptomSet.add(factory.createSymptomByClass("Fatigue", Symptom.Strength.SEVERE));
+        symptomSet.add(factory.createSymptomByClass(Fatigue.class, Symptom.Strength.SEVERE));
         testEntry1 = new DiaryEntry(testTime, symptomSet, new VitalDataSet());                          //TODO: Replace "new VitalDaraSet" - it is only a placeholder
         testEntry2 = new DiaryEntry(testTime, symptomSet2, new VitalDataSet());                         //TODO: Replace "new VitalDaraSet" - it is only a placeholder
         testDiaryEntrySet = new HashSet<>();
@@ -51,6 +55,8 @@ public class DiaryTest {
     @Test
     public void getDiaryEntriesFromEmptyDiaryTest(){
         testDiary= new Diary();
-        assertEquals(testDiary.getDiaryEntries(),new HashSet<>());
+        Set<DiaryEntry> testEntries = new HashSet<>();
+        testDiary.setDiaryEntries(testEntries);
+        assertEquals(testDiary.getDiaryEntries(),testEntries);
     }
 }
