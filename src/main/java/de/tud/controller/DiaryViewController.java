@@ -35,8 +35,7 @@ public class DiaryViewController {
 
         integrityRestrictionsDateTimeField();
         SymptomSelectionView symptomSelectionView = new SymptomSelectionView(this);
-        diaryView.getVerticalLayout().addComponent(symptomSelectionView.getSymptomSelectionView());
-
+        addNewSymptomSelectionView(symptomSelectionView);
     }
 
     public void addDateTimeFieldChangeListener(){
@@ -107,10 +106,13 @@ public class DiaryViewController {
                     diaryView.getSave().setEnabled(false);
                     return;
                 }
-
+                symptomSelectionViewControllers.size();
                 for(SymptomSelectionViewController s: symptomSelectionViewControllers){
                     avoidDuplicateSymptomsSet.add(s.getSelectedSymptom());
+                    System.out.println(s.getSelectedSymptom());
                 }
+                System.out.println(avoidDuplicateSymptomsSet.size());
+                System.out.println(diaryView.getVerticalLayout().getComponentCount());
 
                 if(avoidDuplicateSymptomsSet.size() < diaryView.getVerticalLayout().getComponentCount()){
                     Notification.show("Symptome dürfen nur einmal angegeben werden!");
@@ -153,7 +155,6 @@ public class DiaryViewController {
                 }
                 diaryView.getVerticalLayout().removeAllComponents();
                 symptomSelectionViewControllers.clear();
-                diaryView.getSave().setEnabled(false);
                 symptomList.clear();
                 symptomList = createSymptomList();
                 diaryView.getVerticalLayout().addComponent(symptomSelectionView.getSymptomSelectionView());
@@ -163,7 +164,9 @@ public class DiaryViewController {
     public DiaryView getDiaryView(){
         return  diaryView;
     }
-
+    public List<SymptomSelectionViewController> getSymptomSelectionViewControllers(){
+        return this.symptomSelectionViewControllers;
+    }
 
 
 }

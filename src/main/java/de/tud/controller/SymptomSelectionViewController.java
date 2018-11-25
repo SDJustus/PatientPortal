@@ -16,7 +16,7 @@ public class SymptomSelectionViewController {
     private String selectedSymptom;
     private Symptom symptomArt;
     private Symptom.Strength choice;
-    private int selectionCounter; //um dafür zu sorgen, dass nur einmal der Button "+weiteres Symptom" erscheint
+    private int selectionCounter = 0; //um dafür zu sorgen, dass nur einmal der Button "+weiteres Symptom" erscheint
 
     public SymptomSelectionViewController(SymptomSelectionView symptomSelectionView, DiaryViewController diaryViewController){
         this.diaryViewController = diaryViewController;
@@ -32,6 +32,7 @@ public class SymptomSelectionViewController {
         return true;
     }
 
+
     //Button darf nur einmal gedrückt werden
     //TODO Button can be pressed only one time
     public void addClickListenerToAddNextSymptom(){
@@ -39,11 +40,14 @@ public class SymptomSelectionViewController {
             @Override
             public void buttonClick(Button.ClickEvent clickEvent) {
                 SymptomSelectionView newSymptomSelectionView= new SymptomSelectionView(diaryViewController);
-                selectionCounter = 1;
+                selectionCounter += 1;
 
                 diaryViewController.getSymptomList().remove(selectedSymptom);
-                if(diaryViewController.getSymptomList().size() == 1){
+
+                if(diaryViewController.getSymptomList().size() == 2){
+                    diaryViewController.setSaveButtonEnabled(false);
                     symptomSelectionView.getAddNextSymptom().setVisible(false);
+                    diaryViewController.addNewSymptomSelectionView(newSymptomSelectionView);
                     return;
                 }
                 diaryViewController.addNewSymptomSelectionView(newSymptomSelectionView);
@@ -65,10 +69,7 @@ public class SymptomSelectionViewController {
                     choice = Symptom.Strength.WEAK;
                     symptomArt = SymptomFactory.createSymptomByClass(selectedSymptom, choice);
                     diaryViewController.setSaveButtonEnabled(true);
-                    if(selectedSymptom != null){
-                        symptomSelectionView.getAddNextSymptom().setEnabled(true);
-                        symptomSelectionView.getAddNextSymptom().setVisible(true);
-                    }
+                    checkAddNextSymptomRestrictions();
                 }
             }
         });
@@ -81,13 +82,8 @@ public class SymptomSelectionViewController {
                     symptomSelectionView.getMiddleLabel().setValue("mäßig");
                     choice = Symptom.Strength.MIDDLE;
                     symptomArt = SymptomFactory.createSymptomByClass(selectedSymptom, choice);
-                    if(diaryViewController.getDiaryView().getDateTimeField().getValue() != null) {
-                        diaryViewController.setSaveButtonEnabled(true);
-                    }
-                    if(selectedSymptom != null){
-                        symptomSelectionView.getAddNextSymptom().setEnabled(true);
-                        symptomSelectionView.getAddNextSymptom().setVisible(true);
-                    }
+                    diaryViewController.setSaveButtonEnabled(true);
+                    checkAddNextSymptomRestrictions();
                 }
 
             }
@@ -102,10 +98,7 @@ public class SymptomSelectionViewController {
                     choice = Symptom.Strength.SEVERE;
                     symptomArt = SymptomFactory.createSymptomByClass(selectedSymptom, choice);
                     diaryViewController.setSaveButtonEnabled(true);
-                    if(selectedSymptom != null){
-                        symptomSelectionView.getAddNextSymptom().setEnabled(true);
-                        symptomSelectionView.getAddNextSymptom().setVisible(true);
-                    }
+                    checkAddNextSymptomRestrictions();
                 }
             }
         });
@@ -138,6 +131,12 @@ public class SymptomSelectionViewController {
                 }
             }
         });
+    }
+    private void checkAddNextSymptomRestrictions(){
+        if(selectedSymptom != null && selectionCounter < 1 && diaryViewController.getSymptomList().size() >=2){
+            symptomSelectionView.getAddNextSymptom().setEnabled(true);
+            symptomSelectionView.getAddNextSymptom().setVisible(true);
+        }
     }
 
     public String getSelectedSymptom(){

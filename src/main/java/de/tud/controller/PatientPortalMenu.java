@@ -48,6 +48,7 @@ public class PatientPortalMenu extends UI {
         view2.addStyleNames(ValoTheme.BUTTON_LINK, ValoTheme.MENU_ITEM);
         view2.setIcon(VaadinIcons.CHART, ValoTheme.MENU_PART_LARGE_ICONS);
 
+
         //Menu tree
         Tree<String> menuTree = new Tree<>();
 
@@ -64,10 +65,11 @@ public class PatientPortalMenu extends UI {
         menuTree.setDataProvider(inMemoryDataProvider);
 
 
-
         //Integration der MenuItems
         CssLayout menu = new CssLayout(title, profilbild,view1, view2,menuTree);
-        //CssLayout menu = new CssLayout(title,view1, view2);
+        //CssLayout menu = new CssLayout(title, profilbild, menuTree);
+
+
         menu.addStyleName(ValoTheme.MENU_ROOT);
 
         //view Container = alles was rechts vom Menu ist, wo Inhalte angezeigt werden
@@ -81,10 +83,13 @@ public class PatientPortalMenu extends UI {
         mainLayout.setExpandRatio(viewContainer, 1.0f);
 
         //Navigation im Menü, um auf Klick Views anzeigen zu lassen
+
         Navigator navigator = new Navigator(this, viewContainer);
-        navigator.addView("", DiaryView.class);
+
+        navigator.addView("", StartView.class);
         navigator.addView("Patiententagebuch", DiaryView.class);
         navigator.addView("Auswertung", DiaryEvaluationView.class);
+
 
 
         //add functions to tree items -> listen for selection change then navigate

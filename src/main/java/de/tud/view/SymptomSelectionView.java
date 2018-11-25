@@ -31,6 +31,7 @@ public class SymptomSelectionView implements View {
     public SymptomSelectionView(DiaryViewController diaryViewController){
         this.diaryViewController = diaryViewController;
         this.symptomSelectionViewController = new SymptomSelectionViewController(this, diaryViewController);
+
     }
 
     public GridLayout getSymptomSelectionView(){
