@@ -8,10 +8,10 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class SymptomFactoryTest {
+class SymptomFactoryTest {
 
     @Test
     void shouldReturnCorrectClass(){
-        assertTrue(SymptomFactory.createSymptomByClass(Fatigue.class, Symptom.Strength.SEVERE) instanceof Fatigue);
+        assertTrue(SymptomFactory.getInstance().createSymptomByClass(Fatigue.class, Symptom.Strength.SEVERE) instanceof Fatigue);
     }
 }

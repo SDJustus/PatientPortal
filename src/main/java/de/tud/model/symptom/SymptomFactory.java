@@ -8,6 +8,26 @@ public class SymptomFactory {
 
     private static final Logger logger = Logger.getLogger(SymptomFactory.class.getName());
 
+    /**
+     * The class to get the singleton instance.
+     */
+    private static class SymptomFactoryInstance
+    {
+        private static final SymptomFactory INSTANCE = new SymptomFactory();
+    }
+
+    /**
+     * @return the singleton instance of this factory.
+     */
+    public static SymptomFactory getInstance()
+    {
+        return SymptomFactoryInstance.INSTANCE;
+    }
+
+    private SymptomFactory(){
+
+    }
+@Deprecated
     public static Symptom createSymptomByClass(String className, Symptom.Strength strength) {
         switch (className) {
             case "Ache":
@@ -38,7 +58,7 @@ public class SymptomFactory {
         }
 
     }
-    public static Symptom createSymptomByClass(Class<? extends Symptom> className, Symptom.Strength strength) {
+    public Symptom createSymptomByClass(Class<? extends Symptom> className, Symptom.Strength strength) {
         try {
             Symptom symptom = className.newInstance();
             symptom.setStrength(strength);

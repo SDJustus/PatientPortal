@@ -136,18 +136,18 @@ public class DiaryImplementation extends Tagebuch {
 
                 switch (mood) {
                     case "stark":
-                        symptoms.add(SymptomFactory.createSymptomByClass("Depression", Symptom.Strength.SEVERE));
+                        symptoms.add(SymptomFactory.getInstance().createSymptomByClass(Depression.class, Symptom.Strength.SEVERE));
                         saveDiaryEntry(datum, symptoms);
                         //tagebuch.add(new DiaryEntryTableViewAdapter(datum, symptoms));
                         break;
                     case "mäßig":
                         //tagebuch.add(new Diary(datum, new Depression(Symptom.Strength.MIDDLE)));
-                        symptoms.add(SymptomFactory.createSymptomByClass("Depression", Symptom.Strength.MIDDLE));
+                        symptoms.add(SymptomFactory.getInstance().createSymptomByClass(Depression.class, Symptom.Strength.MIDDLE));
                         saveDiaryEntry(datum, symptoms);
                         break;
                     case "keine":
                         //tagebuch.add(new Diary(datum, new Depression(Symptom.Strength.WEAK)));
-                        symptoms.add(SymptomFactory.createSymptomByClass("Depression", Symptom.Strength.WEAK));
+                        symptoms.add(SymptomFactory.getInstance().createSymptomByClass(Depression.class, Symptom.Strength.WEAK));
                         saveDiaryEntry(datum, symptoms);
                         break;
                     default: throw new IllegalArgumentException("received wrong mood");

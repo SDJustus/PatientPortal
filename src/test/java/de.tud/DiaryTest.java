@@ -16,7 +16,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 
-public class DiaryTest {
+class DiaryTest {
 
     private DiaryEntry testEntry1;
     private DiaryEntry testEntry2;
@@ -31,29 +31,34 @@ public class DiaryTest {
 
 
     @BeforeEach
-    public void initializer(){
+    void initializer(){
         testTime = LocalDateTime.now();
-        factory = new SymptomFactory();
         symptomSet = new HashSet<>();
         vitalDataSet = new VitalDataSet();
-            symptomSet.add(factory.createSymptomByClass(Depression.class, Symptom.Strength.WEAK));
+        vitalDataSet.setBloodPressureFirstValue(80);
+        vitalDataSet.setBloodPressureSecondValue(120);
+        vitalDataSet.setHeartRate(110);
+        vitalDataSet.setHeight(190);
+        vitalDataSet.setWeight(70);
+
+            symptomSet.add(SymptomFactory.getInstance().createSymptomByClass(Depression.class, Symptom.Strength.WEAK));
         symptomSet = new HashSet<>();
-        symptomSet.add(factory.createSymptomByClass(Fatigue.class, Symptom.Strength.SEVERE));
-        testEntry1 = new DiaryEntry(testTime, symptomSet, new VitalDataSet());                          //TODO: Replace "new VitalDaraSet" - it is only a placeholder
-        testEntry2 = new DiaryEntry(testTime, symptomSet2, new VitalDataSet());                         //TODO: Replace "new VitalDaraSet" - it is only a placeholder
+        symptomSet.add(SymptomFactory.getInstance().createSymptomByClass(Fatigue.class, Symptom.Strength.SEVERE));
+        testEntry1 = new DiaryEntry(testTime, symptomSet, vitalDataSet);
+        testEntry2 = new DiaryEntry(testTime, symptomSet2, vitalDataSet);
         testDiaryEntrySet = new HashSet<>();
             testDiaryEntrySet.add(testEntry1);
             testDiaryEntrySet.add(testEntry2);
     }
 
     @Test
-    public void getDiaryEntriesTest(){
+    void getDiaryEntriesTest(){
         testDiary = new Diary();
         testDiary.setDiaryEntries(testDiaryEntrySet);
         assertEquals(testDiary.getDiaryEntries(),testDiaryEntrySet);
     }
     @Test
-    public void getDiaryEntriesFromEmptyDiaryTest(){
+    void getDiaryEntriesFromEmptyDiaryTest(){
         testDiary= new Diary();
         Set<DiaryEntry> testEntries = new HashSet<>();
         testDiary.setDiaryEntries(testEntries);
