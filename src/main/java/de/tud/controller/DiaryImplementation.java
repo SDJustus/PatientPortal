@@ -25,6 +25,10 @@ public class DiaryImplementation extends Tagebuch {
     DiaryManager diaryManager;
     Diary diary;
 
+
+
+
+
     @Override
     public void setStyleName(String style, boolean add) {
 

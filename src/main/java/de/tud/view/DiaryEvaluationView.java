@@ -7,13 +7,12 @@ import de.tud.model.DiaryEntry;
 import de.tud.model.DiaryEntryTableViewAdapter;
 import de.tud.model.manager.DiaryManager;
 import de.tud.model.symptom.Symptom;
-
 import java.util.ArrayList;
 import java.util.Set;
 
-public class AuswertungView extends Composite implements View {
+public class DiaryEvaluationView extends Composite implements View {
 
-    public AuswertungView(){
+    public DiaryEvaluationView(){
         VerticalLayout verticalLayout = new VerticalLayout();
         verticalLayout.setSpacing(true);
 

@@ -7,13 +7,10 @@ import com.vaadin.data.provider.TreeDataProvider;
 import com.vaadin.event.selection.SelectionEvent;
 import com.vaadin.event.selection.SelectionListener;
 import com.vaadin.icons.VaadinIcons;
-import com.vaadin.navigator.View;
 import com.vaadin.server.*;
 import com.vaadin.ui.*;
 import com.vaadin.navigator.Navigator;
 import com.vaadin.ui.themes.ValoTheme;
-import de.tud.model.Diary;
-import de.tud.model.manager.DiaryManager;
 import de.tud.view.*;
 
 import javax.servlet.annotation.WebServlet;
@@ -85,9 +82,10 @@ public class PatientPortalMenu extends UI {
 
         //Navigation im Menü, um auf Klick Views anzeigen zu lassen
         Navigator navigator = new Navigator(this, viewContainer);
-        navigator.addView("", DefaultView.class);
-        navigator.addView("Patiententagebuch", TagebuchView.class);
-        navigator.addView("Auswertung", AuswertungView.class);
+        navigator.addView("", DiaryView.class);
+        navigator.addView("Patiententagebuch", DiaryView.class);
+        navigator.addView("Auswertung", DiaryEvaluationView.class);
+
 
         //add functions to tree items -> listen for selection change then navigate
 
