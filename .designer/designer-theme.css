@@ -14779,3 +14779,6 @@ div.v-layout.v-horizontal.v-widget {
 	width: 19px;
 	overflow: hidden;
 }
+.layoutwithborder {
+	border: 1px solid black;
+}
