@@ -1,14 +1,14 @@
 package de.tud.model.welfare;
 
+
 import javax.persistence.Entity;
 
 @Entity
-public class Fitness extends Welfare {
+public class ConcentrationAbility extends Welfare{
 
-    protected Fitness() {
-    }
+    protected ConcentrationAbility(){}
 
-    public Fitness(Strength strength) {
+    public ConcentrationAbility(Strength strength){
         super(strength);
     }
 
