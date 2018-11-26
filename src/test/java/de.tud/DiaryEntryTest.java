@@ -1,7 +1,7 @@
 package de.tud;
 
 import de.tud.model.DiaryEntry;
-import de.tud.model.VitalDataSet;
+import de.tud.model.VitalData;
 import de.tud.model.symptom.Depression;
 import de.tud.model.symptom.Fatigue;
 import de.tud.model.symptom.Symptom;
@@ -21,19 +21,19 @@ class DiaryEntryTest {
     private Set<DiaryEntry> testDiaryEntrySet;
     private static LocalDateTime testTime;
 
-    private VitalDataSet vitalDataSet;
+    private VitalData vitalData;
 
     @BeforeEach
     void setUp() {
 
     testTime =LocalDateTime.of(2018,10,11,12,10);
     symptomSet =new HashSet<>();
-    vitalDataSet =new VitalDataSet();
+    vitalData =new VitalData();
 
 
             symptomSet.add(SymptomFactory.getInstance().createSymptomByClass(Depression .class,Symptom.Strength.WEAK));
         symptomSet.add(SymptomFactory.getInstance().createSymptomByClass(Fatigue .class,Symptom.Strength.SEVERE));
-    testEntry1 =new DiaryEntry(testTime, symptomSet, vitalDataSet);
+    testEntry1 =new DiaryEntry(testTime, symptomSet, vitalData);
 
     testDiaryEntrySet =new HashSet<>();
             testDiaryEntrySet.add(testEntry1);
@@ -65,17 +65,17 @@ class DiaryEntryTest {
     @Test
     void shouldGetVitalDataFromDiaryEntry(){
 
-        vitalDataSet.setBloodPressureFirstValue(80);
-        vitalDataSet.setBloodPressureSecondValue(120);
-        vitalDataSet.setHeartRate(110);
-        vitalDataSet.setHeight(190);
-        vitalDataSet.setWeight(70);
+        vitalData.setBloodPressureFirstValue(80);
+        vitalData.setBloodPressureSecondValue(120);
+        vitalData.setHeartRate(110);
+        vitalData.setHeight(190);
+        vitalData.setWeight(70);
 
-        Assertions.assertEquals(vitalDataSet.getHeight(), 190);
-        Assertions.assertEquals(vitalDataSet.getWeight(), 70);
-        Assertions.assertEquals(vitalDataSet.getHeartRate(), 110);
-        Assertions.assertEquals(vitalDataSet.getBloodPressureSecondValue(), 120);
-        Assertions.assertEquals(vitalDataSet.getBloodPressureFirstValue(), 80);
+        Assertions.assertEquals(vitalData.getHeight(), 190);
+        Assertions.assertEquals(vitalData.getWeight(), 70);
+        Assertions.assertEquals(vitalData.getHeartRate(), 110);
+        Assertions.assertEquals(vitalData.getBloodPressureSecondValue(), 120);
+        Assertions.assertEquals(vitalData.getBloodPressureFirstValue(), 80);
 
     }
 }

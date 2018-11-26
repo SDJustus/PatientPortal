@@ -2,7 +2,7 @@ package de.tud;
 
 import de.tud.model.Diary;
 import de.tud.model.DiaryEntry;
-import de.tud.model.VitalDataSet;
+import de.tud.model.VitalData;
 import de.tud.model.symptom.Depression;
 import de.tud.model.symptom.Fatigue;
 import de.tud.model.symptom.Symptom;
@@ -27,25 +27,25 @@ class DiaryTest {
     private SymptomFactory factory;
     private static LocalDateTime testTime;
     private Diary testDiary;
-    private VitalDataSet vitalDataSet;
+    private VitalData vitalData;
 
 
     @BeforeEach
     void initializer(){
         testTime = LocalDateTime.now();
         symptomSet = new HashSet<>();
-        vitalDataSet = new VitalDataSet();
-        vitalDataSet.setBloodPressureFirstValue(80);
-        vitalDataSet.setBloodPressureSecondValue(120);
-        vitalDataSet.setHeartRate(110);
-        vitalDataSet.setHeight(190);
-        vitalDataSet.setWeight(70);
+        vitalData = new VitalData();
+        vitalData.setBloodPressureFirstValue(80);
+        vitalData.setBloodPressureSecondValue(120);
+        vitalData.setHeartRate(110);
+        vitalData.setHeight(190);
+        vitalData.setWeight(70);
 
             symptomSet.add(SymptomFactory.getInstance().createSymptomByClass(Depression.class, Symptom.Strength.WEAK));
         symptomSet = new HashSet<>();
         symptomSet.add(SymptomFactory.getInstance().createSymptomByClass(Fatigue.class, Symptom.Strength.SEVERE));
-        testEntry1 = new DiaryEntry(testTime, symptomSet, vitalDataSet);
-        testEntry2 = new DiaryEntry(testTime, symptomSet2, vitalDataSet);
+        testEntry1 = new DiaryEntry(testTime, symptomSet, vitalData);
+        testEntry2 = new DiaryEntry(testTime, symptomSet2, vitalData);
         testDiaryEntrySet = new HashSet<>();
             testDiaryEntrySet.add(testEntry1);
             testDiaryEntrySet.add(testEntry2);

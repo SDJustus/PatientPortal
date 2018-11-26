@@ -1,7 +1,6 @@
 package de.tud.model;
 
 import de.tud.model.symptom.Symptom;
-import javafx.beans.property.SimpleStringProperty;
 
 public class DiaryEntryTableViewAdapter {
     private String date;

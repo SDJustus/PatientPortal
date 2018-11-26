@@ -21,7 +21,7 @@ public class DiaryEntry extends EntityObject {
 
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name="vital_data_id")
-    private VitalDataSet vitalDataSet;
+    private VitalData vitalData;
 
     public LocalDateTime getDate() {
         return date;
@@ -29,10 +29,10 @@ public class DiaryEntry extends EntityObject {
 
     public DiaryEntry(){}
 
-    public DiaryEntry(LocalDateTime date, Set<Symptom> symptom,VitalDataSet vitalDataSet){
+    public DiaryEntry(LocalDateTime date, Set<Symptom> symptom, VitalData vitalData){
         this.date = date;
         this.symptom = symptom;
-        this.vitalDataSet = vitalDataSet;
+        this.vitalData = vitalData;
     }
 
     public Long getId() {
@@ -52,11 +52,11 @@ public class DiaryEntry extends EntityObject {
         this.symptom = symptom;
     }
 
-    public void setVitalDataSet(VitalDataSet vitalDataSet){
-        this.vitalDataSet=vitalDataSet;
+    public void setVitalData(VitalData vitalData){
+        this.vitalData = vitalData;
     }
 
-    public VitalDataSet getVitalDataSet(){
-        return this.vitalDataSet;
+    public VitalData getVitalData(){
+        return this.vitalData;
     }
 }

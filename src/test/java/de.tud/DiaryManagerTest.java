@@ -3,20 +3,17 @@ package de.tud;
 
 import de.tud.model.Diary;
 import de.tud.model.DiaryEntry;
-import de.tud.model.VitalDataSet;
+import de.tud.model.VitalData;
 import de.tud.model.manager.DiaryManager;
 import de.tud.model.symptom.*;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
 import org.junit.jupiter.api.*;
 
-import javax.interceptor.ExcludeClassInterceptors;
 import java.time.LocalDateTime;
 import java.util.*;
 
-import static java.lang.Math.toIntExact;
 import static org.junit.jupiter.api.Assertions.*;
 
 
@@ -30,7 +27,7 @@ class DiaryManagerTest {
     private SymptomFactory factory;
     private static LocalDateTime testTime;
     private DiaryManager dm;
-    private VitalDataSet vds;
+    private VitalData vds;
 
     @BeforeAll
     static void timeSetter(){
@@ -41,7 +38,7 @@ class DiaryManagerTest {
     void initializer(){
         dm = new DiaryManager();
 
-        vds = new VitalDataSet();
+        vds = new VitalData();
         vds.setBloodPressureFirstValue(123);
         vds.setBloodPressureSecondValue(90);
         vds.setHeartRate(103);
@@ -270,7 +267,7 @@ class DiaryManagerTest {
         for(Diary rd : readDiary){
             if(rd.getId().equals(id)){
                 for(DiaryEntry de : rd.getDiaryEntries()){
-                    if(de.getVitalDataSet().equals(vds))
+                    if(de.getVitalData().equals(vds))
                         assertTrue(true);
                 }
             }
