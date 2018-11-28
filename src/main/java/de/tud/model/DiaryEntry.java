@@ -1,6 +1,7 @@
 package de.tud.model;
 
 import de.tud.model.symptom.Symptom;
+import de.tud.model.welfare.Welfare;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -19,6 +20,11 @@ public class DiaryEntry extends EntityObject {
             cascade = CascadeType.ALL)
     private Set<Symptom> symptom;
 
+    @OneToMany(fetch = FetchType.EAGER,
+            orphanRemoval = true,
+            cascade = CascadeType.ALL)
+    private Set<Welfare> welfare;
+
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name="vital_data_id")
     private VitalData vitalData;
@@ -29,10 +35,11 @@ public class DiaryEntry extends EntityObject {
 
     public DiaryEntry(){}
 
-    public DiaryEntry(LocalDateTime date, Set<Symptom> symptom, VitalData vitalData){
+    public DiaryEntry(LocalDateTime date, Set<Symptom> symptom, VitalData vitalData, Set<Welfare> welfare){
         this.date = date;
         this.symptom = symptom;
         this.vitalData = vitalData;
+        this.welfare=welfare;
     }
 
     public Long getId() {
@@ -58,5 +65,13 @@ public class DiaryEntry extends EntityObject {
 
     public VitalData getVitalData(){
         return this.vitalData;
+    }
+
+    public Set<Welfare> getWelfare() {
+        return welfare;
+    }
+
+    public void setWelfare(Set<Welfare> welfare) {
+        this.welfare = welfare;
     }
 }

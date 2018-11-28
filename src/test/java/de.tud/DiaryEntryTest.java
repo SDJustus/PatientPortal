@@ -33,7 +33,7 @@ class DiaryEntryTest {
 
             symptomSet.add(SymptomFactory.getInstance().createSymptomByClass(Depression .class,Symptom.Strength.WEAK));
         symptomSet.add(SymptomFactory.getInstance().createSymptomByClass(Fatigue .class,Symptom.Strength.SEVERE));
-    testEntry1 =new DiaryEntry(testTime, symptomSet, vitalData);
+    testEntry1 =new DiaryEntry(testTime, symptomSet, vitalData, new HashSet<>());                                       //TODO: "new HashSet" is placeholder for Welfare implementation
 
     testDiaryEntrySet =new HashSet<>();
             testDiaryEntrySet.add(testEntry1);

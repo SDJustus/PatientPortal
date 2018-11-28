@@ -52,7 +52,7 @@ class DiaryManagerTest {
         symptom2 = new HashSet<>();
         symptom2.add(SymptomFactory.getInstance().createSymptomByClass(GaitDisorder.class,Symptom.Strength.WEAK));
         symptom2.add(SymptomFactory.getInstance().createSymptomByClass(Ache.class,Symptom.Strength.WEAK));
-        testEntry1 = new DiaryEntry(testTime , symptom1, vds);
+        testEntry1 = new DiaryEntry(testTime , symptom1, vds, new HashSet<>());                                         //TODO: "new HashSet" is placeholder for Welfare implementation
 
     }
 
