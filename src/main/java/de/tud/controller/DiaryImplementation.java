@@ -174,7 +174,7 @@ public class DiaryImplementation extends Tagebuch {
 
 
     public void saveDiaryEntry(LocalDateTime datum, Set<Symptom> symptoms){
-        DiaryEntry diaryEntry = new DiaryEntry(datum , symptoms,new VitalData());        //TODO: Replace "new VitalDaraSet" - it is only a placeholder
+        DiaryEntry diaryEntry = new DiaryEntry(datum , symptoms,new VitalData(), new HashSet<>());        //TODO: Replace "new VitalDaraSet","new HashSet" - it is only a placeholder
         diaryManager.addDiaryEntry(diaryEntry, diaryId);
 
     }

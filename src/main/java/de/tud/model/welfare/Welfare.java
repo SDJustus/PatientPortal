@@ -32,7 +32,7 @@ public abstract class Welfare {
     @Column (name = "symptom_id")
     protected long welfareId;
 
-    protected Welfare(){}
+    public Welfare(){}
 
     protected Welfare(Strength strength){
         this.strength=strength;
