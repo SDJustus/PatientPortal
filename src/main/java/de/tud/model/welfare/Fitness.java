@@ -1,5 +1,4 @@
 package de.tud.model.welfare;
-
 import javax.persistence.Entity;
 
 @Entity
@@ -14,6 +13,6 @@ public class Fitness extends Welfare {
 
     @Override
     public String toString() {
-        return "Konzentrationsfähigkeit: " + this.getStrength();
+        return "Konzentrationsfähigkeit: " + this.getStrength();   //TODO: Konzentrationsfähigkeit in Fitness?
     }
 }

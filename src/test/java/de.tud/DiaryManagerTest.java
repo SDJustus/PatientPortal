@@ -7,6 +7,8 @@ import de.tud.model.VitalData;
 import de.tud.model.manager.DiaryManager;
 import de.tud.model.symptom.*;
 
+import de.tud.model.welfare.Welfare;
+import de.tud.model.welfare.WelfareFactory;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.junit.jupiter.api.*;
@@ -28,6 +30,7 @@ class DiaryManagerTest {
     private static LocalDateTime testTime;
     private DiaryManager dm;
     private VitalData vds;
+    private Welfare welfare;
 
     @BeforeAll
     static void timeSetter(){
@@ -44,6 +47,8 @@ class DiaryManagerTest {
         vds.setHeartRate(103);
         vds.setHeight(173);
         vds.setWeight(80);
+
+
 
         testDiary = new HashSet<>();
         symptom1 = new HashSet<>();
@@ -268,6 +273,33 @@ class DiaryManagerTest {
             if(rd.getId().equals(id)){
                 for(DiaryEntry de : rd.getDiaryEntries()){
                     if(de.getVitalData().equals(vds))
+                        assertTrue(true);
+                }
+            }
+        }
+    }
+
+    @Test
+    void WelfareGetterSetterTest(){
+        Set<Welfare> welfareset = new HashSet<>();
+            welfareset.add(WelfareFactory.createSymptomByClass("Sleep", Welfare.Strength.MIDDLE));
+            welfareset.add(WelfareFactory.createSymptomByClass("ConcentrationAbility", Welfare.Strength.SEVERE));
+            welfareset.add(WelfareFactory.createSymptomByClass("Fitness", Welfare.Strength.WEAK));
+
+        Diary diary = new Diary();
+
+        testEntry1.setWelfare(welfareset);
+        testDiary.add(testEntry1);
+        diary.setDiaryEntries(testDiary);
+
+        long id = dm.create(diary);
+
+        List<Diary> readDiary = dm.read();
+
+        for(Diary rd : readDiary){
+            if(rd.getId().equals(id)){
+                for(DiaryEntry de : rd.getDiaryEntries()){
+                    if(de.getWelfare().equals(welfareset))
                         assertTrue(true);
                 }
             }
