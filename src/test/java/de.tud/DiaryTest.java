@@ -2,7 +2,9 @@ package de.tud;
 
 import de.tud.model.Diary;
 import de.tud.model.DiaryEntry;
-import de.tud.model.VitalDataSet;
+import de.tud.model.VitalData;
+import de.tud.model.symptom.Depression;
+import de.tud.model.symptom.Fatigue;
 import de.tud.model.symptom.Symptom;
 import de.tud.model.symptom.SymptomFactory;
 import org.junit.jupiter.api.BeforeEach;
@@ -14,7 +16,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 
-public class DiaryTest {
+class DiaryTest {
 
     private DiaryEntry testEntry1;
     private DiaryEntry testEntry2;
@@ -25,32 +27,41 @@ public class DiaryTest {
     private SymptomFactory factory;
     private static LocalDateTime testTime;
     private Diary testDiary;
+    private VitalData vitalData;
 
 
     @BeforeEach
-    public void initializer(){
+    void initializer(){
         testTime = LocalDateTime.now();
-        factory = new SymptomFactory();
         symptomSet = new HashSet<>();
-            symptomSet.add(factory.createSymptomByClass("Depression", Symptom.Strength.WEAK));
+        vitalData = new VitalData();
+        vitalData.setBloodPressureFirstValue(80);
+        vitalData.setBloodPressureSecondValue(120);
+        vitalData.setHeartRate(110);
+        vitalData.setHeight(190);
+        vitalData.setWeight(70);
+
+            symptomSet.add(SymptomFactory.getInstance().createSymptomByClass(Depression.class, Symptom.Strength.WEAK));
         symptomSet = new HashSet<>();
-        symptomSet.add(factory.createSymptomByClass("Fatigue", Symptom.Strength.SEVERE));
-        testEntry1 = new DiaryEntry(testTime, symptomSet, new VitalDataSet());                          //TODO: Replace "new VitalDaraSet" - it is only a placeholder
-        testEntry2 = new DiaryEntry(testTime, symptomSet2, new VitalDataSet());                         //TODO: Replace "new VitalDaraSet" - it is only a placeholder
+        symptomSet.add(SymptomFactory.getInstance().createSymptomByClass(Fatigue.class, Symptom.Strength.SEVERE));
+        testEntry1 = new DiaryEntry(testTime, symptomSet, vitalData, new HashSet<>());                                  //TODO: "new HashSet" is placeholder for Welfare implementation
+        testEntry2 = new DiaryEntry(testTime, symptomSet2, vitalData, new HashSet<>());                                 //TODO: "new HashSet" is placeholder for Welfare implementation
         testDiaryEntrySet = new HashSet<>();
             testDiaryEntrySet.add(testEntry1);
             testDiaryEntrySet.add(testEntry2);
     }
 
     @Test
-    public void getDiaryEntriesTest(){
+    void getDiaryEntriesTest(){
         testDiary = new Diary();
         testDiary.setDiaryEntries(testDiaryEntrySet);
         assertEquals(testDiary.getDiaryEntries(),testDiaryEntrySet);
     }
     @Test
-    public void getDiaryEntriesFromEmptyDiaryTest(){
+    void getDiaryEntriesFromEmptyDiaryTest(){
         testDiary= new Diary();
-        assertEquals(testDiary.getDiaryEntries(),new HashSet<>());
+        Set<DiaryEntry> testEntries = new HashSet<>();
+        testDiary.setDiaryEntries(testEntries);
+        assertEquals(testDiary.getDiaryEntries(),testEntries);
     }
 }

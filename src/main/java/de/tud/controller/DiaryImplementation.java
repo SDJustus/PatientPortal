@@ -136,18 +136,18 @@ public class DiaryImplementation extends Tagebuch {
 
                 switch (mood) {
                     case "stark":
-                        symptoms.add(SymptomFactory.createSymptomByClass("Depression", Symptom.Strength.SEVERE));
+                        symptoms.add(SymptomFactory.getInstance().createSymptomByClass(Depression.class, Symptom.Strength.SEVERE));
                         saveDiaryEntry(datum, symptoms);
                         //tagebuch.add(new DiaryEntryTableViewAdapter(datum, symptoms));
                         break;
                     case "mäßig":
                         //tagebuch.add(new Diary(datum, new Depression(Symptom.Strength.MIDDLE)));
-                        symptoms.add(SymptomFactory.createSymptomByClass("Depression", Symptom.Strength.MIDDLE));
+                        symptoms.add(SymptomFactory.getInstance().createSymptomByClass(Depression.class, Symptom.Strength.MIDDLE));
                         saveDiaryEntry(datum, symptoms);
                         break;
                     case "keine":
                         //tagebuch.add(new Diary(datum, new Depression(Symptom.Strength.WEAK)));
-                        symptoms.add(SymptomFactory.createSymptomByClass("Depression", Symptom.Strength.WEAK));
+                        symptoms.add(SymptomFactory.getInstance().createSymptomByClass(Depression.class, Symptom.Strength.WEAK));
                         saveDiaryEntry(datum, symptoms);
                         break;
                     default: throw new IllegalArgumentException("received wrong mood");
@@ -174,7 +174,7 @@ public class DiaryImplementation extends Tagebuch {
 
 
     public void saveDiaryEntry(LocalDateTime datum, Set<Symptom> symptoms){
-        DiaryEntry diaryEntry = new DiaryEntry(datum , symptoms,new VitalDataSet());        //TODO: Replace "new VitalDaraSet" - it is only a placeholder
+        DiaryEntry diaryEntry = new DiaryEntry(datum , symptoms,new VitalData(), new HashSet<>());        //TODO: Replace "new VitalDaraSet","new HashSet" - it is only a placeholder
         diaryManager.addDiaryEntry(diaryEntry, diaryId);
 
     }

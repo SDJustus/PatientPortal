@@ -1,16 +1,17 @@
-package de.tud.controller;
+package de.tud.view;
 
 import com.github.appreciated.material.MaterialTheme;
 import com.vaadin.navigator.View;
 import com.vaadin.server.ClassResource;
 import de.tud.view.VitalData;
 
-public class VitalDataImplementation extends VitalData implements View {
+public class VitalDataUISetup extends VitalData implements View {
 
 
-public VitalDataImplementation()
+public VitalDataUISetup()
 {
 
+    
  //Layout
     weight.addStyleName("layoutwithborder");
     weight.setSpacing(true);

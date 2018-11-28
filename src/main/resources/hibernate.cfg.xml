@@ -25,7 +25,7 @@
     <mapping class="de.tud.model.Address"/>
     <mapping class="de.tud.model.Diary"/>
     <mapping class="de.tud.model.DiaryEntry"/>
-    <mapping class="de.tud.model.VitalDataSet"/>
+    <mapping class="de.tud.model.VitalData"/>
     <mapping class="de.tud.model.symptom.Symptom"/>
     <mapping class="de.tud.model.symptom.Depression"/>
     <mapping class="de.tud.model.symptom.Ache"/>
@@ -38,6 +38,9 @@
     <mapping class="de.tud.model.symptom.RightLegSpasticity"/>
     <mapping class="de.tud.model.symptom.LeftArmSpasticity"/>
     <mapping class="de.tud.model.symptom.RightArmSpasticity"/>
-
+    <mapping class="de.tud.model.welfare.Welfare"/>
+    <mapping class="de.tud.model.welfare.Fitness"/>
+    <mapping class="de.tud.model.welfare.Sleep"/>
+    <mapping class="de.tud.model.welfare.ConcentrationAbility"/>
   </session-factory>
 </hibernate-configuration>

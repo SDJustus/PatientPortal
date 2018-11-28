@@ -3,12 +3,8 @@ package de.tud.model.manager;
 import de.tud.model.Diary;
 import de.tud.model.DiaryEntry;
 
-import de.tud.model.VitalDataSet;
 import org.hibernate.Session;
 
-
-import javax.persistence.Query;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
@@ -56,11 +52,6 @@ public class DiaryManager extends EntityManager<Diary> {
         session.beginTransaction();
         session.save(diaryEntry);
         Set<DiaryEntry> diaryEntries = session.get(Diary.class, diaryId).getDiaryEntries();
-
-        for (DiaryEntry diaryEntry1 : diaryEntries){
-            if (diaryEntry.getId().equals(diaryEntry1.getId()))
-                diaryEntries.remove(diaryEntry1);
-        }
         diaryEntries.add(diaryEntry);
         session.getTransaction().commit();
         session.close();
@@ -75,9 +66,7 @@ public class DiaryManager extends EntityManager<Diary> {
     }
 
     public DiaryEntry getDiaryEntryById(Long diaryId, Long diaryEntryId){
-        Session session = getSessionFactory().openSession();
-        Set<DiaryEntry> diaryEntries = session.get(Diary.class, diaryId).getDiaryEntries();
-        session.close();
+        Set<DiaryEntry> diaryEntries = findByID(diaryId).getDiaryEntries();
         DiaryEntry diaryEntry = null;
         for(DiaryEntry diaryEntry1: diaryEntries) {
             if (diaryEntry1.getId().equals(diaryEntryId))
@@ -116,6 +105,7 @@ public class DiaryManager extends EntityManager<Diary> {
         Session session = getSessionFactory().openSession();
         Diary diary = session.get(Diary.class, id);
         session.close();
+        if (diary == null) throw new IllegalArgumentException("There was no Diary with the given ID!");
         return diary;
     }
 

@@ -3,24 +3,23 @@ package de.tud;
 
 import de.tud.model.Diary;
 import de.tud.model.DiaryEntry;
-import de.tud.model.VitalDataSet;
+import de.tud.model.VitalData;
 import de.tud.model.manager.DiaryManager;
-import de.tud.model.symptom.Symptom;
-import de.tud.model.symptom.SymptomFactory;
+import de.tud.model.symptom.*;
 
+import de.tud.model.welfare.Welfare;
+import de.tud.model.welfare.WelfareFactory;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
 import org.junit.jupiter.api.*;
 
 import java.time.LocalDateTime;
 import java.util.*;
 
-import static java.lang.Math.toIntExact;
 import static org.junit.jupiter.api.Assertions.*;
 
 
-public class DiaryManagerTest {
+class DiaryManagerTest {
 
     private Set<DiaryEntry> testDiary;
     private DiaryEntry testEntry1;
@@ -30,33 +29,35 @@ public class DiaryManagerTest {
     private SymptomFactory factory;
     private static LocalDateTime testTime;
     private DiaryManager dm;
-    private VitalDataSet vds;
+    private VitalData vds;
+    private Welfare welfare;
 
     @BeforeAll
-    public static void timeSetter(){
+    static void timeSetter(){
         testTime = LocalDateTime.now();
     }
 
     @BeforeEach
-    public void initializer(){
-        factory = new SymptomFactory();
+    void initializer(){
         dm = new DiaryManager();
 
-        vds = new VitalDataSet();
+        vds = new VitalData();
         vds.setBloodPressureFirstValue(123);
         vds.setBloodPressureSecondValue(90);
         vds.setHeartRate(103);
         vds.setHeight(173);
         vds.setWeight(80);
 
+
+
         testDiary = new HashSet<>();
         symptom1 = new HashSet<>();
-        symptom1.add(factory.createSymptomByClass("Fatigue",Symptom.Strength.MIDDLE));
-        symptom1.add(factory.createSymptomByClass("RightArmSpasticity", Symptom.Strength.SEVERE));
+        symptom1.add(SymptomFactory.getInstance().createSymptomByClass(Fatigue.class,Symptom.Strength.MIDDLE));
+        symptom1.add(SymptomFactory.getInstance().createSymptomByClass(RightArmSpasticity.class, Symptom.Strength.SEVERE));
         symptom2 = new HashSet<>();
-        symptom2.add(factory.createSymptomByClass("GaitDisorder",Symptom.Strength.WEAK));
-        symptom2.add(factory.createSymptomByClass("Ache",Symptom.Strength.WEAK));
-        testEntry1 = new DiaryEntry(testTime , symptom1, vds);
+        symptom2.add(SymptomFactory.getInstance().createSymptomByClass(GaitDisorder.class,Symptom.Strength.WEAK));
+        symptom2.add(SymptomFactory.getInstance().createSymptomByClass(Ache.class,Symptom.Strength.WEAK));
+        testEntry1 = new DiaryEntry(testTime , symptom1, vds, new HashSet<>());                                         //TODO: "new HashSet" is placeholder for Welfare implementation
 
     }
 
@@ -77,7 +78,7 @@ public class DiaryManagerTest {
 
 
     @Test
-    public void createTest(){
+    void createTest(){
 
         long id = dm.create(new Diary());
 
@@ -85,7 +86,7 @@ public class DiaryManagerTest {
         Session session = sessionfac.openSession();
 
         assertNotNull(session.get(Diary.class, id));
-        assertTrue(session.get(Diary.class, id).getClass().equals(Diary.class));
+        assertEquals(session.get(Diary.class, id).getClass(), Diary.class);
 
         session.close();
     }
@@ -93,7 +94,7 @@ public class DiaryManagerTest {
 
 
     @Test
-    public void readTest(){
+    void readTest(){
 
         Diary readtestdiary = new Diary();
         List<DiaryEntry> testentries = new ArrayList<>();
@@ -108,7 +109,7 @@ public class DiaryManagerTest {
         for(Diary diary: testlist){
             if(diary.getId()==id){
                 for(DiaryEntry de: diary.getDiaryEntries())
-                    de.equals(testEntry1);
+                    Assertions.assertEquals(de, testEntry1);
             }
 
         }
@@ -116,7 +117,7 @@ public class DiaryManagerTest {
 
 
     @Test
-    public void addDiaryEntryTest(){
+    void addDiaryEntryTest(){
 
         long id = dm.create(new Diary());
 
@@ -135,7 +136,7 @@ public class DiaryManagerTest {
 
 
     @Test
-    public void deleteTest(){
+    void deleteTest(){
 
 
         long id = dm.create(new Diary());
@@ -151,7 +152,7 @@ public class DiaryManagerTest {
 
 
     @Test
-    public void removeDiaryEntryTest(){
+    void removeDiaryEntryTest(){
 
         Diary diary = new Diary();
         testDiary.add(testEntry1);
@@ -170,7 +171,7 @@ public class DiaryManagerTest {
 
 
     @Test
-    public void findByIdTest(){
+    void findByIdTest(){
 
         Diary byIDDiary = new Diary();
 
@@ -203,9 +204,15 @@ public class DiaryManagerTest {
         }
     }
 
+    @Test
+    void shouldGetDiaryFromNotExistingId(){
+        assertThrows(IllegalArgumentException.class, ()->{
+            dm.findByID(99999L);
+        }, "There was no Diary with the given ID!");
+    }
 
     @Test
-    public void deleteAllTest(){
+    void deleteAllTest(){
 /*
         dm.create(new Diary());
         dm.create(new Diary());
@@ -223,7 +230,7 @@ public class DiaryManagerTest {
 
 
     @Test
-    public void getDiaryEntryByIdTest(){
+    void getDiaryEntryByIdTest(){
 
         Diary diary = new Diary();
         testDiary.add(testEntry1);
@@ -242,18 +249,17 @@ public class DiaryManagerTest {
                 resultDiary=singleDiary;
         }
 
-        for(DiaryEntry de : resultDiary.getDiaryEntries())
-            entryID=de.getId();
+            entryID=resultDiary.getDiaryEntries().iterator().next().getId();
 
         DiaryEntry diaryEntry = dm.getDiaryEntryById(diaryId, entryID);
 
 
-        assertEquals(diaryEntry.getSymptom(), testEntry1.getSymptom());
+        assertEquals(diaryEntry.getSymptom().iterator().next().getClass(), testEntry1.getSymptom().iterator().next().getClass());
 
     }
 
     @Test
-    public void VitalDataGetterSetterTest(){
+    void VitalDataGetterSetterTest(){
 
         Diary diary = new Diary();
         testDiary.add(testEntry1);
@@ -266,13 +272,37 @@ public class DiaryManagerTest {
         for(Diary rd : readDiary){
             if(rd.getId().equals(id)){
                 for(DiaryEntry de : rd.getDiaryEntries()){
-                    if(de.getVitalDataSet().equals(vds))
+                    if(de.getVitalData().equals(vds))
                         assertTrue(true);
                 }
             }
         }
-
-
     }
 
+    @Test
+    void WelfareGetterSetterTest(){
+        Set<Welfare> welfareset = new HashSet<>();
+            welfareset.add(WelfareFactory.createSymptomByClass("Sleep", Welfare.Strength.MIDDLE));
+            welfareset.add(WelfareFactory.createSymptomByClass("ConcentrationAbility", Welfare.Strength.SEVERE));
+            welfareset.add(WelfareFactory.createSymptomByClass("Fitness", Welfare.Strength.WEAK));
+
+        Diary diary = new Diary();
+
+        testEntry1.setWelfare(welfareset);
+        testDiary.add(testEntry1);
+        diary.setDiaryEntries(testDiary);
+
+        long id = dm.create(diary);
+
+        List<Diary> readDiary = dm.read();
+
+        for(Diary rd : readDiary){
+            if(rd.getId().equals(id)){
+                for(DiaryEntry de : rd.getDiaryEntries()){
+                    if(de.getWelfare().equals(welfareset))
+                        assertTrue(true);
+                }
+            }
+        }
+    }
 }

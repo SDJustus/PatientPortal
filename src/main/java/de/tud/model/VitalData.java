@@ -5,7 +5,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "vital_data")
-public class VitalDataSet extends EntityObject {
+public class VitalData extends EntityObject {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -21,9 +21,9 @@ public class VitalDataSet extends EntityObject {
     @Column(name = "heart_rate")
     private int heartRate;
 
-    public VitalDataSet(){}
+    public VitalData(){}
 
-    public VitalDataSet(float height, float weight, short bloodPressureFirstValue,short bloodPressureSecondValue, short heartRate){
+    public VitalData(float height, float weight, short bloodPressureFirstValue, short bloodPressureSecondValue, short heartRate){
         this.height=height;
         this.weight=weight;
         this.bloodPressureFirstValue=bloodPressureFirstValue;
