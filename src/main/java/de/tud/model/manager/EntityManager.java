@@ -20,7 +20,6 @@ public abstract class EntityManager<T extends EntityObject> {
 
     public SessionFactory getSessionFactory(){
         Configuration configuration = new Configuration().configure();
-        //TODO: Test if the config with pachages work...
         configuration.addAnnotatedClass(Diary.class)
                 .addAnnotatedClass(DiaryEntry.class)
                 .addAnnotatedClass(SymptomFactory.class)
@@ -49,6 +48,7 @@ public abstract class EntityManager<T extends EntityObject> {
         return sessionFactory;
     }
     public long create(T entity){
+        if (entity == null) throw new NullPointerException("Expected entity not to be null.");
         Session session = getSessionFactory().openSession();
         session.beginTransaction();
         session.save(entity);

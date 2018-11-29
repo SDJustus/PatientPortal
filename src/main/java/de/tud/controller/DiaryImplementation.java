@@ -13,6 +13,8 @@ import de.tud.model.manager.DiaryManager;
 import de.tud.model.symptom.Depression;
 import de.tud.model.symptom.Symptom;
 import de.tud.model.symptom.SymptomFactory;
+import de.tud.model.welfare.Welfare;
+import de.tud.model.welfare.WelfareFactory;
 import de.tud.view.*;
 
 
@@ -174,7 +176,9 @@ public class DiaryImplementation extends Tagebuch {
 
 
     public void saveDiaryEntry(LocalDateTime datum, Set<Symptom> symptoms){
-        DiaryEntry diaryEntry = new DiaryEntry(datum , symptoms,new VitalData(), new HashSet<>());        //TODO: Replace "new VitalDaraSet","new HashSet" - it is only a placeholder
+        Set<Welfare> welfareFactorySet = new HashSet<>();
+        welfareFactorySet.add( WelfareFactory.getInstance().createSymptomByClass("ConcentrationAbility", Welfare.Strength.SEVERE));
+        DiaryEntry diaryEntry = new DiaryEntry(datum , symptoms, new VitalData(), welfareFactorySet);        //TODO: Replace "new VitalDaraSet","new HashSet" - it is only a placeholder
         diaryManager.addDiaryEntry(diaryEntry, diaryId);
 
     }
