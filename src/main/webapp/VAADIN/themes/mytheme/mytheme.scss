@@ -5,14 +5,14 @@
 // Defines the plaintext font size, weight and family. Font size affects general component sizing.
 //$v-font-size: 16px;
 //$v-font-weight: 300;
-//$v-font-family: "Open Sans", sans-serif;
+$v-font-family: "Open Sans", sans-serif;
 
 // Defines the border used by all components.
-//$v-border: 1px solid (v-shade 0.7);
-//$v-border-radius: 4px;
+$v-border: 1px solid (v-shade 0.7);
+$v-border-radius: 4px;
 
 // Affects the color of some component elements, e.g Button, Panel title, etc
-//$v-background-color: hsl(210, 0%, 98%);
+$v-background-color: hsl(210, 0%, 98%);
 // Affects the color of content areas, e.g  Panel and Window content, TextField input etc
 //$v-app-background-color: $v-background-color;
 
@@ -30,7 +30,8 @@ $v-shadow-opacity: 5%;
 // Example variants can be copy/pasted from https://vaadin.com/wiki/-/wiki/Main/Valo+Examples
 $mat-background-color: #fafafa;
 // #fafafa for a light and #303030 for a dark theme
-//$v-focus-color: #00BCD4;
+$v-focus-color: #00BCD4;
+
 // (You can find colors at materialpalette.com) $v-focus-color is supposed to be your accent color
 // Note: " ... Using colors from the Material Design palette is optional. ... "
 
@@ -39,7 +40,10 @@ $mat-background-color: #fafafa;
 @mixin mytheme {
   @include material;
 
-
+.overflow{
+  overflow-x: auto;
+  overflow-y: auto;
+}
 
   // Insert your own theme rules here
 }

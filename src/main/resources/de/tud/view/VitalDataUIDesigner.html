@@ -8,43 +8,49 @@
   <meta name="package-mapping" content="org_vaadin_risto_stepper:org.vaadin.risto.stepper">
  </head>
  <body>
-  <vaadin-panel size-full>
-   <vaadin-form-layout caption="Vitaldaten eingeben:" size-full margin>
-    <vaadin-horizontal-layout style-name="layoutwithborder card-1" width="456px" height="160px" margin _id="weight">
-     <vaadin-image width="90px" height-full _id="weightPicture"></vaadin-image>
-     <vaadin-label width="103px" height="5px" plain-text _id="weightLabel" :middle :center>
+  <vaadin-panel caption-as-html responsive width="689px" height="1267px">
+   <vaadin-form-layout caption-as-html caption="<h1><FONT SIZE=&quot;5&quot;><b>Neuer Vitaldateneintrag</b></FONT></h1>" width="77.72%" height="89.56%" margin _id="form">
+    <vaadin-horizontal-layout style-name="layoutwithborder card-1" responsive width="456px" height="160px" margin _id="weight">
+     <vaadin-image responsive width="90px" height-full _id="weightPicture"></vaadin-image>
+     <vaadin-label caption-as-html responsive width="103px" height="5px" plain-text _id="weightLabel" :middle :center>
        Gewicht: 
      </vaadin-label>
-     <org_vaadin_risto_stepper-float-stepper style-name="Undefined width" width="145px" height="66px" _id="weightStepper" :bottom :center></org_vaadin_risto_stepper-float-stepper>
+     <org_vaadin_risto_stepper-float-stepper style-name="Undefined width" responsive width="145px" height="66px" _id="weightStepper" :bottom :center></org_vaadin_risto_stepper-float-stepper>
     </vaadin-horizontal-layout>
-    <vaadin-horizontal-layout style-name="layoutwithborder card-1" width="456px" height="160px" margin _id="height">
-     <vaadin-image source="waage.png" width="90px" height-full _id="heightPicture"></vaadin-image>
-     <vaadin-label width="103px" height="5px" plain-text _id="heightLabel" :middle :center>
+    <vaadin-horizontal-layout style-name="layoutwithborder card-1" responsive width="456px" height="160px" margin _id="height">
+     <vaadin-image source="waage.png" responsive width="90px" height-full _id="heightPicture"></vaadin-image>
+     <vaadin-label responsive width="103px" height="5px" plain-text _id="heightLabel" :middle :center>
        Körpergröße: 
      </vaadin-label>
-     <org_vaadin_risto_stepper-float-stepper style-name="Undefined width" width="145px" height="66px" _id="heightStepper" :bottom :center></org_vaadin_risto_stepper-float-stepper>
+     <org_vaadin_risto_stepper-float-stepper style-name="Undefined width" responsive width="145px" height="66px" _id="heightStepper" :bottom :center></org_vaadin_risto_stepper-float-stepper>
     </vaadin-horizontal-layout>
-    <vaadin-horizontal-layout style-name="layoutwithborder card-1" width="456px" height="294px" margin _id="bloodPressure">
-     <vaadin-image source="waage.png" width="90px" height="35%" _id="bloodPressurePicture" :middle :center></vaadin-image>
-     <vaadin-label width="103px" height="5px" plain-text _id="bloodPressureLabel" :middle :right>
+    <vaadin-horizontal-layout style-name="layoutwithborder card-1" responsive width="456px" height="160px" margin _id="bloodPressure">
+     <vaadin-image source="waage.png" responsive width="90px" height-full _id="bloodPressurePicture" :middle :center></vaadin-image>
+     <vaadin-label responsive width="103px" height="5px" plain-text _id="bloodPressureLabel" :middle :right>
        Blutdruck 
      </vaadin-label>
-     <vaadin-vertical-layout width="206px" :middle :expand>
-      <org_vaadin_risto_stepper-float-stepper caption="Wert 1:" style-name="Undefined width" width="132px" height="66px" _id="bloodPressureStepper1"></org_vaadin_risto_stepper-float-stepper>
-      <org_vaadin_risto_stepper-float-stepper caption="Wert 2:" style-name="Undefined width" width="132px" height="66px" _id="bloodPressureStepper11" :bottom></org_vaadin_risto_stepper-float-stepper>
-     </vaadin-vertical-layout>
+     <org_vaadin_risto_stepper-float-stepper description="systolischer Blutdruck" style-name="Undefined width" responsive width="145px" height="66px" _id="bloodPressureStepper1" :bottom :center></org_vaadin_risto_stepper-float-stepper>
     </vaadin-horizontal-layout>
-    <vaadin-horizontal-layout style-name="layoutwithborder card-1" width="456px" height="160px" margin _id="heartRate">
-     <vaadin-image caption-as-html source="waage.png" width="90px" height-full _id="heartRatePicture"></vaadin-image>
-     <vaadin-label width="103px" height="5px" plain-text _id="heartRateLabel" :middle :center>
+    <vaadin-horizontal-layout style-name="layoutwithborder card-1" responsive width="456px" height="160px" margin _id="bloodPressure11">
+     <vaadin-image source="waage.png" responsive width="90px" height-full _id="bloodPressurePicture11" :middle :center></vaadin-image>
+     <vaadin-label responsive width="103px" height="5px" plain-text _id="bloodPressureLabel11" :middle :right>
+       Blutdruck 
+     </vaadin-label>
+     <org_vaadin_risto_stepper-float-stepper description="diastolischer Blutdruck" style-name="Undefined width" responsive width="145px" height="66px" _id="bloodPressureStepper11"></org_vaadin_risto_stepper-float-stepper>
+    </vaadin-horizontal-layout>
+    <vaadin-horizontal-layout style-name="layoutwithborder card-1" responsive width="456px" height="160px" margin _id="heartRate">
+     <vaadin-image caption-as-html source="waage.png" responsive width="90px" height-full _id="heartRatePicture"></vaadin-image>
+     <vaadin-label responsive width="96px" height="0px" plain-text _id="heartRateLabel" :middle :right :expand>
        Puls: 
      </vaadin-label>
-     <org_vaadin_risto_stepper-float-stepper style-name="Undefined width" width="145px" height="66px" _id="heartRateStepper" :bottom :center></org_vaadin_risto_stepper-float-stepper>
+     <org_vaadin_risto_stepper-float-stepper style-name="Undefined width" responsive width="145px" height="66px" _id="heartRateStepper" :bottom :center></org_vaadin_risto_stepper-float-stepper>
     </vaadin-horizontal-layout>
-    <vaadin-date-time-field _id="datePicker"></vaadin-date-time-field>
-    <vaadin-native-button width="128px" height="41px" plain-text _id="saveVitalData">
-      Speichern 
-    </vaadin-native-button>
+    <vaadin-horizontal-layout responsive>
+     <vaadin-date-time-field responsive _id="dataPicker"></vaadin-date-time-field>
+     <vaadin-native-button responsive width="204px" height="41px" plain-text _id="saveVitalData" :middle :right>
+       Speichern 
+     </vaadin-native-button>
+    </vaadin-horizontal-layout>
    </vaadin-form-layout>
   </vaadin-panel>
  </body>

@@ -13,6 +13,6 @@ public class Fitness extends Welfare {
 
     @Override
     public String toString() {
-        return "Konzentrationsfähigkeit: " + this.getStrength();   //TODO: Konzentrationsfähigkeit in Fitness?
+        return "Fitness: " + this.getStrength();   //TODO: Konzentrationsfähigkeit in Fitness?
     }
 }

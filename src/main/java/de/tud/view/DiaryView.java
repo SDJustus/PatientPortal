@@ -10,7 +10,7 @@ import com.vaadin.server.*;
 import de.tud.controller.DiaryViewController;
 import de.tud.model.Diary;
 import de.tud.model.DiaryEntry;
-import de.tud.model.VitalDataSet;
+import de.tud.model.VitalData;
 import de.tud.model.manager.DiaryManager;
 import de.tud.model.symptom.Symptom;
 

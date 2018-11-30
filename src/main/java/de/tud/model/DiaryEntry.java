@@ -5,6 +5,7 @@ import de.tud.model.welfare.Welfare;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -36,6 +37,24 @@ public class DiaryEntry extends EntityObject {
     public DiaryEntry(){}
 
     public DiaryEntry(LocalDateTime date, Set<Symptom> symptom, VitalData vitalData, Set<Welfare> welfare){
+        this.date = date;
+        this.symptom = symptom;
+        this.vitalData = vitalData;
+        this.welfare=welfare;
+    }
+    public DiaryEntry(LocalDateTime date, Set<Symptom> symptom){
+        this.date = date;
+        this.symptom = symptom;
+        this.vitalData = vitalData;
+        this.welfare=welfare;
+    }
+    public DiaryEntry(LocalDateTime date,  VitalData vitalData){
+        this.date = date;
+        this.symptom = symptom;
+        this.vitalData = vitalData;
+        this.welfare=welfare;
+    }
+    public DiaryEntry(LocalDateTime date, HashSet<Welfare> welfare){
         this.date = date;
         this.symptom = symptom;
         this.vitalData = vitalData;

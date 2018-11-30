@@ -1,6 +1,8 @@
 package de.tud.controller;
 
 
+import com.github.appreciated.material.MaterialTheme;
+import com.vaadin.annotations.Theme;
 import com.vaadin.annotations.VaadinServletConfiguration;
 import com.vaadin.data.TreeData;
 import com.vaadin.data.provider.TreeDataProvider;
@@ -12,11 +14,19 @@ import com.vaadin.ui.*;
 import com.vaadin.navigator.Navigator;
 import com.vaadin.ui.themes.ValoTheme;
 import de.tud.view.*;
+import de.tud.view.VitalData.VitalDataUIDesignerUISetup;
+import de.tud.view.VitalData.VitalDataView;
 
 import javax.servlet.annotation.WebServlet;
+import java.util.Set;
 
-
+@Theme("mytheme")
 public class PatientPortalMenu extends UI {
+
+    Tree<String> menuTree;
+    TreeData<String> menuTreeData;
+    Navigator navigator;
+
     @Override
     public void init(VaadinRequest request) {
         //CSS Befehle
@@ -42,6 +52,7 @@ public class PatientPortalMenu extends UI {
                 e -> getNavigator().navigateTo("Patiententagebuch"));
         view1.setIcon(VaadinIcons.TASKS);
         view1.addStyleNames( ValoTheme.BUTTON_LINK, ValoTheme.MENU_ITEM);
+        view1.addStyleName(MaterialTheme.MENU_ITEM);
 
         //Button z.B. zum Medikationsplan
         Button view2 = new Button("Auswertung", e -> getNavigator().navigateTo("Auswertung"));
@@ -50,23 +61,67 @@ public class PatientPortalMenu extends UI {
 
 
         //Menu tree
-        Tree<String> menuTree = new Tree<>();
-
-        TreeData<String> menuTreeData = new TreeData<>();
+         menuTree = new Tree<>();
+         menuTreeData = new TreeData<>();
 
         //add tree items with hierachy
         menuTreeData.addItem(null,"Patiententagebuch");
-        menuTreeData.addItem("Patiententagebuch","Eintrag hinzufügen");
-        menuTreeData.addItem("Patiententagebuch","Vitaldaten einfügen");
+        menuTreeData.addItem("Patiententagebuch","Symptomeintrag");
+        menuTreeData.addItem("Patiententagebuch","Vitaldateneintrag");
         menuTreeData.addItem("Patiententagebuch", "Auswertung");
+        menuTree.addStyleName(MaterialTheme.MENU_ITEM);
 
         //add data to tree
         TreeDataProvider inMemoryDataProvider = new TreeDataProvider<>(menuTreeData);
         menuTree.setDataProvider(inMemoryDataProvider);
+        menuTree.setSelectionMode(Grid.SelectionMode.SINGLE);
 
+
+        //design settings
+        view1.addStyleName(MaterialTheme.BUTTON_FLAT + MaterialTheme.BUTTON_BORDER);
+        view2.addStyleName(MaterialTheme.BUTTON_FLAT +MaterialTheme.BUTTON_BORDER);
+        menuTree.addStyleName(MaterialTheme.BUTTON_FLAT + MaterialTheme.BUTTON_BORDER);
+
+
+        //add functions to tree items -> listen for selection change then navigate
+        menuTree.addItemClickListener(event -> {
+            {
+
+
+                String selectedItem = event.getItem();
+
+
+
+                System.out.println(selectedItem);
+                switch (selectedItem) {
+
+                    case "Vitaldateneintrag": {
+
+                        getNavigator().navigateTo("Vitaldateneintrag");
+
+                        break;
+                    }
+                    case "Symptomeintrag": {
+                        this.getNavigator().navigateTo("Patiententagebuch");
+                        System.out.println(selectedItem);
+                        break;
+                    }
+                    case "Auswertung": {
+                        getNavigator().navigateTo("Auswertung");
+                        System.out.println(selectedItem);
+                        break;
+                    }
+
+                }
+
+
+
+            }
+        });
 
         //Integration der MenuItems
         CssLayout menu = new CssLayout(title, profilbild,view1, view2,menuTree);
+        menu.addStyleName(MaterialTheme.MENU_ROOT);
         //CssLayout menu = new CssLayout(title, profilbild, menuTree);
 
 
@@ -84,46 +139,23 @@ public class PatientPortalMenu extends UI {
 
         //Navigation im Menü, um auf Klick Views anzeigen zu lassen
 
-        Navigator navigator = new Navigator(this, viewContainer);
+       navigator = new Navigator(this, viewContainer);
 
         navigator.addView("", StartView.class);
         navigator.addView("Patiententagebuch", DiaryView.class);
         navigator.addView("Auswertung", DiaryEvaluationView.class);
+        navigator.addView("Vitaldateneintrag", VitalDataView.class);
 
 
 
-        //add functions to tree items -> listen for selection change then navigate
 
-        menuTree.addSelectionListener(new SelectionListener<String>() {
-            @Override
-            public void selectionChange(SelectionEvent<String> selectionEvent) {
 
-                System.out.println(menuTree.getSelectedItems().toString());
-                switch (menuTree.getSelectedItems().toString())
-                {
-
-                    case "[Vitaldaten einfügen]":
-                    {
-                        navigator.navigateTo("");
-                        System.out.println(menuTree.getSelectedItems().toString());
-                    }
-                    case "[Eintrag hinzufügen]":
-                    {
-                        navigator.navigateTo("Patiententagebuch");
-                        System.out.println(menuTree.getSelectedItems().toString());
-                    }
-                    case "[Auswertung]":
-                    {
-                        navigator.navigateTo("Auswertung");
-                    }
-
-                }
-            }
-        });
 
     }
     @WebServlet(urlPatterns = "/*", name = "MyUIServlet", asyncSupported = true)
     @VaadinServletConfiguration(ui = PatientPortalMenu.class, productionMode = false)
     public static class MyUIServlet extends VaadinServlet {
     }
+
+
 }

@@ -7,7 +7,7 @@ import com.vaadin.ui.Notification;
 import com.vaadin.ui.themes.ValoTheme;
 import de.tud.model.Diary;
 import de.tud.model.DiaryEntry;
-import de.tud.model.VitalDataSet;
+import de.tud.model.VitalData;
 import de.tud.model.manager.DiaryManager;
 import de.tud.model.symptom.Symptom;
 import de.tud.model.symptom.SymptomFactory;
@@ -138,7 +138,7 @@ public class DiaryViewController {
         Diary diary = diaryManager.read().get(0);
         long diaryId = diary.getId();
 
-        DiaryEntry diaryEntry = new DiaryEntry(datum, symptoms, new VitalDataSet());  //TODO: Replace "new VitalDaraSet" - it is only a placeholder
+        DiaryEntry diaryEntry = new DiaryEntry(datum, symptoms);  //TODO: Replace "new VitalDaraSet" - it is only a placeholder
         DiaryManager.getInstance().addDiaryEntry(diaryEntry, diaryId);
 
     }
