@@ -25,6 +25,7 @@ import com.vaadin.ui.FormLayout;
 @SuppressWarnings("serial")
 public class VitalDataUIDesigner extends Panel {
     protected FormLayout form;
+    protected Label captionLabel;
     protected HorizontalLayout weight;
     protected Image weightPicture;
     protected Label weightLabel;

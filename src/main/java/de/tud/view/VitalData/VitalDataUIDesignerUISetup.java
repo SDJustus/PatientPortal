@@ -23,30 +23,30 @@ public VitalDataUIDesignerUISetup()
     weight.addStyleName("layoutwithborder");
     weight.setSpacing(true);
     weight.setMargin(true);
-    weight.addStyleName(MaterialTheme.CARD_1);
+    weight.addStyleName(MaterialTheme.CARD_1_5);
     weight.addStyleName("catbackground");
 
     heartRate.addStyleName("layoutwithborder");
     heartRate.setSpacing(true);
     heartRate.setMargin(true);
-    heartRate.addStyleName(MaterialTheme.CARD_1);
+    heartRate.addStyleName(MaterialTheme.CARD_1_5);
 
     height.addStyleName("layoutwithborder");
     height.setSpacing(true);
     height.setMargin(true);
-    height.addStyleName(MaterialTheme.CARD_1);
+    height.addStyleName(MaterialTheme.CARD_1_5);
 
     bloodPressure.addStyleName("layoutwithborder");
     bloodPressure.setSpacing(true);
     bloodPressure.setMargin(true);
-    bloodPressure.addStyleName(MaterialTheme.CARD_1);
+    bloodPressure.addStyleName(MaterialTheme.CARD_1_5);
 
 //Setup icons
     weightPicture.setSource(new ClassResource("/vitaldatapictures/waage.png"));
     heightPicture.setSource(new ClassResource("/vitaldatapictures/lineal.png"));
     bloodPressurePicture.setSource(new ClassResource("/vitaldatapictures/anatomischesherz.png"));
     heartRatePicture.setSource(new ClassResource("/vitaldatapictures/puls.png"));
-    bloodPressurePicture11.setSource(new ClassResource("/vitaldatapictures/anatomischesherz.png"));
+    bloodPressurePicture11.setSource(new ClassResource("/vitaldatapictures/herz2.png"));
 
 
 
@@ -101,7 +101,7 @@ public VitalDataUIDesignerUISetup()
 
 //panel setup
     super.setWidth("100%");
-    super.setHeight("75%");
+    super.setHeight("850px");
     super.getContent().setSizeUndefined();
 
 //Label Setup
@@ -117,7 +117,8 @@ public VitalDataUIDesignerUISetup()
 
 form.setSizeUndefined();
 form.addStyleName("overflow");
-
+captionLabel.addStyleName(MaterialTheme.CARD_0_5);
+captionLabel.addStyleName(MaterialTheme.LABEL_H1);
 dataPicker.addStyleName(MaterialTheme.DATEFIELD_ALIGN_CENTER);
 
 this.addSaveButtonListener();
