@@ -28,14 +28,17 @@ public class WelfareDesigner extends Panel {
     protected Image concentrationPicture;
     protected Label concentrationLabel;
     protected RadioButtonGroup<String> concentrationRadioButton;
+    protected Image concentrationRadiobuttonPicture;
     protected HorizontalLayout fitnesslay;
     protected Image fitnessPicture;
     protected Label fitnessLabel;
     protected RadioButtonGroup<String> fitnessRadioButton;
+    protected Image fitnessRadiobuttonPicture;
     protected HorizontalLayout sleep;
     protected Image sleepPicture;
     protected Label sleepLabel;
     protected RadioButtonGroup<String> sleepRadioButton;
+    protected Image sleepRadiobuttonPicture;
     protected DateTimeField dataPicker;
     protected NativeButton save;
 

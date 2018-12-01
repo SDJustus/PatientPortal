@@ -2,6 +2,7 @@ package de.tud.controller;
 
 
 import com.vaadin.data.HasValue;
+import com.vaadin.server.ClassResource;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Notification;
 import de.tud.model.Diary;
@@ -30,7 +31,9 @@ public class WelfareController  {
     Diary diary;
     HashSet<Welfare> welfareSet;
 
-
+    ClassResource good;
+    ClassResource middle;
+    ClassResource bad;
 
 
 
@@ -43,6 +46,9 @@ public class WelfareController  {
         diaryId = diary.getId();
         this.desview.getSave().setEnabled(false);
 
+        good = new ClassResource("/gut.png");
+        middle = new ClassResource("/mittel.png");
+        bad = new ClassResource("/schlecht.png");
 
     }
 
@@ -175,8 +181,74 @@ public class WelfareController  {
 
                 }
 
+         public void addRadioButtonListenerPiucture()
+         {
+
+             desview.getFitnessRadioButton().addValueChangeListener(valueChangeEvent ->
+
+                     {
+                      if(valueChangeEvent.getValue() == "gut")
+                      {
+                          desview.getFitnessRadiobuttonPicture().setSource(good);
+                      }
+                         if(valueChangeEvent.getValue() == "mittel")
+                         {
+                             desview.getFitnessRadiobuttonPicture().setSource(middle);
+                         }
+                         if(valueChangeEvent.getValue() == "schlecht")
+                         {
+                             desview.getFitnessRadiobuttonPicture().setSource(bad);
+                         }
 
 
+                     }
+                     );
+
+             desview.getSleepRadioButton().addValueChangeListener(valueChangeEvent ->
+
+                     {
+                         if(valueChangeEvent.getValue() == "gut")
+                         {
+                             desview.getSleepRadiobuttonPicture().setSource(good);
+                         }
+                         if(valueChangeEvent.getValue() == "mittel")
+                         {
+                             desview.getSleepRadiobuttonPicture().setSource(middle);
+                         }
+                         if(valueChangeEvent.getValue() == "schlecht")
+                         {
+                             desview.getSleepRadiobuttonPicture().setSource(bad);
+                         }
+
+
+                     }
+             );
+
+             desview.getConcentrationRadioButton().addValueChangeListener(valueChangeEvent ->
+
+                     {
+                         if(valueChangeEvent.getValue() == "gut")
+                         {
+                             desview.getConcentrationRadiobuttonPicture().setSource(good);
+                         }
+                         if(valueChangeEvent.getValue() == "mittel")
+                         {
+                             desview.getConcentrationRadiobuttonPicture().setSource(middle);
+                         }
+                         if(valueChangeEvent.getValue() == "schlecht")
+                         {
+                             desview.getConcentrationRadiobuttonPicture().setSource(bad);
+                         }
+
+
+                     }
+             );
+
+
+
+
+
+         }
 
 
 

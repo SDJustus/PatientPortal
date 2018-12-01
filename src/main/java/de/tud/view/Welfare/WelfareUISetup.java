@@ -57,10 +57,22 @@ public WelfareUISetup() {
 
     //save button config
     save.setCaption("Speichern");
-    save.setDescription("Speichern der Vitaldaten");
+    save.setDescription("Speichern des Wohlbefindens");
     save.addStyleName(MaterialTheme.BUTTON_ROUND);
     save.setIcon(new ClassResource("/saveicon.png"));
     save.addStyleName(MaterialTheme.LABEL_TINY);
+
+    concentrationRadiobuttonPicture.setSource(new ClassResource("/gut.png"));
+    concentrationRadiobuttonPicture.setWidth("96px");
+    concentrationRadiobuttonPicture.setHeight("96px");
+
+    fitnessRadiobuttonPicture.setSource(new ClassResource("/gut.png"));
+    fitnessRadiobuttonPicture.setWidth("96px");
+    fitnessRadiobuttonPicture.setHeight("96px");
+
+    sleepRadiobuttonPicture.setSource(new ClassResource("/gut.png"));
+    sleepRadiobuttonPicture.setWidth("96px");
+    sleepRadiobuttonPicture.setHeight("96px");
 
 
 
@@ -80,7 +92,7 @@ public WelfareUISetup() {
 
     this.addSaveButtonListener();
     this.addDateTimeFieldChangeListener();
-
+    welfareController.addRadioButtonListenerPiucture();
 
 
 
@@ -94,6 +106,7 @@ public WelfareUISetup() {
     private void addSaveButtonListener(){
         welfareController.addSaveButtonListener();
     }
+
 
     public HorizontalLayout getConcentration() {
         return concentration;
@@ -195,6 +208,31 @@ public WelfareUISetup() {
     public void setConcentrationRadioButton(RadioButtonGroup<String> concentrationRadioButton) {
         this.concentrationRadioButton = concentrationRadioButton;
     }
+
+    public Image getConcentrationRadiobuttonPicture() {
+        return concentrationRadiobuttonPicture;
+    }
+
+    public void setConcentrationRadiobuttonPicture(Image concentrationRadiobuttonPicture) {
+        this.concentrationRadiobuttonPicture = concentrationRadiobuttonPicture;
+    }
+
+    public Image getFitnessRadiobuttonPicture() {
+        return fitnessRadiobuttonPicture;
+    }
+
+    public void setFitnessRadiobuttonPicture(Image fitnessRadiobuttonPicture) {
+        this.fitnessRadiobuttonPicture = fitnessRadiobuttonPicture;
+    }
+
+    public Image getSleepRadiobuttonPicture() {
+        return sleepRadiobuttonPicture;
+    }
+
+    public void setSleepRadiobuttonPicture(Image sleepRadiobuttonPicture) {
+        this.sleepRadiobuttonPicture = sleepRadiobuttonPicture;
+    }
+
 
 
 }
