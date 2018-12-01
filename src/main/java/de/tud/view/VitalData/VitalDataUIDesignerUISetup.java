@@ -19,6 +19,12 @@ public VitalDataUIDesignerUISetup()
     //Verbindung zu Controller
     vitalDataUIController = new VitalDataUIController(this);
 
+//caption setup
+    captionLabel.addStyleName(MaterialTheme.CARD_0_5);
+    captionLabel.addStyleName(MaterialTheme.LABEL_H1);
+    captionLabel.addStyleName("catbackground");
+
+
  //Layout
     weight.addStyleName("layoutwithborder");
     weight.setSpacing(true);
@@ -30,17 +36,25 @@ public VitalDataUIDesignerUISetup()
     heartRate.setSpacing(true);
     heartRate.setMargin(true);
     heartRate.addStyleName(MaterialTheme.CARD_1_5);
+    heartRate.addStyleName("catbackground");
 
     height.addStyleName("layoutwithborder");
     height.setSpacing(true);
     height.setMargin(true);
     height.addStyleName(MaterialTheme.CARD_1_5);
+    height.addStyleName("catbackground");
 
     bloodPressure.addStyleName("layoutwithborder");
     bloodPressure.setSpacing(true);
     bloodPressure.setMargin(true);
     bloodPressure.addStyleName(MaterialTheme.CARD_1_5);
+    bloodPressure.addStyleName("catbackground");
 
+    bloodPressure11.addStyleName("layoutwithborder");
+    bloodPressure11.setSpacing(true);
+    bloodPressure11.setMargin(true);
+    bloodPressure11.addStyleName(MaterialTheme.CARD_1_5);
+    bloodPressure11.addStyleName("catbackground");
 //Setup icons
     weightPicture.setSource(new ClassResource("/vitaldatapictures/waage.png"));
     heightPicture.setSource(new ClassResource("/vitaldatapictures/lineal.png"));
@@ -117,10 +131,9 @@ public VitalDataUIDesignerUISetup()
 
 form.setSizeUndefined();
 form.addStyleName("overflow");
-captionLabel.addStyleName(MaterialTheme.CARD_0_5);
-captionLabel.addStyleName(MaterialTheme.LABEL_H1);
-dataPicker.addStyleName(MaterialTheme.DATEFIELD_ALIGN_CENTER);
 
+dataPicker.addStyleName(MaterialTheme.DATEFIELD_ALIGN_CENTER);
+dataPicker.addStyleName("catbackground");
 this.addSaveButtonListener();
 this.addDateTimeFieldChangeListener();
 

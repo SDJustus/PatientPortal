@@ -30277,10 +30277,35 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .catbackground {
-	backgroud: #DBDBDB;
+	background-color: #fcfcfc !important;
+}
+
+.mytheme .menubackground {
+	background-color: #DCEDC8 !important;
+}
+
+.mytheme .v-tree-node-caption:hover {
+	background-color: #b4ecef !important;
 }
 
 .mytheme .overflow {
 	overflow-x: auto;
 	overflow-y: auto;
+}
+
+.mytheme div .v-tree8 .v-tree8-tablewrapper .v-tree8-body {
+	background: #DCEDC8 !important;
+}
+
+.mytheme div .v-tree8 .v-tree8-tablewrapper .v-tree8-body .colourTree {
+	text-shadow: 0 0 2px rgba(40, 50, 48, 0.46), 0 0 1px #b8ff95 !important;
+	color: #7ca441 !important;
+	background: #DCEDC8 !important;
+	border: none !important;
+	padding-left: 5px !important;
+}
+
+.mytheme div .v-tree8 .v-tree8-tablewrapper .v-tree8-body .v-tree8-row, .mytheme div .v-tree8 .v-tree8-tablewrapper .v-tree8-body .v-tree8-stripe, .mytheme div .v-tree8 .v-tree8-tablewrapper .v-tree8-body .v-tree8-row-focused {
+	background: #DCEDC8 !important;
+	color: #7ca441 !important;
 }

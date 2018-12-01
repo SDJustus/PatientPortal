@@ -29,8 +29,8 @@ public class WelfareFactory {
     @Deprecated
     public static Welfare createSymptomByClass(String className, Welfare.Strength strength) {
         switch (className) {
-            case "Fitness":
-                return new Fitness(strength);
+            case "PhysicalCondition":
+                return new PhysicalCondition(strength);
             case "Sleep":
                 return new Sleep(strength);
             case "ConcentrationAbility":

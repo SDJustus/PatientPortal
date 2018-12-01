@@ -45,19 +45,15 @@ public class DiaryEntry extends EntityObject {
     public DiaryEntry(LocalDateTime date, Set<Symptom> symptom){
         this.date = date;
         this.symptom = symptom;
-        this.vitalData = vitalData;
-        this.welfare=welfare;
+
     }
     public DiaryEntry(LocalDateTime date,  VitalData vitalData){
         this.date = date;
-        this.symptom = symptom;
         this.vitalData = vitalData;
-        this.welfare=welfare;
+
     }
     public DiaryEntry(LocalDateTime date, HashSet<Welfare> welfare){
         this.date = date;
-        this.symptom = symptom;
-        this.vitalData = vitalData;
         this.welfare=welfare;
     }
 

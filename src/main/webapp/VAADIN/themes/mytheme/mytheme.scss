@@ -84,14 +84,76 @@ $valo-menu-background-color: #eee;
 .catbackground
 {
 
-  backgroud: #DBDBDB;
+  background-color: #fcfcfc !important;
 
 }
+
+.menubackground
+{
+
+  background-color: #DCEDC8 !important;
+
+}
+
+  .v-tree-node-caption:hover {
+    background-color: #b4ecef !important;
+  }
 
 .overflow{
   overflow-x: auto;
   overflow-y: auto;
 }
+
+
+
+
+
+  div .v-tree8 {
+    .v-tree8-scroller, .v-tree8-scroller-horizontal { }
+    .v-tree8-tablewrapper {
+      .v-tree8-body {
+        background: #DCEDC8 !important;
+        .colourTree {
+
+          text-shadow: 0 0 2px rgba(40, 50, 48, 0.46), 0 0 1px #b8ff95 !important;
+          color: darken($v-focus-color, 10%) !important;
+          background: #DCEDC8 !important;
+          border: none !important;
+          padding-left: 5px !important;
+        }
+        .v-tree8-row,
+        .v-tree8-stripe,
+        .v-tree8-row-focused
+        {
+        background: #DCEDC8 !important;
+        color: darken($v-focus-color, 10%) !important;
+        }
+
+
+        .v-tree8-row-has-data {
+          .v-tree8-expander, expanded {}
+          .v-tree8-cell-content {}
+        }
+      }
+    }
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   // Insert your own theme rules here
 }
