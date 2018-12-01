@@ -47,7 +47,6 @@ public class WelfareDesigner extends Panel {
     protected NativeButton save;
 
 
-
     public WelfareDesigner() {
         Design.read(this);
     }

@@ -24,6 +24,7 @@ public VitalDataUIDesignerUISetup()
     weight.setSpacing(true);
     weight.setMargin(true);
     weight.addStyleName(MaterialTheme.CARD_1);
+    weight.addStyleName("catbackground");
 
     heartRate.addStyleName("layoutwithborder");
     heartRate.setSpacing(true);
@@ -100,7 +101,7 @@ public VitalDataUIDesignerUISetup()
 
 //panel setup
     super.setWidth("100%");
-    super.setHeight("720px");
+    super.setHeight("75%");
     super.getContent().setSizeUndefined();
 
 //Label Setup

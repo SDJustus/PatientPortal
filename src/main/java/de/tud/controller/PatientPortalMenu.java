@@ -16,6 +16,7 @@ import com.vaadin.ui.themes.ValoTheme;
 import de.tud.view.*;
 import de.tud.view.VitalData.VitalDataUIDesignerUISetup;
 import de.tud.view.VitalData.VitalDataView;
+import de.tud.view.Welfare.WelfareView;
 
 import javax.servlet.annotation.WebServlet;
 import java.util.Set;
@@ -38,7 +39,7 @@ public class PatientPortalMenu extends UI {
 
         //Titel des Menüs
         Label title = new Label("Patientenportal");
-        title.addStyleName(ValoTheme.MENU_TITLE);
+        title.addStyleName(MaterialTheme.MENU_TITLE);
 
         //Profilbild
         Image profilbild = new Image("", new ClassResource("/profilbild.png"));
@@ -51,13 +52,13 @@ public class PatientPortalMenu extends UI {
         Button view1 = new Button("Patiententagebuch",
                 e -> getNavigator().navigateTo("Patiententagebuch"));
         view1.setIcon(VaadinIcons.TASKS);
-        view1.addStyleNames( ValoTheme.BUTTON_LINK, ValoTheme.MENU_ITEM);
+        view1.addStyleNames( MaterialTheme.BUTTON_LINK, MaterialTheme.MENU_ITEM);
         view1.addStyleName(MaterialTheme.MENU_ITEM);
 
         //Button z.B. zum Medikationsplan
         Button view2 = new Button("Auswertung", e -> getNavigator().navigateTo("Auswertung"));
-        view2.addStyleNames(ValoTheme.BUTTON_LINK, ValoTheme.MENU_ITEM);
-        view2.setIcon(VaadinIcons.CHART, ValoTheme.MENU_PART_LARGE_ICONS);
+        view2.addStyleNames(MaterialTheme.BUTTON_LINK, MaterialTheme.MENU_ITEM);
+        view2.setIcon(VaadinIcons.CHART, MaterialTheme.MENU_PART_LARGE_ICONS);
 
 
         //Menu tree
@@ -69,6 +70,7 @@ public class PatientPortalMenu extends UI {
         menuTreeData.addItem("Patiententagebuch","Symptomeintrag");
         menuTreeData.addItem("Patiententagebuch","Vitaldateneintrag");
         menuTreeData.addItem("Patiententagebuch", "Auswertung");
+        menuTreeData.addItem("Patiententagebuch", "Wohlbefinden");
         menuTree.addStyleName(MaterialTheme.MENU_ITEM);
 
         //add data to tree
@@ -80,7 +82,8 @@ public class PatientPortalMenu extends UI {
         //design settings
         view1.addStyleName(MaterialTheme.BUTTON_FLAT + MaterialTheme.BUTTON_BORDER);
         view2.addStyleName(MaterialTheme.BUTTON_FLAT +MaterialTheme.BUTTON_BORDER);
-        menuTree.addStyleName(MaterialTheme.BUTTON_FLAT + MaterialTheme.BUTTON_BORDER);
+
+        menuTree.addStyleName(MaterialTheme.BUTTON_BORDER);
 
 
         //add functions to tree items -> listen for selection change then navigate
@@ -111,6 +114,12 @@ public class PatientPortalMenu extends UI {
                         System.out.println(selectedItem);
                         break;
                     }
+                    case "Wohlbefinden": {
+                        getNavigator().navigateTo("Wohlbefinden");
+                        System.out.println(selectedItem);
+                        break;
+                    }
+
 
                 }
 
@@ -122,10 +131,12 @@ public class PatientPortalMenu extends UI {
         //Integration der MenuItems
         CssLayout menu = new CssLayout(title, profilbild,view1, view2,menuTree);
         menu.addStyleName(MaterialTheme.MENU_ROOT);
+        menu.addStyleName(MaterialTheme.LAYOUT_COMPONENT_GROUP_MATERIAL);
+        menu.addStyleName(MaterialTheme.TEXTFIELD_BORDERLESS);
         //CssLayout menu = new CssLayout(title, profilbild, menuTree);
 
 
-        menu.addStyleName(ValoTheme.MENU_ROOT);
+
 
         //view Container = alles was rechts vom Menu ist, wo Inhalte angezeigt werden
         CssLayout viewContainer = new CssLayout();
@@ -145,6 +156,7 @@ public class PatientPortalMenu extends UI {
         navigator.addView("Patiententagebuch", DiaryView.class);
         navigator.addView("Auswertung", DiaryEvaluationView.class);
         navigator.addView("Vitaldateneintrag", VitalDataView.class);
+        navigator.addView("Wohlbefinden", WelfareView.class);
 
 
 
