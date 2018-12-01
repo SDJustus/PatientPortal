@@ -50,7 +50,10 @@ public WelfareUISetup() {
     sleepRadioButton.setItems("gut", "mittel", "schlecht");
     fitnessRadioButton.setItems("gut", "mittel", "schlecht");
 
-
+    //default value on radiobuttons
+    concentrationRadioButton.setValue("gut");
+    sleepRadioButton.setValue("gut");
+    fitnessRadioButton.setValue("gut");
 
     //save button config
     save.setCaption("Speichern");
@@ -73,10 +76,13 @@ public WelfareUISetup() {
 
 
     dataPicker.addStyleName(MaterialTheme.DATEFIELD_ALIGN_CENTER);
-    captionLabel.setValue("Bitte geben sie Ihre Daten an:");
+    captionLabel.setValue("Bitte geben Sie Ihre Daten an:");
 
     this.addSaveButtonListener();
     this.addDateTimeFieldChangeListener();
+
+
+
 
 
 }

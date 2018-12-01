@@ -6,7 +6,7 @@
   <meta name="vaadin-version" content="8.1.5">
  </head>
  <body>
-  <vaadin-panel width="898px" height-full>
+  <vaadin-panel responsive width="898px" height-full>
    <vaadin-form-layout width="812px" height="610px">
     <vaadin-label plain-text _id="captionLabel">
       Label 
@@ -45,12 +45,14 @@
        <option item="Option3">Option 3</option>
       </vaadin-radio-button-group>
      </vaadin-horizontal-layout>
-     <vaadin-horizontal-layout>
-      <vaadin-date-time-field responsive _id="dataPicker" :middle :center></vaadin-date-time-field>
-      <vaadin-native-button responsive width="204px" height="41px" plain-text _id="save" :middle :right>
-        Speichern 
-      </vaadin-native-button>
-     </vaadin-horizontal-layout>
+     <vaadin-form-layout size-auto>
+      <vaadin-horizontal-layout>
+       <vaadin-date-time-field responsive _id="dataPicker" :middle :center></vaadin-date-time-field>
+       <vaadin-native-button responsive width="204px" height="41px" plain-text _id="save" :middle :right>
+         Speichern 
+       </vaadin-native-button>
+      </vaadin-horizontal-layout>
+     </vaadin-form-layout>
     </vaadin-vertical-layout>
    </vaadin-form-layout>
   </vaadin-panel>

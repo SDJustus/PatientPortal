@@ -75,11 +75,19 @@ public class WelfareController  {
         desview.getSave().addClickListener(new Button.ClickListener() {
             @Override
             public void buttonClick(Button.ClickEvent clickEvent) {
+
                 if(desview.getDataPicker().getValue() == null){
                     Notification.show("Bitte Datum eingeben!");
                     desview.getSave().setEnabled(false);
                     return;
                 }
+                if(desview.getConcentrationRadioButton().getValue() == null || desview.getSleepRadioButton().getValue() == null || desview.getFitnessRadioButton().getValue() == null)
+                {
+                    Notification.show("Bitte treffen Sie bei jedem Punkt eine Auswahl!");
+                    return;
+
+                }
+
                 addWelfare();
 
                 saveWelfareDiaryEntry(desview.getDataPicker().getValue(), welfareSet);
@@ -159,8 +167,6 @@ public class WelfareController  {
 
         }
 
-
-//
 
 
 
