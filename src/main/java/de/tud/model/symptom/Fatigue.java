@@ -11,8 +11,9 @@ public class Fatigue extends Symptom {
     public Fatigue(){
 
     }
+
     @Override
     public String toString() {
-        return "Fatigue: " + this.getStrength();
+        return "Müdigkeit: " + this.getStrength();
     }
 }

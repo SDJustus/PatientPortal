@@ -1,9 +1,11 @@
 package de.tud.model;
 
 import de.tud.model.symptom.Symptom;
+import de.tud.model.welfare.Welfare;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -19,9 +21,14 @@ public class DiaryEntry extends EntityObject {
             cascade = CascadeType.ALL)
     private Set<Symptom> symptom;
 
+    @OneToMany(fetch = FetchType.EAGER,
+            orphanRemoval = true,
+            cascade = CascadeType.ALL)
+    private Set<Welfare> welfare;
+
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name="vital_data_id")
-    private VitalDataSet vitalDataSet;
+    private VitalData vitalData;
 
     public LocalDateTime getDate() {
         return date;
@@ -29,10 +36,29 @@ public class DiaryEntry extends EntityObject {
 
     public DiaryEntry(){}
 
-    public DiaryEntry(LocalDateTime date, Set<Symptom> symptom,VitalDataSet vitalDataSet){
+    public DiaryEntry(LocalDateTime date, Set<Symptom> symptom, VitalData vitalData, Set<Welfare> welfare){
         this.date = date;
         this.symptom = symptom;
-        this.vitalDataSet = vitalDataSet;
+        this.vitalData = vitalData;
+        this.welfare=welfare;
+    }
+    public DiaryEntry(LocalDateTime date, Set<Symptom> symptom){
+        this.date = date;
+        this.symptom = symptom;
+        this.vitalData = vitalData;
+        this.welfare=welfare;
+    }
+    public DiaryEntry(LocalDateTime date,  VitalData vitalData){
+        this.date = date;
+        this.symptom = symptom;
+        this.vitalData = vitalData;
+        this.welfare=welfare;
+    }
+    public DiaryEntry(LocalDateTime date, HashSet<Welfare> welfare){
+        this.date = date;
+        this.symptom = symptom;
+        this.vitalData = vitalData;
+        this.welfare=welfare;
     }
 
     public Long getId() {
@@ -52,11 +78,19 @@ public class DiaryEntry extends EntityObject {
         this.symptom = symptom;
     }
 
-    public void setVitalDataSet(VitalDataSet vitalDataSet){
-        this.vitalDataSet=vitalDataSet;
+    public void setVitalData(VitalData vitalData){
+        this.vitalData = vitalData;
     }
 
-    public VitalDataSet getVitalDataSet(){
-        return this.vitalDataSet;
+    public VitalData getVitalData(){
+        return this.vitalData;
+    }
+
+    public Set<Welfare> getWelfare() {
+        return welfare;
+    }
+
+    public void setWelfare(Set<Welfare> welfare) {
+        this.welfare = welfare;
     }
 }
