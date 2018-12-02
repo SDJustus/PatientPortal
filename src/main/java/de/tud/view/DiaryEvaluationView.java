@@ -32,11 +32,12 @@ public class DiaryEvaluationView extends Composite implements View {
 
         });
 
-        panel.setContent(grid);
-        panel.setSizeFull();
+
+
 
         DiaryManager diaryManager = new DiaryManager();
-        Set<DiaryEntry> set = diaryManager.readDiaryEntriesByDiary(new Long(1));
+        long diaryId = diaryManager.read().iterator().next().getId();
+        Set<DiaryEntry> set = diaryManager.readDiaryEntriesByDiary(diaryId);
 
         ArrayList<DiaryEntryTableViewAdapter> diaryEntryTableViewAdapters = new ArrayList<>();
         if(set != null){
@@ -47,6 +48,8 @@ public class DiaryEvaluationView extends Composite implements View {
             }
             grid.setItems(diaryEntryTableViewAdapters);
         }
+
+        panel.setContent(grid);
 
         verticalLayout.addComponents(panel);
         setCompositionRoot(verticalLayout);

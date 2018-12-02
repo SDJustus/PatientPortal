@@ -36,6 +36,7 @@ public class DiaryViewController {
         integrityRestrictionsDateTimeField();
         SymptomSelectionView symptomSelectionView = new SymptomSelectionView(this);
         addNewSymptomSelectionView(symptomSelectionView);
+        diaryView.getDateTimeField().setValue(LocalDateTime.now());
     }
 
     public void addDateTimeFieldChangeListener(){
@@ -151,16 +152,32 @@ public class DiaryViewController {
                 if(symptomSelectionViewControllers.size() > 1) {
                     Notification.show("Die Einträge werden verworfen");
                     //TODO: Dialog Window with Yes or No
-
                 }
                 diaryView.getVerticalLayout().removeAllComponents();
                 symptomSelectionViewControllers.clear();
                 symptomList.clear();
+
+                avoidDuplicateSymptomsSet.clear();
                 symptomList = createSymptomList();
-                diaryView.getVerticalLayout().addComponent(symptomSelectionView.getSymptomSelectionView());
+
+               addNewSymptomSelectionView(symptomSelectionView);
             }
         });
     }
+    public void addNewEditButtonListener(){
+        diaryView.getEdit().addClickListener(new Button.ClickListener() {
+            @Override
+            public void buttonClick(Button.ClickEvent clickEvent) {
+
+                for(SymptomSelectionViewController s : symptomSelectionViewControllers){
+                    if(s.checkComboBox() == true){
+                        s.getSymptomSelectionView().getDelete().setVisible(true);
+                    }
+                }
+            }
+        });
+    }
+
     public DiaryView getDiaryView(){
         return  diaryView;
     }

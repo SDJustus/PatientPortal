@@ -139,7 +139,7 @@ public class PatientPortalMenu extends UI {
         //Styles hinzufügen
         menu.addStyleName(MaterialTheme.MENU_ROOT);
         menu.addStyleName(MaterialTheme.LAYOUT_COMPONENT_GROUP_MATERIAL);
-        menu.addStyleName("menubackground");
+        //menu.addStyleName("menubackground");
         menuTree.setPrimaryStyleName("v-tree8");
         menuTree.addStyleName("colourTree");
         menuTree.addStyleName("v-tree8");
