@@ -11,7 +11,7 @@
     <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
     <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/testdb?serverTimezone=Europe/Brussels</property>
     <property name="hibernate.connection.username">root</property>
-    <property name="hibernate.connection.password"></property>
+    <property name="hibernate.connection.password">root</property>
 
 
     <!-- show mysql queries output in console -->
@@ -39,7 +39,6 @@
     <mapping class="de.tud.model.symptom.LeftArmSpasticity"/>
     <mapping class="de.tud.model.symptom.RightArmSpasticity"/>
     <mapping class="de.tud.model.welfare.Welfare"/>
-    <mapping class="de.tud.model.welfare.Fitness"/>
     <mapping class="de.tud.model.welfare.Sleep"/>
     <mapping class="de.tud.model.welfare.ConcentrationAbility"/>
     <mapping class="de.tud.model.welfare.PhysicalCondition"/>
