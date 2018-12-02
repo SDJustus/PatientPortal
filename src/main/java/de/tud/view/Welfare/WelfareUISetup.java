@@ -60,7 +60,7 @@ public WelfareUISetup() {
     //save button config
     save.setCaption("Speichern");
     save.setDescription("Speichern des Wohlbefindens");
-    save.addStyleName(MaterialTheme.BUTTON_ROUND);
+    save.setPrimaryStyleName(MaterialTheme.BUTTON_ROUND);
     save.setIcon(new ClassResource("/saveicon.png"));
     save.addStyleName(MaterialTheme.LABEL_TINY);
 

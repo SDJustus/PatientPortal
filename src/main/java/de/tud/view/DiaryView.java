@@ -31,6 +31,8 @@ public class DiaryView extends Composite implements View {
         //Verbindung zu DiaryViewController
        diaryViewController = new DiaryViewController(this);
 
+
+
        //CSS
         UI.getCurrent().getPage().getStyles().add("#smileybild:hover{transform: scale(1.2);}"+
                 "#smileybild:{transition: transform .2s;}+" +

@@ -111,7 +111,7 @@ public VitalDataUIDesignerUISetup()
 //save button config
     saveVitalData.setCaption("Speichern");
     saveVitalData.setDescription("Speichern der Vitaldaten");
-    saveVitalData.addStyleName(MaterialTheme.BUTTON_ROUND);
+    saveVitalData.setPrimaryStyleName(MaterialTheme.BUTTON_ROUND);
     saveVitalData.setIcon(new ClassResource("/saveicon.png"));
     saveVitalData.addStyleName(MaterialTheme.LABEL_TINY);
 
