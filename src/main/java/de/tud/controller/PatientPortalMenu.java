@@ -79,6 +79,7 @@ public class PatientPortalMenu extends UI {
         menuTree.setSelectionMode(Grid.SelectionMode.SINGLE);
 
 
+
         //design settings
         view1.addStyleName(MaterialTheme.BUTTON_FLAT + MaterialTheme.BUTTON_BORDER);
         view2.addStyleName(MaterialTheme.BUTTON_FLAT +MaterialTheme.BUTTON_BORDER);
@@ -99,24 +100,28 @@ public class PatientPortalMenu extends UI {
                 switch (selectedItem) {
 
                     case "Vitaldateneintrag": {
-
+                        menuTree.select(event.getItem());
                         getNavigator().navigateTo("Vitaldateneintrag");
 
                         break;
                     }
                     case "Symptomeintrag": {
+                        menuTree.select(event.getItem());
                         this.getNavigator().navigateTo("Patiententagebuch");
                         System.out.println(selectedItem);
                         break;
                     }
                     case "Auswertung": {
+                        menuTree.select(event.getItem());
                         getNavigator().navigateTo("Auswertung");
                         System.out.println(selectedItem);
                         break;
                     }
                     case "Wohlbefinden": {
+                        menuTree.select(event.getItem());
                         getNavigator().navigateTo("Wohlbefinden");
                         System.out.println(selectedItem);
+
                         break;
                     }
 
@@ -135,8 +140,9 @@ public class PatientPortalMenu extends UI {
         menu.addStyleName(MaterialTheme.MENU_ROOT);
         menu.addStyleName(MaterialTheme.LAYOUT_COMPONENT_GROUP_MATERIAL);
         menu.addStyleName("menubackground");
+        menuTree.setPrimaryStyleName("v-tree8");
         menuTree.addStyleName("colourTree");
-        menuTree.addStyleName("v-tree8 ");
+        menuTree.addStyleName("v-tree8");
 
 
         //  menuTree.addStyleName(MaterialTheme.BUTTON_FLAT);
