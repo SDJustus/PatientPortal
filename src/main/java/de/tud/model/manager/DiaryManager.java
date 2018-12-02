@@ -26,6 +26,9 @@ public class DiaryManager extends EntityManager<Diary> {
     public List<Diary> read() {
         Session session = getSessionFactory().openSession();
         List<Diary> diary = session.createQuery("FROM Diary").list();
+        if (diary.isEmpty()){
+            throw new NullPointerException("There was no Diary in the database.");
+        }
         session.close();
         LOGGER.log(Level.INFO, "Read " + diary.size() + " from the database!");
         return diary;
