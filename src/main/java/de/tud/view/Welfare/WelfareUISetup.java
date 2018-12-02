@@ -42,7 +42,7 @@ public WelfareUISetup() {
     concentrationPicture.setSource(new ClassResource("/welfareImages/concentration.png"));
 
     //Label Setup
-    concentrationLabel.setValue("Konzentrationsfähigkeit");
+    concentrationLabel.setValue("Konzentrationsfähigkeit:");
     fitnessLabel.setValue("Fitness:");
     sleepLabel.setValue("Schlaf:");
 
