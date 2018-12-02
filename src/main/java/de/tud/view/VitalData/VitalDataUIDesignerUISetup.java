@@ -67,10 +67,10 @@ public VitalDataUIDesignerUISetup()
 
 
 //Setup Stepper
-    weightStepper.setMinValue(70.0f);
+    weightStepper.setMinValue(0.0f);
     weightStepper.setMaxValue(1000f);
     weightStepper.setStepAmount(1f);
-    weightStepper.setValue(0f);
+    weightStepper.setValue(70f);
     weightStepper.setNumberOfDecimals(2);
     weightStepper.setDescription("Bitte geben Sie Ihr Gewicht ein.");
     weightStepper.addStyleName(MaterialTheme.COMBOBOX_ALIGN_CENTER);
