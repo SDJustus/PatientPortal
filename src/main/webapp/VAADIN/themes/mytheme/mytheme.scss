@@ -41,16 +41,19 @@ $v-luminance-threshold: 180;
 $v-border: 2px solid v-shade;
 $v-border-radius: 6px;
 $v-bevel: false;
-$v-gradient: false;
+$v-gradient: true;
 $v-shadow: false;
-$v-textfield-bevel: false;
+$v-textfield-bevel: true;
 $v-textfield-shadow: false;
 $v-link-text-decoration: false;
 $v-selection-overlay-padding-horizontal: 0;
 $v-selection-overlay-padding-vertical: 6px;
 $v-selection-item-height: 30px;
 $v-selection-item-border-radius: 0;
-$valo-menu-background-color: #eee;
+$valo-menu-background-color: #DCEDC8;
+$v-focus-color: #026670;
+$v-selection-color: #9FEDD7;
+$v-hover-styles-enabled: true !default;
 
 // (You can find colors at materialpalette.com) $v-focus-color is supposed to be your accent color
 // Note: " ... Using colors from the Material Design palette is optional. ... "
@@ -84,14 +87,157 @@ $valo-menu-background-color: #eee;
 .catbackground
 {
 
-  backgroud: #DBDBDB;
+  background-color: #fcfcfc !important;
 
 }
+
+.menubackground
+{
+
+  background-color: #FEF97C !important;
+
+}
+
+  .v-tree8
+  {
+    color: $v-focus-color;
+
+
+  }
+
+  .v-tree-node-caption:hover {
+    background-color: #b4ecef !important;
+  }
 
 .overflow{
   overflow-x: auto;
   overflow-y: auto;
 }
+
+
+  .mytheme .v-tree8 {
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+    background-color: #DCEDC8;
+  }
+
+
+
+  .mytheme .v-tree-node-selected {
+    color: $v-focus-color;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.05) !important;
+  }
+  .mytheme .v-tree8-row  > td, .mytheme .v-tree8-row  > th {
+    background-color:  rgba(179, 237, 121, 0.46)!important;
+  }
+
+
+
+  .mytheme .v-tree8-spacer  {
+    position: absolute;
+    display: block;
+    background-color: rgba(179, 237, 121, 0.46)!important;
+  }
+
+  .mytheme .v-tree8-sidebar.v-contextmenu  {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border-radius: 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: rgba(179, 237, 121, 0.46);
+    border: 2px solid #c1c1c1;
+    padding: 0;
+    z-index: 5;
+  }
+
+
+
+  .mytheme .v-tree8-header th  {
+    position: relative;
+    background-color: rgba(179, 237, 121, 0.46);
+    font-size: 14px;
+    font-weight: inherit;
+    border-left: 2px solid #c1c1c1;
+    border-bottom: 2px solid #c1c1c1;
+
+    text-align: left;
+  }
+
+  .mytheme .v-tree8-row-selected  > .v-tree8-cell  {
+    background: #96be5a;
+    color: $v-focus-color;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.05);
+    border-color: #80a24d;
+  }
+
+
+
+  .mytheme .v-tree8-column-resize-simple-indicator {
+    position: absolute;
+    width: 3px;
+    top: 0px;
+    left: 18px;
+    z-index: 9001;
+    background: $v-focus-color;
+    box-shadow: 0px 0px 5px #000;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  .mytheme .v-tree8-footer td {
+    background-color: $v-focus-color;
+    font-size: 14px;
+    font-weight: inherit;
+    border-left: 2px solid #c1c1c1;
+    border-top: 2px solid #c1c1c1;
+    border-bottom: none;
+
+  }
+
+
+  .mytheme .v-tree8-horizontal-scrollbar-deco {
+    background-color: $v-focus-color;
+    border: 2px solid #c1c1c1;
+    border-top: none;
+  }
+
+
+
+  .mytheme .v-tree8-header .v-tree8-cell {
+    background: $v-focus-color;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.05);
+  }
+
+
+  .mytheme .v-tree8-sidebar.v-contextmenu.closed {
+    background: $v-focus-color;
+  }
+
+  .mytheme .v-tree8-row-drag-badge {
+    background-color: $v-focus-color;
+    color: $v-focus-color;
+    display: block;
+    width: 30px;
+    height: 30px;
+    border-radius: 10px;
+    line-height: 30px;
+    text-align: center;
+    float: left;
+  }
+
+
+
+
+
+
+
+
 
   // Insert your own theme rules here
 }

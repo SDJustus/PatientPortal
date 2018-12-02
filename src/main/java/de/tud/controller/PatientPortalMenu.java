@@ -71,7 +71,7 @@ public class PatientPortalMenu extends UI {
         menuTreeData.addItem("Patiententagebuch","Vitaldateneintrag");
         menuTreeData.addItem("Patiententagebuch", "Auswertung");
         menuTreeData.addItem("Patiententagebuch", "Wohlbefinden");
-        menuTree.addStyleName(MaterialTheme.MENU_ITEM);
+
 
         //add data to tree
         TreeDataProvider inMemoryDataProvider = new TreeDataProvider<>(menuTreeData);
@@ -79,11 +79,12 @@ public class PatientPortalMenu extends UI {
         menuTree.setSelectionMode(Grid.SelectionMode.SINGLE);
 
 
+
         //design settings
         view1.addStyleName(MaterialTheme.BUTTON_FLAT + MaterialTheme.BUTTON_BORDER);
         view2.addStyleName(MaterialTheme.BUTTON_FLAT +MaterialTheme.BUTTON_BORDER);
 
-        menuTree.addStyleName(MaterialTheme.BUTTON_BORDER);
+
 
 
         //add functions to tree items -> listen for selection change then navigate
@@ -99,24 +100,28 @@ public class PatientPortalMenu extends UI {
                 switch (selectedItem) {
 
                     case "Vitaldateneintrag": {
-
+                        menuTree.select(event.getItem());
                         getNavigator().navigateTo("Vitaldateneintrag");
 
                         break;
                     }
                     case "Symptomeintrag": {
+                        menuTree.select(event.getItem());
                         this.getNavigator().navigateTo("Patiententagebuch");
                         System.out.println(selectedItem);
                         break;
                     }
                     case "Auswertung": {
+                        menuTree.select(event.getItem());
                         getNavigator().navigateTo("Auswertung");
                         System.out.println(selectedItem);
                         break;
                     }
                     case "Wohlbefinden": {
+                        menuTree.select(event.getItem());
                         getNavigator().navigateTo("Wohlbefinden");
                         System.out.println(selectedItem);
+
                         break;
                     }
 
@@ -130,9 +135,18 @@ public class PatientPortalMenu extends UI {
 
         //Integration der MenuItems
         CssLayout menu = new CssLayout(title, profilbild,view1, view2,menuTree);
+
+        //Styles hinzufügen
         menu.addStyleName(MaterialTheme.MENU_ROOT);
         menu.addStyleName(MaterialTheme.LAYOUT_COMPONENT_GROUP_MATERIAL);
-        menu.addStyleName(MaterialTheme.TEXTFIELD_BORDERLESS);
+        menu.addStyleName("menubackground");
+        menuTree.setPrimaryStyleName("v-tree8");
+        menuTree.addStyleName("colourTree");
+        menuTree.addStyleName("v-tree8");
+
+
+        //  menuTree.addStyleName(MaterialTheme.BUTTON_FLAT);
+        //menu.addStyleName(MaterialTheme.TEXTFIELD_BORDERLESS);
         //CssLayout menu = new CssLayout(title, profilbild, menuTree);
 
 
@@ -158,7 +172,7 @@ public class PatientPortalMenu extends UI {
         navigator.addView("Vitaldateneintrag", VitalDataView.class);
         navigator.addView("Wohlbefinden", WelfareView.class);
 
-
+        
 
 
 
@@ -168,6 +182,10 @@ public class PatientPortalMenu extends UI {
     @VaadinServletConfiguration(ui = PatientPortalMenu.class, productionMode = false)
     public static class MyUIServlet extends VaadinServlet {
     }
+    @Override
+    protected void refresh(VaadinRequest request) {
+        super.refresh(request);
 
+    }
 
 }

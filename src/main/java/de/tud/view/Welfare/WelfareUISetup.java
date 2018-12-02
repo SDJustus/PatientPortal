@@ -3,11 +3,24 @@ package de.tud.view.Welfare;
 import com.github.appreciated.material.MaterialTheme;
 import com.vaadin.server.ClassResource;
 import com.vaadin.ui.*;
+import de.tud.controller.WelfareController;
+
+import java.time.LocalDateTime;
 
 public class WelfareUISetup extends WelfareDesigner {
 
+WelfareController welfareController;
+
 public WelfareUISetup() {
 //Layout
+
+    welfareController = new WelfareController(this);
+
+    captionLabel.addStyleName(MaterialTheme.CARD_0_5);
+    captionLabel.addStyleName(MaterialTheme.LABEL_H1);
+    captionLabel.addStyleName("catbackground");
+
+
     sleep.addStyleName("layoutwithborder");
     sleep.setSpacing(true);
     sleep.setMargin(true);
@@ -18,23 +31,50 @@ public WelfareUISetup() {
     concentration.setMargin(true);
     concentration.addStyleName(MaterialTheme.CARD_1);
 
-    fitness.addStyleName("layoutwithborder");
-    fitness.setSpacing(true);
-    fitness.setMargin(true);
-    fitness.addStyleName(MaterialTheme.CARD_1);
+    fitnesslay.addStyleName("layoutwithborder");
+    fitnesslay.setSpacing(true);
+    fitnesslay.setMargin(true);
+    fitnesslay.addStyleName(MaterialTheme.CARD_1);
 
 
-    sleepPicture.setSource(new ClassResource("/welfare/WelfareImages/sleep.png"));
-    fitnessPicture.setSource(new ClassResource("/welfare/WelfareImages/fitness.png"));
-    concentrationPicture.setSource(new ClassResource("/welfare/WelfareImages/concentration.png"));
+    sleepPicture.setSource(new ClassResource("/welfareImages/sleep.png"));
+    fitnessPicture.setSource(new ClassResource("/welfareImages/fitnesspicture.png"));
+    concentrationPicture.setSource(new ClassResource("/welfareImages/concentration.png"));
 
+    //Label Setup
+    concentrationLabel.setValue("Konzentrationsfähigkeit:");
+    fitnessLabel.setValue("Fitness:");
+    sleepLabel.setValue("Schlaf:");
+
+   //radioButtonSetup
+
+    concentrationRadioButton.setItems("gut", "mittel", "schlecht");
+    sleepRadioButton.setItems("gut", "mittel", "schlecht");
+    fitnessRadioButton.setItems("gut", "mittel", "schlecht");
+
+    //default value on radiobuttons
+    concentrationRadioButton.setValue("gut");
+    sleepRadioButton.setValue("gut");
+    fitnessRadioButton.setValue("gut");
 
     //save button config
     save.setCaption("Speichern");
-    save.setDescription("Speichern der Vitaldaten");
-    save.addStyleName(MaterialTheme.BUTTON_ROUND);
+    save.setDescription("Speichern des Wohlbefindens");
+    save.setPrimaryStyleName(MaterialTheme.BUTTON_ROUND);
     save.setIcon(new ClassResource("/saveicon.png"));
     save.addStyleName(MaterialTheme.LABEL_TINY);
+
+    concentrationRadiobuttonPicture.setSource(new ClassResource("/gut.png"));
+    concentrationRadiobuttonPicture.setWidth("96px");
+    concentrationRadiobuttonPicture.setHeight("96px");
+
+    fitnessRadiobuttonPicture.setSource(new ClassResource("/gut.png"));
+    fitnessRadiobuttonPicture.setWidth("96px");
+    fitnessRadiobuttonPicture.setHeight("96px");
+
+    sleepRadiobuttonPicture.setSource(new ClassResource("/gut.png"));
+    sleepRadiobuttonPicture.setWidth("96px");
+    sleepRadiobuttonPicture.setHeight("96px");
 
 
 
@@ -50,12 +90,27 @@ public WelfareUISetup() {
 
 
     dataPicker.addStyleName(MaterialTheme.DATEFIELD_ALIGN_CENTER);
+    captionLabel.setValue("Bitte geben Sie Ihre Daten an:");
+
+    this.addSaveButtonListener();
+    this.addDateTimeFieldChangeListener();
+    welfareController.addRadioButtonListenerPiucture();
 
 
-
+dataPicker.setDefaultValue( LocalDateTime.now());
+dataPicker.setRangeEnd(LocalDateTime.now());
 
 
 }
+
+
+    private void addDateTimeFieldChangeListener(){
+        welfareController.addDateTimeFieldChangeListener();
+    }
+    private void addSaveButtonListener(){
+        welfareController.addSaveButtonListener();
+    }
+
 
     public HorizontalLayout getConcentration() {
         return concentration;
@@ -81,93 +136,8 @@ public WelfareUISetup() {
         this.concentrationLabel = concentrationLabel;
     }
 
-    public HorizontalLayout getConcentrationSmileys() {
-        return concentrationSmileys;
-    }
 
-    public void setConcentrationSmileys(HorizontalLayout concentrationSmileys) {
-        this.concentrationSmileys = concentrationSmileys;
-    }
 
-    public Image getGoodSmiley() {
-        return goodSmiley;
-    }
-
-    public void setGoodSmiley(Image goodSmiley) {
-        this.goodSmiley = goodSmiley;
-    }
-
-    public Image getMiddleSmiley() {
-        return middleSmiley;
-    }
-
-    public void setMiddleSmiley(Image middleSmiley) {
-        this.middleSmiley = middleSmiley;
-    }
-
-    public Image getBadSmiley() {
-        return badSmiley;
-    }
-
-    public void setBadSmiley(Image badSmiley) {
-        this.badSmiley = badSmiley;
-    }
-
-    public HorizontalLayout getFitness() {
-        return fitness;
-    }
-
-    public void setFitness(HorizontalLayout fitness) {
-        this.fitness = fitness;
-    }
-
-    public Image getFitnessPicture() {
-        return fitnessPicture;
-    }
-
-    public void setFitnessPicture(Image fitnessPicture) {
-        this.fitnessPicture = fitnessPicture;
-    }
-
-    public Label getFitnessLabel() {
-        return fitnessLabel;
-    }
-
-    public void setFitnessLabel(Label fitnessLabel) {
-        this.fitnessLabel = fitnessLabel;
-    }
-
-    public HorizontalLayout getFitnessSmileys() {
-        return fitnessSmileys;
-    }
-
-    public void setFitnessSmileys(HorizontalLayout fitnessSmileys) {
-        this.fitnessSmileys = fitnessSmileys;
-    }
-
-    public Image getGoodSmiley1() {
-        return goodSmiley1;
-    }
-
-    public void setGoodSmiley1(Image goodSmiley1) {
-        this.goodSmiley1 = goodSmiley1;
-    }
-
-    public Image getMiddleSmiley1() {
-        return middleSmiley1;
-    }
-
-    public void setMiddleSmiley1(Image middleSmiley1) {
-        this.middleSmiley1 = middleSmiley1;
-    }
-
-    public Image getBadSmiley1() {
-        return badSmiley1;
-    }
-
-    public void setBadSmiley1(Image badSmiley1) {
-        this.badSmiley1 = badSmiley1;
-    }
 
     public HorizontalLayout getSleep() {
         return sleep;
@@ -193,37 +163,7 @@ public WelfareUISetup() {
         this.sleepLabel = sleepLabel;
     }
 
-    public HorizontalLayout getSleepSmileys() {
-        return sleepSmileys;
-    }
 
-    public void setSleepSmileys(HorizontalLayout sleepSmileys) {
-        this.sleepSmileys = sleepSmileys;
-    }
-
-    public Image getGoodSmiley2() {
-        return goodSmiley2;
-    }
-
-    public void setGoodSmiley2(Image goodSmiley2) {
-        this.goodSmiley2 = goodSmiley2;
-    }
-
-    public Image getMiddleSmiley2() {
-        return middleSmiley2;
-    }
-
-    public void setMiddleSmiley2(Image middleSmiley2) {
-        this.middleSmiley2 = middleSmiley2;
-    }
-
-    public Image getBadSmiley2() {
-        return badSmiley2;
-    }
-
-    public void setBadSmiley2(Image badSmiley2) {
-        this.badSmiley2 = badSmiley2;
-    }
 
     public DateTimeField getDataPicker() {
         return dataPicker;
@@ -239,6 +179,62 @@ public WelfareUISetup() {
 
     public void setSave(NativeButton save) {
         this.save = save;
+    }
+
+
+    public Label getCaptionLabel() {
+        return captionLabel;
+    }
+
+    public void setCaptionLabel(Label captionLabel) {
+        this.captionLabel = captionLabel;
+    }
+
+    public RadioButtonGroup<String> getFitnessRadioButton() {
+        return fitnessRadioButton;
+    }
+
+    public void setFitnessRadioButton(RadioButtonGroup<String> fitnessRadioButton) {
+        this.fitnessRadioButton = fitnessRadioButton;
+    }
+
+    public RadioButtonGroup<String> getSleepRadioButton() {
+        return sleepRadioButton;
+    }
+
+    public void setSleepRadioButton(RadioButtonGroup<String> sleepRadioButton) {
+        this.sleepRadioButton = sleepRadioButton;
+    }
+
+    public RadioButtonGroup<String> getConcentrationRadioButton() {
+        return concentrationRadioButton;
+    }
+    public void setConcentrationRadioButton(RadioButtonGroup<String> concentrationRadioButton) {
+        this.concentrationRadioButton = concentrationRadioButton;
+    }
+
+    public Image getConcentrationRadiobuttonPicture() {
+        return concentrationRadiobuttonPicture;
+    }
+
+    public void setConcentrationRadiobuttonPicture(Image concentrationRadiobuttonPicture) {
+        this.concentrationRadiobuttonPicture = concentrationRadiobuttonPicture;
+    }
+
+    public Image getFitnessRadiobuttonPicture() {
+        return fitnessRadiobuttonPicture;
+    }
+
+    public void setFitnessRadiobuttonPicture(Image fitnessRadiobuttonPicture) {
+        this.fitnessRadiobuttonPicture = fitnessRadiobuttonPicture;
+    }
+
+    public Image getSleepRadiobuttonPicture() {
+        return sleepRadiobuttonPicture;
+    }
+
+    public void setSleepRadiobuttonPicture(Image sleepRadiobuttonPicture) {
+        this.sleepRadiobuttonPicture = sleepRadiobuttonPicture;
     }
 
 

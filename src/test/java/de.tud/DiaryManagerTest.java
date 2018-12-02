@@ -284,7 +284,7 @@ class DiaryManagerTest {
         Set<Welfare> welfareset = new HashSet<>();
             welfareset.add(WelfareFactory.createSymptomByClass("Sleep", Welfare.Strength.MIDDLE));
             welfareset.add(WelfareFactory.createSymptomByClass("ConcentrationAbility", Welfare.Strength.SEVERE));
-            welfareset.add(WelfareFactory.createSymptomByClass("Fitness", Welfare.Strength.WEAK));
+            welfareset.add(WelfareFactory.createSymptomByClass("Condition", Welfare.Strength.WEAK));
 
         Diary diary = new Diary();
 
