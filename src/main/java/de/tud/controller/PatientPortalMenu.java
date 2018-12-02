@@ -30,6 +30,8 @@ public class PatientPortalMenu extends UI {
 
     @Override
     public void init(VaadinRequest request) {
+
+        UI.getCurrent().setErrorHandler(new CustomizedErrorHandler());
         //CSS Befehle
         UI.getCurrent().getPage().getStyles().add(".v-button{text-align: left !important;}" +
                 ".v-label{font-size: large !important; }"+
@@ -62,8 +64,8 @@ public class PatientPortalMenu extends UI {
 
 
         //Menu tree
-         menuTree = new Tree<>();
-         menuTreeData = new TreeData<>();
+        menuTree = new Tree<>();
+        menuTreeData = new TreeData<>();
 
         //add tree items with hierachy
         menuTreeData.addItem(null,"Patiententagebuch");

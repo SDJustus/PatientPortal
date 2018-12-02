@@ -90,7 +90,7 @@ public class DiaryManager extends EntityManager<Diary> {
         }
 
         if(diaryEntry == null)
-            throw new IllegalArgumentException("No DiaryEntry exists with the given ID: " + diaryEntryId);
+            throw new NullPointerException("No DiaryEntry exists with the given ID: " + diaryEntryId);
         return diaryEntry;
     }
 
