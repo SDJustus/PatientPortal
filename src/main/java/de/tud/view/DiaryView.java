@@ -22,8 +22,9 @@ public class DiaryView extends Composite implements View {
     private DateTimeField dateTimeField = new DateTimeField(); //wird in Vertical Layout gepackt
     private Label label = new Label("Neuer Tagebucheintrag");
     private Button save = new Button("Speichern");
-    private Button newDiaryEntry = new Button("Alles verwerfen", VaadinIcons.TRASH);
+    private Button newDiaryEntry = new Button("Alles Zurücksetzen");
     private Button edit = new Button("", VaadinIcons.EDIT);
+    private Button okay = new Button("OK");
     private Panel panel = new Panel();
     private DiaryViewController diaryViewController;
 
@@ -31,7 +32,6 @@ public class DiaryView extends Composite implements View {
     public DiaryView(){
         //Verbindung zu DiaryViewController
        diaryViewController = new DiaryViewController(this);
-
 
 
        //CSS
@@ -54,19 +54,21 @@ public class DiaryView extends Composite implements View {
         //save Button ausschalten standardmäßig
         save.setEnabled(false);
 
+        okay.setEnabled(false);
+        addOkayButtonListener();
         addDateTimeFieldChangeListener();
-        menuBar.addComponents(dateTimeField,save, newDiaryEntry, edit);
+        menuBar.addComponents(dateTimeField,save, newDiaryEntry, edit, okay);
 
         verticalLayout.setSizeUndefined();
         verticalLayout.setSpacing(true);
         panel.setContent(verticalLayout);
 
         panel.setHeight(""+0.8*Page.getCurrent().getBrowserWindowHeight());
-        panel.setWidth(""+-200+Page.getCurrent().getBrowserWindowWidth());
+        panel.setWidth(""+0.95*Page.getCurrent().getBrowserWindowWidth());
 
         UI.getCurrent().getPage().addBrowserWindowResizeListener(e -> {
             panel.setHeight(""+0.8*e.getHeight());
-            panel.setWidth(""+-200+e.getWidth());
+            panel.setWidth(""+0.95*e.getWidth());
         });
 
         addSaveButtonListener();
@@ -87,7 +89,8 @@ public class DiaryView extends Composite implements View {
     private void addNewDiaryEntryButtonListener(){
        diaryViewController.addNewDiaryEntryButtonListener();
     }
-    private void addNewEditButtonListener(){diaryViewController.addNewEditButtonListener();};
+    private void addNewEditButtonListener(){diaryViewController.addNewEditButtonListener();}
+    private void addOkayButtonListener(){diaryViewController.addOkayButtonListener();}
     public VerticalLayout getVerticalLayout() {
         return verticalLayout;
     }
@@ -101,4 +104,5 @@ public class DiaryView extends Composite implements View {
         return newDiaryEntry;
     }
     public Button getEdit(){return  edit;}
+    public Button getOkay(){return okay;}
 }

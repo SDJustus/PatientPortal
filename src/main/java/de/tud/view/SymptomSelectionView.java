@@ -38,7 +38,8 @@ public class SymptomSelectionView implements View {
 
     }
 
-    public GridLayout getSymptomSelectionView(){
+    @Override
+    public Component getViewComponent(){
         GridLayout gridLayout= new GridLayout(4,3);
         //Label erzeugen für Beschriftung
         symptomName = new Label("Bitte ein Symptom auswählen.");
@@ -126,6 +127,7 @@ public class SymptomSelectionView implements View {
         VerticalLayout spacer2 = new VerticalLayout();
         spacer2.setWidth("50px");
 
+
         //weiteres Symptom hinzufügen
         addNextSymptom = new Button("+ weiteres Symptom");
         addNextSymptom.setEnabled(false);
@@ -140,6 +142,7 @@ public class SymptomSelectionView implements View {
         gridLayout.addComponent(horizontalLayout, 2,1);
         gridLayout.addComponent(horizontalLayout1, 2, 2);
         gridLayout.addComponent(delete, 3,1);
+
         gridLayout.setSpacing(true);
         //verticalLayout.addComponents(symptomName, horizontalLayout, spacer,horizontalLayout1);
 
