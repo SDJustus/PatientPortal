@@ -39,8 +39,8 @@
     <mapping class="de.tud.model.symptom.LeftArmSpasticity"/>
     <mapping class="de.tud.model.symptom.RightArmSpasticity"/>
     <mapping class="de.tud.model.welfare.Welfare"/>
-    <mapping class="de.tud.model.welfare.Fitness"/>
     <mapping class="de.tud.model.welfare.Sleep"/>
     <mapping class="de.tud.model.welfare.ConcentrationAbility"/>
+    <mapping class="de.tud.model.welfare.PhysicalCondition"/>
   </session-factory>
 </hibernate-configuration>

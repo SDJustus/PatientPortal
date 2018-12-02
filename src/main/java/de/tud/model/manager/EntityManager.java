@@ -5,10 +5,7 @@ import de.tud.model.DiaryEntry;
 import de.tud.model.EntityObject;
 import de.tud.model.VitalData;
 import de.tud.model.symptom.*;
-import de.tud.model.welfare.ConcentrationAbility;
-import de.tud.model.welfare.Sleep;
-import de.tud.model.welfare.Welfare;
-import de.tud.model.welfare.WelfareFactory;
+import de.tud.model.welfare.*;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
@@ -39,6 +36,7 @@ public abstract class EntityManager<T extends EntityObject> {
                 .addAnnotatedClass(Welfare.class)
                 .addAnnotatedClass(Sleep.class)
                 .addAnnotatedClass(ConcentrationAbility.class)
+                .addAnnotatedClass(PhysicalCondition.class)
                 .addAnnotatedClass(WelfareFactory.class);
 
         StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder()

@@ -3,7 +3,6 @@ package de.tud.view;
 import com.vaadin.navigator.View;
 import com.vaadin.server.Page;
 import com.vaadin.ui.*;
-import de.tud.model.Diary;
 import de.tud.model.DiaryEntry;
 import de.tud.model.DiaryEntryTableViewAdapter;
 import de.tud.model.manager.DiaryManager;
