@@ -5,6 +5,8 @@ import com.vaadin.server.ClassResource;
 import com.vaadin.ui.*;
 import de.tud.controller.WelfareController;
 
+import java.time.LocalDateTime;
+
 public class WelfareUISetup extends WelfareDesigner {
 
 WelfareController welfareController;
@@ -95,6 +97,8 @@ public WelfareUISetup() {
     welfareController.addRadioButtonListenerPiucture();
 
 
+dataPicker.setDefaultValue( LocalDateTime.now());
+dataPicker.setRangeEnd(LocalDateTime.now());
 
 
 }

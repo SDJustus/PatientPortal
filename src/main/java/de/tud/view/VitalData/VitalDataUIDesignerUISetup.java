@@ -10,6 +10,8 @@ import de.tud.controller.VitalDataUIController;
 import de.tud.view.VitalDataUIDesigner;
 import org.vaadin.risto.stepper.FloatStepper;
 
+import java.time.LocalDateTime;
+
 public class VitalDataUIDesignerUISetup extends VitalDataUIDesigner implements View {
 
 VitalDataUIController vitalDataUIController;
@@ -137,7 +139,8 @@ dataPicker.addStyleName("catbackground");
 this.addSaveButtonListener();
 this.addDateTimeFieldChangeListener();
 
-
+    dataPicker.setDefaultValue( LocalDateTime.now());
+    dataPicker.setRangeEnd(LocalDateTime.now());
 
 
 
