@@ -3,6 +3,7 @@ package de.tud.model.manager;
 import de.tud.model.Diary;
 import de.tud.model.DiaryEntry;
 
+import de.tud.model.exceptions.EmptyDataBaseException;
 import org.hibernate.Session;
 
 import javax.validation.constraints.NotNull;
@@ -27,7 +28,9 @@ public class DiaryManager extends EntityManager<Diary> {
         Session session = getSessionFactory().openSession();
         List<Diary> diary = session.createQuery("FROM Diary").list();
         if (diary.isEmpty()){
-            throw new NullPointerException("There was no Diary in the database.");
+            throw new EmptyDataBaseException("There was no Diary in the database.");
+
+
         }
         session.close();
         LOGGER.log(Level.INFO, "Read " + diary.size() + " from the database!");
@@ -38,7 +41,7 @@ public class DiaryManager extends EntityManager<Diary> {
         if (diaryId<=0 || diaryId == null) throw new IllegalArgumentException("Expected diary ID ");
         Session session = getSessionFactory().openSession();
         Set<DiaryEntry> diaryEntries = session.get(Diary.class, diaryId).getDiaryEntries();
-        if (diaryEntries == null) throw new NullPointerException("There was no Diary with the given ID!");
+        if (diaryEntries == null) throw new EmptyDataBaseException("There was no Diary with the given ID!");
         session.close();
 
         return diaryEntries;

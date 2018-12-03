@@ -4,6 +4,7 @@ import com.vaadin.server.*;
 import com.vaadin.shared.ui.ErrorLevel;
 import com.vaadin.ui.AbstractComponent;
 import com.vaadin.ui.Notification;
+import de.tud.model.exceptions.EmptyDataBaseException;
 
 import java.sql.SQLException;
 
@@ -34,10 +35,14 @@ public class CustomizedErrorHandler implements ErrorHandler {
             return new UserError(illegalArgumentException.getLocalizedMessage(),
                     AbstractErrorMessage.ContentMode.TEXT, ErrorLevel.ERROR);
         SQLException sqlException = getCauseOfType(t, SQLException.class);
-        if (sqlException != null) {
+        if (sqlException != null)
             return new UserError(sqlException.getLocalizedMessage(),
                     AbstractErrorMessage.ContentMode.TEXT, ErrorLevel.ERROR);
-        }
+        EmptyDataBaseException emptyDataBaseException = getCauseOfType(t, EmptyDataBaseException.class);
+        if (emptyDataBaseException != null)
+            return new UserError(emptyDataBaseException.getLocalizedMessage() +
+                    " Add a Diary to continue.",AbstractErrorMessage.ContentMode.TEXT, ErrorLevel.ERROR);
+
         else{
             return new SystemError(t.getMessage(),t);
         }
