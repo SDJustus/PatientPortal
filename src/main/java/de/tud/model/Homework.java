@@ -65,7 +65,7 @@ public class Homework extends EntityObject {
         this.longDescription = longDescription;
     }
 
-    public boolean isStatus() {
+    public Boolean isStatus() {
         return status;
     }
 
