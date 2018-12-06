@@ -8,9 +8,7 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.junit.jupiter.api.Assertions.fail;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class HomeworkManagerTest {
 
@@ -24,7 +22,7 @@ public class HomeworkManagerTest {
 
     @BeforeEach
     public void setup(){
-        hw1 = new Homework(Homework.Type.DOCUMENT,"Statusbericht","Bericht über den Verlauf der letzten Woche", "Bericht über letzte Woche, die Symptome und das Wohlbefinden");
+        hw1 = new Homework(Homework.Type.DOKUMENT,"Statusbericht","Bericht über den Verlauf der letzten Woche", "Bericht über letzte Woche, die Symptome und das Wohlbefinden");
         hw2 = new Homework(Homework.Type.EXERCISE,"Kniebeugen", "Übung Kniebeugen gegen Blutdruck", "Sportübung um den Blutdruck zu senken");
         hwm = new HomeworkManager();
 
@@ -88,7 +86,11 @@ public class HomeworkManagerTest {
 
         for(Homework hw : hwm.read()){
             if(hw.getId().equals(hwID)) {
-                assertTrue(hw.getType().equals(hw2.getType()) && hw.getLongDescription().equals(hw2.getLongDescription()) && hw.getName().equals(hw2));
+                assertEquals(hw.getType(), hw2.getType());
+                assertEquals(hw.getLongDescription(), hw2.getLongDescription());
+                assertEquals(hw.getName(), hw2.getName());
+                assertEquals(hw.getShortDescription(), hw2.getShortDescription());
+                assertFalse(hw.getType().equals(Homework.Type.DOKUMENT));
             }
         }
 

@@ -1,5 +1,6 @@
 package de.tud.model.manager;
 
+import com.sun.org.apache.xpath.internal.operations.Bool;
 import de.tud.model.Homework;
 import org.hibernate.Session;
 
@@ -55,6 +56,29 @@ public class HomeworkManager extends EntityManager<Homework> {
         return homework;
     }
 
+    public void setHomeworkStatus(Long homeworkID, Boolean bool){
+        if(homeworkID == null) throw new IllegalArgumentException("Expect HomeworkID to be not null!");
+        if(bool == null) throw new IllegalArgumentException("Expect done state to be not null!");
+        Session session = getSessionFactory().openSession();
+        try{
+            session.beginTransaction();
+            Homework databaseHomework = findByID(homeworkID);
+            databaseHomework.setStatus(bool);
+            session.update(databaseHomework);
+            session.getTransaction().commit();
+            LOGGER.log(Level.INFO, "Successfully updated homework");
+        }
+        catch (Exception e){
+            if (session.getTransaction() != null){
+                session.getTransaction().rollback();
+                LOGGER.log(Level.INFO, "Deletion failed");
+            }
+        }
+        finally {
+            session.close();
+        }
+    }
+
     public void updateHomework(Long homeworkID, Homework homework){
         if(homeworkID == null) throw new IllegalArgumentException("Expect HomeworkID to be not null!");
         Session session = getSessionFactory().openSession();
@@ -71,6 +95,7 @@ public class HomeworkManager extends EntityManager<Homework> {
                 databaseHomework.setLongDescription(homework.getLongDescription());
             if(homework.getType()!= null)
                 databaseHomework.setType(homework.getType());
+            session.update(databaseHomework);
             session.getTransaction().commit();
             LOGGER.log(Level.INFO, "Successfully updated homework");
         }
