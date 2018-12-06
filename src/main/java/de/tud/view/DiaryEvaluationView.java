@@ -1,5 +1,8 @@
 package de.tud.view;
 
+import com.vaadin.data.HasValue;
+import com.vaadin.data.provider.DataProvider;
+import com.vaadin.data.provider.ListDataProvider;
 import com.vaadin.navigator.View;
 import com.vaadin.server.Page;
 import com.vaadin.ui.*;
@@ -14,14 +17,17 @@ public class DiaryEvaluationView extends Composite implements View {
 
     public DiaryEvaluationView(){
         VerticalLayout verticalLayout = new VerticalLayout();
+        ComboBox<String> comboBox = new ComboBox<>();
         verticalLayout.setSpacing(true);
-
 
         Panel panel = new Panel();
         Grid<DiaryEntryTableViewAdapter> grid = new Grid<>();
         grid.addColumn(DiaryEntryTableViewAdapter::getDate).setCaption("Datum");
         grid.addColumn(DiaryEntryTableViewAdapter::getSymptom).setCaption("Ausprägung der Symptome");
 
+        //ComboBox
+        comboBox.setItems("Depression", "Müdigkeit", "Spastik");
+        comboBox.setPlaceholder("Symptom auswählen");
 
         grid.setHeight(""+0.8*Page.getCurrent().getBrowserWindowHeight());
         grid.setWidth(""+0.8*Page.getCurrent().getBrowserWindowWidth());
@@ -33,11 +39,10 @@ public class DiaryEvaluationView extends Composite implements View {
         });
 
 
-
-
         DiaryManager diaryManager = new DiaryManager();
         long diaryId = diaryManager.read().iterator().next().getId();
         Set<DiaryEntry> set = diaryManager.readDiaryEntriesByDiary(diaryId);
+
 
         ArrayList<DiaryEntryTableViewAdapter> diaryEntryTableViewAdapters = new ArrayList<>();
         if(set != null){
@@ -49,9 +54,33 @@ public class DiaryEvaluationView extends Composite implements View {
             grid.setItems(diaryEntryTableViewAdapters);
         }
 
+        //ListDataProvider<DiaryEntryTableViewAdapter> dataProvider = new ListDataProvider<>(diaryEntryTableViewAdapters);
+        ListDataProvider<DiaryEntryTableViewAdapter> dataProvider =
+                (ListDataProvider<DiaryEntryTableViewAdapter>) grid.getDataProvider();
+
+
+        comboBox.addValueChangeListener(new HasValue.ValueChangeListener<String>() {
+            @Override
+            public void valueChange(HasValue.ValueChangeEvent<String> valueChangeEvent) {
+                if(valueChangeEvent.getValue() == null || valueChangeEvent.getValue().equals("")){
+                    grid.setItems(diaryEntryTableViewAdapters);
+                    return;
+                }
+                ListDataProvider<DiaryEntryTableViewAdapter> dataProvider =
+                        (ListDataProvider<DiaryEntryTableViewAdapter>) grid.getDataProvider();
+                dataProvider.setFilter(DiaryEntryTableViewAdapter::getSymptom,  s -> s.contains(valueChangeEvent.getValue()));
+
+
+            }
+        });
+
+
+
+
+
         panel.setContent(grid);
 
-        verticalLayout.addComponents(panel);
+        verticalLayout.addComponents(comboBox,panel);
         setCompositionRoot(verticalLayout);
     }
 }
