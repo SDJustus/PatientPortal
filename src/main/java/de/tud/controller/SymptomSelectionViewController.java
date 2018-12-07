@@ -11,6 +11,8 @@ import de.tud.model.symptom.Symptom;
 import de.tud.model.symptom.SymptomFactory;
 import de.tud.view.SymptomSelectionView;
 
+import java.time.LocalDateTime;
+
 public class SymptomSelectionViewController {
 
     private SymptomSelectionView symptomSelectionView;
@@ -176,6 +178,7 @@ public class SymptomSelectionViewController {
         symptomSelectionView.getGoodSmiley().setEnabled(false);
     }
 
+
     //TODO: Method bugs
     private void checkAddNextSymptomRestrictions(){
         System.out.println(symptomSelectionView.getComboBox().getValue());
@@ -184,7 +187,8 @@ public class SymptomSelectionViewController {
         System.out.println(diaryViewController.getDiaryView().getVerticalLayout().getComponentCount());
 
 
-        if(symptomSelectionView.getComboBox().getValue() != null && selectionCounter == 0 && diaryViewController.getSymptomList().size() >=2
+        if(symptomSelectionView.getComboBox().getValue() != null &&
+                selectionCounter == 0 && diaryViewController.getSymptomList().size() >=2
         && diaryViewController.getDiaryView().getVerticalLayout().getComponentCount() > 0){
 
             symptomSelectionView.getAddNextSymptom().setEnabled(true);

@@ -129,7 +129,7 @@ public class SymptomSelectionView implements View {
 
 
         //weiteres Symptom hinzufügen
-        addNextSymptom = new Button("+ weiteres Symptom");
+        addNextSymptom = new Button("weiteres Symptom", VaadinIcons.PLUS_CIRCLE);
         addNextSymptom.setEnabled(false);
         addNextSymptom.setVisible(false);
         addClickListenerToAddNextSymptom();

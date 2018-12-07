@@ -43,8 +43,12 @@ public class DiaryViewController {
        diaryView.getDateTimeField().addValueChangeListener(new HasValue.ValueChangeListener<LocalDateTime>() {
             @Override
             public void valueChange(HasValue.ValueChangeEvent<LocalDateTime> valueChangeEvent) {
-                if(diaryView.getDateTimeField().getValue() == null && checkSymptomSelection()){
+
+
+                if(diaryView.getDateTimeField().getValue() == null && checkSymptomSelection() && checkDateIntegrity()){
                     diaryView.getSave().setEnabled(true);
+                }else{
+                    Notification.show("unzulässiges Datum gewählt!");
                 }
             }
         });
@@ -70,6 +74,16 @@ public class DiaryViewController {
         symptomList.add("Spastik im rechten Bein");
         return symptomList;
     }
+    public boolean checkDateIntegrity(){
+        LocalDateTime rangeEnd = diaryView.getDateTimeField().getRangeEnd();
+        LocalDateTime rangeStart = diaryView.getDateTimeField().getRangeStart();
+        LocalDateTime date = diaryView.getDateTimeField().getValue();
+        if(date.isAfter(rangeEnd) || date.isBefore(rangeStart)){
+            Notification.show("unzulässiges Datum gewählt!");
+            return false;
+        }
+        return true;
+    }
 
     public boolean checkSymptomSelection(){
         List<Boolean> list = new ArrayList<>();
@@ -88,6 +102,8 @@ public class DiaryViewController {
         diaryView.getDateTimeField().setRangeStart(LocalDateTime.now().minusWeeks(3));
         diaryView.getDateTimeField().setRangeEnd(LocalDateTime.now().plusMinutes(1));
     }
+
+
     public void addNewSymptomSelectionView(){
         SymptomSelectionView symptomSelectionView = new SymptomSelectionView(this);
         diaryView.getVerticalLayout().addComponents(symptomSelectionView.getViewComponent());
@@ -113,11 +129,15 @@ public class DiaryViewController {
                 if(diaryView.getVerticalLayout().getComponentCount() == 0){
                     return;
                 }
+                if(!checkDateIntegrity()){
+                    return;
+                }
                 if(diaryView.getDateTimeField().getValue() == null){
                     Notification.show("Bitte Datum eingeben!");
                     diaryView.getSave().setEnabled(false);
                     return;
                 }
+
 
                 for(SymptomSelectionViewController s: symptomSelectionViewControllers){
                     avoidDuplicateSymptomsSet.add(s.getSelectedSymptom());
@@ -145,6 +165,7 @@ public class DiaryViewController {
             }
         });
     }
+
 
     public void saveDiaryEntry(LocalDateTime datum, Set<Symptom> symptoms){
         DiaryManager diaryManager = new DiaryManager();
