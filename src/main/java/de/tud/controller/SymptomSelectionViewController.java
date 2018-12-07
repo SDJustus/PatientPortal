@@ -186,7 +186,12 @@ public class SymptomSelectionViewController {
         System.out.println(diaryViewController.getSymptomList().size());
         System.out.println(diaryViewController.getDiaryView().getVerticalLayout().getComponentCount());
 
-
+        if(symptomSelectionView.getComboBox().getValue() != null &&
+                selectionCounter == 0 && diaryViewController.getSymptomList().size() == 1
+                && diaryViewController.getDiaryView().getVerticalLayout().getComponentCount() > 0){
+            diaryViewController.setSaveButtonEnabled(true);
+            return;
+        }
         if(symptomSelectionView.getComboBox().getValue() != null &&
                 selectionCounter == 0 && diaryViewController.getSymptomList().size() >=2
         && diaryViewController.getDiaryView().getVerticalLayout().getComponentCount() > 0){

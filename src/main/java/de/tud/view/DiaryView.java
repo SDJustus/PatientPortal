@@ -21,7 +21,7 @@ public class DiaryView extends Composite implements View {
     private VerticalLayout verticalLayout = new VerticalLayout(); //Vertical Layout wird in horizontal Layout gepackt
     private DateTimeField dateTimeField = new DateTimeField(); //wird in Vertical Layout gepackt
     private Label label = new Label("Neuer Tagebucheintrag");
-    private Button save = new Button("Speichern");
+    private Button save = new Button("Speichern", VaadinIcons.FOLDER);
     private Button newDiaryEntry = new Button("Alles Zurücksetzen");
     private Button edit = new Button("", VaadinIcons.EDIT);
     private Button okay = new Button("OK");

@@ -1,5 +1,6 @@
 package de.tud.view.DiaryEvaluation;
 
+
 import com.vaadin.server.Page;
 import com.vaadin.shared.data.sort.SortDirection;
 import com.vaadin.ui.*;
@@ -15,9 +16,7 @@ public class SymptomEvaluationView {
     DateTimeField fromDate = new DateTimeField();
     DateTimeField toDate = new DateTimeField();
     HorizontalLayout filterBar = new HorizontalLayout();
-
-
-    int height = 250;
+    int height = 300;
     int width = 300;
 
 
@@ -34,16 +33,18 @@ public class SymptomEvaluationView {
         filterComboBox.setPlaceholder("Symptome");
 
 
+
         //Spalte Datum
         grid.addColumn(SymptomTable::getDate).setId("Datum");
         grid.getColumn("Datum").setCaption("Datum");
         grid.getColumn("Datum").setResizable(false);
-        grid.sort("Datum", SortDirection.DESCENDING);
+
 
         //Spalte Symptome
         grid.addColumn(SymptomTable::getSymptom).setId("Ausprägung der Symptome");
         grid.getColumn("Ausprägung der Symptome").setCaption("Ausprägung der Symptome");
-        grid.sort("Datum");
+
+        grid.sort("Datum", SortDirection.DESCENDING);
 
         grid.setFrozenColumnCount(grid.getColumns().size());
 
@@ -72,6 +73,14 @@ public class SymptomEvaluationView {
         return filterComboBox;
     }
 
+    public DateTimeField getFromDate() {
+        return fromDate;
+    }
+
+    public DateTimeField getToDate() {
+        return toDate;
+    }
+
     //helperclass:
     public class SymptomTable {
         private Symptom symptom;
@@ -90,6 +99,7 @@ public class SymptomEvaluationView {
             return date;
         }
     }
+
 
 
 

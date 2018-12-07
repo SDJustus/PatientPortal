@@ -29,7 +29,6 @@ public class DiaryViewController {
     private List<String> symptomList;
     private int counter = 0;
 
-
     public DiaryViewController(DiaryView diaryView){
         this.diaryView = diaryView;
         this.symptomList = createSymptomList();
@@ -137,8 +136,6 @@ public class DiaryViewController {
                     diaryView.getSave().setEnabled(false);
                     return;
                 }
-
-
                 for(SymptomSelectionViewController s: symptomSelectionViewControllers){
                     avoidDuplicateSymptomsSet.add(s.getSelectedSymptom());
                     System.out.println(s.getSelectedSymptom());
@@ -165,7 +162,6 @@ public class DiaryViewController {
             }
         });
     }
-
 
     public void saveDiaryEntry(LocalDateTime datum, Set<Symptom> symptoms){
         DiaryManager diaryManager = new DiaryManager();

@@ -2,6 +2,7 @@ package de.tud.controller;
 
 import com.vaadin.data.HasValue;
 import com.vaadin.data.provider.ListDataProvider;
+import com.vaadin.event.dd.acceptcriteria.Not;
 import com.vaadin.server.Page;
 import com.vaadin.ui.*;
 import de.tud.model.DiaryEntry;
@@ -52,7 +53,10 @@ public class DiaryEvaluationViewController {
                     symptom = s.toString().substring(0, s.toString().indexOf(":"));
                     symptomsForComboBox.add(symptom);
 
+
+
                     symptomTableItems.add(symptomEvaluationView.new SymptomTable(diaryEntry.getDate().format(formatter), s));
+                    //diaryEntry.getDate().format(formatter)
                 }
             }
             symptomEvaluationView.getGrid().setItems(symptomTableItems);
@@ -74,12 +78,41 @@ public class DiaryEvaluationViewController {
                 dataProvider.setFilter(SymptomEvaluationView.SymptomTable::getSymptom, s -> s.toString().contains(valueChangeEvent.getValue()));
             }
         });
+        symptomEvaluationView.getToDate().addValueChangeListener(new HasValue.ValueChangeListener<LocalDateTime>() {
+            @Override
+            public void valueChange(HasValue.ValueChangeEvent<LocalDateTime> valueChangeEvent) {
+                LocalDateTime fromDate = symptomEvaluationView.getFromDate().getValue();
+
+
+                if(fromDate == null || valueChangeEvent.getValue() == null){
+                    symptomEvaluationView.getGrid().setItems(symptomTableItems);
+                    return;
+                }
+
+                if(fromDate == null){
+                    Notification.show("Start-Datum fehlt!");
+                    return;
+                }
+                if(valueChangeEvent.getValue().isBefore(fromDate)){
+                    Notification.show("Start-Datum liegt nach dem Ziel-Datum!");
+                    return;
+                }
+
+                ListDataProvider<SymptomEvaluationView.SymptomTable> dataProvider = (ListDataProvider<SymptomEvaluationView.SymptomTable>) symptomEvaluationView.getGrid().getDataProvider();
+                dataProvider.setFilter(SymptomEvaluationView.SymptomTable::getDate, s ->LocalDateTime.parse(s, formatter).isAfter(fromDate) && LocalDateTime.parse(s, formatter).isBefore(valueChangeEvent.getValue()));
+
+
+            }
+        });
+
+
         if (diaryEvaluationView.getVerticalLayout().getComponentCount() == 2) {
             diaryEvaluationView.getVerticalLayout().removeComponent(diaryEvaluationView.getVerticalLayout().getComponent(1));
         }
         diaryEvaluationView.getVerticalLayout().addComponent(symptomEvaluationView.getViewComponent());
 
     }
+
 
     private void initVitalDataTable() {
 

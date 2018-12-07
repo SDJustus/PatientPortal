@@ -10,9 +10,8 @@ public class WelfareEvaluationView  {
     Grid<WelfareTable> grid;
     VerticalLayout tableContainer = new VerticalLayout();
     ComboBox<String> filterComboBox = new ComboBox<>();
-    Panel panel = new Panel();
-    int height = 300;
-    int width = 350;
+    int height = 250;
+    int width = 300;
 
 
     public WelfareEvaluationView(){
@@ -33,6 +32,8 @@ public class WelfareEvaluationView  {
         grid.getColumn("Ausprägung des Wohlbefindens").setCaption("Ausprägung des Wohlbefindens");
         grid.getColumn("Ausprägung des Wohlbefindens").setResizable(false);
 
+        grid.setFrozenColumnCount(grid.getColumns().size());
+
         //Table size
         grid.setHeight("" + (Integer.valueOf(Page.getCurrent().getBrowserWindowHeight()) - Integer.valueOf(height)));
         grid.setWidth("" + (Integer.valueOf(Page.getCurrent().getBrowserWindowWidth()) - Integer.valueOf(width)));
@@ -42,8 +43,7 @@ public class WelfareEvaluationView  {
 
         });
 
-        panel.setContent(grid);
-        tableContainer.addComponents(panel);
+        tableContainer.addComponents(grid);
         return tableContainer;
     }
 
