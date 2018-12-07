@@ -1,20 +1,24 @@
 package de.tud.view.DiaryEvaluation;
 
 import com.vaadin.server.Page;
+import com.vaadin.shared.data.sort.SortDirection;
 import com.vaadin.ui.*;
 import de.tud.model.symptom.Symptom;
 
-import java.time.LocalDateTime;
+
 
 public class SymptomEvaluationView {
     Grid<SymptomTable> grid;
     VerticalLayout tableContainer = new VerticalLayout();
     ComboBox<String> filterComboBox = new ComboBox<>();
     Panel panel = new Panel();
+    DateTimeField fromDate = new DateTimeField();
+    DateTimeField toDate = new DateTimeField();
+    HorizontalLayout filterBar = new HorizontalLayout();
 
 
-    int height = 300;
-    int width = 350;
+    int height = 250;
+    int width = 300;
 
 
     public SymptomEvaluationView(){
@@ -22,21 +26,26 @@ public class SymptomEvaluationView {
     }
 
     public VerticalLayout getViewComponent() {
-        grid.setResponsive(true);
-        grid.setSizeUndefined();
+        //datePicker
+        fromDate.setPlaceholder("von...");
+        toDate.setPlaceholder("bis...");
+
+        //Symptom filterCombo Box
+        filterComboBox.setPlaceholder("Symptome");
+
 
         //Spalte Datum
         grid.addColumn(SymptomTable::getDate).setId("Datum");
         grid.getColumn("Datum").setCaption("Datum");
         grid.getColumn("Datum").setResizable(false);
-        grid.getColumn("Datum").setWidthUndefined();
-
+        grid.sort("Datum", SortDirection.DESCENDING);
 
         //Spalte Symptome
         grid.addColumn(SymptomTable::getSymptom).setId("Ausprägung der Symptome");
         grid.getColumn("Ausprägung der Symptome").setCaption("Ausprägung der Symptome");
-        grid.getColumn("Ausprägung der Symptome").setResizable(false);
-        grid.getColumn("Ausprägung der Symptome").setWidthUndefined();
+        grid.sort("Datum");
+
+        grid.setFrozenColumnCount(grid.getColumns().size());
 
         //Table size
         grid.setHeight("" + (Integer.valueOf(Page.getCurrent().getBrowserWindowHeight()) - Integer.valueOf(height)));
@@ -48,11 +57,10 @@ public class SymptomEvaluationView {
 
         });
 
-
-        panel.setContent(grid);
-        panel.setSizeFull();
-
-        tableContainer.addComponents(filterComboBox, panel);
+        filterBar.addComponents(fromDate, toDate, filterComboBox);
+        filterBar.setResponsive(true);
+        tableContainer.addComponents(filterBar, grid);
+        tableContainer.setMargin(false);
 
         return tableContainer;
     }
@@ -67,9 +75,9 @@ public class SymptomEvaluationView {
     //helperclass:
     public class SymptomTable {
         private Symptom symptom;
-        private LocalDateTime date;
+        private String date;
 
-        public SymptomTable(LocalDateTime d, Symptom s) {
+        public SymptomTable(String d, Symptom s) {
             this.symptom = s;
             this.date = d;
         }
@@ -78,10 +86,11 @@ public class SymptomEvaluationView {
             return symptom;
         }
 
-        public LocalDateTime getDate() {
+        public String getDate() {
             return date;
         }
     }
+
 
 
 }

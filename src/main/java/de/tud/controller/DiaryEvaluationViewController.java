@@ -14,6 +14,7 @@ import de.tud.view.DiaryEvaluation.SymptomEvaluationView;
 import de.tud.view.DiaryEvaluation.WelfareEvaluationView;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
@@ -23,6 +24,7 @@ public class DiaryEvaluationViewController {
     private DiaryEvaluationView diaryEvaluationView;
     private SymptomEvaluationView symptomEvaluationView;
     private WelfareEvaluationView welfareEvaluationView;
+    private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm");
 
 
     private DiaryManager diaryManager = new DiaryManager();
@@ -35,6 +37,7 @@ public class DiaryEvaluationViewController {
         initSymptomTable();
 
     }
+
     public void initSymptomTable() {
         symptomEvaluationView = new SymptomEvaluationView();
 
@@ -49,7 +52,7 @@ public class DiaryEvaluationViewController {
                     symptom = s.toString().substring(0, s.toString().indexOf(":"));
                     symptomsForComboBox.add(symptom);
 
-                    symptomTableItems.add(symptomEvaluationView.new SymptomTable(diaryEntry.getDate(),s ));
+                    symptomTableItems.add(symptomEvaluationView.new SymptomTable(diaryEntry.getDate().format(formatter), s));
                 }
             }
             symptomEvaluationView.getGrid().setItems(symptomTableItems);
@@ -71,20 +74,24 @@ public class DiaryEvaluationViewController {
                 dataProvider.setFilter(SymptomEvaluationView.SymptomTable::getSymptom, s -> s.toString().contains(valueChangeEvent.getValue()));
             }
         });
-        if(diaryEvaluationView.getVerticalLayout().getComponentCount() == 2){
+        if (diaryEvaluationView.getVerticalLayout().getComponentCount() == 2) {
             diaryEvaluationView.getVerticalLayout().removeComponent(diaryEvaluationView.getVerticalLayout().getComponent(1));
         }
         diaryEvaluationView.getVerticalLayout().addComponent(symptomEvaluationView.getViewComponent());
 
     }
+
     private void initVitalDataTable() {
 
         ArrayList<VitalDataTable> vitalDataTableItems = new ArrayList<>();
 
-        set = diaryManager.readDiaryEntriesByDiary(diaryId);
+
         if (set != null) {
             for (DiaryEntry diaryEntry : set) {
-                VitalData vitalData = diaryEntry.getVitalData();
+
+                if(diaryEntry.getVitalData() == null) {
+                    System.out.println(diaryEntry.getVitalData());
+                /*
                 if (vitalData != null) {
                     LocalDateTime dateTime = diaryEntry.getDate();
                     float height = vitalData.getHeight();
@@ -97,72 +104,78 @@ public class DiaryEvaluationViewController {
                     //vitalDataTableItems.add(new VitalDataTable());
                 }
 
-            }
-            //grid.setItems(vitalDataTableItems);
-        }
-
-    }
-    private void initWelfareTable(){
-        welfareEvaluationView = new WelfareEvaluationView();
-
-        ArrayList<WelfareEvaluationView.WelfareTable> welfareTableItems = new ArrayList<>();
-        set = diaryManager.readDiaryEntriesByDiary(diaryId);
-        if (set != null) {
-            for (DiaryEntry diaryEntry : set) {
-                for(Welfare welfare : diaryEntry.getWelfare()){
-                    System.out.println(welfare);
-                    welfareTableItems.add(welfareEvaluationView.new WelfareTable(diaryEntry.getDate(), welfare));
+            */
                 }
+                System.out.println(diaryEntry.getVitalData().getWeight());
             }
-           welfareEvaluationView.getGrid().setItems(welfareTableItems);
+
+                //grid.setItems(vitalDataTableItems);
+            }
+
+
+        }
+        private void initWelfareTable () {
+            welfareEvaluationView = new WelfareEvaluationView();
+
+            ArrayList<WelfareEvaluationView.WelfareTable> welfareTableItems = new ArrayList<>();
+            set = diaryManager.readDiaryEntriesByDiary(diaryId);
+            if (set != null) {
+                for (DiaryEntry diaryEntry : set) {
+                    for (Welfare welfare : diaryEntry.getWelfare()) {
+                        System.out.println(welfare);
+                        welfareTableItems.add(welfareEvaluationView.new WelfareTable(diaryEntry.getDate(), welfare));
+                    }
+                }
+                welfareEvaluationView.getGrid().setItems(welfareTableItems);
+            }
+
+            if (diaryEvaluationView.getVerticalLayout().getComponentCount() == 2) {
+                diaryEvaluationView.getVerticalLayout().removeComponent(diaryEvaluationView.getVerticalLayout().getComponent(1));
+            }
+            diaryEvaluationView.getVerticalLayout().addComponent(welfareEvaluationView.getViewComponent());
         }
 
-        if(diaryEvaluationView.getVerticalLayout().getComponentCount() == 2){
-            diaryEvaluationView.getVerticalLayout().removeComponent(diaryEvaluationView.getVerticalLayout().getComponent(1));
+        public void addClickListenerForSymptomButton () {
+            diaryEvaluationView.getSymptomTableButton().addClickListener(new Button.ClickListener() {
+                @Override
+                public void buttonClick(Button.ClickEvent clickEvent) {
+                    initSymptomTable();
+                }
+            });
         }
-        diaryEvaluationView.getVerticalLayout().addComponent(welfareEvaluationView.getViewComponent());
-    }
-
-    public void addClickListenerForSymptomButton(){
-        diaryEvaluationView.getSymptomTableButton().addClickListener(new Button.ClickListener() {
-            @Override
-            public void buttonClick(Button.ClickEvent clickEvent) {
-                initSymptomTable();
-            }
-        });
-    }
-    public void addClickListenerForVitalDataButton(){
-        diaryEvaluationView.getVitalDataTableButton().addClickListener(new Button.ClickListener() {
-            @Override
-            public void buttonClick(Button.ClickEvent clickEvent) {
-               initVitalDataTable();
-            }
-        });
-    }
-    public void addClickListenerForWelfareButton(){
-        diaryEvaluationView.getWelfareTableButton().addClickListener(new Button.ClickListener() {
-            @Override
-            public void buttonClick(Button.ClickEvent clickEvent) {
-                initWelfareTable();
-            }
-        });
-
-    }
-
-
-
-
-    public class VitalDataTable extends VitalData {
-        LocalDateTime dateTime;
-        public VitalDataTable(LocalDateTime dateTime, float height, float weight, int bloodPressureFirstValue,
-                              int bloodPressureSecondValue, int heartRate){
-            super();
-            this.dateTime = dateTime;
+        public void addClickListenerForVitalDataButton () {
+            diaryEvaluationView.getVitalDataTableButton().addClickListener(new Button.ClickListener() {
+                @Override
+                public void buttonClick(Button.ClickEvent clickEvent) {
+                    initVitalDataTable();
+                }
+            });
         }
-        public LocalDateTime getDateTime(){
-            return dateTime;
+        public void addClickListenerForWelfareButton () {
+            diaryEvaluationView.getWelfareTableButton().addClickListener(new Button.ClickListener() {
+                @Override
+                public void buttonClick(Button.ClickEvent clickEvent) {
+                    initWelfareTable();
+                }
+            });
+
         }
+
+
+        public class VitalDataTable extends VitalData {
+            LocalDateTime dateTime;
+
+            public VitalDataTable(LocalDateTime dateTime, float height, float weight, int bloodPressureFirstValue,
+                                  int bloodPressureSecondValue, int heartRate) {
+                super();
+                this.dateTime = dateTime;
+            }
+
+            public LocalDateTime getDateTime() {
+                return dateTime;
+            }
+        }
+
+
     }
 
-
-}
