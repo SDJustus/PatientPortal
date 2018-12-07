@@ -1,9 +1,6 @@
 package de.tud.model.manager;
 
-import de.tud.model.Diary;
-import de.tud.model.DiaryEntry;
-import de.tud.model.EntityObject;
-import de.tud.model.VitalData;
+import de.tud.model.*;
 import de.tud.model.symptom.*;
 import de.tud.model.welfare.*;
 import org.hibernate.Session;
@@ -17,7 +14,6 @@ public abstract class EntityManager<T extends EntityObject> {
 
     public SessionFactory getSessionFactory(){
         Configuration configuration = new Configuration().configure();
-        //TODO: Test if the config with pachages work...
         configuration.addAnnotatedClass(Diary.class)
                 .addAnnotatedClass(DiaryEntry.class)
                 .addAnnotatedClass(SymptomFactory.class)
@@ -38,7 +34,8 @@ public abstract class EntityManager<T extends EntityObject> {
                 .addAnnotatedClass(Sleep.class)
                 .addAnnotatedClass(ConcentrationAbility.class)
                 .addAnnotatedClass(PhysicalCondition.class)
-                .addAnnotatedClass(WelfareFactory.class);
+                .addAnnotatedClass(WelfareFactory.class)
+                .addAnnotatedClass(Homework.class);
 
         StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder()
                 .applySettings(configuration.getProperties());
@@ -47,6 +44,7 @@ public abstract class EntityManager<T extends EntityObject> {
         return sessionFactory;
     }
     public long create(T entity){
+        if (entity == null) throw new NullPointerException("Expected entity not to be null.");
         Session session = getSessionFactory().openSession();
         session.beginTransaction();
         session.save(entity);

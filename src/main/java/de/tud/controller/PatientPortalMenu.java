@@ -6,20 +6,16 @@ import com.vaadin.annotations.Theme;
 import com.vaadin.annotations.VaadinServletConfiguration;
 import com.vaadin.data.TreeData;
 import com.vaadin.data.provider.TreeDataProvider;
-import com.vaadin.event.selection.SelectionEvent;
-import com.vaadin.event.selection.SelectionListener;
 import com.vaadin.icons.VaadinIcons;
 import com.vaadin.server.*;
 import com.vaadin.ui.*;
 import com.vaadin.navigator.Navigator;
-import com.vaadin.ui.themes.ValoTheme;
 import de.tud.view.*;
-import de.tud.view.VitalData.VitalDataUIDesignerUISetup;
+import de.tud.view.DiaryEvaluation.DiaryEvaluationView;
 import de.tud.view.VitalData.VitalDataView;
 import de.tud.view.Welfare.WelfareView;
 
 import javax.servlet.annotation.WebServlet;
-import java.util.Set;
 
 @Theme("mytheme")
 public class PatientPortalMenu extends UI {
@@ -30,6 +26,8 @@ public class PatientPortalMenu extends UI {
 
     @Override
     public void init(VaadinRequest request) {
+
+        UI.getCurrent().setErrorHandler(new CustomizedErrorHandler());
         //CSS Befehle
         UI.getCurrent().getPage().getStyles().add(".v-button{text-align: left !important;}" +
                 ".v-label{font-size: large !important; }"+
@@ -62,8 +60,8 @@ public class PatientPortalMenu extends UI {
 
 
         //Menu tree
-         menuTree = new Tree<>();
-         menuTreeData = new TreeData<>();
+        menuTree = new Tree<>();
+        menuTreeData = new TreeData<>();
 
         //add tree items with hierachy
         menuTreeData.addItem(null,"Patiententagebuch");
