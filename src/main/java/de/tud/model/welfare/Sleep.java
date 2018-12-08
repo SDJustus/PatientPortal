@@ -13,6 +13,6 @@ public class Sleep extends Welfare {
 
     @Override
     public String toString() {
-        return "Konzentrationsfähigkeit: " + this.getStrength();   //TODO: Konzentrationsfähigkeit in Sleep?
+        return "Schlaf: " + this.getStrength();   //TODO: Konzentrationsfähigkeit in Sleep?
     }
 }

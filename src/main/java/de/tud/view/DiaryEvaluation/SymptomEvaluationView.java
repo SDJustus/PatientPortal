@@ -1,6 +1,7 @@
 package de.tud.view.DiaryEvaluation;
 
 
+import com.vaadin.icons.VaadinIcons;
 import com.vaadin.server.Page;
 import com.vaadin.shared.data.sort.SortDirection;
 import com.vaadin.ui.*;
@@ -12,11 +13,11 @@ public class SymptomEvaluationView {
     Grid<SymptomTable> grid;
     VerticalLayout tableContainer = new VerticalLayout();
     ComboBox<String> filterComboBox = new ComboBox<>();
-    Panel panel = new Panel();
     DateTimeField fromDate = new DateTimeField();
     DateTimeField toDate = new DateTimeField();
     HorizontalLayout filterBar = new HorizontalLayout();
-    int height = 300;
+    Button resetButton = new Button(VaadinIcons.ARROW_BACKWARD);
+    int height = 170;
     int width = 300;
 
 
@@ -31,8 +32,7 @@ public class SymptomEvaluationView {
 
         //Symptom filterCombo Box
         filterComboBox.setPlaceholder("Symptome");
-
-
+        filterComboBox.setWidth("250px");
 
         //Spalte Datum
         grid.addColumn(SymptomTable::getDate).setId("Datum");
@@ -58,7 +58,7 @@ public class SymptomEvaluationView {
 
         });
 
-        filterBar.addComponents(fromDate, toDate, filterComboBox);
+        filterBar.addComponents(fromDate, toDate, filterComboBox, resetButton);
         filterBar.setResponsive(true);
         tableContainer.addComponents(filterBar, grid);
         tableContainer.setMargin(false);
@@ -81,6 +81,10 @@ public class SymptomEvaluationView {
         return toDate;
     }
 
+    public Button getResetButton() {
+        return resetButton;
+    }
+
     //helperclass:
     public class SymptomTable {
         private Symptom symptom;
@@ -99,8 +103,6 @@ public class SymptomEvaluationView {
             return date;
         }
     }
-
-
 
 
 }

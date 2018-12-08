@@ -19,6 +19,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.concurrent.TimeUnit;
 
 public class DiaryEvaluationViewController {
 
@@ -26,19 +27,15 @@ public class DiaryEvaluationViewController {
     private SymptomEvaluationView symptomEvaluationView;
     private WelfareEvaluationView welfareEvaluationView;
     private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm");
-
-
     private DiaryManager diaryManager = new DiaryManager();
     long diaryId = diaryManager.read().iterator().next().getId();
-    Set<DiaryEntry> set;
-
+    Set<DiaryEntry> set = diaryManager.readDiaryEntriesByDiary(diaryId);
 
     public DiaryEvaluationViewController(DiaryEvaluationView diaryEvaluationView) {
         this.diaryEvaluationView = diaryEvaluationView;
         initSymptomTable();
 
     }
-
     public void initSymptomTable() {
         symptomEvaluationView = new SymptomEvaluationView();
 
@@ -46,25 +43,17 @@ public class DiaryEvaluationViewController {
         HashSet<String> symptomsForComboBox = new HashSet<>();
         String symptom;
 
-        set = diaryManager.readDiaryEntriesByDiary(diaryId);
         if (set != null) {
             for (DiaryEntry diaryEntry : set) {
                 for (Symptom s : diaryEntry.getSymptom()) {
                     symptom = s.toString().substring(0, s.toString().indexOf(":"));
                     symptomsForComboBox.add(symptom);
-
-
-
                     symptomTableItems.add(symptomEvaluationView.new SymptomTable(diaryEntry.getDate().format(formatter), s));
-                    //diaryEntry.getDate().format(formatter)
                 }
             }
             symptomEvaluationView.getGrid().setItems(symptomTableItems);
             symptomEvaluationView.getFilterComboBox().setItems(symptomsForComboBox);
         }
-
-        ListDataProvider<SymptomEvaluationView.SymptomTable> dataProvider =
-                (ListDataProvider<SymptomEvaluationView.SymptomTable>) symptomEvaluationView.getGrid().getDataProvider();
 
         symptomEvaluationView.getFilterComboBox().addValueChangeListener(new HasValue.ValueChangeListener<String>() {
             @Override
@@ -75,7 +64,17 @@ public class DiaryEvaluationViewController {
                 }
                 ListDataProvider<SymptomEvaluationView.SymptomTable> dataProvider =
                         (ListDataProvider<SymptomEvaluationView.SymptomTable>) symptomEvaluationView.getGrid().getDataProvider();
+
                 dataProvider.setFilter(SymptomEvaluationView.SymptomTable::getSymptom, s -> s.toString().contains(valueChangeEvent.getValue()));
+
+                if(symptomEvaluationView.getFromDate().getValue() != null && symptomEvaluationView.getToDate().getValue() != null){
+                    ListDataProvider<SymptomEvaluationView.SymptomTable> dataProvider2 =
+                            (ListDataProvider<SymptomEvaluationView.SymptomTable>) symptomEvaluationView.getGrid().getDataProvider();
+
+                    LocalDateTime fromDate = symptomEvaluationView.getFromDate().getValue();
+                    LocalDateTime toDate = symptomEvaluationView.getToDate().getValue();
+                    dataProvider2.setFilter(SymptomEvaluationView.SymptomTable::getDate, s ->LocalDateTime.parse(s, formatter).isAfter(fromDate) && LocalDateTime.parse(s, formatter).isBefore(toDate));
+                }
             }
         });
         symptomEvaluationView.getToDate().addValueChangeListener(new HasValue.ValueChangeListener<LocalDateTime>() {
@@ -91,6 +90,7 @@ public class DiaryEvaluationViewController {
 
                 if(fromDate == null){
                     Notification.show("Start-Datum fehlt!");
+                    symptomEvaluationView.getToDate().getErrorMessage();
                     return;
                 }
                 if(valueChangeEvent.getValue().isBefore(fromDate)){
@@ -99,9 +99,22 @@ public class DiaryEvaluationViewController {
                 }
 
                 ListDataProvider<SymptomEvaluationView.SymptomTable> dataProvider = (ListDataProvider<SymptomEvaluationView.SymptomTable>) symptomEvaluationView.getGrid().getDataProvider();
-                dataProvider.setFilter(SymptomEvaluationView.SymptomTable::getDate, s ->LocalDateTime.parse(s, formatter).isAfter(fromDate) && LocalDateTime.parse(s, formatter).isBefore(valueChangeEvent.getValue()));
+                //dataProvider.setFilter(SymptomEvaluationView.SymptomTable::getDate, s ->LocalDateTime.parse(s, formatter).isAfter(fromDate) && LocalDateTime.parse(s, formatter).isBefore(valueChangeEvent.getValue()));
+                dataProvider.addFilter(SymptomEvaluationView.SymptomTable::getDate, s ->LocalDateTime.parse(s, formatter).isAfter(fromDate) && LocalDateTime.parse(s, formatter).isBefore(valueChangeEvent.getValue()));
+
+                if(symptomEvaluationView.getFilterComboBox().getValue() != null){
+                    dataProvider.addFilter(SymptomEvaluationView.SymptomTable::getSymptom, s -> s.toString().contains(symptomEvaluationView.getFilterComboBox().getValue()));
+                }
 
 
+            }
+        });
+        symptomEvaluationView.getResetButton().addClickListener(new Button.ClickListener() {
+            @Override
+            public void buttonClick(Button.ClickEvent clickEvent) {
+                symptomEvaluationView.getToDate().clear();
+                symptomEvaluationView.getFromDate().clear();
+                symptomEvaluationView.getFilterComboBox().clear();
             }
         });
 
@@ -112,63 +125,59 @@ public class DiaryEvaluationViewController {
         diaryEvaluationView.getVerticalLayout().addComponent(symptomEvaluationView.getViewComponent());
 
     }
-
-
     private void initVitalDataTable() {
 
         ArrayList<VitalDataTable> vitalDataTableItems = new ArrayList<>();
-
-
+       
         if (set != null) {
             for (DiaryEntry diaryEntry : set) {
-
-                if(diaryEntry.getVitalData() == null) {
-                    System.out.println(diaryEntry.getVitalData());
-                /*
-                if (vitalData != null) {
-                    LocalDateTime dateTime = diaryEntry.getDate();
-                    float height = vitalData.getHeight();
-                    float weight = vitalData.getWeight();
-                    int bloodPressureFirstValue = vitalData.getBloodPressureFirstValue();
-                    int bloodPressureSecondValue = vitalData.getBloodPressureSecondValue();
-                    int heartRate = vitalData.getHeartRate();
-                    System.out.println(dateTime+" "+height+" "+weight+" "+bloodPressureFirstValue+" "+bloodPressureSecondValue+
-                            " "+heartRate);
-                    //vitalDataTableItems.add(new VitalDataTable());
+                if (diaryEntry.getVitalData() != null) {
+                    System.out.println(diaryEntry.getVitalData().getBloodPressureFirstValue());
                 }
 
-            */
-                }
-                System.out.println(diaryEntry.getVitalData().getWeight());
             }
 
-                //grid.setItems(vitalDataTableItems);
-            }
-
+            //grid.setItems(vitalDataTableItems);
 
         }
-        private void initWelfareTable () {
-            welfareEvaluationView = new WelfareEvaluationView();
+    }
+    private void initWelfareTable () {
+        welfareEvaluationView = new WelfareEvaluationView();
 
             ArrayList<WelfareEvaluationView.WelfareTable> welfareTableItems = new ArrayList<>();
-            set = diaryManager.readDiaryEntriesByDiary(diaryId);
+            HashSet<String> welfareForComboBox = new HashSet<>();
+
             if (set != null) {
                 for (DiaryEntry diaryEntry : set) {
                     for (Welfare welfare : diaryEntry.getWelfare()) {
-                        System.out.println(welfare);
-                        welfareTableItems.add(welfareEvaluationView.new WelfareTable(diaryEntry.getDate(), welfare));
+                        String w = welfare.toString().substring(0, welfare.toString().indexOf(":"));
+                        welfareTableItems.add(welfareEvaluationView.new WelfareTable(diaryEntry.getDate().format(formatter), welfare));
+                        welfareForComboBox.add(w);
                     }
                 }
+                welfareEvaluationView.getFilterComboBox().setItems(welfareForComboBox);
                 welfareEvaluationView.getGrid().setItems(welfareTableItems);
             }
+
+            welfareEvaluationView.getFilterComboBox().addValueChangeListener(new HasValue.ValueChangeListener<String>() {
+            @Override
+            public void valueChange(HasValue.ValueChangeEvent<String> valueChangeEvent) {
+                if (valueChangeEvent.getValue() == null || valueChangeEvent.getValue().equals("")) {
+                    welfareEvaluationView.getGrid().setItems(welfareTableItems);
+                    return;
+                }
+                ListDataProvider<WelfareEvaluationView.WelfareTable> dataProvider =
+                        (ListDataProvider<WelfareEvaluationView.WelfareTable>) welfareEvaluationView.getGrid().getDataProvider();
+                dataProvider.setFilter(WelfareEvaluationView.WelfareTable::getWelfare, s -> s.toString().contains(valueChangeEvent.getValue()));
+            }
+        });
 
             if (diaryEvaluationView.getVerticalLayout().getComponentCount() == 2) {
                 diaryEvaluationView.getVerticalLayout().removeComponent(diaryEvaluationView.getVerticalLayout().getComponent(1));
             }
             diaryEvaluationView.getVerticalLayout().addComponent(welfareEvaluationView.getViewComponent());
         }
-
-        public void addClickListenerForSymptomButton () {
+    public void addClickListenerForSymptomButton () {
             diaryEvaluationView.getSymptomTableButton().addClickListener(new Button.ClickListener() {
                 @Override
                 public void buttonClick(Button.ClickEvent clickEvent) {
@@ -176,7 +185,7 @@ public class DiaryEvaluationViewController {
                 }
             });
         }
-        public void addClickListenerForVitalDataButton () {
+    public void addClickListenerForVitalDataButton () {
             diaryEvaluationView.getVitalDataTableButton().addClickListener(new Button.ClickListener() {
                 @Override
                 public void buttonClick(Button.ClickEvent clickEvent) {
@@ -184,7 +193,7 @@ public class DiaryEvaluationViewController {
                 }
             });
         }
-        public void addClickListenerForWelfareButton () {
+    public void addClickListenerForWelfareButton () {
             diaryEvaluationView.getWelfareTableButton().addClickListener(new Button.ClickListener() {
                 @Override
                 public void buttonClick(Button.ClickEvent clickEvent) {
@@ -195,7 +204,7 @@ public class DiaryEvaluationViewController {
         }
 
 
-        public class VitalDataTable extends VitalData {
+    public class VitalDataTable extends VitalData {
             LocalDateTime dateTime;
 
             public VitalDataTable(LocalDateTime dateTime, float height, float weight, int bloodPressureFirstValue,

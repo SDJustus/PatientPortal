@@ -1,16 +1,18 @@
 package de.tud.view.DiaryEvaluation;
 
 import com.vaadin.server.Page;
+import com.vaadin.shared.data.sort.SortDirection;
 import com.vaadin.ui.*;
 import de.tud.model.welfare.Welfare;
-
-import java.time.LocalDateTime;
 
 public class WelfareEvaluationView  {
     Grid<WelfareTable> grid;
     VerticalLayout tableContainer = new VerticalLayout();
     ComboBox<String> filterComboBox = new ComboBox<>();
-    int height = 250;
+    DateTimeField fromDate = new DateTimeField();
+    DateTimeField toDate = new DateTimeField();
+    HorizontalLayout filterBar = new HorizontalLayout();
+    int height = 170;
     int width = 300;
 
 
@@ -19,18 +21,27 @@ public class WelfareEvaluationView  {
     }
 
     public Component getViewComponent() {
-        grid.setResponsive(true);
+        //datePicker
+        fromDate.setPlaceholder("von...");
+        toDate.setPlaceholder("bis...");
+
+        //Symptom filterCombo Box
+        filterComboBox.setPlaceholder("Wohlbefinden");
+        filterComboBox.setWidth("250px");
 
         //Spalte Datum
-        grid.addColumn(WelfareTable::getDate).setId("Datum1");
-        grid.getColumn("Datum1").setCaption("Datum2");
-        grid.getColumn("Datum1").setResizable(false);
+        grid.addColumn(WelfareTable::getDate).setId("Datum");
+        grid.getColumn("Datum").setCaption("Datum");
+        grid.getColumn("Datum").setResizable(false);
         grid.setSizeFull();
 
         //Spalte Welfare
         grid.addColumn(WelfareTable::getWelfare).setId("Ausprägung des Wohlbefindens");
         grid.getColumn("Ausprägung des Wohlbefindens").setCaption("Ausprägung des Wohlbefindens");
         grid.getColumn("Ausprägung des Wohlbefindens").setResizable(false);
+
+        grid.setFrozenColumnCount(grid.getColumns().size());
+        grid.sort("Datum", SortDirection.DESCENDING);
 
         grid.setFrozenColumnCount(grid.getColumns().size());
 
@@ -43,19 +54,22 @@ public class WelfareEvaluationView  {
 
         });
 
-        tableContainer.addComponents(grid);
+        filterBar.addComponents(fromDate,toDate,filterComboBox);
+        tableContainer.addComponents(filterBar,grid);
+        tableContainer.setMargin(false);
+
         return tableContainer;
     }
 
     //helperclass
     public class WelfareTable {
-        LocalDateTime dateTime;
+        String dateTime;
         Welfare welfare;
-        public WelfareTable(LocalDateTime dateTime, Welfare welfare ){
+        public WelfareTable(String dateTime, Welfare welfare ){
             this.dateTime  = dateTime;
             this.welfare = welfare;
         }
-        public LocalDateTime getDate() {
+        public String getDate() {
             return dateTime;
         }
 
