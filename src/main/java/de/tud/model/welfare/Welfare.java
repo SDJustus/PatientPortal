@@ -20,7 +20,7 @@ public abstract class Welfare {
         }, SEVERE{
             @Override
             public String toString() {
-                return "Schecht";
+                return "Schlecht";
             }
         }
     }

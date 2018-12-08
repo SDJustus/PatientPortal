@@ -1,6 +1,7 @@
 package de.tud.view;
 
 import com.vaadin.data.HasValue;
+import com.vaadin.icons.VaadinIcons;
 import com.vaadin.navigator.View;
 import com.vaadin.server.ClassResource;
 import com.vaadin.ui.*;
@@ -23,6 +24,9 @@ public class SymptomSelectionView implements View {
     private ComboBox<String> comboBox;
     private Button addNextSymptom;
 
+    //delete Entry Button
+    private Button delete;
+
     //Controller
     private SymptomSelectionViewController symptomSelectionViewController;
     private DiaryViewController diaryViewController;
@@ -34,8 +38,9 @@ public class SymptomSelectionView implements View {
 
     }
 
-    public GridLayout getSymptomSelectionView(){
-        GridLayout gridLayout= new GridLayout(3,3);
+    @Override
+    public Component getViewComponent(){
+        GridLayout gridLayout= new GridLayout(4,3);
         //Label erzeugen für Beschriftung
         symptomName = new Label("Bitte ein Symptom auswählen.");
 
@@ -47,6 +52,11 @@ public class SymptomSelectionView implements View {
         comboBox.setWidth("250px");
         comboBox.setItems(diaryViewController.getSymptomList());
         addValueChangeListenerForComboBox();
+
+        //delete Button
+        delete = new Button(VaadinIcons.CLOSE_CIRCLE);
+        delete.setVisible(false);
+        addClickListenerDelete();
 
 
         //Vertical Layout Container erzeugen
@@ -117,14 +127,12 @@ public class SymptomSelectionView implements View {
         VerticalLayout spacer2 = new VerticalLayout();
         spacer2.setWidth("50px");
 
+
         //weiteres Symptom hinzufügen
-        addNextSymptom = new Button("+ weiteres Symptom");
+        addNextSymptom = new Button("weiteres Symptom", VaadinIcons.PLUS_CIRCLE);
         addNextSymptom.setEnabled(false);
         addNextSymptom.setVisible(false);
         addClickListenerToAddNextSymptom();
-
-
-        //TODO wieder auskommentieren
 
 
         gridLayout.addComponent(comboBox, 0,1 );
@@ -133,6 +141,8 @@ public class SymptomSelectionView implements View {
         gridLayout.addComponent(symptomName, 2,0);
         gridLayout.addComponent(horizontalLayout, 2,1);
         gridLayout.addComponent(horizontalLayout1, 2, 2);
+        gridLayout.addComponent(delete, 3,1);
+
         gridLayout.setSpacing(true);
         //verticalLayout.addComponents(symptomName, horizontalLayout, spacer,horizontalLayout1);
 
@@ -140,6 +150,9 @@ public class SymptomSelectionView implements View {
     }
 
     //Listener
+    private void addClickListenerDelete(){
+        symptomSelectionViewController.addClickListenerForDelete();
+    }
 
     private void addValueChangeListenerForComboBox(){
         symptomSelectionViewController.addValueChangeListenerForComboBox();
@@ -184,6 +197,7 @@ public class SymptomSelectionView implements View {
     public Button getAddNextSymptom() {
         return addNextSymptom;
     }
+    public Button getDelete(){return delete;}
     public SymptomSelectionViewController getSymptomSelectionViewController(){
         return this.symptomSelectionViewController;
     }

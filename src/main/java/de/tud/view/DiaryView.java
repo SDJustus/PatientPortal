@@ -21,8 +21,10 @@ public class DiaryView extends Composite implements View {
     private VerticalLayout verticalLayout = new VerticalLayout(); //Vertical Layout wird in horizontal Layout gepackt
     private DateTimeField dateTimeField = new DateTimeField(); //wird in Vertical Layout gepackt
     private Label label = new Label("Neuer Tagebucheintrag");
-    private Button save = new Button("Speichern");
-    private Button newDiaryEntry = new Button("Eintrag verwerfen", VaadinIcons.TRASH);
+    private Button save = new Button("Speichern", VaadinIcons.FOLDER);
+    private Button newDiaryEntry = new Button("Alles Zurücksetzen");
+    private Button edit = new Button("", VaadinIcons.EDIT);
+    private Button okay = new Button("OK");
     private Panel panel = new Panel();
     private DiaryViewController diaryViewController;
 
@@ -32,12 +34,19 @@ public class DiaryView extends Composite implements View {
        diaryViewController = new DiaryViewController(this);
 
 
-
        //CSS
         UI.getCurrent().getPage().getStyles().add("#smileybild:hover{transform: scale(1.2);}"+
                 "#smileybild:{transition: transform .2s;}+" +
                 ".v-panel{padding-bottom: 80px;}"+
-                "#header-label{font-weight: bold; font-size:40px;}");
+                "#header-label{font-weight: bold; font-size:40px;}" +
+                "#greyscale{filter: grayscale(100%);" +
+                "-webkit-filter: grayscale(100%);" +
+                "-moz-filter: grayscale(100%);" +
+                "-ms-filter: grayscale(100%);" +
+                "-o-filter:grayscale(100%);" +
+                "filter: url(desaturate.svg#greyscale);" +
+                "filter: gray;" +
+                "-webkit-filter: grayscale(1);}");
 
         //Label Id für CSS
         label.setId("header-label");
@@ -45,23 +54,26 @@ public class DiaryView extends Composite implements View {
         //save Button ausschalten standardmäßig
         save.setEnabled(false);
 
+        okay.setEnabled(false);
+        addOkayButtonListener();
         addDateTimeFieldChangeListener();
-        menuBar.addComponents(dateTimeField,save, newDiaryEntry);
+        menuBar.addComponents(dateTimeField,save, newDiaryEntry, edit, okay);
 
         verticalLayout.setSizeUndefined();
         verticalLayout.setSpacing(true);
         panel.setContent(verticalLayout);
 
         panel.setHeight(""+0.8*Page.getCurrent().getBrowserWindowHeight());
-        panel.setWidth(""+-200+Page.getCurrent().getBrowserWindowWidth());
+        panel.setWidth(""+0.95*Page.getCurrent().getBrowserWindowWidth());
 
         UI.getCurrent().getPage().addBrowserWindowResizeListener(e -> {
             panel.setHeight(""+0.8*e.getHeight());
-            panel.setWidth(""+-200+e.getWidth());
+            panel.setWidth(""+0.95*e.getWidth());
         });
 
         addSaveButtonListener();
         addNewDiaryEntryButtonListener();
+        addNewEditButtonListener();
 
 
         verticalLayoutMain.addComponents(label,menuBar,panel);
@@ -77,6 +89,8 @@ public class DiaryView extends Composite implements View {
     private void addNewDiaryEntryButtonListener(){
        diaryViewController.addNewDiaryEntryButtonListener();
     }
+    private void addNewEditButtonListener(){diaryViewController.addNewEditButtonListener();}
+    private void addOkayButtonListener(){diaryViewController.addOkayButtonListener();}
     public VerticalLayout getVerticalLayout() {
         return verticalLayout;
     }
@@ -89,4 +103,6 @@ public class DiaryView extends Composite implements View {
     public Button getNewDiaryEntry() {
         return newDiaryEntry;
     }
+    public Button getEdit(){return  edit;}
+    public Button getOkay(){return okay;}
 }

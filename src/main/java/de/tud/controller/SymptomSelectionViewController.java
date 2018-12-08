@@ -3,11 +3,15 @@ package de.tud.controller;
 import com.vaadin.data.HasValue;
 import com.vaadin.event.MouseEvents;
 import com.vaadin.ui.Button;
+import com.vaadin.ui.Component;
+import com.vaadin.ui.GridLayout;
 import com.vaadin.ui.Notification;
 import com.vaadin.ui.themes.ValoTheme;
 import de.tud.model.symptom.Symptom;
 import de.tud.model.symptom.SymptomFactory;
 import de.tud.view.SymptomSelectionView;
+
+import java.time.LocalDateTime;
 
 public class SymptomSelectionViewController {
 
@@ -24,8 +28,9 @@ public class SymptomSelectionViewController {
         this.symptomSelectionView = symptomSelectionView;
     }
 
+    //TODO
     public boolean checkComboBox(){
-        if(selectedSymptom == null){
+        if(symptomSelectionView.getComboBox().getValue() == null){
             Notification.show("Bitte erst ein Symptom auswählen!");
             return false;
         }
@@ -39,7 +44,7 @@ public class SymptomSelectionViewController {
         symptomSelectionView.getAddNextSymptom().addClickListener(new Button.ClickListener() {
             @Override
             public void buttonClick(Button.ClickEvent clickEvent) {
-                SymptomSelectionView newSymptomSelectionView= new SymptomSelectionView(diaryViewController);
+                //SymptomSelectionView newSymptomSelectionView= new SymptomSelectionView(diaryViewController);
                 selectionCounter += 1;
 
                 diaryViewController.getSymptomList().remove(selectedSymptom);
@@ -47,11 +52,12 @@ public class SymptomSelectionViewController {
                 if(diaryViewController.getSymptomList().size() == 2){
                     diaryViewController.setSaveButtonEnabled(false);
                     symptomSelectionView.getAddNextSymptom().setVisible(false);
-                    diaryViewController.addNewSymptomSelectionView(newSymptomSelectionView);
+                    diaryViewController.addNewSymptomSelectionView();
                     return;
                 }
-                diaryViewController.addNewSymptomSelectionView(newSymptomSelectionView);
+                diaryViewController.addNewSymptomSelectionView();
                 diaryViewController.setSaveButtonEnabled(false);
+
                 symptomSelectionView.getAddNextSymptom().setVisible(false);
             }
         });
@@ -65,11 +71,15 @@ public class SymptomSelectionViewController {
                 if(checkComboBox()== true) {
                     symptomSelectionView.getMiddleLabel().setValue("");
                     symptomSelectionView.getBadLabel().setValue("");
-                    symptomSelectionView.getGoodLabel().setValue("keine");
+                    symptomSelectionView.getGoodLabel().setValue("schwach");
                     choice = Symptom.Strength.WEAK;
                     symptomArt = SymptomFactory.createSymptomByClass(selectedSymptom, choice);
-                    diaryViewController.setSaveButtonEnabled(true);
+                    symptomSelectionView.getMiddleSmiley().setId("greyscale");
+                    symptomSelectionView.getBadSmiley().setId("greyscale");
+
                     checkAddNextSymptomRestrictions();
+
+                    deactivateButtons();
                 }
             }
         });
@@ -82,8 +92,11 @@ public class SymptomSelectionViewController {
                     symptomSelectionView.getMiddleLabel().setValue("mäßig");
                     choice = Symptom.Strength.MIDDLE;
                     symptomArt = SymptomFactory.createSymptomByClass(selectedSymptom, choice);
-                    diaryViewController.setSaveButtonEnabled(true);
+                    symptomSelectionView.getGoodSmiley().setId("greyscale");
+                    symptomSelectionView.getBadSmiley().setId("greyscale");
+
                     checkAddNextSymptomRestrictions();
+                    deactivateButtons();
                 }
 
             }
@@ -97,8 +110,11 @@ public class SymptomSelectionViewController {
                     symptomSelectionView.getBadLabel().setValue("stark");
                     choice = Symptom.Strength.SEVERE;
                     symptomArt = SymptomFactory.createSymptomByClass(selectedSymptom, choice);
-                    diaryViewController.setSaveButtonEnabled(true);
+                    symptomSelectionView.getGoodSmiley().setId("greyscale");
+                    symptomSelectionView.getMiddleSmiley().setId("greyscale");
+
                     checkAddNextSymptomRestrictions();
+                    deactivateButtons();
                 }
             }
         });
@@ -118,7 +134,7 @@ public class SymptomSelectionViewController {
                     symptomSelectionView.getAddNextSymptom().setVisible(false);
 
                     //auswahl automatisch zurücksetzen
-                    symptomSelectionView.getGoodLabel().setValue("keine");
+                    symptomSelectionView.getGoodLabel().setValue("schwach");
                     symptomSelectionView.getMiddleLabel().setValue("mäßig");
                     symptomSelectionView.getBadLabel().setValue("stark");
                     choice = null;
@@ -132,10 +148,58 @@ public class SymptomSelectionViewController {
             }
         });
     }
+
+    public void addClickListenerForDelete(){
+        SymptomSelectionViewController s = this;
+        symptomSelectionView.getDelete().addClickListener(new Button.ClickListener() {
+
+            @Override
+            public void buttonClick(Button.ClickEvent clickEvent) {
+
+                int index = diaryViewController.getSymptomSelectionViewControllers().indexOf(s);
+                Component c = diaryViewController.getDiaryView().getVerticalLayout().getComponent(index);
+                diaryViewController.getDiaryView().getVerticalLayout().removeComponent(c);
+                diaryViewController.getSymptomSelectionViewControllers().remove(s);
+
+
+                if(diaryViewController.getDiaryView().getVerticalLayout().getComponentCount() == 0){
+                    diaryViewController.getDiaryView().getNewDiaryEntry().click();
+                }
+            }
+        });
+
+    }
+
+    //Auswahl sperren
+    private void deactivateButtons(){
+        symptomSelectionView.getComboBox().setEnabled(false);
+        symptomSelectionView.getBadSmiley().setEnabled(false);
+        symptomSelectionView.getMiddleSmiley().setEnabled(false);
+        symptomSelectionView.getGoodSmiley().setEnabled(false);
+    }
+
+
+    //TODO: Method bugs
     private void checkAddNextSymptomRestrictions(){
-        if(selectedSymptom != null && selectionCounter < 1 && diaryViewController.getSymptomList().size() >=2){
+        System.out.println(symptomSelectionView.getComboBox().getValue());
+        System.out.println(selectionCounter);
+        System.out.println(diaryViewController.getSymptomList().size());
+        System.out.println(diaryViewController.getDiaryView().getVerticalLayout().getComponentCount());
+
+        if(symptomSelectionView.getComboBox().getValue() != null &&
+                selectionCounter == 0 && diaryViewController.getSymptomList().size() == 1
+                && diaryViewController.getDiaryView().getVerticalLayout().getComponentCount() > 0){
+            diaryViewController.setSaveButtonEnabled(true);
+            return;
+        }
+        if(symptomSelectionView.getComboBox().getValue() != null &&
+                selectionCounter == 0 && diaryViewController.getSymptomList().size() >=2
+        && diaryViewController.getDiaryView().getVerticalLayout().getComponentCount() > 0){
+
             symptomSelectionView.getAddNextSymptom().setEnabled(true);
             symptomSelectionView.getAddNextSymptom().setVisible(true);
+
+            diaryViewController.setSaveButtonEnabled(true);
         }
     }
 
@@ -148,6 +212,7 @@ public class SymptomSelectionViewController {
     public Symptom getSymptomArt(){
         return this.symptomArt;
     }
+    public SymptomSelectionView getSymptomSelectionView(){ return symptomSelectionView;}
 
 
 
