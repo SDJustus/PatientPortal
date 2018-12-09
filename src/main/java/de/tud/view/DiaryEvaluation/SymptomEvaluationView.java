@@ -5,8 +5,11 @@ import com.vaadin.icons.VaadinIcons;
 import com.vaadin.server.Page;
 import com.vaadin.shared.data.sort.SortDirection;
 import com.vaadin.ui.*;
+import com.vaadin.ui.renderers.LocalDateTimeRenderer;
+import com.vaadin.ui.renderers.TextRenderer;
 import de.tud.model.symptom.Symptom;
 
+import java.time.LocalDateTime;
 
 
 public class SymptomEvaluationView {
@@ -35,16 +38,21 @@ public class SymptomEvaluationView {
         filterComboBox.setWidth("250px");
 
         //Spalte Datum
-        grid.addColumn(SymptomTable::getDate).setId("Datum");
+
+        grid.addColumn(SymptomTable::getDate, new LocalDateTimeRenderer("dd.MM.yyyy HH:mm")).setId("Datum");
         grid.getColumn("Datum").setCaption("Datum");
         grid.getColumn("Datum").setResizable(false);
+
 
 
         //Spalte Symptome
         grid.addColumn(SymptomTable::getSymptom).setId("Ausprägung der Symptome");
         grid.getColumn("Ausprägung der Symptome").setCaption("Ausprägung der Symptome");
 
+
+
         grid.sort("Datum", SortDirection.DESCENDING);
+
 
         grid.setFrozenColumnCount(grid.getColumns().size());
 
@@ -65,6 +73,8 @@ public class SymptomEvaluationView {
 
         return tableContainer;
     }
+
+
 
     public Grid<SymptomTable> getGrid() {
         return grid;
@@ -88,9 +98,9 @@ public class SymptomEvaluationView {
     //helperclass:
     public class SymptomTable {
         private Symptom symptom;
-        private String date;
+        private LocalDateTime date;
 
-        public SymptomTable(String d, Symptom s) {
+        public SymptomTable(LocalDateTime d, Symptom s) {
             this.symptom = s;
             this.date = d;
         }
@@ -99,7 +109,7 @@ public class SymptomEvaluationView {
             return symptom;
         }
 
-        public String getDate() {
+        public LocalDateTime getDate() {
             return date;
         }
     }

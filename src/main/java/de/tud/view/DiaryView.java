@@ -51,6 +51,9 @@ public class DiaryView extends Composite implements View {
         //Label Id für CSS
         label.setId("header-label");
 
+        //Eingaben vermeiden Date-TimeField
+        dateTimeField.setTextFieldEnabled(false);
+
         //save Button ausschalten standardmäßig
         save.setEnabled(false);
 

@@ -11,6 +11,7 @@ import de.tud.model.VitalData;
 import de.tud.model.manager.DiaryManager;
 import de.tud.model.symptom.Symptom;
 import de.tud.model.symptom.SymptomFactory;
+import de.tud.view.DiaryEvaluation.DiaryEvaluationView;
 import de.tud.view.DiaryView;
 import de.tud.view.SymptomSelectionView;
 
@@ -157,6 +158,7 @@ public class DiaryViewController {
                 saveDiaryEntry(diaryView.getDateTimeField().getValue(), symptoms);
                 diaryView.getNewDiaryEntry().click();
 
+
                 Notification.show("Eintrag erfolgreich gespeichert");
 
             }
@@ -169,9 +171,10 @@ public class DiaryViewController {
         Diary diary = diaryManager.read().get(0);
         long diaryId = diary.getId();
 
+
         DiaryEntry diaryEntry = new DiaryEntry(datum, symptoms);  //TODO: Replace "new VitalDaraSet" - it is only a placeholder
         DiaryManager.getInstance().addDiaryEntry(diaryEntry, diaryId);
-
+        DiaryEvaluationViewController.set = diaryManager.readDiaryEntriesByDiary(diaryId); //Evaluation View aktualisieren
     }
 
     public void addNewDiaryEntryButtonListener(){
