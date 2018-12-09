@@ -29,9 +29,9 @@ public class DiaryEvaluationViewController {
 
     private WelfareEvaluationView welfareEvaluationView;
     private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm");
-    private DiaryManager diaryManager = new DiaryManager();
-    long diaryId = diaryManager.read().iterator().next().getId();
-    Set<DiaryEntry> set = diaryManager.readDiaryEntriesByDiary(diaryId);
+    private static DiaryManager diaryManager = DiaryManager.getInstance();
+    static long diaryId = diaryManager.read().iterator().next().getId();
+    static Set<DiaryEntry> set = diaryManager.readDiaryEntriesByDiary(diaryId);
 
     public DiaryEvaluationViewController(DiaryEvaluationView diaryEvaluationView) {
         this.diaryEvaluationView = diaryEvaluationView;
@@ -150,7 +150,7 @@ public class DiaryEvaluationViewController {
             for (DiaryEntry diaryEntry : set) {
 
                 if (diaryEntry.getVitalData() != null) {
-                    System.out.println(diaryEntry.getVitalData().getBloodPressureFirstValue());
+                    System.out.println(diaryEntry.getVitalData().getId().toString());
                 }
 
 

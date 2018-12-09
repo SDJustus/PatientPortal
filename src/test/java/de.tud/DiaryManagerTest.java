@@ -39,7 +39,7 @@ class DiaryManagerTest {
 
     @BeforeEach
     void initializer(){
-        dm = new DiaryManager();
+        dm = DiaryManager.getInstance();
 
         vds = new VitalData();
         vds.setBloodPressureFirstValue(123);

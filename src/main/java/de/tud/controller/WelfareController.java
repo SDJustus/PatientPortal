@@ -41,7 +41,7 @@ public class WelfareController  {
     public  WelfareController(WelfareUISetup desview)
     {
         this.desview = desview;
-        diaryManager = new DiaryManager();
+        diaryManager = DiaryManager.getInstance();
         diary = diaryManager.read().get(0);
         diaryId = diary.getId();
         this.desview.getSave().setEnabled(false);
@@ -105,7 +105,7 @@ public class WelfareController  {
 
 
     public void saveWelfareDiaryEntry(LocalDateTime datum, HashSet<Welfare> data){
-        DiaryManager diaryManager = new DiaryManager();
+        DiaryManager diaryManager = DiaryManager.getInstance();
         Diary diary = diaryManager.read().get(0);
         long diaryId = diary.getId();
 

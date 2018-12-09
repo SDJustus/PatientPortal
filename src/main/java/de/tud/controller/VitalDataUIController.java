@@ -28,7 +28,7 @@ public class VitalDataUIController  {
    public  VitalDataUIController(VitalDataUIDesignerUISetup desview)
     {
        this.desview = desview;
-        diaryManager = new DiaryManager();
+        diaryManager = DiaryManager.getInstance();
         diary = diaryManager.read().get(0);
         diaryId = diary.getId();
         this.desview.getSaveVitalData().setEnabled(false);
@@ -88,7 +88,7 @@ public class VitalDataUIController  {
 
 
     public void saveVitalDataDiaryEntry(LocalDateTime datum, VitalData data){
-        DiaryManager diaryManager = new DiaryManager();
+        DiaryManager diaryManager = DiaryManager.getInstance();
         Diary diary = diaryManager.read().get(0);
         double diaryId = diary.getId();
 

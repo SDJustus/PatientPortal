@@ -8,7 +8,7 @@ import javax.persistence.*;
 public class VitalData extends EntityObject {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @Column(name = "height")
     private float height;

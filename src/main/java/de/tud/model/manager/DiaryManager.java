@@ -13,6 +13,10 @@ import java.util.logging.Logger;
 
 public class DiaryManager extends EntityManager<Diary> {
 
+    private DiaryManager(){
+
+    }
+
     private static final Logger LOGGER = Logger.getLogger(DiaryManager.class.getName());
 
     private static final DiaryManager INSTANCE = new DiaryManager();
