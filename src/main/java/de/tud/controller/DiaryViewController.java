@@ -164,7 +164,7 @@ public class DiaryViewController {
     }
 
     public void saveDiaryEntry(LocalDateTime datum, Set<Symptom> symptoms){
-        DiaryManager diaryManager = new DiaryManager();
+        DiaryManager diaryManager = DiaryManager.getInstance();
         //diaryManager.addDiary(new Diary());
         Diary diary = diaryManager.read().get(0);
         long diaryId = diary.getId();

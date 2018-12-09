@@ -26,7 +26,9 @@ public class DiaryEntry extends EntityObject {
             cascade = CascadeType.ALL)
     private Set<Welfare> welfare;
 
-    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToOne(fetch = FetchType.EAGER,
+            orphanRemoval = true,
+            cascade = CascadeType.ALL)
     @JoinColumn(name="vital_data_id")
     private VitalData vitalData;
 
