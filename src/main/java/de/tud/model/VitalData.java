@@ -72,7 +72,7 @@ public class VitalData extends EntityObject {
     }
 
     public float getBMI(){
-        return this.getWeight()/this.getHeight()*this.getHeight();
+        return Math.round(this.getWeight()/(this.getHeight()*this.getHeight()));
     }
     @Override
     public Long getId() {
