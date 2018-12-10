@@ -4,13 +4,20 @@ import com.vaadin.server.*;
 import com.vaadin.shared.ui.ErrorLevel;
 import com.vaadin.ui.AbstractComponent;
 import com.vaadin.ui.Notification;
+import de.tud.model.exceptions.EmptyDataBaseException;
+import org.hibernate.HibernateException;
 
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 public class CustomizedErrorHandler implements ErrorHandler {
+
+    private static final Logger LOGGER = Logger.getLogger(CustomizedErrorHandler.class.getSimpleName());
     @Override
     public void error(ErrorEvent event) {
+        LOGGER.log(Level.SEVERE, "An Error accoured: " + event.getThrowable().getLocalizedMessage());
         // Finds the original source of the error/exception
         AbstractComponent component = DefaultErrorHandler.findAbstractComponent(event);
         if (component != null) {
@@ -34,8 +41,16 @@ public class CustomizedErrorHandler implements ErrorHandler {
             return new UserError(illegalArgumentException.getLocalizedMessage(),
                     AbstractErrorMessage.ContentMode.TEXT, ErrorLevel.ERROR);
         SQLException sqlException = getCauseOfType(t, SQLException.class);
-        if (sqlException != null) {
+        if (sqlException != null)
             return new UserError(sqlException.getLocalizedMessage(),
+                    AbstractErrorMessage.ContentMode.TEXT, ErrorLevel.ERROR);
+        EmptyDataBaseException emptyDataBaseException = getCauseOfType(t, EmptyDataBaseException.class);
+        if (emptyDataBaseException != null)
+            return new UserError(emptyDataBaseException.getLocalizedMessage() +
+                    "Add a Diary to continue.",AbstractErrorMessage.ContentMode.TEXT, ErrorLevel.ERROR);
+        HibernateException hibernateException = getCauseOfType(t, HibernateException.class);
+        if (hibernateException != null) {
+            return new UserError(hibernateException.getLocalizedMessage(),
                     AbstractErrorMessage.ContentMode.TEXT, ErrorLevel.ERROR);
         }
         else{
