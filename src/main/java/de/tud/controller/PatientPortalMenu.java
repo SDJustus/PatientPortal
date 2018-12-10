@@ -27,7 +27,7 @@ public class PatientPortalMenu extends UI {
     @Override
     public void init(VaadinRequest request) {
 
-        //UI.getCurrent().setErrorHandler(new CustomizedErrorHandler());
+        UI.getCurrent().setErrorHandler(new CustomizedErrorHandler());
         //CSS Befehle
         UI.getCurrent().getPage().getStyles().add(".v-button{text-align: left !important;}" +
                 ".v-label{font-size: large !important; }"+

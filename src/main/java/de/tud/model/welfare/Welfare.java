@@ -29,7 +29,7 @@ public abstract class Welfare {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column (name = "symptom_id")
+    @Column (name = "welfare_id")
     protected long welfareId;
 
     public Welfare(){}
