@@ -12,6 +12,7 @@ import com.vaadin.ui.*;
 import com.vaadin.navigator.Navigator;
 import de.tud.view.*;
 import de.tud.view.DiaryEvaluation.DiaryEvaluationView;
+import de.tud.view.Homework.HomeworkView;
 import de.tud.view.VitalData.VitalDataView;
 import de.tud.view.Welfare.WelfareView;
 
@@ -57,6 +58,11 @@ public class PatientPortalMenu extends UI {
         Button view2 = new Button("Auswertung", e -> getNavigator().navigateTo("Auswertung"));
         view2.addStyleNames(MaterialTheme.BUTTON_LINK, MaterialTheme.MENU_ITEM);
         view2.setIcon(VaadinIcons.CHART, MaterialTheme.MENU_PART_LARGE_ICONS);
+
+        //Button Hausaufgaben
+        Button view3 = new Button("Hausaufgaben", e -> getNavigator().navigateTo("Hausaufgaben"));
+        view3.addStyleNames(MaterialTheme.BUTTON_LINK, MaterialTheme.MENU_ITEM);
+        view3.setIcon(VaadinIcons.WORKPLACE, MaterialTheme.MENU_PART_LARGE_ICONS);
 
 
         //Menu tree
@@ -132,7 +138,7 @@ public class PatientPortalMenu extends UI {
         });
 
         //Integration der MenuItems
-        CssLayout menu = new CssLayout(title, profilbild,view1, view2,menuTree);
+        CssLayout menu = new CssLayout(title, profilbild,view1, view2, view3, menuTree);
 
         //Styles hinzufügen
         menu.addStyleName(MaterialTheme.MENU_ROOT);
@@ -169,6 +175,7 @@ public class PatientPortalMenu extends UI {
         navigator.addView("Auswertung", DiaryEvaluationView.class);
         navigator.addView("Vitaldateneintrag", VitalDataView.class);
         navigator.addView("Wohlbefinden", WelfareView.class);
+        navigator.addView("Hausaufgaben", HomeworkView.class);
 
         
 

@@ -5,6 +5,10 @@
 @import "../../..//VAADIN/addons/stepper/stepper.scss";
 
 
+/* Provided by calendar-component-2.0-BETA4.jar */
+@import "../../../VAADIN/addons/calendar/calendar-addon.scss";
+
+
 /* Provided by stepper-2.4.0.jar */
 @import "../../../VAADIN/addons/stepper/stepper.scss";
 
@@ -12,6 +16,7 @@
 /* Import and include this mixin into your project theme to include the addon themes */
 @mixin addons {
 	@include stepper;
+	@include calendar-addon;
 	@include stepper;
 }
 
