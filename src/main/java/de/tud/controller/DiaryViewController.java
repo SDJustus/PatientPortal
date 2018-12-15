@@ -2,6 +2,7 @@ package de.tud.controller;
 
 import com.vaadin.data.HasValue;
 import com.vaadin.event.MouseEvents;
+import com.vaadin.ui.Alignment;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Notification;
 import com.vaadin.ui.themes.ValoTheme;
@@ -106,8 +107,8 @@ public class DiaryViewController {
 
     public void addNewSymptomSelectionView(){
         SymptomSelectionView symptomSelectionView = new SymptomSelectionView(this);
-        diaryView.getVerticalLayout().addComponents(symptomSelectionView.getViewComponent());
 
+        diaryView.getVerticalLayout().addComponents(symptomSelectionView.getViewComponent());
         System.out.println(diaryView.getVerticalLayout().getComponentCount());
 
 

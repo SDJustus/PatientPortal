@@ -35,6 +35,8 @@ public class PatientPortalMenu extends UI {
                 "#smileybild:{transition: transform .2s;}"+
                 "#profilbild{display: block; margin: 0 auto;}");
 
+        Responsive.makeResponsive(this);
+
         //Titel des Menüs
         Label title = new Label("Patientenportal");
         title.addStyleName(MaterialTheme.MENU_TITLE);
@@ -53,6 +55,8 @@ public class PatientPortalMenu extends UI {
         view1.addStyleNames( MaterialTheme.BUTTON_LINK, MaterialTheme.MENU_ITEM);
         view1.addStyleName(MaterialTheme.MENU_ITEM);
 
+
+
         //Button z.B. zum Medikationsplan
         Button view2 = new Button("Auswertung", e -> getNavigator().navigateTo("Auswertung"));
         view2.addStyleNames(MaterialTheme.BUTTON_LINK, MaterialTheme.MENU_ITEM);
@@ -62,6 +66,7 @@ public class PatientPortalMenu extends UI {
         //Menu tree
         menuTree = new Tree<>();
         menuTreeData = new TreeData<>();
+        menuTree.setVisible(false);
 
         //add tree items with hierachy
         menuTreeData.addItem(null,"Patiententagebuch");
@@ -70,6 +75,7 @@ public class PatientPortalMenu extends UI {
         menuTreeData.addItem("Patiententagebuch", "Auswertung");
         menuTreeData.addItem("Patiententagebuch", "Wohlbefinden");
 
+        menuTree.setIcon(VaadinIcons.TASKS);
 
         //add data to tree
         TreeDataProvider inMemoryDataProvider = new TreeDataProvider<>(menuTreeData);
@@ -83,12 +89,20 @@ public class PatientPortalMenu extends UI {
         view2.addStyleName(MaterialTheme.BUTTON_FLAT +MaterialTheme.BUTTON_BORDER);
 
 
+        view1.addClickListener(new Button.ClickListener() {
+            @Override
+            public void buttonClick(Button.ClickEvent clickEvent) {
+                menuTree.setVisible(true);
+                menuTree.focus();
+            }
+        });
+
+
 
 
         //add functions to tree items -> listen for selection change then navigate
         menuTree.addItemClickListener(event -> {
             {
-
 
                 String selectedItem = event.getItem();
 
@@ -122,24 +136,20 @@ public class PatientPortalMenu extends UI {
 
                         break;
                     }
-
-
                 }
-
-
 
             }
         });
 
         //Integration der MenuItems
-        CssLayout menu = new CssLayout(title, profilbild,view1, view2,menuTree);
+        CssLayout menu = new CssLayout(title, profilbild,view1,menuTree ,view2);
 
         //Styles hinzufügen
         menu.addStyleName(MaterialTheme.MENU_ROOT);
         menu.addStyleName(MaterialTheme.LAYOUT_COMPONENT_GROUP_MATERIAL);
         //menu.addStyleName("menubackground");
-        menuTree.setPrimaryStyleName("v-tree8");
-        menuTree.addStyleName("colourTree");
+        //menuTree.setPrimaryStyleName("v-tree8");
+        //menuTree.addStyleName("colourTree");
         menuTree.addStyleName("v-tree8");
 
 

@@ -10,6 +10,10 @@ public class VitalDataView extends Composite implements View {
     public VitalDataView(){
 
 
+
+
+
+
         setCompositionRoot(new VitalDataUIDesignerUISetup());
 
 
