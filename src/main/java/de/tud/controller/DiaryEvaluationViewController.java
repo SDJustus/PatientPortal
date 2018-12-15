@@ -3,6 +3,7 @@ package de.tud.controller;
 import com.vaadin.data.HasValue;
 import com.vaadin.data.provider.ListDataProvider;
 import com.vaadin.event.dd.acceptcriteria.Not;
+import com.vaadin.navigator.View;
 import com.vaadin.server.Page;
 import com.vaadin.ui.*;
 import de.tud.model.DiaryEntry;
@@ -193,6 +194,7 @@ public class DiaryEvaluationViewController {
             }
             diaryEvaluationView.getVerticalLayout().addComponent(welfareEvaluationView.getViewComponent());
         }
+
     public void addClickListenerForSymptomButton () {
             diaryEvaluationView.getSymptomTableButton().addClickListener(new Button.ClickListener() {
                 @Override
@@ -219,6 +221,9 @@ public class DiaryEvaluationViewController {
 
         }
 
+    private void filterLogicForGrid(View view){
+
+    }
 
 
 

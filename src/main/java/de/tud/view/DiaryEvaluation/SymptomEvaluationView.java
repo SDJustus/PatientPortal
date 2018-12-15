@@ -2,17 +2,20 @@ package de.tud.view.DiaryEvaluation;
 
 
 import com.vaadin.icons.VaadinIcons;
+import com.vaadin.navigator.View;
 import com.vaadin.server.Page;
 import com.vaadin.shared.data.sort.SortDirection;
 import com.vaadin.ui.*;
+import com.vaadin.ui.Button;
 import com.vaadin.ui.renderers.LocalDateTimeRenderer;
 import com.vaadin.ui.renderers.TextRenderer;
 import de.tud.model.symptom.Symptom;
 
+import java.awt.*;
 import java.time.LocalDateTime;
 
 
-public class SymptomEvaluationView {
+public class SymptomEvaluationView extends EvaluationView {
     Grid<SymptomTable> grid;
     VerticalLayout tableContainer = new VerticalLayout();
     ComboBox<String> filterComboBox = new ComboBox<>();

@@ -1,6 +1,7 @@
 package de.tud.view.DiaryEvaluation;
 
 import com.vaadin.icons.VaadinIcons;
+import com.vaadin.navigator.View;
 import com.vaadin.server.Page;
 import com.vaadin.shared.data.sort.SortDirection;
 import com.vaadin.ui.*;
@@ -9,7 +10,7 @@ import com.vaadin.ui.renderers.Renderer;
 import de.tud.model.VitalData;
 
 
-public class VitalDataEvaluationView {
+public class VitalDataEvaluationView extends EvaluationView {
     Grid<VitalDataTable> grid;
     VerticalLayout tableContainer = new VerticalLayout();
     DateTimeField fromDate = new DateTimeField();

@@ -1,11 +1,12 @@
 package de.tud.view.DiaryEvaluation;
 
+import com.vaadin.navigator.View;
 import com.vaadin.server.Page;
 import com.vaadin.shared.data.sort.SortDirection;
 import com.vaadin.ui.*;
 import de.tud.model.welfare.Welfare;
 
-public class WelfareEvaluationView  {
+public class WelfareEvaluationView extends EvaluationView {
     Grid<WelfareTable> grid;
     VerticalLayout tableContainer = new VerticalLayout();
     ComboBox<String> filterComboBox = new ComboBox<>();
