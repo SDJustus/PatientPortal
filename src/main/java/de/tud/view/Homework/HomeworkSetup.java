@@ -1,0 +1,122 @@
+package de.tud.view.Homework;
+
+import com.vaadin.icons.VaadinIcons;
+import com.vaadin.navigator.View;
+import com.vaadin.ui.*;
+import de.tud.controller.HomeworkController;
+import org.vaadin.addon.calendar.Calendar;
+
+import java.time.LocalDate;
+import java.time.Month;
+import java.util.Locale;
+
+public class HomeworkSetup extends HomeworkDesigner implements View {
+
+
+
+HomeworkController controller;
+
+
+    HomeworkSetup() {
+
+
+        //instantiate controller
+    controller = new HomeworkController(this);
+
+controller.addDateTimeFieldChangeListener();
+controller.addSaveButtonListener();
+
+
+
+    }
+
+
+
+
+
+    public Button getSaveButton() {
+        return saveButton;
+    }
+
+    public void setSaveButton(Button saveButton) {
+        this.saveButton = saveButton;
+    }
+
+    public ComboBox<String> getCombobox() {
+        return combobox;
+    }
+
+    public void setCombobox(ComboBox<String> combobox) {
+        this.combobox = combobox;
+    }
+
+    public DateField getDataPicker() {
+        return dataPicker;
+    }
+
+    public void setDataPicker(DateField dataPicker) {
+        this.dataPicker = dataPicker;
+    }
+
+    public Calendar getCalendar() {
+        return calendar;
+    }
+
+    public void setCalendar(Calendar calendar) {
+        this.calendar = calendar;
+    }
+
+
+    public TextField getHomeworkName() {
+        return homeworkName;
+    }
+
+    public void setHomeworkName(TextField homeworkName) {
+        this.homeworkName = homeworkName;
+    }
+
+    public TextField getHomeworkDescription() {
+        return homeworkDescription;
+    }
+
+    public void setHomeworkDescription(TextField homeworkDescription) {
+        this.homeworkDescription = homeworkDescription;
+    }
+
+    public TextField getHomeworkDescriptionLong() {
+        return homeworkDescriptionLong;
+    }
+
+    public void setHomeworkDescriptionLong(TextField homeworkDescriptionLong) {
+        this.homeworkDescriptionLong = homeworkDescriptionLong;
+    }
+
+
+
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

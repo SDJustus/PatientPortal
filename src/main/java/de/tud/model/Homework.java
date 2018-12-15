@@ -1,6 +1,9 @@
 package de.tud.model;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
+import java.time.ZonedDateTime;
+import java.util.Date;
 
 @Entity
 @Table(name="homework")
@@ -9,6 +12,8 @@ public class Homework extends EntityObject {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+    @Column (name="homework_date")
+    private ZonedDateTime date;
     @Column(name="homework_name")
     private String name;
     @Column(name="homework_shortDescription")
@@ -19,6 +24,8 @@ public class Homework extends EntityObject {
     private boolean status;                                                                                             //Status ist False wenn nicht erledigt
     @Column(name="homework_type")
     private Type type;
+
+
 
     public enum Type{
         QUESTIONNAIRE,
@@ -34,7 +41,17 @@ public class Homework extends EntityObject {
         this.shortDescription=shortDescription;
         this.longDescription=longDescription;
         this.status=false;
+
     }
+    public Homework(Type type, String name, String shortDescription, String longDescription, ZonedDateTime date){                           //neue Homework mit Status False erzeugt da keine Aufgabe direkt erledig sein soll
+        this.type=type;
+        this.name=name;
+        this.shortDescription=shortDescription;
+        this.longDescription=longDescription;
+        this.status=false;
+        this.date= date;
+    }
+
 
     @Override
     public Long getId() {
@@ -80,4 +97,13 @@ public class Homework extends EntityObject {
     public void setType(Type type) {
         this.type = type;
     }
+
+    public ZonedDateTime getDate() {
+        return date;
+    }
+
+    public void setDate(ZonedDateTime date) {
+        this.date = date;
+    }
+
 }

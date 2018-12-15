@@ -12,6 +12,7 @@ import com.vaadin.ui.*;
 import com.vaadin.navigator.Navigator;
 import de.tud.view.*;
 import de.tud.view.DiaryEvaluation.DiaryEvaluationView;
+import de.tud.view.Homework.HomeworkView;
 import de.tud.view.VitalData.VitalDataView;
 import de.tud.view.Welfare.WelfareView;
 
@@ -35,8 +36,6 @@ public class PatientPortalMenu extends UI {
                 "#smileybild:{transition: transform .2s;}"+
                 "#profilbild{display: block; margin: 0 auto;}");
 
-        Responsive.makeResponsive(this);
-
         //Titel des Menüs
         Label title = new Label("Patientenportal");
         title.addStyleName(MaterialTheme.MENU_TITLE);
@@ -55,18 +54,20 @@ public class PatientPortalMenu extends UI {
         view1.addStyleNames( MaterialTheme.BUTTON_LINK, MaterialTheme.MENU_ITEM);
         view1.addStyleName(MaterialTheme.MENU_ITEM);
 
-
-
         //Button z.B. zum Medikationsplan
         Button view2 = new Button("Auswertung", e -> getNavigator().navigateTo("Auswertung"));
         view2.addStyleNames(MaterialTheme.BUTTON_LINK, MaterialTheme.MENU_ITEM);
         view2.setIcon(VaadinIcons.CHART, MaterialTheme.MENU_PART_LARGE_ICONS);
 
+        //Button Hausaufgaben
+        Button view3 = new Button("Hausaufgaben", e -> getNavigator().navigateTo("Hausaufgaben"));
+        view3.addStyleNames(MaterialTheme.BUTTON_LINK, MaterialTheme.MENU_ITEM);
+        view3.setIcon(VaadinIcons.WORKPLACE, MaterialTheme.MENU_PART_LARGE_ICONS);
+
 
         //Menu tree
         menuTree = new Tree<>();
         menuTreeData = new TreeData<>();
-        menuTree.setVisible(false);
 
         //add tree items with hierachy
         menuTreeData.addItem(null,"Patiententagebuch");
@@ -88,21 +89,16 @@ public class PatientPortalMenu extends UI {
         view2.addStyleName(MaterialTheme.BUTTON_FLAT +MaterialTheme.BUTTON_BORDER);
 
 
-        view1.addClickListener(new Button.ClickListener() {
-            @Override
-            public void buttonClick(Button.ClickEvent clickEvent) {
-                menuTree.setVisible(true);
-                menuTree.focus();
-            }
-        });
-
 
 
         //add functions to tree items -> listen for selection change then navigate
         menuTree.addItemClickListener(event -> {
             {
 
+
                 String selectedItem = event.getItem();
+
+
 
                 System.out.println(selectedItem);
                 switch (selectedItem) {
@@ -132,20 +128,24 @@ public class PatientPortalMenu extends UI {
 
                         break;
                     }
+
+
                 }
+
+
 
             }
         });
 
         //Integration der MenuItems
-        CssLayout menu = new CssLayout(title, profilbild,view1,menuTree ,view2);
+        CssLayout menu = new CssLayout(title, profilbild,view1, view2, view3, menuTree);
 
         //Styles hinzufügen
         menu.addStyleName(MaterialTheme.MENU_ROOT);
         menu.addStyleName(MaterialTheme.LAYOUT_COMPONENT_GROUP_MATERIAL);
         //menu.addStyleName("menubackground");
-        //menuTree.setPrimaryStyleName("v-tree8");
-        //menuTree.addStyleName("colourTree");
+        menuTree.setPrimaryStyleName("v-tree8");
+        menuTree.addStyleName("colourTree");
         menuTree.addStyleName("v-tree8");
 
 
@@ -175,11 +175,8 @@ public class PatientPortalMenu extends UI {
         navigator.addView("Auswertung", DiaryEvaluationView.class);
         navigator.addView("Vitaldateneintrag", VitalDataView.class);
         navigator.addView("Wohlbefinden", WelfareView.class);
-
+        navigator.addView("Hausaufgaben", HomeworkView.class);
         
-
-
-
 
     }
     @WebServlet(urlPatterns = "/*", name = "MyUIServlet", asyncSupported = true)

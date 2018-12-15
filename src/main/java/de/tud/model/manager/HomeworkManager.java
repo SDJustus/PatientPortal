@@ -1,10 +1,13 @@
 package de.tud.model.manager;
 
 import com.sun.org.apache.xpath.internal.operations.Bool;
+import de.tud.model.Diary;
+import de.tud.model.DiaryEntry;
 import de.tud.model.Homework;
 import org.hibernate.Session;
 
 import java.util.List;
+import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -15,9 +18,11 @@ public class HomeworkManager extends EntityManager<Homework> {
     public List<Homework> read() {
         Session session = getSessionFactory().openSession();
         List<Homework> homework = session.createQuery("FROM Homework").list();
-        if (homework.isEmpty()){
-            throw new NullPointerException("There was no Homework in the database.");
-        }
+
+        //Es darf hier nicht abstürzen, da auch erst Hausaufgaben hinzugefügt werden könnten -> Prüfung, ob leer, im Controller
+       // if (homework.isEmpty()){
+       //     throw new NullPointerException("There was no Homework in the database.");
+        //}
         session.close();
         LOGGER.log(Level.INFO, "Read " + homework.size() + " from the database!");
         return homework;
@@ -109,4 +114,5 @@ public class HomeworkManager extends EntityManager<Homework> {
             session.close();
         }
     }
+
 }
