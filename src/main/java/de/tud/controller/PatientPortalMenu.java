@@ -75,7 +75,6 @@ public class PatientPortalMenu extends UI {
         menuTreeData.addItem("Patiententagebuch", "Auswertung");
         menuTreeData.addItem("Patiententagebuch", "Wohlbefinden");
 
-        menuTree.setIcon(VaadinIcons.TASKS);
 
         //add data to tree
         TreeDataProvider inMemoryDataProvider = new TreeDataProvider<>(menuTreeData);
@@ -99,14 +98,11 @@ public class PatientPortalMenu extends UI {
 
 
 
-
         //add functions to tree items -> listen for selection change then navigate
         menuTree.addItemClickListener(event -> {
             {
 
                 String selectedItem = event.getItem();
-
-
 
                 System.out.println(selectedItem);
                 switch (selectedItem) {

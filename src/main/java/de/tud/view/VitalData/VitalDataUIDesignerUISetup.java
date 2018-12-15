@@ -18,10 +18,11 @@ public VitalDataUIDesignerUISetup()
 {
 
     //Verbindung zu Controller
-    vitalDataUIController = new VitalDataUIController(this);
+    //vitalDataUIController = new VitalDataUIController(this);
 
     //caption setup
     captionLabel.setValue("Bitte tragen Sie ihre Vitaldaten ein:");
+    captionLabel.setId("header-label");
     captionLabel.addStyleName(MaterialTheme.CARD_0_5);
     captionLabel.addStyleName(MaterialTheme.LABEL_H1);
     //captionLabel.addStyleName("catbackground");
@@ -121,7 +122,7 @@ public VitalDataUIDesignerUISetup()
 //panel setup
     //super.setWidth("100%");
     //super.setHeight("850px");
-    panel.getContent().setSizeUndefined();
+    //panel.getContent().setSizeUndefined();
     panel.setHeight(""+0.95* Page.getCurrent().getBrowserWindowHeight());
     panel.setWidth(""+0.95*Page.getCurrent().getBrowserWindowWidth());
 
