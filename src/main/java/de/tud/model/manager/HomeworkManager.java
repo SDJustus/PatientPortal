@@ -1,10 +1,13 @@
 package de.tud.model.manager;
 
 import com.sun.org.apache.xpath.internal.operations.Bool;
+import de.tud.model.Diary;
+import de.tud.model.DiaryEntry;
 import de.tud.model.Homework;
 import org.hibernate.Session;
 
 import java.util.List;
+import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -111,4 +114,5 @@ public class HomeworkManager extends EntityManager<Homework> {
             session.close();
         }
     }
+
 }

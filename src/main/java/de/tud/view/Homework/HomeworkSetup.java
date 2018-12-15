@@ -23,9 +23,8 @@ HomeworkController controller;
         //instantiate controller
     controller = new HomeworkController(this);
 
-
-
-
+controller.addDateTimeFieldChangeListener();
+controller.addSaveButtonListener();
 
 
 
@@ -68,7 +67,29 @@ HomeworkController controller;
     }
 
 
+    public TextField getHomeworkName() {
+        return homeworkName;
+    }
 
+    public void setHomeworkName(TextField homeworkName) {
+        this.homeworkName = homeworkName;
+    }
+
+    public TextField getHomeworkDescription() {
+        return homeworkDescription;
+    }
+
+    public void setHomeworkDescription(TextField homeworkDescription) {
+        this.homeworkDescription = homeworkDescription;
+    }
+
+    public TextField getHomeworkDescriptionLong() {
+        return homeworkDescriptionLong;
+    }
+
+    public void setHomeworkDescriptionLong(TextField homeworkDescriptionLong) {
+        this.homeworkDescriptionLong = homeworkDescriptionLong;
+    }
 
 
 

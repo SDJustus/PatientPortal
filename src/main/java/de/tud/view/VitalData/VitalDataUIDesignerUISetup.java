@@ -75,11 +75,11 @@ public VitalDataUIDesignerUISetup()
     weightStepper.setDescription("Bitte geben Sie Ihr Gewicht ein.");
     weightStepper.addStyleName(MaterialTheme.COMBOBOX_ALIGN_CENTER);
 
-    heightStepper.setMinValue(0.3f);
-    heightStepper.setMaxValue(3f);
-    heightStepper.setStepAmount(0.01f);
-    heightStepper.setValue(1.7f);
-    heightStepper.setNumberOfDecimals(2);
+    heightStepper.setMinValue(40f);
+    heightStepper.setMaxValue(300f);
+    heightStepper.setStepAmount(1f);
+    heightStepper.setValue(170f);
+    heightStepper.setNumberOfDecimals(0);
     heightStepper.setDescription("Bitte geben Sie Ihre Körpergröße ein.");
     heightStepper.addStyleName(MaterialTheme.COMBOBOX_ALIGN_CENTER);
 

@@ -176,11 +176,7 @@ public class PatientPortalMenu extends UI {
         navigator.addView("Vitaldateneintrag", VitalDataView.class);
         navigator.addView("Wohlbefinden", WelfareView.class);
         navigator.addView("Hausaufgaben", HomeworkView.class);
-
         
-
-
-
 
     }
     @WebServlet(urlPatterns = "/*", name = "MyUIServlet", asyncSupported = true)

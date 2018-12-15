@@ -1,10 +1,14 @@
 package de.tud.controller;
 
+import com.vaadin.data.HasValue;
 import com.vaadin.data.converter.LocalDateTimeToDateConverter;
 import com.vaadin.data.provider.DataProvider;
+import com.vaadin.data.validator.StringLengthValidator;
 import com.vaadin.server.ClassResource;
 import com.vaadin.server.Sizeable;
 import com.vaadin.shared.ui.ContentMode;
+import com.vaadin.ui.Button;
+import com.vaadin.ui.Notification;
 import de.tud.model.Diary;
 import de.tud.model.Homework;
 import de.tud.model.manager.DiaryManager;
@@ -18,8 +22,7 @@ import org.vaadin.addon.calendar.item.BasicItemProvider;
 import org.vaadin.addon.calendar.item.CalendarItemProvider;
 
 import javax.xml.crypto.Data;
-import java.time.ZoneId;
-import java.time.ZonedDateTime;
+import java.time.*;
 import java.util.*;
 
 public class HomeworkController {
@@ -41,7 +44,9 @@ public class HomeworkController {
         diaryId = diary.getId();
         this.designerView.getSaveButton().setEnabled(false);
         setUpCalendar();
-
+        setupComobobox();
+        setUpDataPicker();
+        addTextBoxRestrictions();
     }
 
 
@@ -69,6 +74,9 @@ public class HomeworkController {
        // setupBlockedTimeSlots();
 
         loadCalendarEntries();
+
+
+
 
     }
 
@@ -153,13 +161,126 @@ public class HomeworkController {
     }
 
 
+    public void addDateTimeFieldChangeListener(){
+        designerView.getDataPicker().addValueChangeListener(new HasValue.ValueChangeListener<LocalDate>() {
+            @Override
+            public void valueChange(HasValue.ValueChangeEvent<LocalDate> valueChangeEvent) {
+
+                if(designerView.getDataPicker().getValue() != null ){
+                    designerView.getSaveButton().setEnabled(true);
+                }
+
+
+            }
+        });
+
+
+
+        }
+
+
+
+
+    public void addSaveButtonListener() {
+        designerView.getSaveButton().addClickListener(new Button.ClickListener() {
+            @Override
+            public void buttonClick(Button.ClickEvent clickEvent) {
+
+
+
+                if(designerView.getHomeworkDescription().isEmpty() == true)
+                {
+                    Notification.show("Bitte füllen Sie alle Felder aus");
+                    return;
+                }
+                if(designerView.getHomeworkDescriptionLong().isEmpty() == true)
+                {
+                    Notification.show("Bitte füllen Sie alle Felder aus");
+                    return;
+                }
+                if(designerView.getHomeworkName().isEmpty() == true)
+                {
+                    Notification.show("Bitte füllen Sie alle Felder aus");
+                    return;
+                }
+
+                Homework h;
+                LocalDate local= designerView.getDataPicker().getValue();
+                ZonedDateTime zdt = local.atStartOfDay(ZoneOffset.UTC);
+                HomeworkManager manager = new HomeworkManager();
+
+                if(designerView.getCombobox().getValue() == "Fragebogen")
+                {
+
+                    h = new Homework(Homework.Type.QUESTIONNAIRE, designerView.getHomeworkName().getValue(),
+                            designerView.getHomeworkDescriptionLong().getValue(),  designerView.getHomeworkDescription().getValue(),
+                            zdt);
+                    manager.create(h);
+                }
+                if(designerView.getCombobox().getValue() == "Übung")
+                {
+
+                     h = new Homework(Homework.Type.EXERCISE, designerView.getHomeworkName().getValue(),
+                            designerView.getHomeworkDescriptionLong().getValue(),  designerView.getHomeworkDescription().getValue(),
+                            zdt);
+                    manager.create(h);
+
+                    System.out.println(h.getName());
+                    System.out.println(h.getId().toString());
+                }
+                if(designerView.getCombobox().getValue() == "Dokument")
+                {
+                    h = new Homework(Homework.Type.DOKUMENT, designerView.getHomeworkName().getValue(),
+                            designerView.getHomeworkDescriptionLong().getValue(),  designerView.getHomeworkDescription().getValue(),
+                            zdt);
+                    manager.create(h);
+
+                }
 
 
 
 
 
+                designerView.getHomeworkName().setValue("");
+                designerView.getHomeworkDescription().setValue("");
+                designerView.getHomeworkDescriptionLong().setValue("");
+
+                loadCalendarEntries();
 
 
+            }
+        });
+
+    }
+
+    void setupComobobox()
+    {
+
+        designerView.getCombobox().setItems("Übung",
+                    "Dokument", "Fragebogen");
+        designerView.getCombobox().setValue("Übung");
+
+    }
+
+    void setUpDataPicker()
+    {
+        designerView.getDataPicker().setDefaultValue(LocalDate.from(LocalDateTime.now()));
+        designerView.getDataPicker().setRangeStart(LocalDate.from(LocalDateTime.now()));
+
+
+    }
+
+
+    void addTextBoxRestrictions()
+    {
+
+designerView.getHomeworkDescriptionLong().setMaxLength(120);
+designerView.getHomeworkDescription().setMaxLength(25);
+designerView.getHomeworkName().setMaxLength(12);
+
+
+
+    }
 
 
 
