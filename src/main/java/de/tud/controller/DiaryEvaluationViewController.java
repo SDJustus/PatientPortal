@@ -77,7 +77,6 @@ public class DiaryEvaluationViewController {
                 }
             }
 
-
             symptomEvaluationView.getGrid().setItems(superEntryList, SymptomEvaluationView.SymptomTable::getSubEntries);
             symptomEvaluationView.getFilterComboBox().setItems(symptomsForComboBox);
         }

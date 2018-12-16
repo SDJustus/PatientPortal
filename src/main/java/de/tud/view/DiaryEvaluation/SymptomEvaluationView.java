@@ -90,6 +90,25 @@ public class SymptomEvaluationView extends EvaluationView{
         return tableContainer;
     }
 
+    public TreeGrid<SymptomEvaluationView.SymptomTable> getGrid() {
+        return grid;
+    }
+    public ComboBox<String> getFilterComboBox() {
+        return filterComboBox;
+    }
+
+    public DateField getFromDate() {
+        return fromDate;
+    }
+
+    public DateField getToDate() {
+        return toDate;
+    }
+
+    public Button getResetButton() {
+        return resetButton;
+    }
+
     //helperclass:
     public class SymptomTable {
         private Symptom symptom;
