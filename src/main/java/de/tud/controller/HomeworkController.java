@@ -6,6 +6,7 @@ import com.vaadin.data.provider.DataProvider;
 import com.vaadin.data.validator.StringLengthValidator;
 import com.vaadin.server.ClassResource;
 import com.vaadin.server.Sizeable;
+import com.vaadin.server.VaadinRequest;
 import com.vaadin.shared.ui.ContentMode;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Notification;
@@ -30,23 +31,21 @@ public class HomeworkController {
 
     HomeworkSetup designerView;
     private long diaryId;
-    DiaryManager diaryManager;
-    Diary diary;
 
+
+    BasicItemProvider<BasicItem> basicProvider;
 
 
 
     public  HomeworkController(HomeworkSetup designerView)
     {
         this.designerView = designerView;
-        diaryManager = DiaryManager.getInstance();
-        diary = diaryManager.read().get(0);
-        diaryId = diary.getId();
         this.designerView.getSaveButton().setEnabled(false);
         setUpCalendar();
         setupComobobox();
         setUpDataPicker();
         addTextBoxRestrictions();
+
     }
 
 
@@ -73,8 +72,9 @@ public class HomeworkController {
         // designerView.getCalendar().setEndDate(ZonedDateTime.of(2050, 9, 16, 0,0,0, 0, designerView.getCalendar().getZoneId()));
        // setupBlockedTimeSlots();
 
-        loadCalendarEntries();
 
+
+        loadCalendarEntries();
 
 
 
@@ -82,6 +82,7 @@ public class HomeworkController {
 
 
     private void setupBlockedTimeSlots() {
+
 
         java.util.Calendar cal = java.util.Calendar.getInstance();
         cal.set(java.util.Calendar.HOUR_OF_DAY, 0); // ! clear would not reset the hour of day !
@@ -128,7 +129,7 @@ public class HomeworkController {
 
        CalendarItemProvider<BasicItem> provider;
 
-        BasicItemProvider<BasicItem> basicProvider = new BasicItemProvider<>();
+        basicProvider = new BasicItemProvider<>();
 
 
 
@@ -148,7 +149,7 @@ public class HomeworkController {
             basic.setStart(home.getDate());
             basic.setEnd(home.getDate());
 
-            basic.setDescription(home.getShortDescription());
+            basic.setDescription(home.getType().toString()+": "+home.getShortDescription());
             basic.setCaption(home.getName());
             basicProvider.addItem(basic);
 
@@ -156,6 +157,7 @@ public class HomeworkController {
         }
 
            designerView.getCalendar().setDataProvider(basicProvider);
+
 
 
     }
@@ -204,10 +206,24 @@ public class HomeworkController {
                     return;
                 }
 
+
+
                 Homework h;
                 LocalDate local= designerView.getDataPicker().getValue();
                 ZonedDateTime zdt = local.atStartOfDay(ZoneOffset.UTC);
                 HomeworkManager manager = new HomeworkManager();
+
+                List<Homework> homeworkList = manager.read();
+
+                    if(isDateOccupied(zdt) == true)
+                    {
+                        Notification.show("Datum und Uhrzeit bereits belegt");
+                        designerView.getDataPicker().setValue(null);
+                        designerView.getSaveButton().setEnabled(false);
+                        return;
+                    }
+
+
 
                 if(designerView.getCombobox().getValue() == "Fragebogen")
                 {
@@ -238,14 +254,7 @@ public class HomeworkController {
                 }
 
 
-
-
-
-                designerView.getHomeworkName().setValue("");
-                designerView.getHomeworkDescription().setValue("");
-                designerView.getHomeworkDescriptionLong().setValue("");
-
-                loadCalendarEntries();
+                resetAfterSave();
 
 
             }
@@ -284,7 +293,55 @@ designerView.getHomeworkName().setMaxLength(12);
 
 
 
+    boolean isDateOccupied(ZonedDateTime t)
+    {
+        LocalDate local= designerView.getDataPicker().getValue();
+        ZonedDateTime zdt = local.atStartOfDay(ZoneOffset.UTC);
+        HomeworkManager manager = new HomeworkManager();
 
+        List<Homework> homeworkList = manager.read();
+        for(Homework w: homeworkList)
+        {
+            if(zdt == w.getDate())
+            {
+               return true;
+
+            }
+
+
+        }
+
+        return false;
+
+
+    }
+
+
+    void resetAfterSave()
+    {
+
+
+        designerView.getHomeworkName().setValue("");
+        designerView.getHomeworkDescription().setValue("");
+        designerView.getHomeworkDescriptionLong().setValue("");
+        designerView.getDataPicker().setValue(null);
+        designerView.getSaveButton().setEnabled(false);
+        loadCalendarEntries();
+
+        designerView.getCalendar().setData(basicProvider);
+
+        designerView.getUI().access(new Runnable() {
+            @Override
+            public void run() {
+
+                designerView.getUI().getNavigator().navigateTo("Hausaufgaben");
+
+
+            }
+        });
+
+
+    }
 
 
 

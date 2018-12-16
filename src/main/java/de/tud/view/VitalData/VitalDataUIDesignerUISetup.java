@@ -127,9 +127,12 @@ public VitalDataUIDesignerUISetup()
     bloodPressureLabel.addStyleName(MaterialTheme.LABEL_BORDERLESS);
 
 
-
-
-
+//
+    heightStepper.setInvalidValuesAllowed(false);
+    weightStepper.setInvalidValuesAllowed(false);
+    bloodPressureStepper1.setInvalidValuesAllowed(false);
+    bloodPressureStepper1.setInvalidValuesAllowed(false);
+    heartRateStepper.setInvalidValuesAllowed(false);
 
 form.setSizeUndefined();
 form.addStyleName("overflow");
