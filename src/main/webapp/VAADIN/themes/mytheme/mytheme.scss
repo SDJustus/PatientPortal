@@ -60,10 +60,15 @@ $v-hover-styles-enabled: true !default;
 
 @import "../valo/valo.scss";
 @import "../material/material.scss";
+@import "app-layout.scss";
+
 @mixin mytheme {
 
   @include valo;
   @include material;
+  @include app-layout;
+
+
   .valo-test {
     .v-button-primary.v-button-primary {
       background: #fff;

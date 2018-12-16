@@ -1,11 +1,13 @@
 package de.tud.view.Homework;
 
+import com.vaadin.data.HasValue;
 import com.vaadin.icons.VaadinIcons;
 import com.vaadin.navigator.View;
 import com.vaadin.ui.*;
 import de.tud.controller.HomeworkController;
 import org.vaadin.addon.calendar.Calendar;
 
+import javax.xml.soap.Text;
 import java.time.LocalDate;
 import java.time.Month;
 import java.util.Locale;
@@ -23,15 +25,13 @@ HomeworkController controller;
         //instantiate controller
     controller = new HomeworkController(this);
 
-controller.addDateTimeFieldChangeListener();
-controller.addSaveButtonListener();
+    controller.addDateTimeFieldChangeListener();
+    controller.addSaveButtonListener();
+
 
 
 
     }
-
-
-
 
 
     public Button getSaveButton() {

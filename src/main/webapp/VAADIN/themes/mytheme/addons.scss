@@ -13,10 +13,20 @@
 @import "../../../VAADIN/addons/stepper/stepper.scss";
 
 
+/* Provided by app-layout-addon-1.0.2.jar */
+@import "../../../VAADIN/addons/app-layout/app-layout.scss";
+
+
+/* Provided by hybridmenu-3.0.10.jar */
+@import "../../../VAADIN/addons/hybrid-menu/hybrid-menu.scss";
+
+
 /* Import and include this mixin into your project theme to include the addon themes */
 @mixin addons {
 	@include stepper;
 	@include calendar-addon;
 	@include stepper;
+	@include app-layout;
+	@include hybrid-menu;
 }
 

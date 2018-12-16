@@ -123,6 +123,7 @@ public VitalDataUIDesignerUISetup()
     //super.setWidth("100%");
     //super.setHeight("850px");
     //panel.getContent().setSizeUndefined();
+    /*
     panel.setHeight(""+0.95* Page.getCurrent().getBrowserWindowHeight());
     panel.setWidth(""+0.95*Page.getCurrent().getBrowserWindowWidth());
 
@@ -130,6 +131,7 @@ public VitalDataUIDesignerUISetup()
         panel.setHeight(""+0.95*e.getHeight());
         panel.setWidth(""+0.95*e.getWidth());
     });
+    */
 
     //Label Setup
     //weightLabel.addStyleName(MaterialTheme.LABEL_BORDERLESS);

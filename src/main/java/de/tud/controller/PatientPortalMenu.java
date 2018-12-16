@@ -1,6 +1,14 @@
 package de.tud.controller;
 
 
+import com.github.appreciated.app.layout.AppLayout;
+import com.github.appreciated.app.layout.behaviour.Behaviour;
+import com.github.appreciated.app.layout.builder.Section;
+import com.github.appreciated.app.layout.builder.design.AppLayoutDesign;
+import com.github.appreciated.app.layout.builder.elements.builders.SubmenuBuilder;
+import com.github.appreciated.app.layout.builder.entities.DefaultBadgeHolder;
+import com.github.appreciated.app.layout.builder.entities.DefaultNotificationHolder;
+import com.github.appreciated.app.layout.interceptor.DefaultViewNameInterceptor;
 import com.github.appreciated.material.MaterialTheme;
 import com.vaadin.annotations.Theme;
 import com.vaadin.annotations.VaadinServletConfiguration;
@@ -10,20 +18,31 @@ import com.vaadin.icons.VaadinIcons;
 import com.vaadin.server.*;
 import com.vaadin.ui.*;
 import com.vaadin.navigator.Navigator;
+import de.tud.model.VitalData;
 import de.tud.view.*;
 import de.tud.view.DiaryEvaluation.DiaryEvaluationView;
 import de.tud.view.Homework.HomeworkView;
 import de.tud.view.VitalData.VitalDataView;
 import de.tud.view.Welfare.WelfareView;
+import kaesdingeling.hybridmenu.HybridMenu;
+import kaesdingeling.hybridmenu.components.HMButton;
+import kaesdingeling.hybridmenu.components.HMLabel;
+import kaesdingeling.hybridmenu.components.LeftMenu;
+import kaesdingeling.hybridmenu.data.MenuConfig;
+import kaesdingeling.hybridmenu.design.DesignItem;
 
 import javax.servlet.annotation.WebServlet;
 
+
 @Theme("mytheme")
+
+
 public class PatientPortalMenu extends UI {
 
     Tree<String> menuTree;
     TreeData<String> menuTreeData;
     Navigator navigator;
+
 
     @Override
     public void init(VaadinRequest request) {
@@ -34,7 +53,7 @@ public class PatientPortalMenu extends UI {
                 ".v-label{font-size: large !important; }"+
                 "#smileybild:hover{transform: scale(1.2);}"+
                 "#smileybild:{transition: transform .2s;}"+
-                "#profilbild{display: block; margin: 0 auto;}");
+                "#profilbild{display: block !important; margin: 0 auto !important;}");
 
         //Titel des Menüs
         Label title = new Label("Patientenportal");
@@ -163,12 +182,14 @@ public class PatientPortalMenu extends UI {
         HorizontalLayout mainLayout = new HorizontalLayout(menu, viewContainer);
         mainLayout.setSizeFull();
 
-        setContent(mainLayout);
+
+
+        setContent(buildMenu());
         mainLayout.setExpandRatio(viewContainer, 1.0f);
 
         //Navigation im Menü, um auf Klick Views anzeigen zu lassen
 
-       navigator = new Navigator(this, viewContainer);
+        navigator = new Navigator(this, viewContainer);
 
         navigator.addView("", StartView.class);
         navigator.addView("Patiententagebuch", DiaryView.class);
@@ -188,5 +209,39 @@ public class PatientPortalMenu extends UI {
         super.refresh(request);
 
     }
+    private Component buildMenu(){
+        DefaultNotificationHolder notifications = new DefaultNotificationHolder();
+        DefaultBadgeHolder badge = new DefaultBadgeHolder();
+
+        HorizontalLayout horizontalLayout = new HorizontalLayout();
+        Image profilbild = new Image("", new ClassResource("/profilbild.png"));
+        profilbild.setHeight("120px");
+        profilbild.setWidth("120px");
+
+        horizontalLayout.addComponents(profilbild);
+        horizontalLayout.setComponentAlignment(horizontalLayout.getComponent(0),Alignment.MIDDLE_CENTER);
+        horizontalLayout.setWidth("256px");
+
+
+
+        return AppLayout.getDefaultBuilder(Behaviour.LEFT_RESPONSIVE_OVERLAY_NO_APP_BAR)
+                .withNavigator(container -> new Navigator(this, container))
+                .withViewNameInterceptor(new DefaultViewNameInterceptor())
+                .withDefaultNavigationView(DiaryView.class)
+                .withDesign(AppLayoutDesign.DEFAULT)
+                .withNavigatorConsumer(navigator -> {/* Do something with it */})
+                .add(horizontalLayout)
+                .add("Home", VaadinIcons.HOME, badge, DiaryEvaluationView.class)
+                .add(SubmenuBuilder.get("Patiententagebuch", VaadinIcons.PLUS)
+                        .add("Charts", "test", VaadinIcons.SPLINE_CHART, VitalDataView.class)
+                        .add("Contact", VaadinIcons.CONNECT, HomeworkView.class)
+                        .add("More", VaadinIcons.COG, DiaryView.class)
+                        .build())
+                .add("Menu", VaadinIcons.MENU, DiaryEvaluationView.class)
+                .add("Elements", VaadinIcons.LIST, DiaryEvaluationView.class)
+                .build();
+    }
+
+
 
 }
