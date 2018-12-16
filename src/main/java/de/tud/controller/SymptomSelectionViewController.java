@@ -161,6 +161,7 @@ public class SymptomSelectionViewController {
                 diaryViewController.getDiaryView().getVerticalLayout().removeComponent(c);
                 diaryViewController.getSymptomSelectionViewControllers().remove(s);
 
+                checkAddNextSymptomRestrictions();
 
                 if(diaryViewController.getDiaryView().getVerticalLayout().getComponentCount() == 0){
                     diaryViewController.getDiaryView().getNewDiaryEntry().click();
