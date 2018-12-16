@@ -5,6 +5,7 @@
   <meta name="design-properties" content="{&quot;RULERS_VISIBLE&quot;:true,&quot;GUIDELINES_VISIBLE&quot;:false,&quot;SNAP_TO_OBJECTS&quot;:true,&quot;SNAP_TO_GRID&quot;:true,&quot;SNAPPING_DISTANCE&quot;:10,&quot;GENERATE_GETTERS&quot;:false,&quot;JAVA_SOURCES_ROOT&quot;:&quot;src/main/java&quot;,&quot;THEME&quot;:&quot;mytheme&quot;}">
   <meta name="vaadin-version" content="8.1.5">
   <meta name="package-mapping" content="de_tud_view_homework_calendar:de.tud.view.Homework.Calendar">
+  <meta name="package-mapping" content="de_tud_view_homework:de.tud.view.Homework">
   <meta name="package-mapping" content="com_jarektoro_responsivelayout:com.jarektoro.responsivelayout">
   <meta name="package-mapping" content="com_vaadin_addon_calendar_ui:com.vaadin.addon.calendar.ui">
   <meta name="package-mapping" content="org_vaadin_addon_calendar:org.vaadin.addon.calendar">
@@ -28,7 +29,12 @@
     <vaadin-text-field caption="Beschreibung:" _id="homeworkDescriptionLong"></vaadin-text-field>
    </vaadin-horizontal-layout>
    <vaadin-horizontal-layout>
-    <org_vaadin_addon_calendar-calendar _id="calendar"></org_vaadin_addon_calendar-calendar>
+    <vaadin-label plain-text _id="calenderLabel" :middle :center>
+      Label 
+    </vaadin-label>
+   </vaadin-horizontal-layout>
+   <vaadin-horizontal-layout>
+    <de_tud_view_homework-homework-calender _id="calendar"></de_tud_view_homework-homework-calender>
    </vaadin-horizontal-layout>
   </vaadin-vertical-layout>
  </body>

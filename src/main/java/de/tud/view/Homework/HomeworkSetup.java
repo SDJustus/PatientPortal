@@ -23,8 +23,9 @@ HomeworkController controller;
         //instantiate controller
     controller = new HomeworkController(this);
 
-controller.addDateTimeFieldChangeListener();
-controller.addSaveButtonListener();
+    controller.addDateTimeFieldChangeListener();
+    controller.addSaveButtonListener();
+    controller.addCalenderListenerForCaptionLabel();
 
 
 
@@ -58,11 +59,11 @@ controller.addSaveButtonListener();
         this.dataPicker = dataPicker;
     }
 
-    public Calendar getCalendar() {
+    public HomeworkCalender getCalendar() {
         return calendar;
     }
 
-    public void setCalendar(Calendar calendar) {
+    public void setCalendar(HomeworkCalender calendar) {
         this.calendar = calendar;
     }
 
@@ -93,6 +94,13 @@ controller.addSaveButtonListener();
 
 
 
+    public Label getCalenderLabel() {
+        return calenderLabel;
+    }
+
+    public void setCalenderLabel(Label calenderLabel) {
+        this.calenderLabel = calenderLabel;
+    }
 
 
 

@@ -8,8 +8,8 @@ import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.ComboBox;
 import com.vaadin.ui.DateField;
-import org.vaadin.addon.calendar.Calendar;
 import com.vaadin.ui.TextField;
+import com.vaadin.ui.Label;
 
 
 /**
@@ -30,7 +30,8 @@ public class HomeworkDesigner extends VerticalLayout {
     protected TextField homeworkName;
     protected TextField homeworkDescription;
     protected TextField homeworkDescriptionLong;
-    protected Calendar calendar;
+    protected Label calenderLabel;
+    protected HomeworkCalender calendar;
 
 
     public HomeworkDesigner() {

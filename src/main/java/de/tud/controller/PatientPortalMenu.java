@@ -63,7 +63,7 @@ public class PatientPortalMenu extends UI {
         //Button Hausaufgaben
         Button view3 = new Button("Hausaufgaben", e -> getNavigator().navigateTo("Hausaufgaben"));
         view3.addStyleNames(MaterialTheme.BUTTON_LINK, MaterialTheme.MENU_ITEM);
-        view3.setIcon(VaadinIcons.WORKPLACE, MaterialTheme.MENU_PART_LARGE_ICONS);
+        view3.setIcon(VaadinIcons.CALENDAR, MaterialTheme.MENU_PART_LARGE_ICONS);
 
 
         //Menu tree

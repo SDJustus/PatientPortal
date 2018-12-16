@@ -4,6 +4,7 @@ import com.vaadin.data.HasValue;
 import com.vaadin.data.converter.LocalDateTimeToDateConverter;
 import com.vaadin.data.provider.DataProvider;
 import com.vaadin.data.validator.StringLengthValidator;
+import com.vaadin.event.ContextClickEvent;
 import com.vaadin.server.ClassResource;
 import com.vaadin.server.Sizeable;
 import com.vaadin.server.VaadinRequest;
@@ -18,9 +19,12 @@ import de.tud.model.welfare.Welfare;
 import de.tud.view.Homework.HomeworkDesigner;
 import de.tud.view.Homework.HomeworkSetup;
 import de.tud.view.Welfare.WelfareUISetup;
+import org.vaadin.addon.calendar.handler.BasicDateClickHandler;
+import org.vaadin.addon.calendar.handler.BasicItemMoveHandler;
 import org.vaadin.addon.calendar.item.BasicItem;
 import org.vaadin.addon.calendar.item.BasicItemProvider;
 import org.vaadin.addon.calendar.item.CalendarItemProvider;
+import org.vaadin.addon.calendar.ui.CalendarComponentEvents;
 
 import javax.xml.crypto.Data;
 import java.time.*;
@@ -81,7 +85,7 @@ public class HomeworkController {
     }
 
 
-    private void setupBlockedTimeSlots() {
+    public void setupBlockedTimeSlots() {
 
 
         java.util.Calendar cal = java.util.Calendar.getInstance();
@@ -116,7 +120,7 @@ public class HomeworkController {
     }
 
 
-    void loadCalendarEntries()
+   public void loadCalendarEntries()
     {
         HomeworkManager manager = new HomeworkManager();
         if(manager.read() == null)
@@ -262,7 +266,7 @@ public class HomeworkController {
 
     }
 
-    void setupComobobox()
+   public void setupComobobox()
     {
 
         designerView.getCombobox().setItems("Übung",
@@ -271,7 +275,7 @@ public class HomeworkController {
 
     }
 
-    void setUpDataPicker()
+   public void setUpDataPicker()
     {
         designerView.getDataPicker().setDefaultValue(LocalDate.from(LocalDateTime.now()));
         designerView.getDataPicker().setRangeStart(LocalDate.from(LocalDateTime.now()));
@@ -280,7 +284,7 @@ public class HomeworkController {
     }
 
 
-    void addTextBoxRestrictions()
+  public  void addTextBoxRestrictions()
     {
 
 designerView.getHomeworkDescriptionLong().setMaxLength(120);
@@ -293,7 +297,7 @@ designerView.getHomeworkName().setMaxLength(12);
 
 
 
-    boolean isDateOccupied(ZonedDateTime t)
+    public boolean isDateOccupied(ZonedDateTime t)
     {
         LocalDate local= designerView.getDataPicker().getValue();
         ZonedDateTime zdt = local.atStartOfDay(ZoneOffset.UTC);
@@ -317,7 +321,7 @@ designerView.getHomeworkName().setMaxLength(12);
     }
 
 
-    void resetAfterSave()
+    public void resetAfterSave()
     {
 
 
@@ -345,5 +349,33 @@ designerView.getHomeworkName().setMaxLength(12);
 
 
 
+   public void addCalenderListenerForCaptionLabel()
+    {
+
+        LocalDate startDate = designerView.getCalendar().getStartDate().toLocalDate();
+        LocalDate endDate = designerView.getCalendar().getEndDate().toLocalDate();
+        String start = startDate.getDayOfMonth()+"."+startDate.getMonthValue()+"."+startDate.getYear();
+        String end = endDate.getDayOfMonth()+"."+endDate.getMonthValue()+"."+endDate.getYear();
+
+        designerView.getCalenderLabel().setValue(start + " - " + end);
+
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 }
+
+
