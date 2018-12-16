@@ -7,7 +7,8 @@ import javax.persistence.*;
 public class Homework extends EntityObject {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @SequenceGenerator(name = "HomeworkGenerator", sequenceName = "HomeworkSequence", allocationSize = 1)
+    @GeneratedValue(generator = "HomeworkGenerator")
     private long id;
     @Column(name="homework_name")
     private String name;

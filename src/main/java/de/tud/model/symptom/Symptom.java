@@ -38,7 +38,8 @@ public abstract class Symptom {
     }
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @SequenceGenerator(name = "SymptomGenerator", sequenceName = "SymptomSequence", allocationSize = 1)
+    @GeneratedValue(generator = "SymptomGenerator")
     @Column (name = "symptom_id")
     protected long symptomId;
 

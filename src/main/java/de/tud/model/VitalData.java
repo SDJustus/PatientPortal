@@ -1,6 +1,11 @@
 package de.tud.model;
 
+import org.hibernate.annotations.GenericGenerator;
+
+
 import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
 
 @Entity
@@ -8,7 +13,8 @@ import javax.persistence.*;
 public class VitalData extends EntityObject {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @SequenceGenerator(name = "VitalDataGenerator", sequenceName = "VitalDataSequence", allocationSize = 1)
+    @GeneratedValue(generator = "VitalDataGenerator")
     private long id;
     @Column(name = "height")
     private float height;
@@ -72,7 +78,7 @@ public class VitalData extends EntityObject {
     }
 
     public float getBMI(){
-        return Math.round(this.getWeight()/(this.getHeight()*this.getHeight()));
+        return (float) Math.round((this.getWeight()/(this.getHeight()*this.getHeight()))*100)/100;
     }
     @Override
     public Long getId() {

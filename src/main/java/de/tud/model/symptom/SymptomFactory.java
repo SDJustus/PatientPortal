@@ -58,18 +58,4 @@ public class SymptomFactory {
         }
 
     }
-    public Symptom createSymptomByClass(Class<? extends Symptom> className, Symptom.Strength strength) {
-        try {
-            Symptom symptom = className.newInstance();
-            symptom.setStrength(strength);
-            return symptom;
-        } catch (InstantiationException e) {
-            logger.log(Level.SEVERE, "an");
-            return null;
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-            return null;
-        }
-
-    }
 }

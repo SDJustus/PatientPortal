@@ -12,7 +12,8 @@ import java.util.Set;
 @Table(name = "diary_entry")
 public class DiaryEntry extends EntityObject {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @SequenceGenerator(name = "DiaryEntryGenerator", sequenceName = "DiaryEntrySequence", allocationSize = 1)
+    @GeneratedValue(generator = "DiaryEntryGenerator")
     private long id;
     private LocalDateTime date;
 
