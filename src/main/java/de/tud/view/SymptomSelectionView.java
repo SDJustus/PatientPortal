@@ -50,7 +50,6 @@ public class SymptomSelectionView implements View {
 
         //ComboBox erzeugen
         comboBox = new ComboBox<>();
-        comboBox.setWidth("250px");
         comboBox.setItems(diaryViewController.getSymptomList());
         addValueChangeListenerForComboBox();
 
@@ -142,7 +141,7 @@ public class SymptomSelectionView implements View {
 
         UI.getCurrent().getPage().addBrowserWindowResizeListener(e -> {
             iterateOverContainers(gridLayout, e.getWidth());
-            comboBox.setWidth(""+0.18*e.getWidth());
+            comboBox.setWidth("230px");
             spacer2.setWidth(""+0.001*e.getWidth());
             horizontalLayout1.setHeight("1px");
             symptomName.setWidth("300px");
@@ -162,7 +161,8 @@ public class SymptomSelectionView implements View {
         //verticalLayout.addComponents(symptomName, horizontalLayout, spacer,horizontalLayout1);
 
         iterateOverContainers(gridLayout, Page.getCurrent().getBrowserWindowWidth());
-        comboBox.setWidth(""+0.18*Page.getCurrent().getBrowserWindowWidth());
+
+        comboBox.setWidth("230px");
         spacer2.setWidth(""+0.001*Page.getCurrent().getBrowserWindowWidth());
         horizontalLayout1.setHeight("1px");
         symptomName.setWidth("300px");
@@ -176,6 +176,9 @@ public class SymptomSelectionView implements View {
                 continue;
             }
             if(c instanceof HasComponents){
+                if(0.25*width < 300){
+                    continue;
+                }
                 c.setWidth(""+0.25*width);
                 iterateOverContainers((HasComponents) c, width);
             }else {

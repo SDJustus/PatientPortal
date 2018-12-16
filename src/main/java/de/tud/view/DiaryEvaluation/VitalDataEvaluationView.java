@@ -10,7 +10,7 @@ import com.vaadin.ui.renderers.Renderer;
 import de.tud.model.VitalData;
 
 
-public class VitalDataEvaluationView extends EvaluationView {
+public class VitalDataEvaluationView  {
     Grid<VitalDataTable> grid;
     VerticalLayout tableContainer = new VerticalLayout();
     DateTimeField fromDate = new DateTimeField();

@@ -191,11 +191,11 @@ public class VitalDataView extends Composite implements View {
 //panel setup
 
 
-        panel.setHeight(""+0.8* Page.getCurrent().getBrowserWindowHeight());
+        panel.setHeight(""+0.67* Page.getCurrent().getBrowserWindowHeight());
         panel.setWidth(""+0.95*Page.getCurrent().getBrowserWindowWidth());
 
         UI.getCurrent().getPage().addBrowserWindowResizeListener(e -> {
-            panel.setHeight(""+0.8*e.getHeight());
+            panel.setHeight(""+0.67*e.getHeight());
             panel.setWidth(""+0.95*e.getWidth());
         });
 

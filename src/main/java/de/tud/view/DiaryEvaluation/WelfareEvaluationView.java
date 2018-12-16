@@ -6,7 +6,7 @@ import com.vaadin.shared.data.sort.SortDirection;
 import com.vaadin.ui.*;
 import de.tud.model.welfare.Welfare;
 
-public class WelfareEvaluationView extends EvaluationView {
+public class WelfareEvaluationView  {
     Grid<WelfareTable> grid;
     VerticalLayout tableContainer = new VerticalLayout();
     ComboBox<String> filterComboBox = new ComboBox<>();

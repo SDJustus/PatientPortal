@@ -2,6 +2,7 @@ package de.tud.controller;
 
 import com.vaadin.data.HasValue;
 import com.vaadin.event.MouseEvents;
+import com.vaadin.event.dd.acceptcriteria.Not;
 import com.vaadin.ui.Alignment;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Notification;
@@ -30,6 +31,8 @@ public class DiaryViewController {
     private List<SymptomSelectionViewController> symptomSelectionViewControllers = new ArrayList<>();
     private List<String> symptomList;
     private int counter = 0;
+    private boolean editButtoClicked = false;
+
 
     public DiaryViewController(DiaryView diaryView){
         this.diaryView = diaryView;
@@ -111,6 +114,10 @@ public class DiaryViewController {
         diaryView.getVerticalLayout().addComponents(symptomSelectionView.getViewComponent());
         System.out.println(diaryView.getVerticalLayout().getComponentCount());
 
+        //wenn EditButton gerade geklickt wurde, soll Lösch Button erscheinen
+        if(editButtoClicked == true){
+            symptomSelectionView.getDelete().setVisible(true);
+        }
 
         symptomSelectionViewControllers.add(symptomSelectionView.getSymptomSelectionViewController());
         counter++;
@@ -186,6 +193,10 @@ public class DiaryViewController {
                     Notification.show("Die Einträge werden verworfen");
                     //TODO: Dialog Window with Yes or No
                 }
+                if(diaryView.getVerticalLayout().getComponentCount() == 0){
+                    editButtoClicked = true;
+                    diaryView.getEdit().click();
+                }
                 diaryView.getVerticalLayout().removeAllComponents();
                 symptomSelectionViewControllers.clear();
                 symptomList.clear();
@@ -195,7 +206,6 @@ public class DiaryViewController {
 
                 counter = 0;
                addNewSymptomSelectionView();
-               diaryView.getOkay().setEnabled(false);
                diaryView.getEdit().setEnabled(true);
             }
         });
@@ -205,34 +215,34 @@ public class DiaryViewController {
             @Override
             public void buttonClick(Button.ClickEvent clickEvent) {
 
-                for(SymptomSelectionViewController s : symptomSelectionViewControllers){
-                    if(s.checkComboBox() == true){
+                if(editButtoClicked == false){
+                    editButtoClicked = true;
+                    for(SymptomSelectionViewController s : symptomSelectionViewControllers){
+
                         s.getSymptomSelectionView().getDelete().setVisible(true);
-                        diaryView.getOkay().setEnabled(true);
-                        diaryView.getEdit().setEnabled(false);
+                    }
+                }else{
+                    editButtoClicked = false;
+                    for(SymptomSelectionViewController s : symptomSelectionViewControllers){
+
+                        s.getSymptomSelectionView().getDelete().setVisible(false);
                     }
                 }
+
+
             }
         });
     }
-    public void addOkayButtonListener(){
-        diaryView.getOkay().addClickListener(new Button.ClickListener() {
-            @Override
-            public void buttonClick(Button.ClickEvent clickEvent) {
-                for(SymptomSelectionViewController s: symptomSelectionViewControllers){
-                    s.getSymptomSelectionView().getDelete().setVisible(false);
-                }
-                diaryView.getOkay().setEnabled(false);
-                diaryView.getEdit().setEnabled(true);
-            }
-        });
-    }
+
 
     public DiaryView getDiaryView(){
         return  diaryView;
     }
     public List<SymptomSelectionViewController> getSymptomSelectionViewControllers(){
         return this.symptomSelectionViewControllers;
+    }
+    public boolean geteditButtonClicked(){
+        return editButtoClicked;
     }
 
 

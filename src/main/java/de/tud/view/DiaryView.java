@@ -25,7 +25,6 @@ public class DiaryView extends Composite implements View {
     private Button save = new Button("Speichern");
     private Button newDiaryEntry = new Button("Alles Zurücksetzen");
     private Button edit = new Button("", VaadinIcons.EDIT);
-    private Button okay = new Button("OK");
     private Panel panel = new Panel();
     private DiaryViewController diaryViewController;
 
@@ -59,10 +58,9 @@ public class DiaryView extends Composite implements View {
         save.setEnabled(false);
         save.setIcon(new ClassResource("/saveicon.png"));
 
-        okay.setEnabled(false);
-        addOkayButtonListener();
+
         addDateTimeFieldChangeListener();
-        menuBar.addComponents(dateTimeField,save, newDiaryEntry, edit, okay);
+        menuBar.addComponents(dateTimeField,save, newDiaryEntry, edit);
 
         verticalLayout.setSizeUndefined();
         verticalLayout.setSpacing(true);
@@ -95,7 +93,6 @@ public class DiaryView extends Composite implements View {
        diaryViewController.addNewDiaryEntryButtonListener();
     }
     private void addNewEditButtonListener(){diaryViewController.addNewEditButtonListener();}
-    private void addOkayButtonListener(){diaryViewController.addOkayButtonListener();}
     public VerticalLayout getVerticalLayout() {
         return verticalLayout;
     }
@@ -109,5 +106,5 @@ public class DiaryView extends Composite implements View {
         return newDiaryEntry;
     }
     public Button getEdit(){return  edit;}
-    public Button getOkay(){return okay;}
+
 }
