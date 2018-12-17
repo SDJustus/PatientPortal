@@ -22,8 +22,8 @@ public class HomeworkManagerTest {
 
     @BeforeEach
     public void setup(){
-        hw1 = new Homework(Homework.Type.DOCUMENT,"Statusbericht","Bericht über den Verlauf der letzten Woche", "Bericht über letzte Woche, die Symptome und das Wohlbefinden");
-        hw2 = new Homework(Homework.Type.EXERCISE,"Kniebeugen", "Übung Kniebeugen gegen Blutdruck", "Sportübung um den Blutdruck zu senken");
+        hw1 = new Homework(Homework.Type.DOCUMENT,"Statusbericht","Bericht über den Verlauf der letzten Woche");
+        hw2 = new Homework(Homework.Type.EXERCISE,"Kniebeugen", "Übung Kniebeugen gegen Blutdruck");
         hwm = new HomeworkManager();
 
     }
@@ -41,9 +41,9 @@ public class HomeworkManagerTest {
         readlist = hwm.read();
 
         for(Homework hw : readlist){
-            if(hw.getType().equals(hw1.getType()) && hw.getLongDescription().equals(hw1.getLongDescription())){
+            if(hw.getType().equals(hw1.getType()) && hw.getDescription().equals(hw1.getDescription())){
                 for(Homework howo : readlist){
-                    if(hw.getType().equals(hw1.getType()) && hw.getLongDescription().equals(hw1.getLongDescription()));
+                    if(hw.getType().equals(hw1.getType()) && hw.getDescription().equals(hw1.getDescription()));
                         assertTrue(true);
                 }
             }
@@ -73,7 +73,7 @@ public class HomeworkManagerTest {
 
         Homework hwtest = hwm.findByID(hwID);
 
-        assertTrue(hwtest.getType().equals(hw1.getType()) && hwtest.getLongDescription().equals(hw1.getLongDescription()));
+        assertTrue(hwtest.getType().equals(hw1.getType()) && hwtest.getDescription().equals(hw1.getDescription()));
 
     }
 
@@ -87,9 +87,9 @@ public class HomeworkManagerTest {
         for(Homework hw : hwm.read()){
             if(hw.getId().equals(hwID)) {
                 assertEquals(hw.getType(), hw2.getType());
-                assertEquals(hw.getLongDescription(), hw2.getLongDescription());
+                assertEquals(hw.getDescription(), hw2.getDescription());
                 assertEquals(hw.getName(), hw2.getName());
-                assertEquals(hw.getShortDescription(), hw2.getShortDescription());
+                assertEquals(hw.getDescription(), hw2.getDescription());
                 assertFalse(hw.getType().equals(Homework.Type.DOCUMENT));
             }
         }

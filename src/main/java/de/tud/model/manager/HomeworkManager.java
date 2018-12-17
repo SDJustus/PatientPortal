@@ -1,6 +1,5 @@
 package de.tud.model.manager;
 
-import com.sun.org.apache.xpath.internal.operations.Bool;
 import de.tud.model.Homework;
 import org.hibernate.Session;
 
@@ -87,12 +86,10 @@ public class HomeworkManager extends EntityManager<Homework> {
             Homework databaseHomework = findByID(homeworkID);
             if(homework.isStatus()!=null)
                 databaseHomework.setStatus(homework.isStatus());
-            if (homework.getShortDescription()!=null)
-                databaseHomework.setShortDescription(homework.getShortDescription());
+            if (homework.getDescription()!=null)
+                databaseHomework.setDescription(homework.getDescription());
             if(homework.getName()!= null)
                 databaseHomework.setName(homework.getName());
-            if(homework.getLongDescription()!=null)
-                databaseHomework.setLongDescription(homework.getLongDescription());
             if(homework.getType()!= null)
                 databaseHomework.setType(homework.getType());
             session.update(databaseHomework);

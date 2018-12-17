@@ -12,10 +12,8 @@ public class Homework extends EntityObject {
     private long id;
     @Column(name="homework_name")
     private String name;
-    @Column(name="homework_shortDescription")
-    private String shortDescription;
-    @Column(name="homework_longDescription")
-    private String longDescription;
+    @Column(name="homework_description")
+    private String description;
     @Column(name="homework_status")
     private boolean status;                                                                                             //Status ist False wenn nicht erledigt
     @Column(name="homework_type")
@@ -29,11 +27,10 @@ public class Homework extends EntityObject {
 
     public Homework(){}
 
-    public Homework(Type type, String name, String shortDescription, String longDescription){                           //neue Homework mit Status False erzeugt da keine Aufgabe direkt erledig sein soll
+    public Homework(Type type, String name, String description){                           //neue Homework mit Status False erzeugt da keine Aufgabe direkt erledig sein soll
         this.type=type;
         this.name=name;
-        this.shortDescription=shortDescription;
-        this.longDescription=longDescription;
+        this.description = description;
         this.status=false;
     }
 
@@ -50,20 +47,12 @@ public class Homework extends EntityObject {
         this.name = name;
     }
 
-    public String getShortDescription() {
-        return shortDescription;
+    public String getDescription() {
+        return description;
     }
 
-    public void setShortDescription(String shortDescription) {
-        this.shortDescription = shortDescription;
-    }
-
-    public String getLongDescription() {
-        return longDescription;
-    }
-
-    public void setLongDescription(String longDescription) {
-        this.longDescription = longDescription;
+    public void setDescription(String shortDescription) {
+        this.description = shortDescription;
     }
 
     public Boolean isStatus() {
