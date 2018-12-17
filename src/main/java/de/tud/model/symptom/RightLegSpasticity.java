@@ -14,6 +14,6 @@ public class RightLegSpasticity extends Symptom {
     }
     @Override
     public String toString() {
-        return "Spastik im Rechten Bein: " + this.getStrength();
+        return "Spastik im rechten Bein: " + this.getStrength();
     }
 }

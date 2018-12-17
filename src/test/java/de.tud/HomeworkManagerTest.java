@@ -22,7 +22,7 @@ public class HomeworkManagerTest {
 
     @BeforeEach
     public void setup(){
-        hw1 = new Homework(Homework.Type.DOKUMENT,"Statusbericht","Bericht über den Verlauf der letzten Woche", "Bericht über letzte Woche, die Symptome und das Wohlbefinden");
+        hw1 = new Homework(Homework.Type.DOCUMENT,"Statusbericht","Bericht über den Verlauf der letzten Woche", "Bericht über letzte Woche, die Symptome und das Wohlbefinden");
         hw2 = new Homework(Homework.Type.EXERCISE,"Kniebeugen", "Übung Kniebeugen gegen Blutdruck", "Sportübung um den Blutdruck zu senken");
         hwm = new HomeworkManager();
 
@@ -90,7 +90,7 @@ public class HomeworkManagerTest {
                 assertEquals(hw.getLongDescription(), hw2.getLongDescription());
                 assertEquals(hw.getName(), hw2.getName());
                 assertEquals(hw.getShortDescription(), hw2.getShortDescription());
-                assertFalse(hw.getType().equals(Homework.Type.DOKUMENT));
+                assertFalse(hw.getType().equals(Homework.Type.DOCUMENT));
             }
         }
 

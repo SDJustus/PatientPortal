@@ -22,7 +22,7 @@ public class Homework extends EntityObject {
 
     public enum Type{
         QUESTIONNAIRE,
-        DOKUMENT,
+        DOCUMENT,
         EXERCISE
     }
 
