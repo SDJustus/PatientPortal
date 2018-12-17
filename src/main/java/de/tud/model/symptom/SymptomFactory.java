@@ -27,7 +27,6 @@ public class SymptomFactory {
     private SymptomFactory(){
 
     }
-@Deprecated
     public static Symptom createSymptomByClass(String className, Symptom.Strength strength) {
         switch (className) {
             case "Schmerzen":
@@ -55,20 +54,6 @@ public class SymptomFactory {
 
             default:
                 throw new IllegalArgumentException("can't create Symptom from className!" + className);
-        }
-
-    }
-    public Symptom createSymptomByClass(Class<? extends Symptom> className, Symptom.Strength strength) {
-        try {
-            Symptom symptom = className.newInstance();
-            symptom.setStrength(strength);
-            return symptom;
-        } catch (InstantiationException e) {
-            logger.log(Level.SEVERE, "an");
-            return null;
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-            return null;
         }
 
     }

@@ -10,7 +10,7 @@ class SymptomFactoryTest {
 
     @Test
     void shouldReturnCorrectClass(){
-        assertTrue(SymptomFactory.getInstance().createSymptomByClass(Fatigue.class, Symptom.Strength.SEVERE) instanceof Fatigue);
+        assertTrue(SymptomFactory.getInstance().createSymptomByClass("Müdigkeit", Symptom.Strength.SEVERE) instanceof Fatigue);
     }
 
     @Test
