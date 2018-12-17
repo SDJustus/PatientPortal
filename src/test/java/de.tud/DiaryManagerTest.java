@@ -52,11 +52,11 @@ class DiaryManagerTest {
 
         testDiary = new HashSet<>();
         symptom1 = new HashSet<>();
-        symptom1.add(SymptomFactory.getInstance().createSymptomByClass(Fatigue.class,Symptom.Strength.MIDDLE));
-        symptom1.add(SymptomFactory.getInstance().createSymptomByClass(RightArmSpasticity.class, Symptom.Strength.SEVERE));
+        symptom1.add(SymptomFactory.getInstance().createSymptomByClass("Müdigkeit",Symptom.Strength.MIDDLE));
+        symptom1.add(SymptomFactory.getInstance().createSymptomByClass("Spastik im rechten Arm", Symptom.Strength.SEVERE));
         symptom2 = new HashSet<>();
-        symptom2.add(SymptomFactory.getInstance().createSymptomByClass(GaitDisorder.class,Symptom.Strength.WEAK));
-        symptom2.add(SymptomFactory.getInstance().createSymptomByClass(Ache.class,Symptom.Strength.WEAK));
+        symptom2.add(SymptomFactory.getInstance().createSymptomByClass("Gehstörung",Symptom.Strength.WEAK));
+        symptom2.add(SymptomFactory.getInstance().createSymptomByClass("Schmerzen",Symptom.Strength.WEAK));
         testEntry1 = new DiaryEntry(testTime , symptom1, vds, new HashSet<>());                                         //TODO: "new HashSet" is placeholder for Welfare implementation
 
     }

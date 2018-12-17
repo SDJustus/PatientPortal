@@ -27,7 +27,6 @@ public class SymptomFactory {
     private SymptomFactory(){
 
     }
-@Deprecated
     public static Symptom createSymptomByClass(String className, Symptom.Strength strength) {
         switch (className) {
             case "Schmerzen":
