@@ -36,7 +36,7 @@ public class EntitiesTests {
     public void getEntityIdTest(){
         long testId = 0;
 
-        Homework hw = new Homework(Homework.Type.DOCUMENT, "Krankenakte", "Krankenakte Patient 586", "Krankenakte Herr Mueller inkl. Symptome");
+        Homework hw = new Homework(Homework.Type.DOCUMENT, "Krankenakte", "Krankenakte Patient 586");
 
         HomeworkManager hm = new HomeworkManager();
 
