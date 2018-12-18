@@ -62,10 +62,15 @@ public class PatientPortalController extends UI {
            setContent(buildMenu());
            return;
        }
+       if(authenticationView.getUsername().isEmpty() || authenticationView.getPasswordField().isEmpty() || authenticationView.getUsername().getValue().equals("") ||
+       authenticationView.getPasswordField().getValue().equals("")){
+           return;
+       }
        if(!authenticationView.getUsername().getValue().equals("admin") || !authenticationView.getPasswordField().getValue().equals("admin")) {
            // Notification with default settings for a warning
            Notification notif = new Notification("User: admin, Password: admin", Notification.Type.HUMANIZED_MESSAGE);
-           notif.setDelayMsec(20000);
+           notif.setDelayMsec(5000);
+           notif.show(Page.getCurrent());
            return;
        }
     }
