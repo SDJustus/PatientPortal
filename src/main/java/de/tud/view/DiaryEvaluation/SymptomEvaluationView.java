@@ -68,6 +68,7 @@ public class SymptomEvaluationView extends EvaluationView{
 
 
         //Table size
+
         grid.setHeight("" + (Integer.valueOf(Page.getCurrent().getBrowserWindowHeight()) - Integer.valueOf(height)));
         grid.setWidth("" + (Integer.valueOf(Page.getCurrent().getBrowserWindowWidth()) - Integer.valueOf(width)));
 
@@ -76,6 +77,7 @@ public class SymptomEvaluationView extends EvaluationView{
             grid.setWidth("" + (e.getWidth() - Integer.valueOf(width)));
 
         });
+
 
         filterBar.addComponents(fromDate, toDate, filterComboBox, resetButton);
         filterBar.setResponsive(true);

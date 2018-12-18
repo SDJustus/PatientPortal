@@ -105,5 +105,8 @@ public class Homework extends EntityObject {
     public void setDate(ZonedDateTime date) {
         this.date = date;
     }
+    public LocalDateTime getLocalDateTime(){
+        return date.toLocalDateTime();
+    }
 
 }

@@ -158,7 +158,7 @@ public class SymptomSelectionView implements View {
         gridLayout.addComponent(delete, 3,1);
 
         gridLayout.setSpacing(true);
-        //verticalLayout.addComponents(symptomName, horizontalLayout, spacer,horizontalLayout1);
+        //horizontalLayout.addComponents(symptomName, horizontalLayout, spacer,horizontalLayout1);
 
         iterateOverContainers(gridLayout, Page.getCurrent().getBrowserWindowWidth());
 
