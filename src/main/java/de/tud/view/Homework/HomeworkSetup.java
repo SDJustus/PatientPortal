@@ -1,13 +1,11 @@
 package de.tud.view.Homework;
 
-import com.vaadin.data.HasValue;
 import com.vaadin.icons.VaadinIcons;
 import com.vaadin.navigator.View;
 import com.vaadin.ui.*;
 import de.tud.controller.HomeworkController;
 import org.vaadin.addon.calendar.Calendar;
 
-import javax.xml.soap.Text;
 import java.time.LocalDate;
 import java.time.Month;
 import java.util.Locale;
@@ -27,11 +25,14 @@ HomeworkController controller;
 
     controller.addDateTimeFieldChangeListener();
     controller.addSaveButtonListener();
-
+    controller.addCalenderListenerForCaptionLabel();
 
 
 
     }
+
+
+
 
 
     public Button getSaveButton() {
@@ -58,11 +59,11 @@ HomeworkController controller;
         this.dataPicker = dataPicker;
     }
 
-    public Calendar getCalendar() {
+    public HomeworkCalender getCalendar() {
         return calendar;
     }
 
-    public void setCalendar(Calendar calendar) {
+    public void setCalendar(HomeworkCalender calendar) {
         this.calendar = calendar;
     }
 
@@ -93,6 +94,13 @@ HomeworkController controller;
 
 
 
+    public Label getCalenderLabel() {
+        return calenderLabel;
+    }
+
+    public void setCalenderLabel(Label calenderLabel) {
+        this.calenderLabel = calenderLabel;
+    }
 
 
 
