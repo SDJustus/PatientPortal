@@ -28,8 +28,9 @@ public abstract class Welfare {
     private Strength strength;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column (name = "symptom_id")
+    @SequenceGenerator(name = "WelfareGenerator", sequenceName = "WelfareSequence", allocationSize = 1)
+    @GeneratedValue(generator = "WelfareGenerator")
+    @Column (name = "welfare_id")
     protected long welfareId;
 
     public Welfare(){}

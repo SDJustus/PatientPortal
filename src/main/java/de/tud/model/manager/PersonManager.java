@@ -66,7 +66,7 @@ public class PersonManager extends EntityManager<Person> {
 
         try {
             session.beginTransaction();
-            Person person = (Person) session.load(Person.class, p.getId());
+            Person person = session.load(Person.class, p.getId());
             person.setGivenName(p.getGivenName());
             person.setFamilyName(p.getFamilyName());
             session.getTransaction().commit();
@@ -108,7 +108,7 @@ public class PersonManager extends EntityManager<Person> {
     @Override
     public Person findByID(Long id) {
         Session session = getSessionFactory().openSession();
-        Person p = (Person) session.load(Person.class, id);
+        Person p = session.load(Person.class, id);
         session.close();
         return p;
     }

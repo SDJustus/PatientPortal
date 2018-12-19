@@ -14,12 +14,9 @@ import java.util.Set;
 @Table(name = "diary")
 public class Diary extends EntityObject {
 
-    /*@Id
-    @Column(name="person_id", unique=true, nullable=false)
-    @GeneratedValue(generator="gen")
-    @GenericGenerator(name="gen", strategy="foreign", parameters={@org.hibernate.annotations.Parameter(name="property", value="person")})   */
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @SequenceGenerator(name = "DiaryGenerator", sequenceName = "DiarySequence", allocationSize = 1)
+    @GeneratedValue(generator = "DiaryGenerator")
     private long id;
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)

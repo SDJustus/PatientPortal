@@ -54,7 +54,7 @@ public class CustomizedErrorHandler implements ErrorHandler {
                     AbstractErrorMessage.ContentMode.TEXT, ErrorLevel.ERROR);
         }
         else{
-            return new SystemError(t.getMessage(),t);
+            return new UserError(t.getLocalizedMessage(),AbstractErrorMessage.ContentMode.TEXT, ErrorLevel.ERROR);
         }
     }
 
