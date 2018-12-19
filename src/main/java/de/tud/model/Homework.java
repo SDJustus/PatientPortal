@@ -41,14 +41,15 @@ public class Homework extends EntityObject {
         this.status=false;
 
     }
-    public Homework(Type type, String name, String shortDescription, String longDescription, ZonedDateTime date){                           //neue Homework mit Status False erzeugt da keine Aufgabe direkt erledig sein soll
+
+    public Homework(Type type, String name, String description, ZonedDateTime date){                           //neue Homework mit Status False erzeugt da keine Aufgabe direkt erledig sein soll
         this.type=type;
         this.name=name;
-        this.shortDescription=shortDescription;
-        this.longDescription=longDescription;
+        this.description = description;
         this.status=false;
-        this.date= date;
+        this.date = date;
     }
+
 
 
     @Override

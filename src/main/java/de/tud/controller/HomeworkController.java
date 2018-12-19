@@ -153,7 +153,7 @@ public class HomeworkController {
             basic.setStart(home.getDate());
             basic.setEnd(home.getDate());
 
-            basic.setDescription(home.getType().toString()+": "+home.getShortDescription());
+            basic.setDescription(home.getType().toString()+": "+home.getDescription());
             basic.setCaption(home.getName());
             basicProvider.addItem(basic);
 
@@ -199,11 +199,7 @@ public class HomeworkController {
                     Notification.show("Bitte füllen Sie alle Felder aus");
                     return;
                 }
-                if(designerView.getHomeworkDescriptionLong().isEmpty() == true)
-                {
-                    Notification.show("Bitte füllen Sie alle Felder aus");
-                    return;
-                }
+
                 if(designerView.getHomeworkName().isEmpty() == true)
                 {
                     Notification.show("Bitte füllen Sie alle Felder aus");
@@ -232,16 +228,15 @@ public class HomeworkController {
                 if(designerView.getCombobox().getValue() == "Fragebogen")
                 {
 
-                    h = new Homework(Homework.Type.QUESTIONNAIRE, designerView.getHomeworkName().getValue(),
-                            designerView.getHomeworkDescriptionLong().getValue(),  designerView.getHomeworkDescription().getValue(),
+                    h = new Homework(Homework.Type.QUESTIONNAIRE, designerView.getHomeworkName().getValue()
+                            ,  designerView.getHomeworkDescription().getValue(),
                             zdt);
                     manager.create(h);
                 }
                 if(designerView.getCombobox().getValue() == "Übung")
                 {
 
-                     h = new Homework(Homework.Type.EXERCISE, designerView.getHomeworkName().getValue(),
-                            designerView.getHomeworkDescriptionLong().getValue(),  designerView.getHomeworkDescription().getValue(),
+                     h = new Homework(Homework.Type.EXERCISE, designerView.getHomeworkName().getValue(),  designerView.getHomeworkDescription().getValue(),
                             zdt);
                     manager.create(h);
 
@@ -250,8 +245,8 @@ public class HomeworkController {
                 }
                 if(designerView.getCombobox().getValue() == "Dokument")
                 {
-                    h = new Homework(Homework.Type.DOKUMENT, designerView.getHomeworkName().getValue(),
-                            designerView.getHomeworkDescriptionLong().getValue(),  designerView.getHomeworkDescription().getValue(),
+                    h = new Homework(Homework.Type.DOCUMENT, designerView.getHomeworkName().getValue(),
+                            designerView.getHomeworkDescription().getValue(),
                             zdt);
                     manager.create(h);
 
@@ -287,7 +282,7 @@ public class HomeworkController {
   public  void addTextBoxRestrictions()
     {
 
-designerView.getHomeworkDescriptionLong().setMaxLength(120);
+
 designerView.getHomeworkDescription().setMaxLength(25);
 designerView.getHomeworkName().setMaxLength(12);
 
@@ -327,7 +322,6 @@ designerView.getHomeworkName().setMaxLength(12);
 
         designerView.getHomeworkName().setValue("");
         designerView.getHomeworkDescription().setValue("");
-        designerView.getHomeworkDescriptionLong().setValue("");
         designerView.getDataPicker().setValue(null);
         designerView.getSaveButton().setEnabled(false);
         loadCalendarEntries();

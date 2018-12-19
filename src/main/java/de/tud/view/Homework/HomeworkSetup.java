@@ -76,21 +76,14 @@ HomeworkController controller;
         this.homeworkName = homeworkName;
     }
 
-    public TextField getHomeworkDescription() {
+    public TextArea getHomeworkDescription() {
         return homeworkDescription;
     }
 
-    public void setHomeworkDescription(TextField homeworkDescription) {
+    public void setHomeworkDescription(TextArea homeworkDescription) {
         this.homeworkDescription = homeworkDescription;
     }
 
-    public TextField getHomeworkDescriptionLong() {
-        return homeworkDescriptionLong;
-    }
-
-    public void setHomeworkDescriptionLong(TextField homeworkDescriptionLong) {
-        this.homeworkDescriptionLong = homeworkDescriptionLong;
-    }
 
 
 

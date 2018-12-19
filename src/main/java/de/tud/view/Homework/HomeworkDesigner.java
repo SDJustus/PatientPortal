@@ -10,6 +10,7 @@ import com.vaadin.ui.ComboBox;
 import com.vaadin.ui.DateField;
 import com.vaadin.ui.TextField;
 import com.vaadin.ui.Label;
+import com.vaadin.ui.TextArea;
 
 
 /**
@@ -28,8 +29,7 @@ public class HomeworkDesigner extends VerticalLayout {
     protected ComboBox<String> combobox;
     protected DateField dataPicker;
     protected TextField homeworkName;
-    protected TextField homeworkDescription;
-    protected TextField homeworkDescriptionLong;
+    protected TextArea homeworkDescription;
     protected Label calenderLabel;
     protected HomeworkCalender calendar;
 

@@ -40,7 +40,7 @@ public class StartView  extends com.vaadin.ui.Composite implements View {
         todayGrid = new Grid<>();
 
         todayGrid.addColumn(Homework::getName).setCaption("Name").setResizable(false);
-        todayGrid.addColumn(Homework::getLongDescription).setCaption("Beschreibung").setResizable(false);
+        todayGrid.addColumn(Homework::getDescription).setCaption("Beschreibung").setResizable(false);
         todayGrid.addComponentColumn(s -> {CheckBox checkBox = new CheckBox();
         checkBox.setValue(s.isStatus());
             checkBox.addFocusListener(new FieldEvents.FocusListener() {
@@ -76,7 +76,7 @@ public class StartView  extends com.vaadin.ui.Composite implements View {
         fulfilledGrid.setSelectionMode(Grid.SelectionMode.NONE).setUserSelectionAllowed(false);
 
         fulfilledGrid.addColumn(Homework::getName).setCaption("Name").setResizable(false);
-        fulfilledGrid.addColumn(Homework::getLongDescription).setCaption("Beschreibung").setResizable(false);
+        fulfilledGrid.addColumn(Homework::getDescription).setCaption("Beschreibung").setResizable(false);
         fulfilledGrid.addComponentColumn(s -> {CheckBox checkBox = new CheckBox();
             checkBox.setValue(true);
             return  checkBox; })
@@ -97,7 +97,7 @@ public class StartView  extends com.vaadin.ui.Composite implements View {
         nextDaysGrid = new Grid<>();
         nextDaysGrid.setSelectionMode(Grid.SelectionMode.NONE);
         nextDaysGrid.addColumn(Homework::getName).setCaption("Name");
-        nextDaysGrid.addColumn(Homework::getLongDescription).setCaption("Beschreibung");
+        nextDaysGrid.addColumn(Homework::getDescription).setCaption("Beschreibung");
         nextDaysGrid.addColumn(Homework::getLocalDateTime).setCaption("Datum").setRenderer(new LocalDateTimeRenderer("dd.MM.yyyy HH:mm"));
         nextDaysGrid.setSelectionMode(Grid.SelectionMode.NONE);
         nextDaysGrid.setFrozenColumnCount(nextDaysGrid.getColumns().size());

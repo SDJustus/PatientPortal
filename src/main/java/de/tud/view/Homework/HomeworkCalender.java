@@ -38,7 +38,7 @@ public class HomeworkCalender extends Calendar {
             if(work.getName().equals(item.getCaption()) )
             {
                 System.out.println("Sind drin");
-                notification = new Notification(work.getName()+": ", "Beschreibung: "+work.getLongDescription(), Notification.Type.HUMANIZED_MESSAGE);
+                notification = new Notification(work.getName()+": ", "Beschreibung: "+work.getDescription(), Notification.Type.HUMANIZED_MESSAGE);
 
             }
 
