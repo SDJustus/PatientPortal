@@ -266,6 +266,27 @@ $v-hover-styles-enabled: true !default;
     }
   }
 
+  .v-calendar-times {
+    width: 0px;
+    font-size: 0.77em;
+    line-height: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    color:transparent;
+  }
+  .v-calendar-week-wrapper
+  {
+
+    width: 0px !important;
+    font-size: 0.77em !important;
+    line-height: 1 !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    color:transparent !important;
+
+
+  }
+
 
 
   // Insert your own theme rules here

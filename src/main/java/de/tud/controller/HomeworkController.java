@@ -154,7 +154,7 @@ public class HomeworkController {
                 ToDoItem basic = new ToDoItem();
                 System.out.println(basic.getStyleName());
                 basic.setStart(home.getDate());
-                basic.setEnd(home.getDate().plusHours(1));
+                basic.setEnd(home.getDate().plusHours(2));
 
                 basic.setDescription(home.getType().toString()+": "+home.getDescription());
                 basic.setCaption(home.getName());

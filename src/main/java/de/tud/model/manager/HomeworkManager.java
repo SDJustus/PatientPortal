@@ -14,9 +14,6 @@ public class HomeworkManager extends EntityManager<Homework> {
     public List<Homework> read() {
         Session session = getSessionFactory().openSession();
         List<Homework> homework = session.createQuery("FROM Homework").list();
-        if (homework.isEmpty()){
-            throw new NullPointerException("There was no Homework in the database.");
-        }
         session.close();
         LOGGER.log(Level.INFO, "Read " + homework.size() + " from the database!");
         return homework;

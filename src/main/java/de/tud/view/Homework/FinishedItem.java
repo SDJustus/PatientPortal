@@ -2,6 +2,8 @@ package de.tud.view.Homework;
 
 import org.vaadin.addon.calendar.item.BasicItem;
 
+import java.time.ZonedDateTime;
+
 public class FinishedItem extends BasicItem {
 
    public FinishedItem()
@@ -17,5 +19,26 @@ public class FinishedItem extends BasicItem {
         return "statefinished";
     }
 
+    @Override
+    public boolean isMoveable() {
+        return false;
+    }
+    @Override
+    public boolean isResizeable()
+    {
+        return false;
+
+    }
+
+    @Override
+    public boolean isAllDay() {
+        return true;
+    }
+
+
+
+
 
 }
+
+

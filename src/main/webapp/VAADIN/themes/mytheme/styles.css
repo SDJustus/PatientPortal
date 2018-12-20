@@ -35342,8 +35342,8 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-calendar-event.v-calendar-event-statetoDo .v-calendar-event-content {
-	border: 1px solid #00a010;
-	background-color: rgba(7, 243, 13, 0.8);
+	border: 1px solid #69a089;
+	background-color: rgba(153, 243, 182, 0.8);
 	-webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
 	-moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
 	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
@@ -35354,9 +35354,27 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-calendar-event.v-calendar-event-statefinished .v-calendar-event-content {
-	border: 1px solid cadetblue;
-	background-color: rgba(200, 243, 243, 0.8);
+	border: 1px solid #39dc28;
+	background-color: rgba(15, 220, 0, 0.8);
 	-webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
 	-moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
 	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.mytheme .v-calendar-times {
+	width: 0px;
+	font-size: 0.77em;
+	line-height: 1;
+	white-space: nowrap;
+	overflow: hidden;
+	color: transparent;
+}
+
+.mytheme .v-calendar-week-wrapper {
+	width: 0px !important;
+	font-size: 0.77em !important;
+	line-height: 1 !important;
+	white-space: nowrap !important;
+	overflow: hidden !important;
+	color: transparent !important;
 }
