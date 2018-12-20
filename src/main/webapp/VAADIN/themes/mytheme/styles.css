@@ -35336,3 +35336,27 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	text-align: center;
 	float: left;
 }
+
+.mytheme .v-calendar-event.v-calendar-event-statetoDo {
+	color: #222222;
+}
+
+.mytheme .v-calendar-event.v-calendar-event-statetoDo .v-calendar-event-content {
+	border: 1px solid #00a010;
+	background-color: rgba(7, 243, 13, 0.8);
+	-webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+	-moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.mytheme .v-calendar-event.v-calendar-event-statefinished {
+	color: #222222;
+}
+
+.mytheme .v-calendar-event.v-calendar-event-statefinished .v-calendar-event-content {
+	border: 1px solid cadetblue;
+	background-color: rgba(200, 243, 243, 0.8);
+	-webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+	-moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}

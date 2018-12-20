@@ -238,9 +238,33 @@ $v-hover-styles-enabled: true !default;
 
 
 
+  .v-calendar-event.v-calendar-event-statetoDo {
+    color: #222222;
 
+    .v-calendar-event-content {
+      border: 1px solid #69a089;
 
+      background-color: rgba(153, 243, 182, 0.8);
 
+      -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    }
+  }
+
+  .v-calendar-event.v-calendar-event-statefinished {
+    color: #222222;
+
+    .v-calendar-event-content {
+      border: 1px solid #39dc28;
+
+      background-color: rgba(15, 220, 0, 0.8);
+
+      -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    }
+  }
 
 
 
