@@ -15,8 +15,8 @@
   $v-border-radius: 4px !default;
 }
 
-$al-bar-height: 32px !default;
-$al-bar-background-color: #dcedc8 !default;
+$al-bar-height: 32px;
+$al-bar-background-color: #dcedc8 ;
 $al-bar-font-color: valo-font-color($al-bar-background-color) !default;
 $al-bar-shadow: 0px 2px 10px rgba(0, 0, 0, 0.5) !default;
 $al-bar-z-index: 10 !default;

@@ -22,7 +22,12 @@ public class StartViewController {
         initGrids();
     }
     private void initGrids(){
-        List<Homework> homeworkList = homeworkManager.read();
+        List<Homework> homeworkList = null;
+        try {
+           homeworkList = homeworkManager.read();
+        }catch (NullPointerException e){
+            e.getMessage();
+        }
         LocalDate today = LocalDate.now();
         ArrayList<Homework> todayGridList = new ArrayList<>();
         ArrayList<Homework> fulfilledGridList = new ArrayList<>();

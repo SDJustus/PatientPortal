@@ -68,7 +68,7 @@ public class StartView  extends com.vaadin.ui.Composite implements View {
 
         });
 
-        fulfilledLabel = new Label("Heute erfüllte Aufgaben");
+        fulfilledLabel = new Label("Heute erfüllte Aufgaben:");
         fulfilledLabel.setId("header-label");
 
         fulfilledGrid = new Grid<>();
@@ -79,10 +79,16 @@ public class StartView  extends com.vaadin.ui.Composite implements View {
         fulfilledGrid.addColumn(Homework::getDescription).setCaption("Beschreibung").setResizable(false);
         fulfilledGrid.addComponentColumn(s -> {CheckBox checkBox = new CheckBox();
             checkBox.setValue(true);
+            checkBox.addFocusListener(new FieldEvents.FocusListener() {
+                @Override
+                public void focus(FieldEvents.FocusEvent focusEvent) {
+                    startViewController.checkBoxListener(s.getId(),checkBox);
+                }
+            });
             return  checkBox; })
                 .setCaption("").setResizable(false).setMinimumWidth(100).setMaximumWidth(100);
 
-        fulfilledGrid.setFrozenColumnCount(todayGrid.getColumns().size());
+        fulfilledGrid.setFrozenColumnCount(fulfilledGrid.getColumns().size());
 
 
         fulfilledGrid.setHeightByRows(fulfilledGrid.getDataProvider().size(new Query<>())+1);

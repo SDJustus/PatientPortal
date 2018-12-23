@@ -2772,8 +2772,8 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 		opacity: 0 !important;
 	}
 	.app-layout-behaviour-left-responsive-hybrid .app-bar-application-content {
-		margin-bottom: -64px !important;
-		padding-bottom: 64px !important;
+		margin-bottom: -32px !important;
+		padding-bottom: 32px !important;
 		margin-right: -64px !important;
 		padding-right: 64px !important;
 	}
@@ -2803,11 +2803,11 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 
 @media only screen and (max-width: 640px) {
 	.app-layout-behaviour-left-responsive-hybrid-no-app-bar .drawer-content {
-		margin-top: 64px;
+		margin-top: 32px;
 		box-sizing: border-box;
 		height: 100%;
-		margin-bottom: -64px;
-		padding-bottom: 64px;
+		margin-bottom: -32px;
+		padding-bottom: 32px;
 	}
 }
 
@@ -2969,8 +2969,8 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 
 @media only screen and (min-width: 641px) {
 	.app-layout-behaviour-left-responsive-overlay .app-bar-application-content {
-		margin-bottom: -64px !important;
-		padding-bottom: 64px !important;
+		margin-bottom: -32px !important;
+		padding-bottom: 32px !important;
 		margin-right: -256px !important;
 		padding-right: 256px !important;
 	}
@@ -2978,8 +2978,8 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 
 @media only screen and (max-width: 640px) {
 	.app-layout-behaviour-left-responsive-overlay-no-app-bar .app-bar-application-content {
-		margin-bottom: -64px !important;
-		padding-bottom: 64px !important;
+		margin-bottom: -32px !important;
+		padding-bottom: 32px !important;
 		margin-right: 0px !important;
 		padding-right: 0px !important;
 	}
@@ -3050,8 +3050,8 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 		opacity: 0 !important;
 	}
 	.app-layout-behaviour-left-responsive-small .app-bar-application-content {
-		margin-bottom: -64px !important;
-		padding-bottom: 64px !important;
+		margin-bottom: -32px !important;
+		padding-bottom: 32px !important;
 		margin-right: -64px !important;
 		padding-right: 64px !important;
 	}
@@ -3158,7 +3158,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 
 @media only screen and (min-width: 641px) {
 	.app-layout-behaviour-top-large {
-		--app-bar-height: 128px !important;
+		--app-bar-height: 64px !important;
 	}
 	.app-layout-behaviour-top-large app-toolbar paper-icon-button#toggle {
 		opacity: 0;
@@ -3168,9 +3168,9 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 		left: 10px !important;
 	}
 	.app-layout-behaviour-top-large .app-bar-menu-content {
-		left: 64px;
+		left: 32px;
 		position: absolute;
-		top: 64px !important;
+		top: 32px !important;
 		right: 0px;
 		bottom: 0px;
 	}
@@ -3184,11 +3184,11 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	.app-layout-behaviour-top-large .app-bar-application-content {
 		box-sizing: border-box;
 		height: 100vh;
-		margin-bottom: -128px !important;
-		padding-bottom: 128px !important;
+		margin-bottom: -64px !important;
+		padding-bottom: 64px !important;
 	}
 	.app-layout-behaviour-top-large .app-toolbar-1 {
-		height: 128px;
+		height: 64px;
 	}
 }
 
@@ -3269,8 +3269,8 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 		opacity: 0 !important;
 	}
 	.app-layout-behaviour-left-responsive-hybrid .app-bar-application-content {
-		margin-bottom: -64px !important;
-		padding-bottom: 64px !important;
+		margin-bottom: -32px !important;
+		padding-bottom: 32px !important;
 		margin-right: -64px !important;
 		padding-right: 64px !important;
 	}
@@ -3300,11 +3300,11 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 
 @media only screen and (max-width: 640px) {
 	.app-layout-behaviour-left-responsive-hybrid-no-app-bar .drawer-content {
-		margin-top: 64px;
+		margin-top: 32px;
 		box-sizing: border-box;
 		height: 100%;
-		margin-bottom: -64px;
-		padding-bottom: 64px;
+		margin-bottom: -32px;
+		padding-bottom: 32px;
 	}
 }
 
@@ -3466,8 +3466,8 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 
 @media only screen and (min-width: 641px) {
 	.app-layout-behaviour-left-responsive-overlay .app-bar-application-content {
-		margin-bottom: -64px !important;
-		padding-bottom: 64px !important;
+		margin-bottom: -32px !important;
+		padding-bottom: 32px !important;
 		margin-right: -256px !important;
 		padding-right: 256px !important;
 	}
@@ -3475,8 +3475,8 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 
 @media only screen and (max-width: 640px) {
 	.app-layout-behaviour-left-responsive-overlay-no-app-bar .app-bar-application-content {
-		margin-bottom: -64px !important;
-		padding-bottom: 64px !important;
+		margin-bottom: -32px !important;
+		padding-bottom: 32px !important;
 		margin-right: 0px !important;
 		padding-right: 0px !important;
 	}
@@ -3547,8 +3547,8 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 		opacity: 0 !important;
 	}
 	.app-layout-behaviour-left-responsive-small .app-bar-application-content {
-		margin-bottom: -64px !important;
-		padding-bottom: 64px !important;
+		margin-bottom: -32px !important;
+		padding-bottom: 32px !important;
 		margin-right: -64px !important;
 		padding-right: 64px !important;
 	}
@@ -3655,7 +3655,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 
 @media only screen and (min-width: 641px) {
 	.app-layout-behaviour-top-large {
-		--app-bar-height: 128px !important;
+		--app-bar-height: 64px !important;
 	}
 	.app-layout-behaviour-top-large app-toolbar paper-icon-button#toggle {
 		opacity: 0;
@@ -3665,9 +3665,9 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 		left: 10px !important;
 	}
 	.app-layout-behaviour-top-large .app-bar-menu-content {
-		left: 64px;
+		left: 32px;
 		position: absolute;
-		top: 64px !important;
+		top: 32px !important;
 		right: 0px;
 		bottom: 0px;
 	}
@@ -3681,11 +3681,11 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	.app-layout-behaviour-top-large .app-bar-application-content {
 		box-sizing: border-box;
 		height: 100vh;
-		margin-bottom: -128px !important;
-		padding-bottom: 128px !important;
+		margin-bottom: -64px !important;
+		padding-bottom: 64px !important;
 	}
 	.app-layout-behaviour-top-large .app-toolbar-1 {
-		height: 128px;
+		height: 64px;
 	}
 }
 
@@ -4338,8 +4338,8 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme paper-icon-button {
-	width: 44px;
-	height: 44px;
+	width: 12px;
+	height: 12px;
 	margin: 10px;
 	padding: 6px;
 }
@@ -4369,22 +4369,22 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme app-drawer[opened][persistent] + .app-bar-application-content, .mytheme app-drawer[opened][persistent] + #contentContainer .app-bar-application-content {
-	margin-bottom: -64px;
-	padding-bottom: 64px;
+	margin-bottom: -32px;
+	padding-bottom: 32px;
 	margin-right: -256px;
 	padding-right: 256px;
 }
 
 .mytheme app-header-layout.small app-drawer[opened] + .app-bar-application-content, .mytheme app-header-layout.small app-drawer[opened] + #contentContainer .app-bar-application-content {
-	margin-bottom: -64px;
-	padding-bottom: 64px;
+	margin-bottom: -32px;
+	padding-bottom: 32px;
 	margin-right: -64px;
 	padding-right: 64px;
 }
 
 .mytheme .app-bar-application-content {
-	margin-bottom: -64px;
-	padding-bottom: 64px;
+	margin-bottom: -32px;
+	padding-bottom: 32px;
 	margin-right: 0px;
 	padding-right: 0px;
 }
@@ -4423,7 +4423,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .app-toolbar-1 {
-	height: 64px;
+	height: 32px;
 }
 
 .mytheme .app-layout-default-design .app-layout-menu-button-badge {
@@ -4509,12 +4509,12 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .app-layout-default-design.app-layout-behaviour-top .app-layout-menu-element-active, .mytheme .app-layout-default-design.app-layout-behaviour-top-large .app-layout-menu-element-active {
-	border-bottom: 2px solid #d3dff3;
+	border-bottom: 2px solid #3f5129;
 }
 
 .mytheme .app-layout-default-design.app-layout-behaviour-top .app-layout-menu-element-active .app-layout-menu-button, .mytheme .app-layout-default-design.app-layout-behaviour-top-large .app-layout-menu-element-active .app-layout-menu-button {
 	background: rgba(70, 70, 70, 0) !important;
-	color: #d3dff3 !important;
+	color: #3f5129 !important;
 }
 
 .mytheme .app-layout-default-design .app-layout-round-image {
@@ -4589,12 +4589,12 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .app-layout-material-design.app-layout-behaviour-top .app-layout-menu-element-active, .mytheme .app-layout-material-design.app-layout-behaviour-top-large .app-layout-menu-element-active {
-	border-bottom: 2px solid #d3dff3;
+	border-bottom: 2px solid #3f5129;
 }
 
 .mytheme .app-layout-material-design.app-layout-behaviour-top .app-layout-menu-element-active .app-layout-menu-button, .mytheme .app-layout-material-design.app-layout-behaviour-top-large .app-layout-menu-element-active .app-layout-menu-button {
 	background: rgba(70, 70, 70, 0) !important;
-	color: #d3dff3 !important;
+	color: #3f5129 !important;
 }
 
 .mytheme .app-layout-material-design .app-layout-round-image {
@@ -4848,7 +4848,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .app-layout-top-menu.v-menubar * {
-	color: #d3dff3 !important;
+	color: #3f5129 !important;
 }
 
 .mytheme .v-csslayout.flex-row {
@@ -4975,11 +4975,11 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 
 .mytheme .app-layout-behaviour-left {
 	--app-drawer-width: 256px;
-	--app-bar-height: 64px;
+	--app-bar-height: 32px;
 }
 
 .mytheme .app-layout-behaviour-left .app-bar-content {
-	left: 64px;
+	left: 32px;
 	position: absolute;
 	top: 0px;
 	right: 0px;
@@ -4987,8 +4987,8 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .app-layout-behaviour-left app-toolbar {
-	background-color: #4285f4;
-	color: #d3dff3;
+	background-color: #dcedc8;
+	color: #3f5129;
 	position: relative;
 	z-index: 11;
 	box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.5);
@@ -4996,7 +4996,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .app-layout-behaviour-left app-toolbar .v-button {
-	color: #d3dff3 !important;
+	color: #3f5129 !important;
 }
 
 .mytheme .app-layout-behaviour-left app-drawer {
@@ -5008,11 +5008,11 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .app-layout-behaviour-left .drawer-content {
-	margin-top: 64px;
+	margin-top: 32px;
 	box-sizing: border-box;
 	height: 100%;
-	margin-bottom: -64px;
-	padding-bottom: 64px;
+	margin-bottom: -32px;
+	padding-bottom: 32px;
 	overflow: visible;
 	box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.3);
 	background: white;
@@ -5025,7 +5025,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 
 .mytheme .app-layout-behaviour-left-hybrid {
 	--app-drawer-width: 256px;
-	--app-bar-height: 64px;
+	--app-bar-height: 32px;
 }
 
 .mytheme .app-layout-behaviour-left-hybrid .app-layout-menu-button span.v-button-caption, .mytheme .app-layout-behaviour-left-hybrid .app-layout-expanding-menu-container-button:after {
@@ -5050,8 +5050,8 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .app-layout-behaviour-left-hybrid.small app-drawer[persistent] + .app-bar-application-content, .mytheme .app-layout-behaviour-left-hybrid.small app-drawer[persistent] + #contentContainer .app-bar-application-content {
-	margin-bottom: -64px;
-	padding-bottom: 64px;
+	margin-bottom: -32px;
+	padding-bottom: 32px;
 	margin-right: -64px;
 	padding-right: 64px;
 }
@@ -5134,7 +5134,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .app-layout-behaviour-left-hybrid .app-bar-content {
-	left: 64px;
+	left: 32px;
 	position: absolute;
 	top: 0px;
 	right: 0px;
@@ -5142,8 +5142,8 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .app-layout-behaviour-left-hybrid app-header app-toolbar {
-	background-color: #4285f4;
-	color: #d3dff3;
+	background-color: #dcedc8;
+	color: #3f5129;
 	box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.5);
 	position: relative;
 	z-index: 11;
@@ -5151,7 +5151,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .app-layout-behaviour-left-hybrid app-header app-toolbar .v-button {
-	color: #d3dff3 !important;
+	color: #3f5129 !important;
 }
 
 .mytheme .app-layout-behaviour-left-hybrid app-header paper-icon-button {
@@ -5173,11 +5173,11 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .app-layout-behaviour-left-hybrid .drawer-content {
-	margin-top: 64px;
+	margin-top: 32px;
 	box-sizing: border-box;
 	height: 100%;
-	margin-bottom: -64px;
-	padding-bottom: 64px;
+	margin-bottom: -32px;
+	padding-bottom: 32px;
 	overflow: visible;
 	box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.3);
 	background: white;
@@ -5205,7 +5205,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 
 .mytheme .app-layout-behaviour-left-responsive-hybrid {
 	--app-drawer-width: 256px;
-	--app-bar-height: 64px;
+	--app-bar-height: 32px;
 }
 
 .mytheme .app-layout-behaviour-left-responsive-hybrid .app-layout-menu-button span.v-button-caption, .mytheme .app-layout-behaviour-left-responsive-hybrid .app-layout-expanding-menu-container-button:after {
@@ -5230,7 +5230,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .app-layout-behaviour-left-responsive-hybrid .app-bar-content {
-	left: 64px;
+	left: 32px;
 	position: absolute;
 	top: 0px;
 	right: 0px;
@@ -5238,8 +5238,8 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .app-layout-behaviour-left-responsive-hybrid app-header app-toolbar {
-	background-color: #4285f4;
-	color: #d3dff3;
+	background-color: #dcedc8;
+	color: #3f5129;
 	box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.5);
 	position: relative;
 	z-index: 11;
@@ -5247,7 +5247,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .app-layout-behaviour-left-responsive-hybrid app-header app-toolbar .v-button {
-	color: #d3dff3 !important;
+	color: #3f5129 !important;
 }
 
 .mytheme .app-layout-behaviour-left-responsive-hybrid app-header paper-icon-button {
@@ -5269,11 +5269,11 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .app-layout-behaviour-left-responsive-hybrid .drawer-content {
-	margin-top: 64px;
+	margin-top: 32px;
 	box-sizing: border-box;
 	height: 100%;
-	margin-bottom: -64px;
-	padding-bottom: 64px;
+	margin-bottom: -32px;
+	padding-bottom: 32px;
 	overflow: visible;
 	box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.3);
 	background: white;
@@ -5301,7 +5301,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 
 .mytheme .app-layout-behaviour-left-responsive-hybrid-no-app-bar {
 	--app-drawer-width: 256px;
-	--app-bar-height: 64px;
+	--app-bar-height: 32px;
 }
 
 .mytheme .app-layout-behaviour-left-responsive-hybrid-no-app-bar .app-layout-menu-button span.v-button-caption, .mytheme .app-layout-behaviour-left-responsive-hybrid-no-app-bar .app-layout-expanding-menu-container-button:after {
@@ -5326,7 +5326,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .app-layout-behaviour-left-responsive-hybrid-no-app-bar .app-bar-content {
-	left: 64px;
+	left: 32px;
 	position: absolute;
 	top: 0px;
 	right: 0px;
@@ -5334,8 +5334,8 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .app-layout-behaviour-left-responsive-hybrid-no-app-bar app-header app-toolbar {
-	background-color: #4285f4;
-	color: #d3dff3;
+	background-color: #dcedc8;
+	color: #3f5129;
 	box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.5);
 	position: relative;
 	z-index: 11;
@@ -5343,7 +5343,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .app-layout-behaviour-left-responsive-hybrid-no-app-bar app-header app-toolbar .v-button {
-	color: #d3dff3 !important;
+	color: #3f5129 !important;
 }
 
 .mytheme .app-layout-behaviour-left-responsive-hybrid-no-app-bar app-header paper-icon-button {
@@ -5393,7 +5393,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 
 .mytheme .app-layout-behaviour-left-responsive-hybrid-overlay-no-app-bar {
 	--app-drawer-width: 256px;
-	--app-bar-height: 64px;
+	--app-bar-height: 32px;
 }
 
 .mytheme .app-layout-behaviour-left-responsive-hybrid-overlay-no-app-bar .app-layout-menu-button span.v-button-caption, .mytheme .app-layout-behaviour-left-responsive-hybrid-overlay-no-app-bar .app-layout-expanding-menu-container-button:after {
@@ -5418,7 +5418,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .app-layout-behaviour-left-responsive-hybrid-overlay-no-app-bar .app-bar-content {
-	left: 64px;
+	left: 32px;
 	position: absolute;
 	top: 0px;
 	right: 0px;
@@ -5426,8 +5426,8 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .app-layout-behaviour-left-responsive-hybrid-overlay-no-app-bar app-toolbar {
-	background-color: #4285f4;
-	color: #d3dff3;
+	background-color: #dcedc8;
+	color: #3f5129;
 	box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.5);
 	position: relative;
 	z-index: 9;
@@ -5435,7 +5435,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .app-layout-behaviour-left-responsive-hybrid-overlay-no-app-bar app-toolbar .v-button {
-	color: #d3dff3 !important;
+	color: #3f5129 !important;
 }
 
 .mytheme .app-layout-behaviour-left-responsive-hybrid-overlay-no-app-bar app-toolbar paper-icon-button {
@@ -5484,11 +5484,11 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 
 .mytheme .app-layout-behaviour-left-overlay {
 	--app-drawer-width: 256px;
-	--app-bar-height: 64px;
+	--app-bar-height: 32px;
 }
 
 .mytheme .app-layout-behaviour-left-overlay .app-bar-content {
-	left: 64px;
+	left: 32px;
 	position: absolute;
 	top: 0px;
 	right: 0px;
@@ -5496,14 +5496,14 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .app-layout-behaviour-left-overlay app-toolbar {
-	background-color: #4285f4;
-	color: #d3dff3;
+	background-color: #dcedc8;
+	color: #3f5129;
 	box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.5);
 	padding: 0px;
 }
 
 .mytheme .app-layout-behaviour-left-overlay app-toolbar .v-button {
-	color: #d3dff3 !important;
+	color: #3f5129 !important;
 }
 
 .mytheme .app-layout-behaviour-left-overlay app-drawer[opened] {
@@ -5526,11 +5526,11 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 
 .mytheme .app-layout-behaviour-left-responsive {
 	--app-drawer-width: 256px;
-	--app-bar-height: 64px;
+	--app-bar-height: 32px;
 }
 
 .mytheme .app-layout-behaviour-left-responsive .app-bar-content {
-	left: 64px;
+	left: 32px;
 	position: absolute;
 	top: 0px;
 	right: 0px;
@@ -5538,8 +5538,8 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .app-layout-behaviour-left-responsive app-header app-toolbar {
-	background-color: #4285f4;
-	color: #d3dff3;
+	background-color: #dcedc8;
+	color: #3f5129;
 	box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.5);
 	position: relative;
 	z-index: 11;
@@ -5547,7 +5547,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .app-layout-behaviour-left-responsive app-header app-toolbar .v-button {
-	color: #d3dff3 !important;
+	color: #3f5129 !important;
 }
 
 .mytheme .app-layout-behaviour-left-responsive app-header paper-icon-button {
@@ -5568,11 +5568,11 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .app-layout-behaviour-left-responsive .drawer-content {
-	margin-top: 64px;
+	margin-top: 32px;
 	box-sizing: border-box;
 	height: 100%;
-	margin-bottom: -64px;
-	padding-bottom: 64px;
+	margin-bottom: -32px;
+	padding-bottom: 32px;
 	overflow: visible;
 	box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.3);
 	background: white;
@@ -5600,7 +5600,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 
 .mytheme .app-layout-behaviour-left-responsive-overlay {
 	--app-drawer-width: 256px;
-	--app-bar-height: 64px;
+	--app-bar-height: 32px;
 }
 
 .mytheme .app-layout-behaviour-left-responsive-overlay app-drawer[persistent] + app-toolbar paper-icon-button, .mytheme .app-layout-behaviour-left-responsive-overlay app-drawer[persistent] + #contentContainer app-toolbar paper-icon-button {
@@ -5608,7 +5608,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .app-layout-behaviour-left-responsive-overlay app-drawer + app-toolbar .app-bar-content, .mytheme .app-layout-behaviour-left-responsive-overlay app-drawer + #contentContainer app-toolbar .app-bar-content {
-	left: 64px;
+	left: 32px;
 	position: absolute;
 	top: 0px;
 	right: 0px;
@@ -5623,14 +5623,14 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .app-layout-behaviour-left-responsive-overlay app-toolbar {
-	background-color: #4285f4;
-	color: #d3dff3;
+	background-color: #dcedc8;
+	color: #3f5129;
 	box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.5);
 	padding: 0px;
 }
 
 .mytheme .app-layout-behaviour-left-responsive-overlay app-toolbar .v-button {
-	color: #d3dff3 !important;
+	color: #3f5129 !important;
 }
 
 .mytheme .app-layout-behaviour-left-responsive-overlay .drawer-content {
@@ -5662,11 +5662,11 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 
 .mytheme .app-layout-behaviour-left-responsive-overlay-no-app-bar {
 	--app-drawer-width: 256px;
-	--app-bar-height: 64px;
+	--app-bar-height: 32px;
 }
 
 .mytheme .app-layout-behaviour-left-responsive-overlay-no-app-bar .app-bar-content {
-	left: 64px;
+	left: 32px;
 	position: absolute;
 	top: 0px;
 	right: 0px;
@@ -5678,14 +5678,14 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .app-layout-behaviour-left-responsive-overlay-no-app-bar app-toolbar {
-	background-color: #4285f4;
-	color: #d3dff3;
+	background-color: #dcedc8;
+	color: #3f5129;
 	box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.5);
 	padding: 0px;
 }
 
 .mytheme .app-layout-behaviour-left-responsive-overlay-no-app-bar app-toolbar .v-button {
-	color: #d3dff3 !important;
+	color: #3f5129 !important;
 }
 
 .mytheme .app-layout-behaviour-left-responsive-overlay-no-app-bar .drawer-content {
@@ -5706,11 +5706,11 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 
 .mytheme .app-layout-behaviour-left-responsive-small {
 	--app-drawer-width: 256px;
-	--app-bar-height: 64px;
+	--app-bar-height: 32px;
 }
 
 .mytheme .app-layout-behaviour-left-responsive-small .app-bar-content {
-	left: 64px;
+	left: 32px;
 	position: absolute;
 	top: 0px;
 	right: 0px;
@@ -5718,8 +5718,8 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .app-layout-behaviour-left-responsive-small app-header app-toolbar {
-	background-color: #4285f4;
-	color: #d3dff3;
+	background-color: #dcedc8;
+	color: #3f5129;
 	box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.5);
 	position: relative;
 	z-index: 11;
@@ -5727,7 +5727,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .app-layout-behaviour-left-responsive-small app-header app-toolbar .v-button {
-	color: #d3dff3 !important;
+	color: #3f5129 !important;
 }
 
 .mytheme .app-layout-behaviour-left-responsive-small app-header paper-icon-button {
@@ -5749,11 +5749,11 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .app-layout-behaviour-left-responsive-small .drawer-content {
-	margin-top: 64px;
+	margin-top: 32px;
 	box-sizing: border-box;
 	height: 100vh;
-	margin-bottom: -64px;
-	padding-bottom: 64px;
+	margin-bottom: -32px;
+	padding-bottom: 32px;
 	overflow: visible;
 	box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.3);
 	background: white;
@@ -5785,7 +5785,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 
 .mytheme .app-layout-behaviour-left-responsive-small-no-app-bar {
 	--app-drawer-width: 256px;
-	--app-bar-height: 64px;
+	--app-bar-height: 32px;
 }
 
 .mytheme .app-layout-behaviour-left-responsive-small-no-app-bar .app-layout-menu-button span.v-button-caption, .mytheme .app-layout-behaviour-left-responsive-small-no-app-bar .app-layout-expanding-menu-container-button:after {
@@ -5810,7 +5810,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .app-layout-behaviour-left-responsive-small-no-app-bar .app-bar-content {
-	left: 64px;
+	left: 32px;
 	position: absolute;
 	top: 0px;
 	right: 0px;
@@ -5818,8 +5818,8 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .app-layout-behaviour-left-responsive-small-no-app-bar app-header app-toolbar {
-	background-color: #4285f4;
-	color: #d3dff3;
+	background-color: #dcedc8;
+	color: #3f5129;
 	box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.5);
 	position: relative;
 	z-index: 11;
@@ -5827,7 +5827,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .app-layout-behaviour-left-responsive-small-no-app-bar app-header app-toolbar .v-button {
-	color: #d3dff3 !important;
+	color: #3f5129 !important;
 }
 
 .mytheme .app-layout-behaviour-left-responsive-small-no-app-bar app-header paper-icon-button {
@@ -5849,11 +5849,11 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .app-layout-behaviour-left-responsive-small-no-app-bar .drawer-content {
-	margin-top: 64px;
+	margin-top: 32px;
 	box-sizing: border-box;
 	height: 100%;
-	margin-bottom: -64px;
-	padding-bottom: 64px;
+	margin-bottom: -32px;
+	padding-bottom: 32px;
 	overflow: visible;
 	box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.3);
 	background: white;
@@ -5885,11 +5885,11 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 
 .mytheme .app-layout-behaviour-top {
 	--app-drawer-width: 256px;
-	--app-bar-height: 64px;
+	--app-bar-height: 32px;
 }
 
 .mytheme .app-layout-behaviour-top .app-bar-content {
-	left: 64px;
+	left: 32px;
 	position: absolute;
 	top: 0px;
 	right: 0px;
@@ -5914,8 +5914,8 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .app-layout-behaviour-top app-toolbar {
-	background-color: #4285f4;
-	color: #d3dff3;
+	background-color: #dcedc8;
+	color: #3f5129;
 	position: relative;
 	z-index: 11;
 	box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.5);
@@ -5924,7 +5924,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .app-layout-behaviour-top app-toolbar .v-button {
-	color: #d3dff3 !important;
+	color: #3f5129 !important;
 }
 
 .mytheme .app-layout-behaviour-top app-drawer {
@@ -5936,11 +5936,11 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .app-layout-behaviour-top .drawer-content {
-	margin-top: 64px;
+	margin-top: 32px;
 	box-sizing: border-box;
 	height: 100%;
-	margin-bottom: -64px;
-	padding-bottom: 64px;
+	margin-bottom: -32px;
+	padding-bottom: 32px;
 	overflow: visible;
 	box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.3);
 	background: white;
@@ -5949,15 +5949,15 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 
 .mytheme .app-layout-behaviour-top-large {
 	--app-drawer-width: 256px;
-	--app-bar-height: 64px;
+	--app-bar-height: 32px;
 }
 
 .mytheme .app-layout-behaviour-top-large .app-bar-content {
-	left: 64px;
+	left: 32px;
 	position: absolute;
 	top: 0px;
 	right: 0px;
-	height: 64px;
+	height: 32px;
 	transition: left 0.3s;
 }
 
@@ -5979,8 +5979,8 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .app-layout-behaviour-top-large app-toolbar {
-	background-color: #4285f4;
-	color: #d3dff3;
+	background-color: #dcedc8;
+	color: #3f5129;
 	position: relative;
 	z-index: 11;
 	box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.5);
@@ -5989,7 +5989,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .app-layout-behaviour-top-large app-toolbar .v-button {
-	color: #d3dff3 !important;
+	color: #3f5129 !important;
 }
 
 .mytheme .app-layout-behaviour-top-large app-drawer {
@@ -6001,11 +6001,11 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .app-layout-behaviour-top-large .drawer-content {
-	margin-top: 64px;
+	margin-top: 32px;
 	box-sizing: border-box;
 	height: 100%;
-	margin-bottom: -64px;
-	padding-bottom: 64px;
+	margin-bottom: -32px;
+	padding-bottom: 32px;
 	overflow: visible;
 	box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.3);
 	background: white;
@@ -33522,8 +33522,8 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme paper-icon-button {
-	width: 44px;
-	height: 44px;
+	width: 12px;
+	height: 12px;
 	margin: 10px;
 	padding: 6px;
 }
@@ -33553,22 +33553,22 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme app-drawer[opened][persistent] + .app-bar-application-content, .mytheme app-drawer[opened][persistent] + #contentContainer .app-bar-application-content {
-	margin-bottom: -64px;
-	padding-bottom: 64px;
+	margin-bottom: -32px;
+	padding-bottom: 32px;
 	margin-right: -256px;
 	padding-right: 256px;
 }
 
 .mytheme app-header-layout.small app-drawer[opened] + .app-bar-application-content, .mytheme app-header-layout.small app-drawer[opened] + #contentContainer .app-bar-application-content {
-	margin-bottom: -64px;
-	padding-bottom: 64px;
+	margin-bottom: -32px;
+	padding-bottom: 32px;
 	margin-right: -64px;
 	padding-right: 64px;
 }
 
 .mytheme .app-bar-application-content {
-	margin-bottom: -64px;
-	padding-bottom: 64px;
+	margin-bottom: -32px;
+	padding-bottom: 32px;
 	margin-right: 0px;
 	padding-right: 0px;
 }
@@ -33607,7 +33607,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .app-toolbar-1 {
-	height: 64px;
+	height: 32px;
 }
 
 .mytheme .app-layout-default-design .app-layout-menu-button-badge {
@@ -33693,12 +33693,12 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .app-layout-default-design.app-layout-behaviour-top .app-layout-menu-element-active, .mytheme .app-layout-default-design.app-layout-behaviour-top-large .app-layout-menu-element-active {
-	border-bottom: 2px solid #d3dff3;
+	border-bottom: 2px solid #3f5129;
 }
 
 .mytheme .app-layout-default-design.app-layout-behaviour-top .app-layout-menu-element-active .app-layout-menu-button, .mytheme .app-layout-default-design.app-layout-behaviour-top-large .app-layout-menu-element-active .app-layout-menu-button {
 	background: rgba(70, 70, 70, 0) !important;
-	color: #d3dff3 !important;
+	color: #3f5129 !important;
 }
 
 .mytheme .app-layout-default-design .app-layout-round-image {
@@ -33773,12 +33773,12 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .app-layout-material-design.app-layout-behaviour-top .app-layout-menu-element-active, .mytheme .app-layout-material-design.app-layout-behaviour-top-large .app-layout-menu-element-active {
-	border-bottom: 2px solid #d3dff3;
+	border-bottom: 2px solid #3f5129;
 }
 
 .mytheme .app-layout-material-design.app-layout-behaviour-top .app-layout-menu-element-active .app-layout-menu-button, .mytheme .app-layout-material-design.app-layout-behaviour-top-large .app-layout-menu-element-active .app-layout-menu-button {
 	background: rgba(70, 70, 70, 0) !important;
-	color: #d3dff3 !important;
+	color: #3f5129 !important;
 }
 
 .mytheme .app-layout-material-design .app-layout-round-image {
@@ -34032,7 +34032,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .app-layout-top-menu.v-menubar * {
-	color: #d3dff3 !important;
+	color: #3f5129 !important;
 }
 
 .mytheme .v-csslayout.flex-row {
@@ -34159,11 +34159,11 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 
 .mytheme .app-layout-behaviour-left {
 	--app-drawer-width: 256px;
-	--app-bar-height: 64px;
+	--app-bar-height: 32px;
 }
 
 .mytheme .app-layout-behaviour-left .app-bar-content {
-	left: 64px;
+	left: 32px;
 	position: absolute;
 	top: 0px;
 	right: 0px;
@@ -34171,8 +34171,8 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .app-layout-behaviour-left app-toolbar {
-	background-color: #4285f4;
-	color: #d3dff3;
+	background-color: #dcedc8;
+	color: #3f5129;
 	position: relative;
 	z-index: 11;
 	box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.5);
@@ -34180,7 +34180,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .app-layout-behaviour-left app-toolbar .v-button {
-	color: #d3dff3 !important;
+	color: #3f5129 !important;
 }
 
 .mytheme .app-layout-behaviour-left app-drawer {
@@ -34192,11 +34192,11 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .app-layout-behaviour-left .drawer-content {
-	margin-top: 64px;
+	margin-top: 32px;
 	box-sizing: border-box;
 	height: 100%;
-	margin-bottom: -64px;
-	padding-bottom: 64px;
+	margin-bottom: -32px;
+	padding-bottom: 32px;
 	overflow: visible;
 	box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.3);
 	background: white;
@@ -34209,7 +34209,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 
 .mytheme .app-layout-behaviour-left-hybrid {
 	--app-drawer-width: 256px;
-	--app-bar-height: 64px;
+	--app-bar-height: 32px;
 }
 
 .mytheme .app-layout-behaviour-left-hybrid .app-layout-menu-button span.v-button-caption, .mytheme .app-layout-behaviour-left-hybrid .app-layout-expanding-menu-container-button:after {
@@ -34234,8 +34234,8 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .app-layout-behaviour-left-hybrid.small app-drawer[persistent] + .app-bar-application-content, .mytheme .app-layout-behaviour-left-hybrid.small app-drawer[persistent] + #contentContainer .app-bar-application-content {
-	margin-bottom: -64px;
-	padding-bottom: 64px;
+	margin-bottom: -32px;
+	padding-bottom: 32px;
 	margin-right: -64px;
 	padding-right: 64px;
 }
@@ -34318,7 +34318,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .app-layout-behaviour-left-hybrid .app-bar-content {
-	left: 64px;
+	left: 32px;
 	position: absolute;
 	top: 0px;
 	right: 0px;
@@ -34326,8 +34326,8 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .app-layout-behaviour-left-hybrid app-header app-toolbar {
-	background-color: #4285f4;
-	color: #d3dff3;
+	background-color: #dcedc8;
+	color: #3f5129;
 	box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.5);
 	position: relative;
 	z-index: 11;
@@ -34335,7 +34335,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .app-layout-behaviour-left-hybrid app-header app-toolbar .v-button {
-	color: #d3dff3 !important;
+	color: #3f5129 !important;
 }
 
 .mytheme .app-layout-behaviour-left-hybrid app-header paper-icon-button {
@@ -34357,11 +34357,11 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .app-layout-behaviour-left-hybrid .drawer-content {
-	margin-top: 64px;
+	margin-top: 32px;
 	box-sizing: border-box;
 	height: 100%;
-	margin-bottom: -64px;
-	padding-bottom: 64px;
+	margin-bottom: -32px;
+	padding-bottom: 32px;
 	overflow: visible;
 	box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.3);
 	background: white;
@@ -34389,7 +34389,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 
 .mytheme .app-layout-behaviour-left-responsive-hybrid {
 	--app-drawer-width: 256px;
-	--app-bar-height: 64px;
+	--app-bar-height: 32px;
 }
 
 .mytheme .app-layout-behaviour-left-responsive-hybrid .app-layout-menu-button span.v-button-caption, .mytheme .app-layout-behaviour-left-responsive-hybrid .app-layout-expanding-menu-container-button:after {
@@ -34414,7 +34414,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .app-layout-behaviour-left-responsive-hybrid .app-bar-content {
-	left: 64px;
+	left: 32px;
 	position: absolute;
 	top: 0px;
 	right: 0px;
@@ -34422,8 +34422,8 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .app-layout-behaviour-left-responsive-hybrid app-header app-toolbar {
-	background-color: #4285f4;
-	color: #d3dff3;
+	background-color: #dcedc8;
+	color: #3f5129;
 	box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.5);
 	position: relative;
 	z-index: 11;
@@ -34431,7 +34431,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .app-layout-behaviour-left-responsive-hybrid app-header app-toolbar .v-button {
-	color: #d3dff3 !important;
+	color: #3f5129 !important;
 }
 
 .mytheme .app-layout-behaviour-left-responsive-hybrid app-header paper-icon-button {
@@ -34453,11 +34453,11 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .app-layout-behaviour-left-responsive-hybrid .drawer-content {
-	margin-top: 64px;
+	margin-top: 32px;
 	box-sizing: border-box;
 	height: 100%;
-	margin-bottom: -64px;
-	padding-bottom: 64px;
+	margin-bottom: -32px;
+	padding-bottom: 32px;
 	overflow: visible;
 	box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.3);
 	background: white;
@@ -34485,7 +34485,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 
 .mytheme .app-layout-behaviour-left-responsive-hybrid-no-app-bar {
 	--app-drawer-width: 256px;
-	--app-bar-height: 64px;
+	--app-bar-height: 32px;
 }
 
 .mytheme .app-layout-behaviour-left-responsive-hybrid-no-app-bar .app-layout-menu-button span.v-button-caption, .mytheme .app-layout-behaviour-left-responsive-hybrid-no-app-bar .app-layout-expanding-menu-container-button:after {
@@ -34510,7 +34510,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .app-layout-behaviour-left-responsive-hybrid-no-app-bar .app-bar-content {
-	left: 64px;
+	left: 32px;
 	position: absolute;
 	top: 0px;
 	right: 0px;
@@ -34518,8 +34518,8 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .app-layout-behaviour-left-responsive-hybrid-no-app-bar app-header app-toolbar {
-	background-color: #4285f4;
-	color: #d3dff3;
+	background-color: #dcedc8;
+	color: #3f5129;
 	box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.5);
 	position: relative;
 	z-index: 11;
@@ -34527,7 +34527,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .app-layout-behaviour-left-responsive-hybrid-no-app-bar app-header app-toolbar .v-button {
-	color: #d3dff3 !important;
+	color: #3f5129 !important;
 }
 
 .mytheme .app-layout-behaviour-left-responsive-hybrid-no-app-bar app-header paper-icon-button {
@@ -34577,7 +34577,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 
 .mytheme .app-layout-behaviour-left-responsive-hybrid-overlay-no-app-bar {
 	--app-drawer-width: 256px;
-	--app-bar-height: 64px;
+	--app-bar-height: 32px;
 }
 
 .mytheme .app-layout-behaviour-left-responsive-hybrid-overlay-no-app-bar .app-layout-menu-button span.v-button-caption, .mytheme .app-layout-behaviour-left-responsive-hybrid-overlay-no-app-bar .app-layout-expanding-menu-container-button:after {
@@ -34602,7 +34602,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .app-layout-behaviour-left-responsive-hybrid-overlay-no-app-bar .app-bar-content {
-	left: 64px;
+	left: 32px;
 	position: absolute;
 	top: 0px;
 	right: 0px;
@@ -34610,8 +34610,8 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .app-layout-behaviour-left-responsive-hybrid-overlay-no-app-bar app-toolbar {
-	background-color: #4285f4;
-	color: #d3dff3;
+	background-color: #dcedc8;
+	color: #3f5129;
 	box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.5);
 	position: relative;
 	z-index: 9;
@@ -34619,7 +34619,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .app-layout-behaviour-left-responsive-hybrid-overlay-no-app-bar app-toolbar .v-button {
-	color: #d3dff3 !important;
+	color: #3f5129 !important;
 }
 
 .mytheme .app-layout-behaviour-left-responsive-hybrid-overlay-no-app-bar app-toolbar paper-icon-button {
@@ -34668,11 +34668,11 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 
 .mytheme .app-layout-behaviour-left-overlay {
 	--app-drawer-width: 256px;
-	--app-bar-height: 64px;
+	--app-bar-height: 32px;
 }
 
 .mytheme .app-layout-behaviour-left-overlay .app-bar-content {
-	left: 64px;
+	left: 32px;
 	position: absolute;
 	top: 0px;
 	right: 0px;
@@ -34680,14 +34680,14 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .app-layout-behaviour-left-overlay app-toolbar {
-	background-color: #4285f4;
-	color: #d3dff3;
+	background-color: #dcedc8;
+	color: #3f5129;
 	box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.5);
 	padding: 0px;
 }
 
 .mytheme .app-layout-behaviour-left-overlay app-toolbar .v-button {
-	color: #d3dff3 !important;
+	color: #3f5129 !important;
 }
 
 .mytheme .app-layout-behaviour-left-overlay app-drawer[opened] {
@@ -34710,11 +34710,11 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 
 .mytheme .app-layout-behaviour-left-responsive {
 	--app-drawer-width: 256px;
-	--app-bar-height: 64px;
+	--app-bar-height: 32px;
 }
 
 .mytheme .app-layout-behaviour-left-responsive .app-bar-content {
-	left: 64px;
+	left: 32px;
 	position: absolute;
 	top: 0px;
 	right: 0px;
@@ -34722,8 +34722,8 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .app-layout-behaviour-left-responsive app-header app-toolbar {
-	background-color: #4285f4;
-	color: #d3dff3;
+	background-color: #dcedc8;
+	color: #3f5129;
 	box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.5);
 	position: relative;
 	z-index: 11;
@@ -34731,7 +34731,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .app-layout-behaviour-left-responsive app-header app-toolbar .v-button {
-	color: #d3dff3 !important;
+	color: #3f5129 !important;
 }
 
 .mytheme .app-layout-behaviour-left-responsive app-header paper-icon-button {
@@ -34752,11 +34752,11 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .app-layout-behaviour-left-responsive .drawer-content {
-	margin-top: 64px;
+	margin-top: 32px;
 	box-sizing: border-box;
 	height: 100%;
-	margin-bottom: -64px;
-	padding-bottom: 64px;
+	margin-bottom: -32px;
+	padding-bottom: 32px;
 	overflow: visible;
 	box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.3);
 	background: white;
@@ -34784,7 +34784,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 
 .mytheme .app-layout-behaviour-left-responsive-overlay {
 	--app-drawer-width: 256px;
-	--app-bar-height: 64px;
+	--app-bar-height: 32px;
 }
 
 .mytheme .app-layout-behaviour-left-responsive-overlay app-drawer[persistent] + app-toolbar paper-icon-button, .mytheme .app-layout-behaviour-left-responsive-overlay app-drawer[persistent] + #contentContainer app-toolbar paper-icon-button {
@@ -34792,7 +34792,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .app-layout-behaviour-left-responsive-overlay app-drawer + app-toolbar .app-bar-content, .mytheme .app-layout-behaviour-left-responsive-overlay app-drawer + #contentContainer app-toolbar .app-bar-content {
-	left: 64px;
+	left: 32px;
 	position: absolute;
 	top: 0px;
 	right: 0px;
@@ -34807,14 +34807,14 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .app-layout-behaviour-left-responsive-overlay app-toolbar {
-	background-color: #4285f4;
-	color: #d3dff3;
+	background-color: #dcedc8;
+	color: #3f5129;
 	box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.5);
 	padding: 0px;
 }
 
 .mytheme .app-layout-behaviour-left-responsive-overlay app-toolbar .v-button {
-	color: #d3dff3 !important;
+	color: #3f5129 !important;
 }
 
 .mytheme .app-layout-behaviour-left-responsive-overlay .drawer-content {
@@ -34846,11 +34846,11 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 
 .mytheme .app-layout-behaviour-left-responsive-overlay-no-app-bar {
 	--app-drawer-width: 256px;
-	--app-bar-height: 64px;
+	--app-bar-height: 32px;
 }
 
 .mytheme .app-layout-behaviour-left-responsive-overlay-no-app-bar .app-bar-content {
-	left: 64px;
+	left: 32px;
 	position: absolute;
 	top: 0px;
 	right: 0px;
@@ -34862,14 +34862,14 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .app-layout-behaviour-left-responsive-overlay-no-app-bar app-toolbar {
-	background-color: #4285f4;
-	color: #d3dff3;
+	background-color: #dcedc8;
+	color: #3f5129;
 	box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.5);
 	padding: 0px;
 }
 
 .mytheme .app-layout-behaviour-left-responsive-overlay-no-app-bar app-toolbar .v-button {
-	color: #d3dff3 !important;
+	color: #3f5129 !important;
 }
 
 .mytheme .app-layout-behaviour-left-responsive-overlay-no-app-bar .drawer-content {
@@ -34890,11 +34890,11 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 
 .mytheme .app-layout-behaviour-left-responsive-small {
 	--app-drawer-width: 256px;
-	--app-bar-height: 64px;
+	--app-bar-height: 32px;
 }
 
 .mytheme .app-layout-behaviour-left-responsive-small .app-bar-content {
-	left: 64px;
+	left: 32px;
 	position: absolute;
 	top: 0px;
 	right: 0px;
@@ -34902,8 +34902,8 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .app-layout-behaviour-left-responsive-small app-header app-toolbar {
-	background-color: #4285f4;
-	color: #d3dff3;
+	background-color: #dcedc8;
+	color: #3f5129;
 	box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.5);
 	position: relative;
 	z-index: 11;
@@ -34911,7 +34911,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .app-layout-behaviour-left-responsive-small app-header app-toolbar .v-button {
-	color: #d3dff3 !important;
+	color: #3f5129 !important;
 }
 
 .mytheme .app-layout-behaviour-left-responsive-small app-header paper-icon-button {
@@ -34933,11 +34933,11 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .app-layout-behaviour-left-responsive-small .drawer-content {
-	margin-top: 64px;
+	margin-top: 32px;
 	box-sizing: border-box;
 	height: 100vh;
-	margin-bottom: -64px;
-	padding-bottom: 64px;
+	margin-bottom: -32px;
+	padding-bottom: 32px;
 	overflow: visible;
 	box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.3);
 	background: white;
@@ -34969,7 +34969,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 
 .mytheme .app-layout-behaviour-left-responsive-small-no-app-bar {
 	--app-drawer-width: 256px;
-	--app-bar-height: 64px;
+	--app-bar-height: 32px;
 }
 
 .mytheme .app-layout-behaviour-left-responsive-small-no-app-bar .app-layout-menu-button span.v-button-caption, .mytheme .app-layout-behaviour-left-responsive-small-no-app-bar .app-layout-expanding-menu-container-button:after {
@@ -34994,7 +34994,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .app-layout-behaviour-left-responsive-small-no-app-bar .app-bar-content {
-	left: 64px;
+	left: 32px;
 	position: absolute;
 	top: 0px;
 	right: 0px;
@@ -35002,8 +35002,8 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .app-layout-behaviour-left-responsive-small-no-app-bar app-header app-toolbar {
-	background-color: #4285f4;
-	color: #d3dff3;
+	background-color: #dcedc8;
+	color: #3f5129;
 	box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.5);
 	position: relative;
 	z-index: 11;
@@ -35011,7 +35011,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .app-layout-behaviour-left-responsive-small-no-app-bar app-header app-toolbar .v-button {
-	color: #d3dff3 !important;
+	color: #3f5129 !important;
 }
 
 .mytheme .app-layout-behaviour-left-responsive-small-no-app-bar app-header paper-icon-button {
@@ -35033,11 +35033,11 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .app-layout-behaviour-left-responsive-small-no-app-bar .drawer-content {
-	margin-top: 64px;
+	margin-top: 32px;
 	box-sizing: border-box;
 	height: 100%;
-	margin-bottom: -64px;
-	padding-bottom: 64px;
+	margin-bottom: -32px;
+	padding-bottom: 32px;
 	overflow: visible;
 	box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.3);
 	background: white;
@@ -35069,11 +35069,11 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 
 .mytheme .app-layout-behaviour-top {
 	--app-drawer-width: 256px;
-	--app-bar-height: 64px;
+	--app-bar-height: 32px;
 }
 
 .mytheme .app-layout-behaviour-top .app-bar-content {
-	left: 64px;
+	left: 32px;
 	position: absolute;
 	top: 0px;
 	right: 0px;
@@ -35098,8 +35098,8 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .app-layout-behaviour-top app-toolbar {
-	background-color: #4285f4;
-	color: #d3dff3;
+	background-color: #dcedc8;
+	color: #3f5129;
 	position: relative;
 	z-index: 11;
 	box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.5);
@@ -35108,7 +35108,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .app-layout-behaviour-top app-toolbar .v-button {
-	color: #d3dff3 !important;
+	color: #3f5129 !important;
 }
 
 .mytheme .app-layout-behaviour-top app-drawer {
@@ -35120,11 +35120,11 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .app-layout-behaviour-top .drawer-content {
-	margin-top: 64px;
+	margin-top: 32px;
 	box-sizing: border-box;
 	height: 100%;
-	margin-bottom: -64px;
-	padding-bottom: 64px;
+	margin-bottom: -32px;
+	padding-bottom: 32px;
 	overflow: visible;
 	box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.3);
 	background: white;
@@ -35133,15 +35133,15 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 
 .mytheme .app-layout-behaviour-top-large {
 	--app-drawer-width: 256px;
-	--app-bar-height: 64px;
+	--app-bar-height: 32px;
 }
 
 .mytheme .app-layout-behaviour-top-large .app-bar-content {
-	left: 64px;
+	left: 32px;
 	position: absolute;
 	top: 0px;
 	right: 0px;
-	height: 64px;
+	height: 32px;
 	transition: left 0.3s;
 }
 
@@ -35163,8 +35163,8 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .app-layout-behaviour-top-large app-toolbar {
-	background-color: #4285f4;
-	color: #d3dff3;
+	background-color: #dcedc8;
+	color: #3f5129;
 	position: relative;
 	z-index: 11;
 	box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.5);
@@ -35173,7 +35173,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .app-layout-behaviour-top-large app-toolbar .v-button {
-	color: #d3dff3 !important;
+	color: #3f5129 !important;
 }
 
 .mytheme .app-layout-behaviour-top-large app-drawer {
@@ -35185,11 +35185,11 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .app-layout-behaviour-top-large .drawer-content {
-	margin-top: 64px;
+	margin-top: 32px;
 	box-sizing: border-box;
 	height: 100%;
-	margin-bottom: -64px;
-	padding-bottom: 64px;
+	margin-bottom: -32px;
+	padding-bottom: 32px;
 	overflow: visible;
 	box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.3);
 	background: white;

@@ -123,10 +123,10 @@ public class HomeworkController {
    public void loadCalendarEntries()
     {
         HomeworkManager manager = new HomeworkManager();
-        if(manager.read() == null)
-        {
+        try{manager.read();
+        }catch (NullPointerException e){
+            e.getMessage();
             return;
-
         }
 
         List<Homework> homeworkList = manager.read();

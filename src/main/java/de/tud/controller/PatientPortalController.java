@@ -9,6 +9,7 @@ import com.github.appreciated.app.layout.builder.elements.builders.SubmenuBuilde
 import com.github.appreciated.app.layout.builder.entities.DefaultBadgeHolder;
 import com.github.appreciated.app.layout.builder.entities.DefaultNotification;
 import com.github.appreciated.app.layout.builder.entities.DefaultNotificationHolder;
+import com.github.appreciated.app.layout.builder.entities.NotificationHolder;
 import com.github.appreciated.app.layout.component.button.AppBarNotificationButton;
 import com.github.appreciated.app.layout.interceptor.DefaultViewNameInterceptor;
 import com.vaadin.annotations.Theme;
@@ -16,6 +17,7 @@ import com.vaadin.annotations.VaadinServletConfiguration;
 import com.vaadin.event.ContextClickEvent;
 import com.vaadin.icons.VaadinIcons;
 import com.vaadin.navigator.Navigator;
+import com.vaadin.navigator.View;
 import com.vaadin.server.*;
 import com.vaadin.ui.*;
 import de.tud.view.*;
@@ -50,13 +52,11 @@ public class PatientPortalController extends UI {
         authenticationView = new AuthenticationView(this);
 
 
-
-
-
-        appBarNotificationButton.addContextClickListener(new ContextClickEvent.ContextClickListener() {
+        notifications.addNotificationClickedListener(new NotificationHolder.NotificationClickListener<DefaultNotification>() {
             @Override
-            public void contextClick(ContextClickEvent contextClickEvent) {
-                appBarNotificationButton.setCaption("333");
+            public void onNotificationClicked(DefaultNotification defaultNotification) {
+                Notification.show(defaultNotification.getDescription(), Notification.Type.HUMANIZED_MESSAGE);
+                defaultNotification.setUnread(true);
             }
         });
 
@@ -108,7 +108,7 @@ public class PatientPortalController extends UI {
         horizontalLayout.setWidth("256px");
 
 
-        return AppLayout.getDefaultBuilder(Behaviour.LEFT_RESPONSIVE_HYBRID)
+        return AppLayout.getDefaultBuilder(Behaviour.LEFT_HYBRID)
                 .withNavigator(container -> new Navigator(this, container))
                 .addToAppBar(appBarNotificationButton)
                 .withViewNameInterceptor(new DefaultViewNameInterceptor())
