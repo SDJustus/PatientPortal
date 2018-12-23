@@ -2460,7 +2460,7 @@ body:not(.v-touch) .friendly.v-button:not(.v-disabled):not(.borderless):not(.bor
 }
 
 body:not(.v-touch) .custom.v-button:not(.v-disabled):not(.borderless):not(.borderless-colored):hover {
-	background: #008c9a;
+	background: #6eb7fa;
 }
 
 body:not(.v-touch) .danger.v-button:not(.v-disabled):not(.borderless):not(.borderless-colored):hover {
@@ -2498,12 +2498,12 @@ body:not(.v-touch) .v-button:not(.v-disabled).border:hover {
 
 body:not(.v-touch) .v-button:not(.v-disabled).border.custom:hover {
 	color: white;
-	background: #026670 !important;
+	background: #6eaeea !important;
 }
 
 body:not(.v-touch) .v-button:not(.v-disabled).border.primary:hover {
 	color: white;
-	background: #026670 !important;
+	background: #6eaeea !important;
 }
 
 body:not(.v-touch) .v-button:not(.v-disabled).border.friendly:hover {
@@ -2517,7 +2517,7 @@ body:not(.v-touch) .v-button:not(.v-disabled).border.danger:hover {
 }
 
 body:not(.v-touch) .v-button:not(.v-disabled).borderless.primary:hover, body:not(.v-touch) .v-button:not(.v-disabled).borderless-colored:hover {
-	background: rgba(0, 140, 154, 0.2) !important;
+	background: rgba(110, 183, 250, 0.2) !important;
 }
 
 body:not(.v-touch) .v-button:not(.v-disabled).borderless.friendly:hover {
@@ -2529,7 +2529,7 @@ body:not(.v-touch) .v-button:not(.v-disabled).borderless.danger:hover {
 }
 
 body:not(.v-touch) .v-button:not(.v-disabled).borderless.custom:hover {
-	background: rgba(0, 140, 154, 0.2) !important;
+	background: rgba(110, 183, 250, 0.2) !important;
 }
 
 body:not(.v-touch) .v-filterselect:not(.v-disabled) > .v-filterselect-button:hover {
@@ -2575,7 +2575,7 @@ body:not(.v-touch) .v-filterselect:not(.v-disabled) > .v-filterselect-button:hov
 	}
 
 body:not(.v-touch) .v-grid-editor-save:hover, body:not(.v-touch) .v-grid-editor-cancel:hover {
-	background: rgba(2, 102, 112, 0.2) !important;
+	background: rgba(110, 174, 234, 0.2) !important;
 }
 
 body.v-ie .v-grid-scroller {
@@ -2617,7 +2617,7 @@ body:not(.v-touch) .friendly.v-upload:not(.v-disabled):not(.borderless):not(.bor
 }
 
 body:not(.v-touch) .custom.v-upload:not(.v-disabled):not(.borderless):not(.borderless-colored):hover {
-	background: #008c9a;
+	background: #6eb7fa;
 }
 
 body:not(.v-touch) .danger.v-upload:not(.v-disabled):not(.borderless):not(.borderless-colored):hover {
@@ -2655,12 +2655,12 @@ body:not(.v-touch) .v-upload:not(.v-disabled).border:hover {
 
 body:not(.v-touch) .v-upload:not(.v-disabled).border.custom:hover {
 	color: white;
-	background: #026670 !important;
+	background: #6eaeea !important;
 }
 
 body:not(.v-touch) .v-upload:not(.v-disabled).border.primary:hover {
 	color: white;
-	background: #026670 !important;
+	background: #6eaeea !important;
 }
 
 body:not(.v-touch) .v-upload:not(.v-disabled).border.friendly:hover {
@@ -2674,7 +2674,7 @@ body:not(.v-touch) .v-upload:not(.v-disabled).border.danger:hover {
 }
 
 body:not(.v-touch) .v-upload:not(.v-disabled).borderless.primary:hover, body:not(.v-touch) .v-upload:not(.v-disabled).borderless-colored:hover {
-	background: rgba(0, 140, 154, 0.2) !important;
+	background: rgba(110, 183, 250, 0.2) !important;
 }
 
 body:not(.v-touch) .v-upload:not(.v-disabled).borderless.friendly:hover {
@@ -2686,7 +2686,7 @@ body:not(.v-touch) .v-upload:not(.v-disabled).borderless.danger:hover {
 }
 
 body:not(.v-touch) .v-upload:not(.v-disabled).borderless.custom:hover {
-	background: rgba(0, 140, 154, 0.2) !important;
+	background: rgba(110, 183, 250, 0.2) !important;
 }
 
 .v-colorpicker-popup .v-horizontallayout .v-button:hover {
@@ -2733,7 +2733,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 		left: 64px !important;
 	}
 	.app-layout-behaviour-left-responsive-hybrid .app-layout-menu-button-badge {
-		background: #026670;
+		background: #6eaeea;
 		color: transparent !important;
 		height: 5px !important;
 		width: 5px;
@@ -2822,7 +2822,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 		left: 64px !important;
 	}
 	.app-layout-behaviour-left-responsive-hybrid-no-app-bar .app-layout-menu-button-badge {
-		background: #026670;
+		background: #6eaeea;
 		color: transparent !important;
 		height: 5px !important;
 		width: 5px;
@@ -2903,7 +2903,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 		left: 64px !important;
 	}
 	.app-layout-behaviour-left-responsive-hybrid-overlay-no-app-bar .app-layout-menu-button-badge {
-		background: #026670;
+		background: #6eaeea;
 		color: transparent !important;
 		height: 5px !important;
 		width: 5px;
@@ -3011,7 +3011,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 		left: 10px !important;
 	}
 	.app-layout-behaviour-left-responsive-small .app-layout-menu-button-badge {
-		background: #026670;
+		background: #6eaeea;
 		color: transparent !important;
 		height: 5px !important;
 		width: 5px;
@@ -3086,7 +3086,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 		padding-right: 64px !important;
 	}
 	.app-layout-behaviour-left-responsive-small-no-app-bar .app-layout-menu-button-badge {
-		background: #026670;
+		background: #6eaeea;
 		color: transparent !important;
 		height: 5px !important;
 		width: 5px;
@@ -3230,7 +3230,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 		left: 64px !important;
 	}
 	.app-layout-behaviour-left-responsive-hybrid .app-layout-menu-button-badge {
-		background: #026670;
+		background: #6eaeea;
 		color: transparent !important;
 		height: 5px !important;
 		width: 5px;
@@ -3319,7 +3319,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 		left: 64px !important;
 	}
 	.app-layout-behaviour-left-responsive-hybrid-no-app-bar .app-layout-menu-button-badge {
-		background: #026670;
+		background: #6eaeea;
 		color: transparent !important;
 		height: 5px !important;
 		width: 5px;
@@ -3400,7 +3400,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 		left: 64px !important;
 	}
 	.app-layout-behaviour-left-responsive-hybrid-overlay-no-app-bar .app-layout-menu-button-badge {
-		background: #026670;
+		background: #6eaeea;
 		color: transparent !important;
 		height: 5px !important;
 		width: 5px;
@@ -3508,7 +3508,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 		left: 10px !important;
 	}
 	.app-layout-behaviour-left-responsive-small .app-layout-menu-button-badge {
-		background: #026670;
+		background: #6eaeea;
 		color: transparent !important;
 		height: 5px !important;
 		width: 5px;
@@ -3583,7 +3583,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 		padding-right: 64px !important;
 	}
 	.app-layout-behaviour-left-responsive-small-no-app-bar .app-layout-menu-button-badge {
-		background: #026670;
+		background: #6eaeea;
 		color: transparent !important;
 		height: 5px !important;
 		width: 5px;
@@ -3904,7 +3904,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-calendar-month-day.firstDay .v-calendar-day-number {
-	color: #01383e;
+	color: #4195e4;
 	background: #f9fbfd;
 }
 
@@ -3923,19 +3923,19 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-calendar-bottom-spacer:hover, .mytheme .v-calendar-bottom-spacer-expanded:hover {
-	color: #026670;
+	color: #6eaeea;
 }
 
 .mytheme .v-calendar-bottom-spacer > span:before {
 	content: "+";
 	margin-right: 0.2em;
-	color: #026670;
+	color: #6eaeea;
 }
 
 .mytheme .v-calendar-bottom-spacer-expanded > span:before {
 	content: "-";
 	margin-right: 0.2em;
-	color: #026670;
+	color: #6eaeea;
 }
 
 .mytheme .v-calendar-day-number {
@@ -3950,14 +3950,14 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-calendar-day-number:hover {
-	color: #026670;
+	color: #6eaeea;
 }
 
 .mytheme .v-calendar-month-day-today .v-calendar-day-number {
-	background: #f2f7f7;
+	background: #f7fafd;
 	font-weight: 500;
-	color: #026670;
-	border-top: 2px solid #026670;
+	color: #6eaeea;
+	border-top: 2px solid #6eaeea;
 	line-height: 24px;
 	margin: 0;
 	padding: 0 5px;
@@ -4041,7 +4041,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-calendar-current-time {
-	background: #026670;
+	background: #6eaeea;
 	line-height: 1px;
 	pointer-events: none;
 	opacity: 0.5;
@@ -4050,7 +4050,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 
 .mytheme .v-calendar-current-time:before {
 	content: "\2022";
-	color: #026670;
+	color: #6eaeea;
 	font-size: 22px;
 	margin-left: -0.07em;
 }
@@ -4428,7 +4428,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 
 .mytheme .app-layout-default-design .app-layout-menu-button-badge {
 	padding: 0 10px;
-	background: #026670;
+	background: #6eaeea;
 	color: white;
 	font-size: 13px;
 	height: 20px;
@@ -4444,8 +4444,8 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .app-layout-default-design .app-bar-badge {
-	background: #026670;
-	color: #a5e4ea;
+	background: #6eaeea;
+	color: #dde8f3;
 	font-size: 11px;
 	min-width: 18px;
 	min-height: 18px;
@@ -4489,18 +4489,18 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	top: 0px !important;
 	bottom: 0px !important;
 	width: 5px;
-	box-shadow: 0px 0px 20px 4px rgba(2, 102, 112, 0);
+	box-shadow: 0px 0px 20px 4px rgba(110, 174, 234, 0);
 	transition: box-shadow 0.3s;
 	overflow: visible;
 }
 
 .mytheme .app-layout-default-design .app-layout-menu-element-active {
-	color: #026670 !important;
-	border-left: 5px #026670 solid !important;
+	color: #6eaeea !important;
+	border-left: 5px #6eaeea solid !important;
 }
 
 .mytheme .app-layout-default-design .app-layout-menu-element-active:after {
-	box-shadow: 0px 0px 20px 4px rgba(2, 102, 112, 0.3);
+	box-shadow: 0px 0px 20px 4px rgba(110, 174, 234, 0.3);
 }
 
 .mytheme .app-layout-default-design .app-layout-menu-button:after {
@@ -4527,7 +4527,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 
 .mytheme .app-layout-material-design .app-layout-menu-button-badge {
 	padding: 0 10px;
-	background: #026670;
+	background: #6eaeea;
 	color: white;
 	font-size: 13px;
 	height: 20px;
@@ -4548,8 +4548,8 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .app-layout-material-design .app-bar-badge {
-	background: #026670;
-	color: #a5e4ea;
+	background: #6eaeea;
+	color: #dde8f3;
 	font-size: 13px;
 	min-width: 18px;
 	min-height: 18px;
@@ -4580,7 +4580,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 
 .mytheme .app-layout-material-design .app-layout-menu-element-active .app-layout-menu-button {
 	background: rgba(71, 71, 71, 0.1) !important;
-	color: #026670 !important;
+	color: #6eaeea !important;
 }
 
 .mytheme .app-layout-material-design .app-layout-menu-button:after {
@@ -4603,7 +4603,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 
 .mytheme .app-layout-custom-design .app-layout-menu-button-badge {
 	padding: 0 10px;
-	background: #026670;
+	background: #6eaeea;
 	color: white;
 	height: 20px;
 	line-height: 20px;
@@ -4617,7 +4617,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .app-layout-custom-design .app-bar-badge {
-	background: #026670;
+	background: #6eaeea;
 	color: transparent;
 	height: 5px;
 	width: 5px;
@@ -4640,7 +4640,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 
 .mytheme .app-layout-custom-design .app-layout-menu-button-active {
 	background: rgba(71, 71, 71, 0.1) !important;
-	color: #026670 !important;
+	color: #6eaeea !important;
 }
 
 .mytheme .app-layout-custom-design .app-layout-menu-button:after {
@@ -4712,13 +4712,13 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	font-size: 17px;
 	line-height: 24px;
 	left: -11px;
-	color: #026670;
+	color: #6eaeea;
 	position: absolute;
 }
 
 .mytheme .v-window.translucent .app-layout-notification .app-layout-notification-title {
 	font-weight: 500;
-	color: #026670;
+	color: #6eaeea;
 }
 
 .mytheme .v-window.translucent .app-layout-notification .app-layout-notification-subtitle {
@@ -4729,7 +4729,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-window.translucent .app-layout-notification.app-layout-notification-priority-high {
-	background: #026670 !important;
+	background: #6eaeea !important;
 }
 
 .mytheme .v-window.translucent .app-layout-notification.app-layout-notification-priority-high:not(.app-layout-notification-read) {
@@ -4741,7 +4741,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-window.translucent .app-layout-notification.app-layout-notification-priority-high .app-layout-notification-subtitle {
-	color: #c0eaee;
+	color: #e7eff6;
 }
 
 .mytheme .v-window.translucent .app-layout-notification.app-layout-notification-priority-high .app-layout-notification-title {
@@ -4750,7 +4750,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-window.translucent .app-layout-notification.app-layout-notification-priority-high .app-layout-notification-time {
-	color: #9ee2e9;
+	color: #dae6f2;
 }
 
 .mytheme .v-window.translucent .app-layout-notification.app-layout-notification-priority-high .app-layout-notification-time::before {
@@ -4762,7 +4762,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-window.translucent .app-layout-notification.app-layout-notification-priority-medium:not(.app-layout-notification-read) {
-	border-left: 3px solid #026670;
+	border-left: 3px solid #6eaeea;
 }
 
 .mytheme .v-window.translucent .app-layout-notification.app-layout-notification-priority-medium.app-layout-notification-read {
@@ -5065,7 +5065,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .app-layout-behaviour-left-hybrid.small .app-layout-menu-button-badge {
-	background: #026670;
+	background: #6eaeea;
 	color: transparent;
 	height: 5px;
 	width: 5px;
@@ -6049,7 +6049,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	width: 50%;
 	opacity: 1;
 	height: 4px;
-	background-color: #026670;
+	background-color: #6eaeea;
 	pointer-events: none;
 	-webkit-transition: none;
 	-moz-transition: none;
@@ -6395,9 +6395,9 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	height: 24px !important;
 	width: 24px !important;
 	box-sizing: border-box;
-	border: 2px solid rgba(2, 102, 112, 0.2);
-	border-top-color: #026670;
-	border-right-color: #026670;
+	border: 2px solid rgba(110, 174, 234, 0.2);
+	border-top-color: #6eaeea;
+	border-right-color: #6eaeea;
 	border-radius: 100%;
 	-webkit-animation: v-rotate-360 500ms infinite linear;
 	-moz-animation: v-rotate-360 500ms infinite linear;
@@ -6547,7 +6547,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 :root .mytheme .v-checkbox > input:focus ~ label:before {
-	border-color: #026670;
+	border-color: #6eaeea;
 	
 	
 }
@@ -6668,7 +6668,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 :root .mytheme .v-checkbox-small > input:focus ~ label:before {
-	border-color: #026670;
+	border-color: #6eaeea;
 	
 	
 }
@@ -6789,7 +6789,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 :root .mytheme .v-checkbox-large > input:focus ~ label:before {
-	border-color: #026670;
+	border-color: #6eaeea;
 	
 	
 }
@@ -6929,7 +6929,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	-webkit-transition: none;
 	-moz-transition: none;
 	transition: none;
-	border-color: #026670;
+	border-color: #6eaeea;
 	
 	
 }
@@ -7322,7 +7322,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	-webkit-transition: none;
 	-moz-transition: none;
 	transition: none;
-	border-color: #026670;
+	border-color: #6eaeea;
 	
 	
 }
@@ -8134,7 +8134,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	-webkit-transition: none;
 	-moz-transition: none;
 	transition: none;
-	border-color: #026670;
+	border-color: #6eaeea;
 	-webkit-box-shadow: none;
 	box-shadow: none;
 }
@@ -8836,7 +8836,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-grid-editor {
-	border-color: #026670;
+	border-color: #6eaeea;
 }
 
 .mytheme .v-grid-editor-footer {
@@ -8922,7 +8922,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 
 .mytheme .v-grid-editor-save, .mytheme .v-grid-editor-cancel {
 	cursor: pointer;
-	color: #026670;
+	color: #6eaeea;
 	text-decoration: none;
 	font-weight: inherit;
 	-webkit-transition: color 140ms;
@@ -8938,7 +8938,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-grid-editor-save:hover, .mytheme .v-grid-editor-cancel:hover {
-	color: #0394a2;
+	color: #9bc7f0;
 }
 
 .mytheme .v-grid-editor-save.v-disabled, .mytheme .v-grid-editor-cancel.v-disabled {
@@ -9003,7 +9003,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	position: absolute;
 	height: 2px;
 	width: 100%;
-	background: #026670;
+	background: #6eaeea;
 	pointer-events: none;
 	border: none;
 }
@@ -9027,16 +9027,16 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	left: 0;
 	bottom: 0;
 	right: 2px;
-	border: 2px solid #026670;
+	border: 2px solid #6eaeea;
 	pointer-events: none;
 }
 
 .mytheme .v-grid-row-selected.v-grid-row-drag-center:after {
-	border-color: #01383e;
+	border-color: #4195e4;
 }
 
 .mytheme .v-grid-row-selected.v-grid-row-drag-top:before, .mytheme .v-grid-row-selected.v-grid-row-drag-bottom:after {
-	background: #01383e;
+	background: #4195e4;
 }
 
 .mytheme .v-grid-body-drag-top:after {
@@ -9047,7 +9047,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	bottom: 0;
 	left: 0;
 	pointer-events: none;
-	border: 2px solid #026670;
+	border: 2px solid #6eaeea;
 	z-index: 100;
 }
 
@@ -9090,7 +9090,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	-webkit-transition: none;
 	-moz-transition: none;
 	transition: none;
-	border-color: #026670;
+	border-color: #6eaeea;
 	
 	
 }
@@ -9558,7 +9558,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	-webkit-transition: none;
 	-moz-transition: none;
 	transition: none;
-	border-color: #026670;
+	border-color: #6eaeea;
 	
 	
 }
@@ -9783,7 +9783,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	-webkit-transition: none;
 	-moz-transition: none;
 	transition: none;
-	border-color: #026670;
+	border-color: #6eaeea;
 	
 	
 }
@@ -10102,7 +10102,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-datefield-popup td[class*="year"] button:hover:before, .mytheme .v-datefield-popup td[class*="month"] button:hover:before {
-	color: #026670;
+	color: #6eaeea;
 }
 
 .mytheme .v-datefield-popup td[class*="year"] button.outside-range, .mytheme .v-datefield-popup td[class*="month"] button.outside-range {
@@ -10283,7 +10283,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme td[class*="year"] button:hover:before, .mytheme td[class*="month"] button:hover:before {
-	color: #026670;
+	color: #6eaeea;
 }
 
 .mytheme td[class*="year"] button.outside-range, .mytheme td[class*="month"] button.outside-range {
@@ -10934,7 +10934,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme td[class*="year"] button:hover:before, .mytheme td[class*="month"] button:hover:before {
-	color: #026670;
+	color: #6eaeea;
 }
 
 .mytheme td[class*="year"] button.outside-range, .mytheme td[class*="month"] button.outside-range {
@@ -11101,7 +11101,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-menubar:focus:after {
-	border-color: #026670;
+	border-color: #6eaeea;
 }
 
 .mytheme .v-menubar  > .v-menubar-menuitem {
@@ -11488,7 +11488,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 :root .mytheme .v-radiobutton > input:focus ~ label:before {
-	border-color: #026670;
+	border-color: #6eaeea;
 	
 	
 }
@@ -11642,7 +11642,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 :root .mytheme .v-select-optiongroup-small .v-checkbox > input:focus ~ label:before {
-	border-color: #026670;
+	border-color: #6eaeea;
 	
 	
 }
@@ -11762,7 +11762,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 :root .mytheme .v-select-optiongroup-small .v-radiobutton > input:focus ~ label:before {
-	border-color: #026670;
+	border-color: #6eaeea;
 	
 	
 }
@@ -11916,7 +11916,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 :root .mytheme .v-select-optiongroup-large .v-checkbox > input:focus ~ label:before {
-	border-color: #026670;
+	border-color: #6eaeea;
 	
 	
 }
@@ -12036,7 +12036,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 :root .mytheme .v-select-optiongroup-large .v-radiobutton > input:focus ~ label:before {
-	border-color: #026670;
+	border-color: #6eaeea;
 	
 	
 }
@@ -12173,7 +12173,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 
 .mytheme .v-link {
 	cursor: pointer;
-	color: #026670;
+	color: #6eaeea;
 	text-decoration: none;
 	font-weight: inherit;
 	-webkit-transition: color 140ms;
@@ -12182,7 +12182,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-link:hover {
-	color: #0394a2;
+	color: #9bc7f0;
 }
 
 .mytheme .v-link.v-disabled {
@@ -12192,7 +12192,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 
 .mytheme .v-link a {
 	cursor: pointer;
-	color: #026670;
+	color: #6eaeea;
 	text-decoration: none;
 	font-weight: inherit;
 	-webkit-transition: color 140ms;
@@ -12207,7 +12207,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-link a:hover {
-	color: #0394a2;
+	color: #9bc7f0;
 }
 
 .mytheme .v-link a.v-disabled {
@@ -12691,7 +12691,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 
 .mytheme .v-tree-node-focused:after {
 	opacity: 1;
-	border: 1px solid #026670;
+	border: 1px solid #6eaeea;
 }
 
 .mytheme .v-tree-node-selected {
@@ -12715,10 +12715,10 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	position: absolute;
 	height: 2px;
 	width: 100%;
-	background: #026670;
+	background: #6eaeea;
 	font-size: 32px;
 	line-height: 2px;
-	color: #026670;
+	color: #6eaeea;
 	text-indent: -4px;
 	text-shadow: 0 0 1px #fff, 0 0 1px #fff;
 	opacity: 1;
@@ -12730,8 +12730,8 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-tree-node-caption-drag-center {
-	-webkit-box-shadow: 0 0 0 2px #026670;
-	box-shadow: 0 0 0 2px #026670;
+	-webkit-box-shadow: 0 0 0 2px #6eaeea;
+	box-shadow: 0 0 0 2px #6eaeea;
 	position: relative;
 	border-radius: 6px;
 }
@@ -13394,7 +13394,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-tree8-editor {
-	border-color: #026670;
+	border-color: #6eaeea;
 }
 
 .mytheme .v-tree8-editor-footer {
@@ -13480,7 +13480,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 
 .mytheme .v-tree8-editor-save, .mytheme .v-tree8-editor-cancel {
 	cursor: pointer;
-	color: #026670;
+	color: #6eaeea;
 	text-decoration: none;
 	font-weight: inherit;
 	-webkit-transition: color 140ms;
@@ -13496,7 +13496,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-tree8-editor-save:hover, .mytheme .v-tree8-editor-cancel:hover {
-	color: #0394a2;
+	color: #9bc7f0;
 }
 
 .mytheme .v-tree8-editor-save.v-disabled, .mytheme .v-tree8-editor-cancel.v-disabled {
@@ -13561,7 +13561,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	position: absolute;
 	height: 2px;
 	width: 100%;
-	background: #026670;
+	background: #6eaeea;
 	pointer-events: none;
 	border: none;
 }
@@ -13585,16 +13585,16 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	left: 0;
 	bottom: 0;
 	right: 2px;
-	border: 2px solid #026670;
+	border: 2px solid #6eaeea;
 	pointer-events: none;
 }
 
 .mytheme .v-tree8-row-selected.v-tree8-row-drag-center:after {
-	border-color: #01383e;
+	border-color: #4195e4;
 }
 
 .mytheme .v-tree8-row-selected.v-tree8-row-drag-top:before, .mytheme .v-tree8-row-selected.v-tree8-row-drag-bottom:after {
-	background: #01383e;
+	background: #4195e4;
 }
 
 .mytheme .v-tree8-body-drag-top:after {
@@ -13605,7 +13605,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	bottom: 0;
 	left: 0;
 	pointer-events: none;
-	border: 2px solid #026670;
+	border: 2px solid #6eaeea;
 	z-index: 100;
 }
 
@@ -14456,7 +14456,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-treegrid-editor {
-	border-color: #026670;
+	border-color: #6eaeea;
 }
 
 .mytheme .v-treegrid-editor-footer {
@@ -14542,7 +14542,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 
 .mytheme .v-treegrid-editor-save, .mytheme .v-treegrid-editor-cancel {
 	cursor: pointer;
-	color: #026670;
+	color: #6eaeea;
 	text-decoration: none;
 	font-weight: inherit;
 	-webkit-transition: color 140ms;
@@ -14558,7 +14558,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-treegrid-editor-save:hover, .mytheme .v-treegrid-editor-cancel:hover {
-	color: #0394a2;
+	color: #9bc7f0;
 }
 
 .mytheme .v-treegrid-editor-save.v-disabled, .mytheme .v-treegrid-editor-cancel.v-disabled {
@@ -14623,7 +14623,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	position: absolute;
 	height: 2px;
 	width: 100%;
-	background: #026670;
+	background: #6eaeea;
 	pointer-events: none;
 	border: none;
 }
@@ -14647,16 +14647,16 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	left: 0;
 	bottom: 0;
 	right: 2px;
-	border: 2px solid #026670;
+	border: 2px solid #6eaeea;
 	pointer-events: none;
 }
 
 .mytheme .v-treegrid-row-selected.v-treegrid-row-drag-center:after {
-	border-color: #01383e;
+	border-color: #4195e4;
 }
 
 .mytheme .v-treegrid-row-selected.v-treegrid-row-drag-top:before, .mytheme .v-treegrid-row-selected.v-treegrid-row-drag-bottom:after {
-	background: #01383e;
+	background: #4195e4;
 }
 
 .mytheme .v-treegrid-body-drag-top:after {
@@ -14667,7 +14667,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	bottom: 0;
 	left: 0;
 	pointer-events: none;
-	border: 2px solid #026670;
+	border: 2px solid #6eaeea;
 	z-index: 100;
 }
 
@@ -14999,7 +14999,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-table-focus {
-	outline: 2px solid #026670;
+	outline: 2px solid #6eaeea;
 	outline-offset: -2px;
 }
 
@@ -15017,14 +15017,14 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-table-focus-slot-right {
-	border-right: 4px solid #026670;
+	border-right: 4px solid #6eaeea;
 	right: -3px;
 	margin-left: -12px !important;
 }
 
 .mytheme .v-table-focus-slot-left {
 	float: left;
-	border-left: 4px solid #026670;
+	border-left: 4px solid #6eaeea;
 	left: -2px;
 	right: auto;
 	margin-left: 0 !important;
@@ -15076,7 +15076,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-table-column-selector:focus:after {
-	border-color: #026670;
+	border-color: #6eaeea;
 }
 
 .mytheme .v-table-column-selector:active:after {
@@ -15173,9 +15173,9 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-table-drag .v-table-body {
-	-webkit-box-shadow: 0 0 0 2px rgba(2, 102, 112, 0.5);
-	box-shadow: 0 0 0 2px rgba(2, 102, 112, 0.5);
-	border-color: #026670;
+	-webkit-box-shadow: 0 0 0 2px rgba(110, 174, 234, 0.5);
+	box-shadow: 0 0 0 2px rgba(110, 174, 234, 0.5);
+	border-color: #6eaeea;
 }
 
 .mytheme .v-table-drag .v-table-body .v-table-focus {
@@ -15183,12 +15183,12 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-table-row-drag-middle .v-table-cell-content {
-	background-color: #cce0e2;
-	color: #324547;
+	background-color: #e2eefa;
+	color: #254361;
 }
 
 .mytheme .v-table-row-drag-bottom td.v-table-cell-content {
-	border-bottom: 2px solid #026670;
+	border-bottom: 2px solid #6eaeea;
 	height: 35px;
 }
 
@@ -15197,7 +15197,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-table-row-drag-top td.v-table-cell-content {
-	border-top: 2px solid #026670;
+	border-top: 2px solid #6eaeea;
 	height: 37px;
 }
 
@@ -15423,7 +15423,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-splitpanel-horizontal  > div > .v-splitpanel-hsplitter div:before:focus:after {
-	border-color: #026670;
+	border-color: #6eaeea;
 }
 
 .mytheme .v-splitpanel-horizontal  > div > .v-splitpanel-hsplitter div:before:active:after {
@@ -15473,7 +15473,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-splitpanel-vertical  > div > .v-splitpanel-vsplitter div:before:focus:after {
-	border-color: #026670;
+	border-color: #6eaeea;
 }
 
 .mytheme .v-splitpanel-vertical  > div > .v-splitpanel-vsplitter div:before:active:after {
@@ -15520,7 +15520,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-splitpanel-horizontal.large  > div > .v-splitpanel-hsplitter div:before:focus:after {
-	border-color: #026670;
+	border-color: #6eaeea;
 }
 
 .mytheme .v-splitpanel-horizontal.large  > div > .v-splitpanel-hsplitter div:before:active:after {
@@ -15584,7 +15584,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-splitpanel-vertical.large  > div > .v-splitpanel-vsplitter div:before:focus:after {
-	border-color: #026670;
+	border-color: #6eaeea;
 }
 
 .mytheme .v-splitpanel-vertical.large  > div > .v-splitpanel-vsplitter div:before:active:after {
@@ -15656,9 +15656,9 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	height: 24px !important;
 	width: 24px !important;
 	box-sizing: border-box;
-	border: 2px solid rgba(2, 102, 112, 0.2);
-	border-top-color: #026670;
-	border-right-color: #026670;
+	border: 2px solid rgba(110, 174, 234, 0.2);
+	border-top-color: #6eaeea;
+	border-right-color: #6eaeea;
 	border-radius: 100%;
 	-webkit-animation: v-rotate-360 500ms infinite linear;
 	-moz-animation: v-rotate-360 500ms infinite linear;
@@ -15765,7 +15765,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-slider-handle:before:focus:after {
-	border-color: #026670;
+	border-color: #6eaeea;
 }
 
 .mytheme .v-slider-handle:before:active:after {
@@ -15774,7 +15774,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 
 .mytheme .v-slider-handle:after {
 	border: 0 solid #b2b2b2;
-	border-color: #026670;
+	border-color: #6eaeea;
 	opacity: 0;
 	-webkit-transition: opacity 200ms;
 	-moz-transition: opacity 200ms;
@@ -16074,9 +16074,9 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	height: 20px !important;
 	width: 20px !important;
 	box-sizing: border-box;
-	border: 2px solid rgba(2, 102, 112, 0.2);
-	border-top-color: #026670;
-	border-right-color: #026670;
+	border: 2px solid rgba(110, 174, 234, 0.2);
+	border-top-color: #6eaeea;
+	border-right-color: #6eaeea;
 	border-radius: 100%;
 	-webkit-animation: v-rotate-360 500ms infinite linear;
 	-moz-animation: v-rotate-360 500ms infinite linear;
@@ -16698,7 +16698,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-calendar-month-day.firstDay .v-calendar-day-number {
-	color: #01383e;
+	color: #4195e4;
 	background: #f9fbfd;
 }
 
@@ -16717,19 +16717,19 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-calendar-bottom-spacer:hover, .mytheme .v-calendar-bottom-spacer-expanded:hover {
-	color: #026670;
+	color: #6eaeea;
 }
 
 .mytheme .v-calendar-bottom-spacer > span:before {
 	content: "+";
 	margin-right: 0.2em;
-	color: #026670;
+	color: #6eaeea;
 }
 
 .mytheme .v-calendar-bottom-spacer-expanded > span:before {
 	content: "-";
 	margin-right: 0.2em;
-	color: #026670;
+	color: #6eaeea;
 }
 
 .mytheme .v-calendar-day-number {
@@ -16744,14 +16744,14 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-calendar-day-number:hover {
-	color: #026670;
+	color: #6eaeea;
 }
 
 .mytheme .v-calendar-month-day-today .v-calendar-day-number {
-	background: #f2f7f7;
+	background: #f7fafd;
 	font-weight: 500;
-	color: #026670;
-	border-top: 2px solid #026670;
+	color: #6eaeea;
+	border-top: 2px solid #6eaeea;
 	line-height: 24px;
 	margin: 0;
 	padding: 0 5px;
@@ -16835,7 +16835,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-calendar-current-time {
-	background: #026670;
+	background: #6eaeea;
 	line-height: 1px;
 	pointer-events: none;
 	opacity: 0.5;
@@ -16844,7 +16844,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 
 .mytheme .v-calendar-current-time:before {
 	content: "\2022";
-	color: #026670;
+	color: #6eaeea;
 	font-size: 22px;
 	margin-left: -0.07em;
 }
@@ -17192,9 +17192,9 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	height: 24px !important;
 	width: 24px !important;
 	box-sizing: border-box;
-	border: 2px solid rgba(2, 102, 112, 0.2);
-	border-top-color: #026670;
-	border-right-color: #026670;
+	border: 2px solid rgba(110, 174, 234, 0.2);
+	border-top-color: #6eaeea;
+	border-right-color: #6eaeea;
 	border-radius: 100%;
 	-webkit-animation: v-rotate-360 500ms infinite linear;
 	-moz-animation: v-rotate-360 500ms infinite linear;
@@ -17246,7 +17246,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	right: -1px;
 	bottom: -1px;
 	left: -1px;
-	border: 0 solid #026670;
+	border: 0 solid #6eaeea;
 }
 
 .mytheme .v-ddwrapper-over-top:before {
@@ -17274,7 +17274,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	border-radius: 6px;
 	opacity: 0.3;
 	filter: alpha(opacity=30.0) ;
-	background: #3ceafc;
+	background: #b7d7f5;
 }
 
 .mytheme .no-vertical-drag-hints .v-ddwrapper-over-bottom:before, .mytheme .no-vertical-drag-hints.v-ddwrapper-over-bottom:before {
@@ -17286,7 +17286,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	border-radius: 6px;
 	opacity: 0.3;
 	filter: alpha(opacity=30.0) ;
-	background: #3ceafc;
+	background: #b7d7f5;
 }
 
 .mytheme .no-horizontal-drag-hints.v-ddwrapper-over-left:before, .mytheme .no-horizontal-drag-hints .v-ddwrapper-over-left:before {
@@ -17298,7 +17298,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	border-radius: 6px;
 	opacity: 0.3;
 	filter: alpha(opacity=30.0) ;
-	background: #3ceafc;
+	background: #b7d7f5;
 }
 
 .mytheme .no-horizontal-drag-hints.v-ddwrapper-over-right:before, .mytheme .no-horizontal-drag-hints .v-ddwrapper-over-right:before {
@@ -17310,7 +17310,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	border-radius: 6px;
 	opacity: 0.3;
 	filter: alpha(opacity=30.0) ;
-	background: #3ceafc;
+	background: #b7d7f5;
 }
 
 .mytheme .v-ddwrapper-over-middle:after, .mytheme .v-ddwrapper-over-center:after {
@@ -17318,7 +17318,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	border-radius: 6px;
 	opacity: 0.3;
 	filter: alpha(opacity=30.0) ;
-	background: #3ceafc;
+	background: #b7d7f5;
 }
 
 .mytheme .no-box-drag-hints.v-ddwrapper:after, .mytheme .no-box-drag-hints .v-ddwrapper:after {
@@ -17368,7 +17368,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 
 .mytheme .v-popupview {
 	cursor: pointer;
-	color: #026670;
+	color: #6eaeea;
 	text-decoration: none;
 	font-weight: inherit;
 	-webkit-transition: color 140ms;
@@ -17377,7 +17377,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-popupview:hover {
-	color: #0394a2;
+	color: #9bc7f0;
 }
 
 .mytheme .v-popupview.v-disabled {
@@ -17431,9 +17431,9 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	height: 24px !important;
 	width: 24px !important;
 	box-sizing: border-box;
-	border: 2px solid rgba(2, 102, 112, 0.2);
-	border-top-color: #026670;
-	border-right-color: #026670;
+	border: 2px solid rgba(110, 174, 234, 0.2);
+	border-top-color: #6eaeea;
+	border-right-color: #6eaeea;
 	border-radius: 100%;
 	-webkit-animation: v-rotate-360 500ms infinite linear;
 	-moz-animation: v-rotate-360 500ms infinite linear;
@@ -17691,7 +17691,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-Notification .v-Notification-caption {
-	color: #026670;
+	color: #6eaeea;
 	font-size: 19px;
 	line-height: 1;
 }
@@ -18685,7 +18685,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	width: 50%;
 	opacity: 1;
 	height: 4px;
-	background-color: #026670;
+	background-color: #6eaeea;
 	pointer-events: none;
 	-webkit-transition: none;
 	-moz-transition: none;
@@ -19031,9 +19031,9 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	height: 24px !important;
 	width: 24px !important;
 	box-sizing: border-box;
-	border: 2px solid rgba(2, 102, 112, 0.2);
-	border-top-color: #026670;
-	border-right-color: #026670;
+	border: 2px solid rgba(110, 174, 234, 0.2);
+	border-top-color: #6eaeea;
+	border-right-color: #6eaeea;
 	border-radius: 100%;
 	-webkit-animation: v-rotate-360 500ms infinite linear;
 	-moz-animation: v-rotate-360 500ms infinite linear;
@@ -19183,7 +19183,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 :root .mytheme .v-checkbox > input:focus ~ label:before {
-	border-color: #026670;
+	border-color: #6eaeea;
 	
 	
 }
@@ -19304,7 +19304,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 :root .mytheme .v-checkbox-small > input:focus ~ label:before {
-	border-color: #026670;
+	border-color: #6eaeea;
 	
 	
 }
@@ -19425,7 +19425,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 :root .mytheme .v-checkbox-large > input:focus ~ label:before {
-	border-color: #026670;
+	border-color: #6eaeea;
 	
 	
 }
@@ -19565,7 +19565,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	-webkit-transition: none;
 	-moz-transition: none;
 	transition: none;
-	border-color: #026670;
+	border-color: #6eaeea;
 	
 	
 }
@@ -19958,7 +19958,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	-webkit-transition: none;
 	-moz-transition: none;
 	transition: none;
-	border-color: #026670;
+	border-color: #6eaeea;
 	
 	
 }
@@ -20770,7 +20770,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	-webkit-transition: none;
 	-moz-transition: none;
 	transition: none;
-	border-color: #026670;
+	border-color: #6eaeea;
 	-webkit-box-shadow: none;
 	box-shadow: none;
 }
@@ -21472,7 +21472,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-grid-editor {
-	border-color: #026670;
+	border-color: #6eaeea;
 }
 
 .mytheme .v-grid-editor-footer {
@@ -21558,7 +21558,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 
 .mytheme .v-grid-editor-save, .mytheme .v-grid-editor-cancel {
 	cursor: pointer;
-	color: #026670;
+	color: #6eaeea;
 	text-decoration: none;
 	font-weight: inherit;
 	-webkit-transition: color 140ms;
@@ -21574,7 +21574,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-grid-editor-save:hover, .mytheme .v-grid-editor-cancel:hover {
-	color: #0394a2;
+	color: #9bc7f0;
 }
 
 .mytheme .v-grid-editor-save.v-disabled, .mytheme .v-grid-editor-cancel.v-disabled {
@@ -21639,7 +21639,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	position: absolute;
 	height: 2px;
 	width: 100%;
-	background: #026670;
+	background: #6eaeea;
 	pointer-events: none;
 	border: none;
 }
@@ -21663,16 +21663,16 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	left: 0;
 	bottom: 0;
 	right: 2px;
-	border: 2px solid #026670;
+	border: 2px solid #6eaeea;
 	pointer-events: none;
 }
 
 .mytheme .v-grid-row-selected.v-grid-row-drag-center:after {
-	border-color: #01383e;
+	border-color: #4195e4;
 }
 
 .mytheme .v-grid-row-selected.v-grid-row-drag-top:before, .mytheme .v-grid-row-selected.v-grid-row-drag-bottom:after {
-	background: #01383e;
+	background: #4195e4;
 }
 
 .mytheme .v-grid-body-drag-top:after {
@@ -21683,7 +21683,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	bottom: 0;
 	left: 0;
 	pointer-events: none;
-	border: 2px solid #026670;
+	border: 2px solid #6eaeea;
 	z-index: 100;
 }
 
@@ -21726,7 +21726,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	-webkit-transition: none;
 	-moz-transition: none;
 	transition: none;
-	border-color: #026670;
+	border-color: #6eaeea;
 	
 	
 }
@@ -22194,7 +22194,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	-webkit-transition: none;
 	-moz-transition: none;
 	transition: none;
-	border-color: #026670;
+	border-color: #6eaeea;
 	
 	
 }
@@ -22419,7 +22419,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	-webkit-transition: none;
 	-moz-transition: none;
 	transition: none;
-	border-color: #026670;
+	border-color: #6eaeea;
 	
 	
 }
@@ -22738,7 +22738,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-datefield-popup td[class*="year"] button:hover:before, .mytheme .v-datefield-popup td[class*="month"] button:hover:before {
-	color: #026670;
+	color: #6eaeea;
 }
 
 .mytheme .v-datefield-popup td[class*="year"] button.outside-range, .mytheme .v-datefield-popup td[class*="month"] button.outside-range {
@@ -22919,7 +22919,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme td[class*="year"] button:hover:before, .mytheme td[class*="month"] button:hover:before {
-	color: #026670;
+	color: #6eaeea;
 }
 
 .mytheme td[class*="year"] button.outside-range, .mytheme td[class*="month"] button.outside-range {
@@ -23570,7 +23570,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme td[class*="year"] button:hover:before, .mytheme td[class*="month"] button:hover:before {
-	color: #026670;
+	color: #6eaeea;
 }
 
 .mytheme td[class*="year"] button.outside-range, .mytheme td[class*="month"] button.outside-range {
@@ -23737,7 +23737,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-menubar:focus:after {
-	border-color: #026670;
+	border-color: #6eaeea;
 }
 
 .mytheme .v-menubar  > .v-menubar-menuitem {
@@ -24124,7 +24124,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 :root .mytheme .v-radiobutton > input:focus ~ label:before {
-	border-color: #026670;
+	border-color: #6eaeea;
 	
 	
 }
@@ -24278,7 +24278,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 :root .mytheme .v-select-optiongroup-small .v-checkbox > input:focus ~ label:before {
-	border-color: #026670;
+	border-color: #6eaeea;
 	
 	
 }
@@ -24398,7 +24398,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 :root .mytheme .v-select-optiongroup-small .v-radiobutton > input:focus ~ label:before {
-	border-color: #026670;
+	border-color: #6eaeea;
 	
 	
 }
@@ -24552,7 +24552,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 :root .mytheme .v-select-optiongroup-large .v-checkbox > input:focus ~ label:before {
-	border-color: #026670;
+	border-color: #6eaeea;
 	
 	
 }
@@ -24672,7 +24672,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 :root .mytheme .v-select-optiongroup-large .v-radiobutton > input:focus ~ label:before {
-	border-color: #026670;
+	border-color: #6eaeea;
 	
 	
 }
@@ -24809,7 +24809,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 
 .mytheme .v-link {
 	cursor: pointer;
-	color: #026670;
+	color: #6eaeea;
 	text-decoration: none;
 	font-weight: inherit;
 	-webkit-transition: color 140ms;
@@ -24818,7 +24818,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-link:hover {
-	color: #0394a2;
+	color: #9bc7f0;
 }
 
 .mytheme .v-link.v-disabled {
@@ -24828,7 +24828,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 
 .mytheme .v-link a {
 	cursor: pointer;
-	color: #026670;
+	color: #6eaeea;
 	text-decoration: none;
 	font-weight: inherit;
 	-webkit-transition: color 140ms;
@@ -24843,7 +24843,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-link a:hover {
-	color: #0394a2;
+	color: #9bc7f0;
 }
 
 .mytheme .v-link a.v-disabled {
@@ -25327,7 +25327,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 
 .mytheme .v-tree-node-focused:after {
 	opacity: 1;
-	border: 1px solid #026670;
+	border: 1px solid #6eaeea;
 }
 
 .mytheme .v-tree-node-selected {
@@ -25351,10 +25351,10 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	position: absolute;
 	height: 2px;
 	width: 100%;
-	background: #026670;
+	background: #6eaeea;
 	font-size: 32px;
 	line-height: 2px;
-	color: #026670;
+	color: #6eaeea;
 	text-indent: -4px;
 	text-shadow: 0 0 1px #fff, 0 0 1px #fff;
 	opacity: 1;
@@ -25366,8 +25366,8 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-tree-node-caption-drag-center {
-	-webkit-box-shadow: 0 0 0 2px #026670;
-	box-shadow: 0 0 0 2px #026670;
+	-webkit-box-shadow: 0 0 0 2px #6eaeea;
+	box-shadow: 0 0 0 2px #6eaeea;
 	position: relative;
 	border-radius: 6px;
 }
@@ -26030,7 +26030,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-tree8-editor {
-	border-color: #026670;
+	border-color: #6eaeea;
 }
 
 .mytheme .v-tree8-editor-footer {
@@ -26116,7 +26116,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 
 .mytheme .v-tree8-editor-save, .mytheme .v-tree8-editor-cancel {
 	cursor: pointer;
-	color: #026670;
+	color: #6eaeea;
 	text-decoration: none;
 	font-weight: inherit;
 	-webkit-transition: color 140ms;
@@ -26132,7 +26132,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-tree8-editor-save:hover, .mytheme .v-tree8-editor-cancel:hover {
-	color: #0394a2;
+	color: #9bc7f0;
 }
 
 .mytheme .v-tree8-editor-save.v-disabled, .mytheme .v-tree8-editor-cancel.v-disabled {
@@ -26197,7 +26197,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	position: absolute;
 	height: 2px;
 	width: 100%;
-	background: #026670;
+	background: #6eaeea;
 	pointer-events: none;
 	border: none;
 }
@@ -26221,16 +26221,16 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	left: 0;
 	bottom: 0;
 	right: 2px;
-	border: 2px solid #026670;
+	border: 2px solid #6eaeea;
 	pointer-events: none;
 }
 
 .mytheme .v-tree8-row-selected.v-tree8-row-drag-center:after {
-	border-color: #01383e;
+	border-color: #4195e4;
 }
 
 .mytheme .v-tree8-row-selected.v-tree8-row-drag-top:before, .mytheme .v-tree8-row-selected.v-tree8-row-drag-bottom:after {
-	background: #01383e;
+	background: #4195e4;
 }
 
 .mytheme .v-tree8-body-drag-top:after {
@@ -26241,7 +26241,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	bottom: 0;
 	left: 0;
 	pointer-events: none;
-	border: 2px solid #026670;
+	border: 2px solid #6eaeea;
 	z-index: 100;
 }
 
@@ -27092,7 +27092,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-treegrid-editor {
-	border-color: #026670;
+	border-color: #6eaeea;
 }
 
 .mytheme .v-treegrid-editor-footer {
@@ -27178,7 +27178,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 
 .mytheme .v-treegrid-editor-save, .mytheme .v-treegrid-editor-cancel {
 	cursor: pointer;
-	color: #026670;
+	color: #6eaeea;
 	text-decoration: none;
 	font-weight: inherit;
 	-webkit-transition: color 140ms;
@@ -27194,7 +27194,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-treegrid-editor-save:hover, .mytheme .v-treegrid-editor-cancel:hover {
-	color: #0394a2;
+	color: #9bc7f0;
 }
 
 .mytheme .v-treegrid-editor-save.v-disabled, .mytheme .v-treegrid-editor-cancel.v-disabled {
@@ -27259,7 +27259,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	position: absolute;
 	height: 2px;
 	width: 100%;
-	background: #026670;
+	background: #6eaeea;
 	pointer-events: none;
 	border: none;
 }
@@ -27283,16 +27283,16 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	left: 0;
 	bottom: 0;
 	right: 2px;
-	border: 2px solid #026670;
+	border: 2px solid #6eaeea;
 	pointer-events: none;
 }
 
 .mytheme .v-treegrid-row-selected.v-treegrid-row-drag-center:after {
-	border-color: #01383e;
+	border-color: #4195e4;
 }
 
 .mytheme .v-treegrid-row-selected.v-treegrid-row-drag-top:before, .mytheme .v-treegrid-row-selected.v-treegrid-row-drag-bottom:after {
-	background: #01383e;
+	background: #4195e4;
 }
 
 .mytheme .v-treegrid-body-drag-top:after {
@@ -27303,7 +27303,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	bottom: 0;
 	left: 0;
 	pointer-events: none;
-	border: 2px solid #026670;
+	border: 2px solid #6eaeea;
 	z-index: 100;
 }
 
@@ -27635,7 +27635,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-table-focus {
-	outline: 2px solid #026670;
+	outline: 2px solid #6eaeea;
 	outline-offset: -2px;
 }
 
@@ -27653,14 +27653,14 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-table-focus-slot-right {
-	border-right: 4px solid #026670;
+	border-right: 4px solid #6eaeea;
 	right: -3px;
 	margin-left: -12px !important;
 }
 
 .mytheme .v-table-focus-slot-left {
 	float: left;
-	border-left: 4px solid #026670;
+	border-left: 4px solid #6eaeea;
 	left: -2px;
 	right: auto;
 	margin-left: 0 !important;
@@ -27712,7 +27712,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-table-column-selector:focus:after {
-	border-color: #026670;
+	border-color: #6eaeea;
 }
 
 .mytheme .v-table-column-selector:active:after {
@@ -27809,9 +27809,9 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-table-drag .v-table-body {
-	-webkit-box-shadow: 0 0 0 2px rgba(2, 102, 112, 0.5);
-	box-shadow: 0 0 0 2px rgba(2, 102, 112, 0.5);
-	border-color: #026670;
+	-webkit-box-shadow: 0 0 0 2px rgba(110, 174, 234, 0.5);
+	box-shadow: 0 0 0 2px rgba(110, 174, 234, 0.5);
+	border-color: #6eaeea;
 }
 
 .mytheme .v-table-drag .v-table-body .v-table-focus {
@@ -27819,12 +27819,12 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-table-row-drag-middle .v-table-cell-content {
-	background-color: #cce0e2;
-	color: #324547;
+	background-color: #e2eefa;
+	color: #254361;
 }
 
 .mytheme .v-table-row-drag-bottom td.v-table-cell-content {
-	border-bottom: 2px solid #026670;
+	border-bottom: 2px solid #6eaeea;
 	height: 35px;
 }
 
@@ -27833,7 +27833,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-table-row-drag-top td.v-table-cell-content {
-	border-top: 2px solid #026670;
+	border-top: 2px solid #6eaeea;
 	height: 37px;
 }
 
@@ -28059,7 +28059,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-splitpanel-horizontal  > div > .v-splitpanel-hsplitter div:before:focus:after {
-	border-color: #026670;
+	border-color: #6eaeea;
 }
 
 .mytheme .v-splitpanel-horizontal  > div > .v-splitpanel-hsplitter div:before:active:after {
@@ -28109,7 +28109,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-splitpanel-vertical  > div > .v-splitpanel-vsplitter div:before:focus:after {
-	border-color: #026670;
+	border-color: #6eaeea;
 }
 
 .mytheme .v-splitpanel-vertical  > div > .v-splitpanel-vsplitter div:before:active:after {
@@ -28156,7 +28156,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-splitpanel-horizontal.large  > div > .v-splitpanel-hsplitter div:before:focus:after {
-	border-color: #026670;
+	border-color: #6eaeea;
 }
 
 .mytheme .v-splitpanel-horizontal.large  > div > .v-splitpanel-hsplitter div:before:active:after {
@@ -28220,7 +28220,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-splitpanel-vertical.large  > div > .v-splitpanel-vsplitter div:before:focus:after {
-	border-color: #026670;
+	border-color: #6eaeea;
 }
 
 .mytheme .v-splitpanel-vertical.large  > div > .v-splitpanel-vsplitter div:before:active:after {
@@ -28292,9 +28292,9 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	height: 24px !important;
 	width: 24px !important;
 	box-sizing: border-box;
-	border: 2px solid rgba(2, 102, 112, 0.2);
-	border-top-color: #026670;
-	border-right-color: #026670;
+	border: 2px solid rgba(110, 174, 234, 0.2);
+	border-top-color: #6eaeea;
+	border-right-color: #6eaeea;
 	border-radius: 100%;
 	-webkit-animation: v-rotate-360 500ms infinite linear;
 	-moz-animation: v-rotate-360 500ms infinite linear;
@@ -28401,7 +28401,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-slider-handle:before:focus:after {
-	border-color: #026670;
+	border-color: #6eaeea;
 }
 
 .mytheme .v-slider-handle:before:active:after {
@@ -28410,7 +28410,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 
 .mytheme .v-slider-handle:after {
 	border: 0 solid #b2b2b2;
-	border-color: #026670;
+	border-color: #6eaeea;
 	opacity: 0;
 	-webkit-transition: opacity 200ms;
 	-moz-transition: opacity 200ms;
@@ -28710,9 +28710,9 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	height: 20px !important;
 	width: 20px !important;
 	box-sizing: border-box;
-	border: 2px solid rgba(2, 102, 112, 0.2);
-	border-top-color: #026670;
-	border-right-color: #026670;
+	border: 2px solid rgba(110, 174, 234, 0.2);
+	border-top-color: #6eaeea;
+	border-right-color: #6eaeea;
 	border-radius: 100%;
 	-webkit-animation: v-rotate-360 500ms infinite linear;
 	-moz-animation: v-rotate-360 500ms infinite linear;
@@ -29334,7 +29334,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-calendar-month-day.firstDay .v-calendar-day-number {
-	color: #01383e;
+	color: #4195e4;
 	background: #f9fbfd;
 }
 
@@ -29353,19 +29353,19 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-calendar-bottom-spacer:hover, .mytheme .v-calendar-bottom-spacer-expanded:hover {
-	color: #026670;
+	color: #6eaeea;
 }
 
 .mytheme .v-calendar-bottom-spacer > span:before {
 	content: "+";
 	margin-right: 0.2em;
-	color: #026670;
+	color: #6eaeea;
 }
 
 .mytheme .v-calendar-bottom-spacer-expanded > span:before {
 	content: "-";
 	margin-right: 0.2em;
-	color: #026670;
+	color: #6eaeea;
 }
 
 .mytheme .v-calendar-day-number {
@@ -29380,14 +29380,14 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-calendar-day-number:hover {
-	color: #026670;
+	color: #6eaeea;
 }
 
 .mytheme .v-calendar-month-day-today .v-calendar-day-number {
-	background: #f2f7f7;
+	background: #f7fafd;
 	font-weight: 500;
-	color: #026670;
-	border-top: 2px solid #026670;
+	color: #6eaeea;
+	border-top: 2px solid #6eaeea;
 	line-height: 24px;
 	margin: 0;
 	padding: 0 5px;
@@ -29471,7 +29471,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-calendar-current-time {
-	background: #026670;
+	background: #6eaeea;
 	line-height: 1px;
 	pointer-events: none;
 	opacity: 0.5;
@@ -29480,7 +29480,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 
 .mytheme .v-calendar-current-time:before {
 	content: "\2022";
-	color: #026670;
+	color: #6eaeea;
 	font-size: 22px;
 	margin-left: -0.07em;
 }
@@ -29828,9 +29828,9 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	height: 24px !important;
 	width: 24px !important;
 	box-sizing: border-box;
-	border: 2px solid rgba(2, 102, 112, 0.2);
-	border-top-color: #026670;
-	border-right-color: #026670;
+	border: 2px solid rgba(110, 174, 234, 0.2);
+	border-top-color: #6eaeea;
+	border-right-color: #6eaeea;
 	border-radius: 100%;
 	-webkit-animation: v-rotate-360 500ms infinite linear;
 	-moz-animation: v-rotate-360 500ms infinite linear;
@@ -29882,7 +29882,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	right: -1px;
 	bottom: -1px;
 	left: -1px;
-	border: 0 solid #026670;
+	border: 0 solid #6eaeea;
 }
 
 .mytheme .v-ddwrapper-over-top:before {
@@ -29910,7 +29910,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	border-radius: 6px;
 	opacity: 0.3;
 	filter: alpha(opacity=30.0) ;
-	background: #3ceafc;
+	background: #b7d7f5;
 }
 
 .mytheme .no-vertical-drag-hints .v-ddwrapper-over-bottom:before, .mytheme .no-vertical-drag-hints.v-ddwrapper-over-bottom:before {
@@ -29922,7 +29922,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	border-radius: 6px;
 	opacity: 0.3;
 	filter: alpha(opacity=30.0) ;
-	background: #3ceafc;
+	background: #b7d7f5;
 }
 
 .mytheme .no-horizontal-drag-hints.v-ddwrapper-over-left:before, .mytheme .no-horizontal-drag-hints .v-ddwrapper-over-left:before {
@@ -29934,7 +29934,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	border-radius: 6px;
 	opacity: 0.3;
 	filter: alpha(opacity=30.0) ;
-	background: #3ceafc;
+	background: #b7d7f5;
 }
 
 .mytheme .no-horizontal-drag-hints.v-ddwrapper-over-right:before, .mytheme .no-horizontal-drag-hints .v-ddwrapper-over-right:before {
@@ -29946,7 +29946,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	border-radius: 6px;
 	opacity: 0.3;
 	filter: alpha(opacity=30.0) ;
-	background: #3ceafc;
+	background: #b7d7f5;
 }
 
 .mytheme .v-ddwrapper-over-middle:after, .mytheme .v-ddwrapper-over-center:after {
@@ -29954,7 +29954,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	border-radius: 6px;
 	opacity: 0.3;
 	filter: alpha(opacity=30.0) ;
-	background: #3ceafc;
+	background: #b7d7f5;
 }
 
 .mytheme .no-box-drag-hints.v-ddwrapper:after, .mytheme .no-box-drag-hints .v-ddwrapper:after {
@@ -30004,7 +30004,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 
 .mytheme .v-popupview {
 	cursor: pointer;
-	color: #026670;
+	color: #6eaeea;
 	text-decoration: none;
 	font-weight: inherit;
 	-webkit-transition: color 140ms;
@@ -30013,7 +30013,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-popupview:hover {
-	color: #0394a2;
+	color: #9bc7f0;
 }
 
 .mytheme .v-popupview.v-disabled {
@@ -30067,9 +30067,9 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	height: 24px !important;
 	width: 24px !important;
 	box-sizing: border-box;
-	border: 2px solid rgba(2, 102, 112, 0.2);
-	border-top-color: #026670;
-	border-right-color: #026670;
+	border: 2px solid rgba(110, 174, 234, 0.2);
+	border-top-color: #6eaeea;
+	border-right-color: #6eaeea;
 	border-radius: 100%;
 	-webkit-animation: v-rotate-360 500ms infinite linear;
 	-moz-animation: v-rotate-360 500ms infinite linear;
@@ -30327,7 +30327,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-Notification .v-Notification-caption {
-	color: #026670;
+	color: #6eaeea;
 	font-size: 19px;
 	line-height: 1;
 }
@@ -31583,7 +31583,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme :not(.v-upload) > * > .v-button:not(.borderless):not(.border).primary {
-	background: #026670;
+	background: #6eaeea;
 	color: white;
 }
 
@@ -31598,7 +31598,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme :not(.v-upload) > * > .v-button:not(.borderless):not(.border).custom {
-	background: #026670;
+	background: #6eaeea;
 	color: white;
 }
 
@@ -31611,7 +31611,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-button.borderless-colored, .mytheme .v-button.link {
-	color: #026670;
+	color: #6eaeea;
 }
 
 .mytheme .v-button.round {
@@ -31626,12 +31626,12 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-button.border.primary {
-	border: 1px solid #026670;
-	color: #026670;
+	border: 1px solid #6eaeea;
+	color: #6eaeea;
 }
 
 .mytheme .v-button.border:after {
-	border: 0px solid #026670;
+	border: 0px solid #6eaeea;
 }
 
 .mytheme .v-button.border.friendly {
@@ -31645,8 +31645,8 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-button.border.custom {
-	border: 1px solid #026670;
-	color: #026670;
+	border: 1px solid #6eaeea;
+	color: #6eaeea;
 }
 
 .mytheme .v-button.borderless {
@@ -31658,7 +31658,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-button.borderless.primary {
-	color: #026670;
+	color: #6eaeea;
 }
 
 .mytheme .v-button.borderless.friendly {
@@ -31670,7 +31670,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-button.borderless.custom {
-	color: #026670;
+	color: #6eaeea;
 }
 
 .mytheme .v-button.floating-action {
@@ -31708,7 +31708,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 
 .mytheme .v-button.floating-action.custom {
 	color: white;
-	background: #026670;
+	background: #6eaeea;
 }
 
 .mytheme .v-button.v-disabled {
@@ -31765,20 +31765,20 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme :not(.v-component-group) > .v-textfield.custom {
-	color: #026670;
+	color: #6eaeea;
 }
 
 .mytheme .v-textfield.custom::-webkit-input-placeholder {
-	color: rgba(2, 102, 112, 0.4);
+	color: rgba(110, 174, 234, 0.4);
 }
 
 .mytheme .v-caption-custom.v-caption-inline-icon {
-	color: #026670;
+	color: #6eaeea;
 }
 
 .mytheme :not(.v-component-group) > .v-textfield.custom:focus {
-	border-bottom: 1px solid #026670;
-	box-shadow: 0 1px 0 0 #026670;
+	border-bottom: 1px solid #6eaeea;
+	box-shadow: 0 1px 0 0 #6eaeea;
 }
 
 .mytheme .v-component-group > .v-textfield {
@@ -31805,12 +31805,12 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-filterselect.custom [class*="input"] {
-	color: #026670 !important;
+	color: #6eaeea !important;
 }
 
 .mytheme .v-filterselect-focus.custom [class*="input"] {
-	border-bottom: 1px solid #026670 !important;
-	box-shadow: 0 1px 0 0 #026670 !important;
+	border-bottom: 1px solid #6eaeea !important;
+	box-shadow: 0 1px 0 0 #6eaeea !important;
 }
 
 .mytheme .v-filterselect.custom .v-filterselect-button {
@@ -31818,7 +31818,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-filterselect.custom [class$="button"]:before {
-	color: #026670 !important;
+	color: #6eaeea !important;
 }
 
 .mytheme .v-filterselect .v-filterselect-button:hover {
@@ -31947,7 +31947,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	width: 30px !important;
 	height: 30px !important;
 	border-radius: 6px;
-	background: #026670;
+	background: #6eaeea;
 	color: white;
 	animation: valo-animate-in-fade 0.3s ease;
 }
@@ -32003,8 +32003,8 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 
 .mytheme .v-label-spinner {
 	border: 2px solid #e1e1e1;
-	border-top-color: #026670;
-	border-right-color: #026670;
+	border-top-color: #6eaeea;
+	border-right-color: #6eaeea;
 	-webkit-animation: v-rotate-360 750ms infinite linear;
 	-moz-animation: v-rotate-360 750ms infinite linear;
 	animation: v-rotate-360 750ms infinite linear;
@@ -32075,7 +32075,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-menubar-borderless.primary .v-menubar-menuitem {
-	color: #026670 !important;
+	color: #6eaeea !important;
 }
 
 .mytheme .v-menubar.primary > .v-menubar-menuitem:not(.v-menubar-menuitem-disabled):hover, .mytheme .v-menubar.primary > .v-menubar-menuitem-selected, .mytheme .v-menubar.primary > .v-menubar-menuitem-checked {
@@ -32088,12 +32088,12 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-menubar.custom:not(.borderless) {
-	background: #026670;
+	background: #6eaeea;
 	color: white !important;
 }
 
 .mytheme .v-menubar-borderless.custom .v-menubar-menuitem {
-	color: #026670 !important;
+	color: #6eaeea !important;
 }
 
 .mytheme .v-menubar.custom > .v-menubar-menuitem:not(.v-menubar-menuitem-disabled):hover, .mytheme .v-menubar.custom > .v-menubar-menuitem-selected, .mytheme .v-menubar.custom > .v-menubar-menuitem-checked {
@@ -32102,7 +32102,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-menubar.custom.borderless > .v-menubar-menuitem:not(.v-menubar-menuitem-disabled):hover, .mytheme .v-menubar.custom.borderless > .v-menubar-menuitem-selected, .mytheme .v-menubar.custom.borderless > .v-menubar-menuitem-checked {
-	background: rgba(2, 102, 112, 0.2);
+	background: rgba(110, 174, 234, 0.2);
 }
 
 .mytheme .v-menubar > .v-menubar-menuitem {
@@ -32181,20 +32181,20 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme :not(.v-component-group) > .v-datefield.custom [class*="textfield"] {
-	color: #026670;
+	color: #6eaeea;
 }
 
 .mytheme :not(.v-component-group) > .v-datefield.custom [class*="textfield"]:focus {
-	border-bottom: 1px solid #026670 !important;
-	box-shadow: 0 1px 0 0 #026670 !important;
+	border-bottom: 1px solid #6eaeea !important;
+	box-shadow: 0 1px 0 0 #6eaeea !important;
 }
 
 .mytheme .v-datefield.custom .v-datefield-button {
-	color: #026670;
+	color: #6eaeea;
 }
 
 .mytheme .v-datefield.custom .v-datefield-button:hover {
-	color: #068693;
+	color: #7fb6e9;
 }
 
 .mytheme .v-datefield-error:not(.borderless):not(.floating) [class*="textfield"]:focus {
@@ -32454,7 +32454,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 
 .mytheme .v-grid-editor-save, .mytheme .v-grid-editor-cancel {
 	height: 31px;
-	color: #026670;
+	color: #6eaeea;
 	transition: box-shadow 0.3s ease-out, background 0.3s;
 	padding: 0 20px;
 	border-radius: 6px;
@@ -33065,7 +33065,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-upload:not(.borderless):not(.border).primary {
-	background: #026670;
+	background: #6eaeea;
 	color: white;
 }
 
@@ -33080,7 +33080,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-upload:not(.borderless):not(.border).custom {
-	background: #026670;
+	background: #6eaeea;
 	color: white;
 }
 
@@ -33089,12 +33089,12 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-upload:not(.borderless):not(.border).primary {
-	background: #026670;
+	background: #6eaeea;
 	color: white;
 }
 
 .mytheme .v-upload.borderless-colored, .mytheme .v-upload.link {
-	color: #026670;
+	color: #6eaeea;
 }
 
 .mytheme .v-upload.round {
@@ -33108,12 +33108,12 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-upload.border.primary {
-	border: 1px solid #026670;
-	color: #026670;
+	border: 1px solid #6eaeea;
+	color: #6eaeea;
 }
 
 .mytheme .v-upload.border:after {
-	border: 0px solid #026670;
+	border: 0px solid #6eaeea;
 }
 
 .mytheme .v-upload.border.friendly {
@@ -33127,8 +33127,8 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-upload.border.custom {
-	border: 1px solid #026670;
-	color: #026670;
+	border: 1px solid #6eaeea;
+	color: #6eaeea;
 }
 
 .mytheme .v-upload.borderless {
@@ -33136,7 +33136,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-upload.borderless.primary {
-	color: #026670;
+	color: #6eaeea;
 }
 
 .mytheme .v-upload.borderless.friendly {
@@ -33148,7 +33148,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-upload.borderless.custom {
-	color: #026670;
+	color: #6eaeea;
 }
 
 .mytheme .v-upload.floating-action-upload {
@@ -33178,7 +33178,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 
 .mytheme .v-upload.floating-action-upload.custom {
 	color: white;
-	background: #026670;
+	background: #6eaeea;
 }
 
 .mytheme .v-upload.v-disabled {
@@ -33278,7 +33278,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	left: 0px;
 	line-height: 44px !important;
 	height: 44px !important;
-	color: #a5e4ea;
+	color: #dde8f3;
 	z-index: 9002 !important;
 }
 
@@ -33309,7 +33309,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 
 .mytheme .v-menubar-user-menu .v-menubar-menuitem:hover {
 	color: inherit !important;
-	background: rgba(165, 228, 234, 0.1);
+	background: rgba(221, 232, 243, 0.1);
 }
 
 .mytheme .valo-menu-part {
@@ -33317,7 +33317,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-menubar-user-menu .v-menubar-menuitem-selected:hover {
-	color: #026670;
+	color: #6eaeea;
 }
 
 .mytheme .valo-menu-item:focus, .mytheme .valo-menu-item:hover, .mytheme .valo-menu-item.selected {
@@ -33344,7 +33344,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .valo-menu-item [class*="badge"] {
-	color: #a5e4ea !important;
+	color: #dde8f3 !important;
 	border-radius: 30px !important;
 	padding: 4px 7px;
 	top: 11px !important;
@@ -33357,8 +33357,8 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	pointer-events: none;
 	border: 3px solid #e1e1e1;
 	background: #fafafa;
-	border-top-color: #026670;
-	border-right-color: #026670;
+	border-top-color: #6eaeea;
+	border-right-color: #6eaeea;
 	border-radius: 100%;
 	-webkit-animation: v-rotate-360 750ms infinite linear;
 	-moz-animation: v-rotate-360 750ms infinite linear;
@@ -33612,7 +33612,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 
 .mytheme .app-layout-default-design .app-layout-menu-button-badge {
 	padding: 0 10px;
-	background: #026670;
+	background: #6eaeea;
 	color: white;
 	font-size: 13px;
 	height: 20px;
@@ -33628,8 +33628,8 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .app-layout-default-design .app-bar-badge {
-	background: #026670;
-	color: #a5e4ea;
+	background: #6eaeea;
+	color: #dde8f3;
 	font-size: 11px;
 	min-width: 18px;
 	min-height: 18px;
@@ -33673,18 +33673,18 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	top: 0px !important;
 	bottom: 0px !important;
 	width: 5px;
-	box-shadow: 0px 0px 20px 4px rgba(2, 102, 112, 0);
+	box-shadow: 0px 0px 20px 4px rgba(110, 174, 234, 0);
 	transition: box-shadow 0.3s;
 	overflow: visible;
 }
 
 .mytheme .app-layout-default-design .app-layout-menu-element-active {
-	color: #026670 !important;
-	border-left: 5px #026670 solid !important;
+	color: #6eaeea !important;
+	border-left: 5px #6eaeea solid !important;
 }
 
 .mytheme .app-layout-default-design .app-layout-menu-element-active:after {
-	box-shadow: 0px 0px 20px 4px rgba(2, 102, 112, 0.3);
+	box-shadow: 0px 0px 20px 4px rgba(110, 174, 234, 0.3);
 }
 
 .mytheme .app-layout-default-design .app-layout-menu-button:after {
@@ -33711,7 +33711,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 
 .mytheme .app-layout-material-design .app-layout-menu-button-badge {
 	padding: 0 10px;
-	background: #026670;
+	background: #6eaeea;
 	color: white;
 	font-size: 13px;
 	height: 20px;
@@ -33732,8 +33732,8 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .app-layout-material-design .app-bar-badge {
-	background: #026670;
-	color: #a5e4ea;
+	background: #6eaeea;
+	color: #dde8f3;
 	font-size: 13px;
 	min-width: 18px;
 	min-height: 18px;
@@ -33764,7 +33764,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 
 .mytheme .app-layout-material-design .app-layout-menu-element-active .app-layout-menu-button {
 	background: rgba(71, 71, 71, 0.1) !important;
-	color: #026670 !important;
+	color: #6eaeea !important;
 }
 
 .mytheme .app-layout-material-design .app-layout-menu-button:after {
@@ -33787,7 +33787,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 
 .mytheme .app-layout-custom-design .app-layout-menu-button-badge {
 	padding: 0 10px;
-	background: #026670;
+	background: #6eaeea;
 	color: white;
 	height: 20px;
 	line-height: 20px;
@@ -33801,7 +33801,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .app-layout-custom-design .app-bar-badge {
-	background: #026670;
+	background: #6eaeea;
 	color: transparent;
 	height: 5px;
 	width: 5px;
@@ -33824,7 +33824,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 
 .mytheme .app-layout-custom-design .app-layout-menu-button-active {
 	background: rgba(71, 71, 71, 0.1) !important;
-	color: #026670 !important;
+	color: #6eaeea !important;
 }
 
 .mytheme .app-layout-custom-design .app-layout-menu-button:after {
@@ -33896,13 +33896,13 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	font-size: 17px;
 	line-height: 24px;
 	left: -11px;
-	color: #026670;
+	color: #6eaeea;
 	position: absolute;
 }
 
 .mytheme .v-window.translucent .app-layout-notification .app-layout-notification-title {
 	font-weight: 500;
-	color: #026670;
+	color: #6eaeea;
 }
 
 .mytheme .v-window.translucent .app-layout-notification .app-layout-notification-subtitle {
@@ -33913,7 +33913,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-window.translucent .app-layout-notification.app-layout-notification-priority-high {
-	background: #026670 !important;
+	background: #6eaeea !important;
 }
 
 .mytheme .v-window.translucent .app-layout-notification.app-layout-notification-priority-high:not(.app-layout-notification-read) {
@@ -33925,7 +33925,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-window.translucent .app-layout-notification.app-layout-notification-priority-high .app-layout-notification-subtitle {
-	color: #c0eaee;
+	color: #e7eff6;
 }
 
 .mytheme .v-window.translucent .app-layout-notification.app-layout-notification-priority-high .app-layout-notification-title {
@@ -33934,7 +33934,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-window.translucent .app-layout-notification.app-layout-notification-priority-high .app-layout-notification-time {
-	color: #9ee2e9;
+	color: #dae6f2;
 }
 
 .mytheme .v-window.translucent .app-layout-notification.app-layout-notification-priority-high .app-layout-notification-time::before {
@@ -33946,7 +33946,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-window.translucent .app-layout-notification.app-layout-notification-priority-medium:not(.app-layout-notification-read) {
-	border-left: 3px solid #026670;
+	border-left: 3px solid #6eaeea;
 }
 
 .mytheme .v-window.translucent .app-layout-notification.app-layout-notification-priority-medium.app-layout-notification-read {
@@ -34249,7 +34249,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .app-layout-behaviour-left-hybrid.small .app-layout-menu-button-badge {
-	background: #026670;
+	background: #6eaeea;
 	color: transparent;
 	height: 5px;
 	width: 5px;
@@ -35198,8 +35198,8 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 
 .mytheme .valo-test .v-button-primary.v-button-primary {
 	background: #fff;
-	border-color: #026670;
-	color: #026670;
+	border-color: #6eaeea;
+	color: #6eaeea;
 }
 
 .mytheme .valo-test .v-button-danger.v-button-danger {
@@ -35221,7 +35221,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-tree8 {
-	color: #026670;
+	color: #6eaeea;
 }
 
 .mytheme .v-tree-node-caption:hover {
@@ -35242,7 +35242,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .mytheme .v-tree-node-selected {
-	color: #026670;
+	color: #6eaeea;
 	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.05) !important;
 }
 
@@ -35281,7 +35281,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 
 .mytheme .mytheme .v-tree8-row-selected > .v-tree8-cell {
 	background: #96be5a;
-	color: #026670;
+	color: #6eaeea;
 	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.05);
 	border-color: #80a24d;
 }
@@ -35292,7 +35292,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	top: 0px;
 	left: 18px;
 	z-index: 9001;
-	background: #026670;
+	background: #6eaeea;
 	box-shadow: 0px 0px 5px #000;
 	-webkit-user-select: none;
 	-khtml-user-select: none;
@@ -35302,7 +35302,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .mytheme .v-tree8-footer td {
-	background-color: #026670;
+	background-color: #6eaeea;
 	font-size: 14px;
 	font-weight: inherit;
 	border-left: 2px solid #c1c1c1;
@@ -35311,23 +35311,23 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .mytheme .v-tree8-horizontal-scrollbar-deco {
-	background-color: #026670;
+	background-color: #6eaeea;
 	border: 2px solid #c1c1c1;
 	border-top: none;
 }
 
 .mytheme .mytheme .v-tree8-header .v-tree8-cell {
-	background: #026670;
+	background: #6eaeea;
 	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
 .mytheme .mytheme .v-tree8-sidebar.v-contextmenu.closed {
-	background: #026670;
+	background: #6eaeea;
 }
 
 .mytheme .mytheme .v-tree8-row-drag-badge {
-	background-color: #026670;
-	color: #026670;
+	background-color: #6eaeea;
+	color: #6eaeea;
 	display: block;
 	width: 30px;
 	height: 30px;

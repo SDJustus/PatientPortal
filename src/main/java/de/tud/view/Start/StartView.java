@@ -51,7 +51,7 @@ public class StartView  extends com.vaadin.ui.Composite implements View {
             });
 
         return checkBox; })
-                .setCaption("Erledigt?").setResizable(false).setMinimumWidth(100).setMaximumWidth(100);
+                .setCaption("").setResizable(false).setMinimumWidth(100).setMaximumWidth(100);
 
 
         todayGrid.setFrozenColumnCount(todayGrid.getColumns().size());
@@ -72,7 +72,7 @@ public class StartView  extends com.vaadin.ui.Composite implements View {
         fulfilledLabel.setId("header-label");
 
         fulfilledGrid = new Grid<>();
-        fulfilledGrid.setEnabled(false);
+        //fulfilledGrid.setEnabled(false);
         fulfilledGrid.setSelectionMode(Grid.SelectionMode.NONE).setUserSelectionAllowed(false);
 
         fulfilledGrid.addColumn(Homework::getName).setCaption("Name").setResizable(false);
@@ -80,7 +80,7 @@ public class StartView  extends com.vaadin.ui.Composite implements View {
         fulfilledGrid.addComponentColumn(s -> {CheckBox checkBox = new CheckBox();
             checkBox.setValue(true);
             return  checkBox; })
-                .setCaption("Erledigt?").setResizable(false).setMinimumWidth(100).setMaximumWidth(100);
+                .setCaption("").setResizable(false).setMinimumWidth(100).setMaximumWidth(100);
 
         fulfilledGrid.setFrozenColumnCount(todayGrid.getColumns().size());
 
@@ -98,7 +98,7 @@ public class StartView  extends com.vaadin.ui.Composite implements View {
         nextDaysGrid.setSelectionMode(Grid.SelectionMode.NONE);
         nextDaysGrid.addColumn(Homework::getName).setCaption("Name");
         nextDaysGrid.addColumn(Homework::getDescription).setCaption("Beschreibung");
-        nextDaysGrid.addColumn(Homework::getLocalDateTime).setCaption("Datum").setRenderer(new LocalDateTimeRenderer("dd.MM.yyyy HH:mm"));
+        nextDaysGrid.addColumn(Homework::getLocalDateTime).setCaption("Datum").setRenderer(new LocalDateTimeRenderer("dd.MM.yyyy"));
         nextDaysGrid.setSelectionMode(Grid.SelectionMode.NONE);
         nextDaysGrid.setFrozenColumnCount(nextDaysGrid.getColumns().size());
 
