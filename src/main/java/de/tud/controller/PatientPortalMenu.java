@@ -2,6 +2,7 @@ package de.tud.controller;
 
 
 import com.github.appreciated.material.MaterialTheme;
+import com.vaadin.annotations.Push;
 import com.vaadin.annotations.Theme;
 import com.vaadin.annotations.VaadinServletConfiguration;
 import com.vaadin.data.TreeData;
@@ -12,12 +13,14 @@ import com.vaadin.ui.*;
 import com.vaadin.navigator.Navigator;
 import de.tud.view.*;
 import de.tud.view.DiaryEvaluation.DiaryEvaluationView;
+import de.tud.view.Start.StartView;
 import de.tud.view.VitalData.VitalDataView;
 import de.tud.view.Welfare.WelfareView;
 
 import javax.servlet.annotation.WebServlet;
 
 @Theme("mytheme")
+@Push
 public class PatientPortalMenu extends UI {
 
     Tree<String> menuTree;

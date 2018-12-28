@@ -4,6 +4,7 @@ import com.vaadin.data.HasValue;
 import com.vaadin.icons.VaadinIcons;
 import com.vaadin.navigator.View;
 import com.vaadin.server.ClassResource;
+import com.vaadin.server.Page;
 import com.vaadin.ui.*;
 import com.vaadin.ui.themes.ValoTheme;
 import de.tud.controller.DiaryViewController;
@@ -49,7 +50,6 @@ public class SymptomSelectionView implements View {
 
         //ComboBox erzeugen
         comboBox = new ComboBox<>();
-        comboBox.setWidth("250px");
         comboBox.setItems(diaryViewController.getSymptomList());
         addValueChangeListenerForComboBox();
 
@@ -76,10 +76,12 @@ public class SymptomSelectionView implements View {
         goodSmiley.setHeight("60px");
         goodSmiley.setId("smileybild");
 
+
         middleSmiley = new Image();
         middleSmiley.setWidth("60px");
         middleSmiley.setHeight("60px");
         middleSmiley.setId("smileybild");
+
 
         badSmiley = new Image();
         badSmiley.setWidth("60px");
@@ -96,7 +98,7 @@ public class SymptomSelectionView implements View {
         horizontalLayout.setComponentAlignment(goodSmiley, Alignment.TOP_CENTER);
         horizontalLayout.setComponentAlignment(middleSmiley, Alignment.TOP_CENTER);
         horizontalLayout.setComponentAlignment(badSmiley, Alignment.TOP_CENTER);
-        //horizontalLayout.setSpacing(true);
+        horizontalLayout.setSpacing(true);
         horizontalLayout.setExpandRatio(goodSmiley, 1);
         horizontalLayout.setExpandRatio(middleSmiley, 1);
         horizontalLayout.setExpandRatio(badSmiley, 1);
@@ -121,7 +123,6 @@ public class SymptomSelectionView implements View {
 
         //Horizontal Layout als Spacer
         HorizontalLayout spacer = new HorizontalLayout();
-        horizontalLayout.setSpacing(true);
 
         //zweiter Spacer
         VerticalLayout spacer2 = new VerticalLayout();
@@ -134,6 +135,19 @@ public class SymptomSelectionView implements View {
         addNextSymptom.setVisible(false);
         addClickListenerToAddNextSymptom();
 
+        goodLabel.setResponsive(true);
+
+
+
+        UI.getCurrent().getPage().addBrowserWindowResizeListener(e -> {
+            iterateOverContainers(gridLayout, e.getWidth());
+            comboBox.setWidth("230px");
+            spacer2.setWidth(""+0.001*e.getWidth());
+            horizontalLayout1.setHeight("1px");
+            symptomName.setWidth("300px");
+
+        });
+
 
         gridLayout.addComponent(comboBox, 0,1 );
         gridLayout.addComponent(addNextSymptom,0,2);
@@ -144,9 +158,37 @@ public class SymptomSelectionView implements View {
         gridLayout.addComponent(delete, 3,1);
 
         gridLayout.setSpacing(true);
-        //verticalLayout.addComponents(symptomName, horizontalLayout, spacer,horizontalLayout1);
+        //horizontalLayout.addComponents(symptomName, horizontalLayout, spacer,horizontalLayout1);
+
+        iterateOverContainers(gridLayout, Page.getCurrent().getBrowserWindowWidth());
+
+        comboBox.setWidth("230px");
+        spacer2.setWidth(""+0.001*Page.getCurrent().getBrowserWindowWidth());
+        horizontalLayout1.setHeight("1px");
+        symptomName.setWidth("300px");
 
         return gridLayout;
+    }
+
+    private void iterateOverContainers(HasComponents component, int width){
+        for(Component c: component){
+            if(c instanceof  Label || c instanceof Button){
+                continue;
+            }
+            if(c instanceof HasComponents){
+                if(0.25*width < 300){
+                    continue;
+                }
+                c.setWidth(""+0.25*width);
+                iterateOverContainers((HasComponents) c, width);
+            }else {
+                c.setWidth(""+0.05*width);
+                c.setHeight(""+0.04*width);
+                if(c instanceof Image) {
+                    c.setHeight("" + 0.05 * width);
+                }
+            }
+        }
     }
 
     //Listener

@@ -1,5 +1,6 @@
 package de.tud.view;
 
+import com.github.appreciated.material.MaterialTheme;
 import com.vaadin.icons.VaadinIcons;
 import com.vaadin.ui.*;
 import java.util.ArrayList;
@@ -21,10 +22,9 @@ public class DiaryView extends Composite implements View {
     private VerticalLayout verticalLayout = new VerticalLayout(); //Vertical Layout wird in horizontal Layout gepackt
     private DateTimeField dateTimeField = new DateTimeField(); //wird in Vertical Layout gepackt
     private Label label = new Label("Neuer Tagebucheintrag");
-    private Button save = new Button("Speichern", VaadinIcons.FOLDER);
+    private Button save = new Button("Speichern");
     private Button newDiaryEntry = new Button("Alles Zurücksetzen");
     private Button edit = new Button("", VaadinIcons.EDIT);
-    private Button okay = new Button("OK");
     private Panel panel = new Panel();
     private DiaryViewController diaryViewController;
 
@@ -32,7 +32,6 @@ public class DiaryView extends Composite implements View {
     public DiaryView(){
         //Verbindung zu DiaryViewController
        diaryViewController = new DiaryViewController(this);
-
 
        //CSS
         UI.getCurrent().getPage().getStyles().add("#smileybild:hover{transform: scale(1.2);}"+
@@ -50,17 +49,18 @@ public class DiaryView extends Composite implements View {
 
         //Label Id für CSS
         label.setId("header-label");
+        label.addStyleName(MaterialTheme.LABEL_H1);
 
         //Eingaben vermeiden Date-TimeField
         dateTimeField.setTextFieldEnabled(false);
 
         //save Button ausschalten standardmäßig
         save.setEnabled(false);
+        save.setIcon(new ClassResource("/saveicon.png"));
 
-        okay.setEnabled(false);
-        addOkayButtonListener();
+
         addDateTimeFieldChangeListener();
-        menuBar.addComponents(dateTimeField,save, newDiaryEntry, edit, okay);
+        menuBar.addComponents(dateTimeField,save, newDiaryEntry, edit);
 
         verticalLayout.setSizeUndefined();
         verticalLayout.setSpacing(true);
@@ -78,10 +78,10 @@ public class DiaryView extends Composite implements View {
         addNewDiaryEntryButtonListener();
         addNewEditButtonListener();
 
-
         verticalLayoutMain.addComponents(label,menuBar,panel);
         setCompositionRoot(verticalLayoutMain);
     }
+
 
     private void addDateTimeFieldChangeListener(){
         diaryViewController.addDateTimeFieldChangeListener();
@@ -93,7 +93,6 @@ public class DiaryView extends Composite implements View {
        diaryViewController.addNewDiaryEntryButtonListener();
     }
     private void addNewEditButtonListener(){diaryViewController.addNewEditButtonListener();}
-    private void addOkayButtonListener(){diaryViewController.addOkayButtonListener();}
     public VerticalLayout getVerticalLayout() {
         return verticalLayout;
     }
@@ -107,5 +106,5 @@ public class DiaryView extends Composite implements View {
         return newDiaryEntry;
     }
     public Button getEdit(){return  edit;}
-    public Button getOkay(){return okay;}
+
 }
