@@ -24,6 +24,11 @@ public class PatientPortalMenu extends UI {
     TreeData<String> menuTreeData;
     Navigator navigator;
 
+    /**
+     *
+     * @param request
+     * jhdecjh
+     */
     @Override
     public void init(VaadinRequest request) {
 
