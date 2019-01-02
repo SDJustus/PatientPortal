@@ -35,6 +35,9 @@ public class StartViewController {
 
         if(homeworkList != null){
             for(Homework s : homeworkList){
+                if(s.getDate() == null){
+                    continue;
+                }
                 if(s.getDate().toLocalDate().equals(today) && s.isStatus() == false){
                     todayGridList.add(s);
                 }else if(s.getDate().toLocalDate().equals(today) && s.isStatus() == true){
