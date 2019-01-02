@@ -17,7 +17,7 @@ public class CustomizedErrorHandler implements ErrorHandler {
     private static final Logger LOGGER = Logger.getLogger(CustomizedErrorHandler.class.getSimpleName());
     @Override
     public void error(ErrorEvent event) {
-        LOGGER.log(Level.SEVERE, "An Error accoured: " + event.getThrowable().getLocalizedMessage());
+        LOGGER.log(Level.SEVERE, "An Error accoured: " + event.getThrowable().getMessage(), event.getThrowable());
         // Finds the original source of the error/exception
         AbstractComponent component = DefaultErrorHandler.findAbstractComponent(event);
         if (component != null) {

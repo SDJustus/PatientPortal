@@ -42,6 +42,7 @@ public class PatientPortalController extends UI {
 
     @Override
     public void init(VaadinRequest request) {
+        UI.getCurrent().setErrorHandler(new CustomizedErrorHandler());
         UI.getCurrent().getPage().getStyles().add(".v-button{text-align: left !important;}" +
                 ".v-label{font-size: large !important; }"+
                 "#smileybild:hover{transform: scale(1.2);}"+
