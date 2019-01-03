@@ -1,8 +1,11 @@
 package de.tud.model.medication;
 
 import de.tud.model.EntityObject;
+import de.tud.model.exceptions.EmptyDataBaseException;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "dummy_medication")
@@ -18,6 +21,8 @@ public class DummyMedication extends EntityObject {
     private String strength;
     @Column (name = "form")
     private String form;
+    @Column (name = "incompatible_with")
+    private String incompatipleWith;
 
     @Override
     public Long getId() {
@@ -38,5 +43,18 @@ public class DummyMedication extends EntityObject {
 
     public String getForm() {
         return form;
+    }
+
+    public String getIncompatibleWithAsString(){
+        return incompatipleWith;
+    }
+
+    public List<Long> getIncompatipleWith(){
+        List<Long> dummyIds = new ArrayList<>();
+        for (String s : incompatipleWith.split(",")){
+            dummyIds.add(Long.valueOf(s));
+        }
+        if (dummyIds.isEmpty()) throw new EmptyDataBaseException("create the dummyMedication table");
+        return dummyIds;
     }
 }

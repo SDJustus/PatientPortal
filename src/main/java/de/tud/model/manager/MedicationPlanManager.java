@@ -4,6 +4,7 @@ import de.tud.model.medication.DummyMedication;
 import de.tud.model.medication.Medication;
 import org.hibernate.Session;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -55,6 +56,16 @@ public class MedicationPlanManager extends EntityManager<Medication> {
             session.close();
         }
     }
+    public void deleteAll() {
+        Session session = getSessionFactory().openSession();
+        session.getTransaction().begin();
+        List<Medication> medications = read();
+        for(Medication medication : medications){
+            session.delete(medications);
+        }
+        session.getTransaction().commit();
+        session.close();
+    }
 
     @Override
     public Medication findByID(Long id) {
@@ -91,5 +102,24 @@ public class MedicationPlanManager extends EntityManager<Medication> {
         session.close();
         DummyMedication dummyMedication = getDummyMedicationByDummyMedicationId(medication.getDmId());
         return dummyMedication;
+    }
+
+    public boolean isIncompatibleWith(Long currentDummyMedId){
+        List<Medication> medications = read();
+        List<Long> dummyIds = new ArrayList<>();
+        for (Medication medication : medications){
+            dummyIds.add(medication.getDmId());
+        }
+        DummyMedication dummyMedication = getDummyMedicationByDummyMedicationId(currentDummyMedId);
+        List<Long> incompatibleWithDMId = dummyMedication.getIncompatipleWith();
+        for (Long l : dummyIds){
+            if (incompatibleWithDMId.contains(l.longValue())){
+                return true;
+            }
+            }
+
+        return false;
+
+
     }
 }
