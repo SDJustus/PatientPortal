@@ -23,6 +23,7 @@ public class MedicationScheduleView implements View {
         headline = new Label("Medikationsplan");
         verticalLayout.addComponent(headline);
         verticalLayout.setSpacing(true);
+        verticalLayout.setMargin(true);
 
         //Grid erzeugen
         medicationSchedule = new Grid<>();

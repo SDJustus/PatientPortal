@@ -125,7 +125,7 @@ public class PatientPortalController extends UI {
                         .add("Symptomeintrag", VaadinIcons.DOCTOR_BRIEFCASE, DiaryView.class)
                         .build())
                 .add("Hausaufgaben", VaadinIcons.LIST, HomeworkView.class)
-                .add("Medikationsplan", VaadinIcons.PILLS, StartView.class)
+                .add("Medikationsplan", VaadinIcons.PILLS, MedicationScheduleView.class)                        //TODO: check
                 .addClickable("Logout", VaadinIcons.SIGN_OUT, e -> logout(), Section.FOOTER)
                 .build();
     }
