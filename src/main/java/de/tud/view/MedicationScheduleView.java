@@ -29,11 +29,11 @@ public class MedicationScheduleView implements View {
         //Grid erzeugen
         medicationSchedule = new Grid<>();
         medicationSchedule.addColumn(DummyMedication::getId).setCaption("ID");
-        medicationSchedule.addColumn(DummyMedication::getSubstance).setCaption("Substanz");
         medicationSchedule.addColumn(DummyMedication::getTradeName).setCaption("Handelsname");
+        medicationSchedule.addColumn(DummyMedication::getSubstance).setCaption("Substanz");
         medicationSchedule.addColumn(DummyMedication::getForm).setCaption("Form");
         medicationSchedule.addColumn(DummyMedication::getStrength).setCaption("Stärke");
-        //medicationSchedule.addColumn(DummyMedication::getIncompatibleWithAsString).setCaption("Imkompatibel mit ...");
+        medicationSchedule.addColumn(DummyMedication::getIncompatibleWithAsString).setCaption("Inkompatibel mit ...");
 
         verticalLayout.addComponent(medicationSchedule);
         return verticalLayout;

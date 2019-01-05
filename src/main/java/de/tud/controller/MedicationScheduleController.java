@@ -17,7 +17,13 @@ public class MedicationScheduleController {
     }
 
     public void loadMedicationSchedule(){
-        List<DummyMedication> dummyMedication = medicationPlanManager.getAllDummyMedication();
-        medicationScheduleView.getMedicationSchedule().setItems(dummyMedication);
+        try{
+            List<DummyMedication> dummyMedication = medicationPlanManager.getAllDummyMedication();
+            medicationScheduleView.getMedicationSchedule().setItems(dummyMedication);
+        }
+        catch(NullPointerException e){
+            e.getMessage();
+        }
+
     }
 }
