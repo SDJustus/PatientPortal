@@ -3,12 +3,13 @@ package de.tud.view;
 import com.vaadin.navigator.View;
 import com.vaadin.ui.*;
 import de.tud.controller.MedicationScheduleController;
+import de.tud.model.medication.DummyMedication;
 
 
 public class MedicationScheduleView implements View {
     //Elemente definiert
     private Label headline;
-    private Grid medicationSchedule;
+    private Grid<DummyMedication> medicationSchedule;
 
     //Controller
     private MedicationScheduleController medicationScheduleController;
@@ -27,6 +28,12 @@ public class MedicationScheduleView implements View {
 
         //Grid erzeugen
         medicationSchedule = new Grid<>();
+        medicationSchedule.addColumn(DummyMedication::getId).setCaption("ID");
+        medicationSchedule.addColumn(DummyMedication::getSubstance).setCaption("Substanz");
+        medicationSchedule.addColumn(DummyMedication::getTradeName).setCaption("Handelsname");
+        medicationSchedule.addColumn(DummyMedication::getForm).setCaption("Form");
+        medicationSchedule.addColumn(DummyMedication::getStrength).setCaption("Stärke");
+        //medicationSchedule.addColumn(DummyMedication::getIncompatibleWithAsString).setCaption("Imkompatibel mit ...");
 
         verticalLayout.addComponent(medicationSchedule);
         return verticalLayout;
