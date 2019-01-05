@@ -1,5 +1,6 @@
 package de.tud.controller;
 
+import com.github.appreciated.app.layout.builder.entities.DefaultNotification;
 import com.vaadin.data.provider.Query;
 import com.vaadin.ui.CheckBox;
 import de.tud.model.Homework;
@@ -21,7 +22,12 @@ public class StartViewController {
         initGrids();
     }
     private void initGrids(){
-        List<Homework> homeworkList = homeworkManager.read();
+        List<Homework> homeworkList = null;
+        try {
+           homeworkList = homeworkManager.read();
+        }catch (NullPointerException e){
+            e.getMessage();
+        }
         LocalDate today = LocalDate.now();
         ArrayList<Homework> todayGridList = new ArrayList<>();
         ArrayList<Homework> fulfilledGridList = new ArrayList<>();
@@ -29,6 +35,9 @@ public class StartViewController {
 
         if(homeworkList != null){
             for(Homework s : homeworkList){
+                if(s.getDate() == null){
+                    continue;
+                }
                 if(s.getDate().toLocalDate().equals(today) && s.isStatus() == false){
                     todayGridList.add(s);
                 }else if(s.getDate().toLocalDate().equals(today) && s.isStatus() == true){
@@ -38,6 +47,7 @@ public class StartViewController {
                 }
             }
             startView.getTodayGrid().setItems(todayGridList);
+            notificationGenerator(todayGridList);
             startView.getTodayGrid().setHeightByRows(startView.getTodayGrid().getDataProvider().size(new Query<>())+1);
 
             startView.getFulfilledGrid().setItems(fulfilledGridList);
@@ -48,6 +58,18 @@ public class StartViewController {
         }
 
     }
+    private void notificationGenerator(ArrayList<Homework> todayList){
+        PatientPortalController.getNotifications().clearNotifications();
+        if(todayList != null){
+            for (Homework homework: todayList){
+                PatientPortalController.getNotifications().addNotification(new DefaultNotification("Heute erledigen:", homework.getDescription()));
+            }
+        }
+
+
+    }
+
+
     public void checkBoxListener(Long id, CheckBox checkBox){
         homeworkManager.setHomeworkStatus(id, !checkBox.getValue());
         initGrids();

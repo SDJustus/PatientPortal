@@ -11,28 +11,30 @@
   <meta name="package-mapping" content="org_vaadin_addon_calendar:org.vaadin.addon.calendar">
  </head>
  <body>
-  <vaadin-vertical-layout size-full>
-   <vaadin-accordion size-auto>
-    <tab caption="Neuer Kalendereintrag" selected>
-     <vaadin-form-layout caption="Neuer Kalendereintrag" size-auto>
-      <vaadin-button description="Eintrag hinzfügen" plain-text _id="saveButton">
-        Eintrag hinzufügen 
-      </vaadin-button>
-      <vaadin-combo-box caption="Typ:" description="Bitte wählen sie einen Aufgabentypen aus!" data-item-type="java.lang.String" _id="combobox">
-       <option item="Option1">Option 1</option>
-       <option item="Option2">Option 2</option>
-       <option item="Option3">Option 3</option>
-      </vaadin-combo-box>
-      <vaadin-date-field caption="Datum:" description="Bitte wählen Sie ein Datum!" placeholder="" height="21px" _id="dataPicker"></vaadin-date-field>
-      <vaadin-text-field caption="Aufgabenname:" description="Bitte geben Sie einen Aufgabennamen an!" placeholder="Aufgabenname" height="21px" _id="homeworkName"></vaadin-text-field>
-      <vaadin-text-area caption="Beschreibung:" description="Bitte fügen Sie Ihre Beschreibung ein!" placeholder="Aufgabenbeschreibung" width="879px" height="57px" _id="homeworkDescription"></vaadin-text-area>
-     </vaadin-form-layout>
-    </tab>
-   </vaadin-accordion>
-   <vaadin-label height="28px" plain-text _id="calenderLabel" :bottom :center>
-     Label 
-   </vaadin-label>
-   <de_tud_view_homework-homework-calender size-full _id="calendar" :center></de_tud_view_homework-homework-calender>
+  <vaadin-vertical-layout size-auto>
+   <vaadin-horizontal-layout>
+    <vaadin-button description="Eintrag hinzfügen" plain-text _id="saveButton">
+      Eintrag hinzufügen 
+    </vaadin-button>
+    <vaadin-combo-box data-item-type="java.lang.String" _id="combobox">
+     <option item="Option1">Option 1</option>
+     <option item="Option2">Option 2</option>
+     <option item="Option3">Option 3</option>
+    </vaadin-combo-box>
+    <vaadin-date-field _id="dataPicker"></vaadin-date-field>
+   </vaadin-horizontal-layout>
+   <vaadin-horizontal-layout>
+    <vaadin-text-field caption="Aufgabenname:" _id="homeworkName"></vaadin-text-field>
+    <vaadin-text-area caption="Beschreibung:" description="Bitte fügen Sie ihre Beschreibung ein!" _id="homeworkDescription"></vaadin-text-area>
+   </vaadin-horizontal-layout>
+   <vaadin-horizontal-layout>
+    <vaadin-label plain-text _id="calenderLabel" :middle :center>
+      Label 
+    </vaadin-label>
+   </vaadin-horizontal-layout>
+   <vaadin-horizontal-layout>
+    <de_tud_view_homework-homework-calender _id="calendar"></de_tud_view_homework-homework-calender>
+   </vaadin-horizontal-layout>
   </vaadin-vertical-layout>
  </body>
 </html>

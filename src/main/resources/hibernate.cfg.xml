@@ -43,5 +43,7 @@
     <mapping class="de.tud.model.welfare.ConcentrationAbility"/>
     <mapping class="de.tud.model.welfare.PhysicalCondition"/>
     <mapping class="de.tud.model.Homework"/>
+    <mapping class="de.tud.model.medication.DummyMedication"/>
+    <mapping class="de.tud.model.medication.Medication"/>
   </session-factory>
 </hibernate-configuration>

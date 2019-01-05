@@ -220,6 +220,7 @@ public class DiaryViewController {
                     for(SymptomSelectionViewController s : symptomSelectionViewControllers){
 
                         s.getSymptomSelectionView().getDelete().setVisible(true);
+
                     }
                 }else{
                     editButtoClicked = false;

@@ -7,12 +7,17 @@ import com.github.appreciated.app.layout.builder.Section;
 import com.github.appreciated.app.layout.builder.design.AppLayoutDesign;
 import com.github.appreciated.app.layout.builder.elements.builders.SubmenuBuilder;
 import com.github.appreciated.app.layout.builder.entities.DefaultBadgeHolder;
+import com.github.appreciated.app.layout.builder.entities.DefaultNotification;
 import com.github.appreciated.app.layout.builder.entities.DefaultNotificationHolder;
+import com.github.appreciated.app.layout.builder.entities.NotificationHolder;
+import com.github.appreciated.app.layout.component.button.AppBarNotificationButton;
 import com.github.appreciated.app.layout.interceptor.DefaultViewNameInterceptor;
 import com.vaadin.annotations.Theme;
 import com.vaadin.annotations.VaadinServletConfiguration;
+import com.vaadin.event.ContextClickEvent;
 import com.vaadin.icons.VaadinIcons;
 import com.vaadin.navigator.Navigator;
+import com.vaadin.navigator.View;
 import com.vaadin.server.*;
 import com.vaadin.ui.*;
 import de.tud.view.*;
@@ -29,18 +34,33 @@ import javax.servlet.annotation.WebServlet;
 @Theme("mytheme")
 public class PatientPortalController extends UI {
     private AuthenticationView authenticationView;
+    private static DefaultNotificationHolder notifications = new DefaultNotificationHolder();
+    private DefaultBadgeHolder badgeHolder = new DefaultBadgeHolder();
+    AppBarNotificationButton appBarNotificationButton = new AppBarNotificationButton(notifications, true);
 
 
 
     @Override
     public void init(VaadinRequest request) {
+        UI.getCurrent().setErrorHandler(new CustomizedErrorHandler());
         UI.getCurrent().getPage().getStyles().add(".v-button{text-align: left !important;}" +
                 ".v-label{font-size: large !important; }"+
                 "#smileybild:hover{transform: scale(1.2);}"+
                 "#smileybild:{transition: transform .2s;}"+
                 "#profilbild{display: block !important; margin: 0 auto !important;}");
 
+
         authenticationView = new AuthenticationView(this);
+
+
+        notifications.addNotificationClickedListener(new NotificationHolder.NotificationClickListener<DefaultNotification>() {
+            @Override
+            public void onNotificationClicked(DefaultNotification defaultNotification) {
+                Notification.show(defaultNotification.getDescription(), Notification.Type.HUMANIZED_MESSAGE);
+                defaultNotification.setUnread(true);
+            }
+        });
+
 
         setContent(buildMenu());
     }
@@ -88,8 +108,10 @@ public class PatientPortalController extends UI {
         horizontalLayout.setComponentAlignment(horizontalLayout.getComponent(0), Alignment.MIDDLE_CENTER);
         horizontalLayout.setWidth("256px");
 
-        return AppLayout.getDefaultBuilder(Behaviour.LEFT_RESPONSIVE_OVERLAY_NO_APP_BAR)
+
+        return AppLayout.getDefaultBuilder(Behaviour.LEFT_HYBRID)
                 .withNavigator(container -> new Navigator(this, container))
+                .addToAppBar(appBarNotificationButton)
                 .withViewNameInterceptor(new DefaultViewNameInterceptor())
                 .withDesign(AppLayoutDesign.DEFAULT)
                 .withNavigatorConsumer(navigator -> {navigator.addView("Home", StartView.class);
@@ -112,6 +134,11 @@ public class PatientPortalController extends UI {
     }
 
 
+
+
+
+
+
     @WebServlet(urlPatterns = "/*", name = "MyUIServlet", asyncSupported = true)
     @VaadinServletConfiguration(ui = PatientPortalController.class, productionMode = false)
     public static class MyUIServlet extends VaadinServlet {
@@ -120,6 +147,10 @@ public class PatientPortalController extends UI {
     protected void refresh(VaadinRequest request) {
         super.refresh(request);
 
+    }
+
+    public static DefaultNotificationHolder getNotifications() {
+        return notifications;
     }
 
 
