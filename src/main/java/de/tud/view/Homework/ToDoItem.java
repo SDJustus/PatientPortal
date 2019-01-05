@@ -9,7 +9,7 @@ public class ToDoItem extends BasicItem {
    public ToDoItem()
     {
 
-        this.setStyleName("v-calendar-event-statetoDo");
+        this.setStyleName("state");
 
     }
     @Override

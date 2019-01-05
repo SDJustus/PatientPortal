@@ -62,11 +62,13 @@ $v-hover-styles-enabled: true !default;
 @import "../material/material.scss";
 @import "app-layout.scss";
 
+
 @mixin mytheme {
 
   @include valo;
   @include material;
   @include app-layout;
+
 
 
   .valo-test {
@@ -238,32 +240,51 @@ $v-hover-styles-enabled: true !default;
 
 
 
+
+
   .v-calendar-event.v-calendar-event-statetoDo {
-    color: #222222;
+
+    color: #222222 !important;
 
     .v-calendar-event-content {
-      border: 1px solid #69a089;
+      border: 1px solid #a00004 !important;
 
-      background-color: rgba(153, 243, 182, 0.8);
+      background-color: rgba(243, 50, 29, 0.8) !important;
 
-      -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
-      -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
-      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+      -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
     }
+
+
+    .v-calendar-event-all-day {
+      background-color: #13f816!important;
+      background-color: rgba(81, 248, 113, 0.8)!important;
+      color: #02e032!important;
+    }
+
   }
 
-  .v-calendar-event.v-calendar-event-statefinished {
-    color: #222222;
+  .v-calendar-event.v-calendar-event-all-day.v-calender-event-statefinished {
+    color: #222222 !important;
 
     .v-calendar-event-content {
-      border: 1px solid #39dc28;
+      border: 1px solid #39dc28 !important;
 
-      background-color: rgba(15, 220, 0, 0.8);
+      background-color: rgba(15, 220, 0, 0.8) !important;
 
-      -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
-      -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
-      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+      -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
     }
+
+
+     .v-calendar-event-all-day {
+      background-color: #19f839!important;
+      background-color: rgba(34, 248, 69, 0.8)!important;
+      color: #15e020!important;
+    }
+
   }
 
   .v-calendar-times {
@@ -274,6 +295,7 @@ $v-hover-styles-enabled: true !default;
     overflow: hidden;
     color:transparent;
   }
+
   .v-calendar-week-wrapper
   {
 
@@ -286,7 +308,6 @@ $v-hover-styles-enabled: true !default;
 
 
   }
-
 
 
   // Insert your own theme rules here

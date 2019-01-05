@@ -9,14 +9,14 @@ public class FinishedItem extends BasicItem {
    public FinishedItem()
     {
 
-        this.setStyleName("v-calendar-event-statefinished");
+        this.setStyleName("v-calendar-event-statefinished-all-day");
 
 
     }
 
     @Override
     public String getStyleName() {
-        return "statefinished";
+        return "statefinished-all-day";
     }
 
     @Override

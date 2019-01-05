@@ -12,23 +12,27 @@
  </head>
  <body>
   <vaadin-vertical-layout size-full>
-   <vaadin-form-layout width-auto height="189px">
-    <vaadin-button description="Eintrag hinzfügen" plain-text _id="saveButton">
-      Eintrag hinzufügen 
-    </vaadin-button>
-    <vaadin-combo-box caption="Typ:" description="Bitte wählen sie einen Aufgabentypen aus!" data-item-type="java.lang.String" _id="combobox">
-     <option item="Option1">Option 1</option>
-     <option item="Option2">Option 2</option>
-     <option item="Option3">Option 3</option>
-    </vaadin-combo-box>
-    <vaadin-date-field caption="Datum:" description="Bitte wählen Sie ein Datum!" placeholder="" height="21px" _id="dataPicker"></vaadin-date-field>
-    <vaadin-text-field caption="Aufgabenname:" description="Bitte geben Sie einen Aufgabennamen an!" placeholder="Aufgabenname" height="21px" _id="homeworkName"></vaadin-text-field>
-    <vaadin-text-area caption="Beschreibung:" description="Bitte fügen Sie Ihre Beschreibung ein!" placeholder="Aufgabenbeschreibung" width="879px" height="57px" _id="homeworkDescription"></vaadin-text-area>
-    <vaadin-label plain-text _id="calenderLabel">
-      Label 
-    </vaadin-label>
-   </vaadin-form-layout>
-   <de_tud_view_homework-homework-calender size-full _id="calendar" :bottom :center></de_tud_view_homework-homework-calender>
+   <vaadin-accordion size-auto>
+    <tab caption="Neuer Kalendereintrag" selected>
+     <vaadin-form-layout caption="Neuer Kalendereintrag" size-auto>
+      <vaadin-button description="Eintrag hinzfügen" plain-text _id="saveButton">
+        Eintrag hinzufügen 
+      </vaadin-button>
+      <vaadin-combo-box caption="Typ:" description="Bitte wählen sie einen Aufgabentypen aus!" data-item-type="java.lang.String" _id="combobox">
+       <option item="Option1">Option 1</option>
+       <option item="Option2">Option 2</option>
+       <option item="Option3">Option 3</option>
+      </vaadin-combo-box>
+      <vaadin-date-field caption="Datum:" description="Bitte wählen Sie ein Datum!" placeholder="" height="21px" _id="dataPicker"></vaadin-date-field>
+      <vaadin-text-field caption="Aufgabenname:" description="Bitte geben Sie einen Aufgabennamen an!" placeholder="Aufgabenname" height="21px" _id="homeworkName"></vaadin-text-field>
+      <vaadin-text-area caption="Beschreibung:" description="Bitte fügen Sie Ihre Beschreibung ein!" placeholder="Aufgabenbeschreibung" width="879px" height="57px" _id="homeworkDescription"></vaadin-text-area>
+     </vaadin-form-layout>
+    </tab>
+   </vaadin-accordion>
+   <vaadin-label height="28px" plain-text _id="calenderLabel" :bottom :center>
+     Label 
+   </vaadin-label>
+   <de_tud_view_homework-homework-calender size-full _id="calendar" :center></de_tud_view_homework-homework-calender>
   </vaadin-vertical-layout>
  </body>
 </html>
