@@ -2,24 +2,27 @@ package de.tud.controller;
 
 import de.tud.model.manager.MedicationPlanManager;
 import de.tud.model.medication.DummyMedication;
-import de.tud.view.MedicationScheduleView;
+import de.tud.view.MedicationScheduleSetup;
 import java.util.List;
 
 public class MedicationScheduleController {
 
-    private MedicationScheduleView medicationScheduleView;
-    MedicationPlanManager medicationPlanManager = MedicationPlanManager.getInstance();
+    private MedicationScheduleSetup medicationScheduleSetup;
+    MedicationPlanManager medicationPlanManager;
 
-    public MedicationScheduleController(MedicationScheduleView medicationScheduleView){
-        this.medicationScheduleView = medicationScheduleView;
-        medicationScheduleView.getViewComponent();
+    public MedicationScheduleController(MedicationScheduleSetup medicationScheduleSetup){
+
+        this.medicationScheduleSetup = medicationScheduleSetup;
+        medicationPlanManager = MedicationPlanManager.getInstance();
+        medicationScheduleSetup.getViewComponent();
         loadMedicationSchedule();
     }
 
     public void loadMedicationSchedule(){
         try{
             List<DummyMedication> dummyMedication = medicationPlanManager.getAllDummyMedication();
-            medicationScheduleView.getMedicationSchedule().setItems(dummyMedication);
+            medicationScheduleSetup.getMedicationSchedule().setItems(dummyMedication);
+
         }
         catch(NullPointerException e){
             e.getMessage();
