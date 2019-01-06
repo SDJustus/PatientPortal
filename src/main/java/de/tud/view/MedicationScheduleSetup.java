@@ -6,7 +6,7 @@ import de.tud.controller.MedicationScheduleController;
 import de.tud.model.medication.DummyMedication;
 
 
-public class MedicationScheduleSetup extends Composite implements View {
+public class MedicationScheduleSetup implements View {
     //Elemente definiert
     private Label headline;
     private Grid<DummyMedication> medicationSchedule;
