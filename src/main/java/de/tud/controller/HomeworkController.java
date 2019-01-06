@@ -16,8 +16,10 @@ import de.tud.model.Homework;
 import de.tud.model.manager.DiaryManager;
 import de.tud.model.manager.HomeworkManager;
 import de.tud.model.welfare.Welfare;
+import de.tud.view.Homework.FinishedItem;
 import de.tud.view.Homework.HomeworkDesigner;
 import de.tud.view.Homework.HomeworkSetup;
+import de.tud.view.Homework.ToDoItem;
 import de.tud.view.Welfare.WelfareUISetup;
 import org.vaadin.addon.calendar.handler.BasicDateClickHandler;
 import org.vaadin.addon.calendar.handler.BasicItemMoveHandler;
@@ -69,8 +71,8 @@ public class HomeworkController {
 //        calendar.setWeeklyCaptionProvider(date ->  "<br>" + DateTimeFormatter.ofPattern("dd.MM.YYYY", getLocale()).format(date));
 //        calendar.setWeeklyCaptionProvider(date -> DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM).withLocale(getLocale()).format(date));
 
-       // designerView.getCalendar().withVisibleDays(1, 7);
-          designerView.getCalendar().withMonth(ZonedDateTime.now().getMonth());
+        designerView.getCalendar().withVisibleDays(1, 7);
+         // designerView.getCalendar().withMonth(ZonedDateTime.now().getMonth());
 
         //designerView.getCalendar().setStartDate(ZonedDateTime.of(2017, 9, 10, 0,0,0, 0, designerView.getCalendar().getZoneId()));
         // designerView.getCalendar().setEndDate(ZonedDateTime.of(2050, 9, 16, 0,0,0, 0, designerView.getCalendar().getZoneId()));
@@ -147,15 +149,33 @@ public class HomeworkController {
                 break;
 
             }
+            if(home.isStatus() == false)
+            {
+                ToDoItem basic = new ToDoItem();
+                System.out.println(basic.getStyleName());
+                basic.setStart(home.getDate());
+                basic.setEnd(home.getDate().plusHours(2));
+
+                basic.setDescription(home.getType().toString()+": "+home.getDescription());
+                basic.setCaption(home.getName());
+                basicProvider.addItem(basic);
 
 
-            BasicItem basic = new BasicItem();
-            basic.setStart(home.getDate());
-            basic.setEnd(home.getDate());
+            }
 
-            basic.setDescription(home.getType().toString()+": "+home.getDescription());
-            basic.setCaption(home.getName());
-            basicProvider.addItem(basic);
+
+            if(home.isStatus()==true)
+            {
+                FinishedItem basic = new FinishedItem();
+                basic.setStart(home.getDate());
+                basic.setEnd(home.getDate().plusHours(1));
+
+                basic.setDescription(home.getType().toString()+": "+home.getDescription());
+                basic.setCaption(home.getName());
+                basicProvider.addItem(basic);
+
+
+            }
 
 
         }
@@ -283,7 +303,7 @@ public class HomeworkController {
     {
 
 
-designerView.getHomeworkDescription().setMaxLength(25);
+designerView.getHomeworkDescription().setMaxLength(120);
 designerView.getHomeworkName().setMaxLength(12);
 
 
@@ -344,13 +364,15 @@ designerView.getHomeworkName().setMaxLength(12);
 
 
    public void addCalenderListenerForCaptionLabel()
-    {
 
+   {
+
+
+        
         LocalDate startDate = designerView.getCalendar().getStartDate().toLocalDate();
         LocalDate endDate = designerView.getCalendar().getEndDate().toLocalDate();
         String start = startDate.getDayOfMonth()+"."+startDate.getMonthValue()+"."+startDate.getYear();
         String end = endDate.getDayOfMonth()+"."+endDate.getMonthValue()+"."+endDate.getYear();
-
         designerView.getCalenderLabel().setValue(start + " - " + end);
 
 
