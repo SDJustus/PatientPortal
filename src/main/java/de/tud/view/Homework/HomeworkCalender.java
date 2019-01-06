@@ -1,10 +1,13 @@
 package de.tud.view.Homework;
 
 import com.github.appreciated.material.MaterialTheme;
+import com.vaadin.icons.VaadinIcons;
 import com.vaadin.server.Page;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.NativeButton;
 import com.vaadin.ui.Notification;
+import com.vaadin.ui.UI;
+import de.steinwedel.messagebox.ButtonOption;
 import de.steinwedel.messagebox.MessageBox;
 import de.tud.model.Homework;
 import de.tud.model.manager.HomeworkManager;
@@ -21,9 +24,12 @@ import java.util.List;
 public class HomeworkCalender extends Calendar {
 
 
+    HomeworkDesigner designView;
+
     public HomeworkCalender()
     {
         addCalendarEventListeners();
+
 
     }
 
@@ -77,9 +83,73 @@ public class HomeworkCalender extends Calendar {
                 .createInfo()
                 .withCaption(name)
                 .withMessage(status+"\n"+description)
-                .withOkButton().open();
+                .withNoButton(ButtonOption.caption("Weiter"), ButtonOption.icon(VaadinIcons.ARROW_LEFT))
+                .withYesButton( () -> { System.out.println("Aufgabe erledigt");
+
+                    for(Homework work:homeworkList)
+                    {
 
 
+                        if(work.getName().equals(item.getCaption()) )
+                        {
+
+
+                            manager.setHomeworkStatus(work.getId(), true);
+
+
+
+                        }
+
+
+
+                    }
+                    this.getUI().access(new Runnable() {
+                        @Override
+                        public void run() {
+
+                            UI.getCurrent().getNavigator().navigateTo("Hausaufgaben");
+
+
+                        }
+                    });
+
+
+
+
+
+                }, ButtonOption.caption("Erledigt"))
+                .withCancelButton(()->{
+
+                    for(Homework work:homeworkList)
+                    {
+
+
+                        if(work.getName().equals(item.getCaption()) )
+                        {
+
+
+                            manager.delete(work.getId());
+
+
+                        }
+
+
+
+                    }
+                    this.getUI().access(new Runnable() {
+                        @Override
+                        public void run() {
+
+                     UI.getCurrent().getNavigator().navigateTo("Hausaufgaben");
+
+
+                        }
+                    });
+
+
+
+                }, ButtonOption.caption("Eintrag löschen"))
+                .open();
 
 
 

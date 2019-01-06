@@ -364,13 +364,15 @@ designerView.getHomeworkName().setMaxLength(12);
 
 
    public void addCalenderListenerForCaptionLabel()
-    {
 
+   {
+
+
+        
         LocalDate startDate = designerView.getCalendar().getStartDate().toLocalDate();
         LocalDate endDate = designerView.getCalendar().getEndDate().toLocalDate();
         String start = startDate.getDayOfMonth()+"."+startDate.getMonthValue()+"."+startDate.getYear();
         String end = endDate.getDayOfMonth()+"."+endDate.getMonthValue()+"."+endDate.getYear();
-
         designerView.getCalenderLabel().setValue(start + " - " + end);
 
 
