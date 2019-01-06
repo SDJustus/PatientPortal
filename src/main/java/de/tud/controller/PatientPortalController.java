@@ -23,6 +23,7 @@ import com.vaadin.ui.*;
 import de.tud.view.*;
 import de.tud.view.DiaryEvaluation.DiaryEvaluationView;
 import de.tud.view.Homework.HomeworkView;
+import de.tud.view.MedPlan.MedPlanView;
 import de.tud.view.Start.StartView;
 import de.tud.view.VitalData.VitalDataView;
 import de.tud.view.Welfare.WelfareView;
@@ -125,7 +126,7 @@ public class PatientPortalController extends UI {
                         .add("Symptomeintrag", VaadinIcons.DOCTOR_BRIEFCASE, DiaryView.class)
                         .build())
                 .add("Hausaufgaben", VaadinIcons.LIST, HomeworkView.class)
-                .add("Medikationsplan", VaadinIcons.PILLS, StartView.class)
+                .add("Medikationsplan", VaadinIcons.PILLS, MedPlanView.class)
                 .addClickable("Logout", VaadinIcons.SIGN_OUT, e -> logout(), Section.FOOTER)
                 .build();
     }
