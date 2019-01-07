@@ -61,7 +61,7 @@ public class MedicationPlanManager extends EntityManager<Medication> {
         session.getTransaction().begin();
         List<Medication> medications = read();
         for(Medication medication : medications){
-            session.delete(medications);
+            session.delete(medication);
         }
         session.getTransaction().commit();
         session.close();
