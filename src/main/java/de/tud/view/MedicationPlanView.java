@@ -9,30 +9,32 @@ import com.vaadin.ui.*;
 import de.tud.controller.MedicationPlanController;
 import de.tud.model.medication.DummyMedication;
 import org.vaadin.risto.stepper.FloatStepper;
-import org.vaadin.risto.stepper.IntStepper;
-
 
 public class MedicationPlanView implements View {
-    // Medication Plan Form Components
-    private HorizontalLayout menuBar;
+    //Main Layout
     private VerticalLayout verticalLayoutMain;
 
-    private Label captionLabelMenuBar;
-    private Button saveMedPlan;
-    private ComboBox<String> comboBox;
-    private TextField textfieldid;
-    private TextField textfieldamount;
-    private TextArea hintsTextField;
-    private FloatStepper stepperFrüh;
-    private FloatStepper stepperMittag;
-    private FloatStepper stepperAbend;
-    private FloatStepper stepperNacht;
 
+    // Medication Plan Form Components
+    private HorizontalLayout formFinalHorizontalLayout;
+    private VerticalLayout formTextSafeLayout;
+    private FormLayout medicationPlanFormLayout;
+
+    //Medication Form Components
+    private Label medicationFormHeadline;
+    private Button saveMedicationFormButton;
+
+    private TextField idTextField;
+    private TextArea hintsTextField;
+    private FloatStepper stepperMorning;
+    private FloatStepper stepperNoon;
+    private FloatStepper stepperAfternoon;
+    private FloatStepper stepperNight;
+    private TextField reasonTextField;
 
     //Medication Plan Grid Components
-    private VerticalLayout medicationPlanLayout;
-    private Label headline;
-    private Grid<DummyMedication> medicationPlan;
+    private Label medicationGridHeadline;
+    private Grid<DummyMedication> medicationPlanGrid;
 
     //Controller
     private MedicationPlanController medicationPlanController;
@@ -43,138 +45,133 @@ public class MedicationPlanView implements View {
 
     @Override
     public Component getViewComponent(){
-
+        //main Components Setup
         verticalLayoutMain = new VerticalLayout();
-        menuBar = new HorizontalLayout();
-        captionLabelMenuBar = new Label();
-        saveMedPlan = new Button();
 
-        //Caption
+        //HeadlineForm
+        medicationFormHeadline = new Label();
+        medicationFormHeadline.setValue("Neue Medikation hinzufügen:");
+        medicationFormHeadline.addStyleName(MaterialTheme.CARD_0_5);
+        medicationFormHeadline.addStyleName(MaterialTheme.LABEL_H1);
 
-        captionLabelMenuBar.setValue("Neue Medikation hinzufügen:");
-        captionLabelMenuBar.addStyleName(MaterialTheme.CARD_0_5);
-        captionLabelMenuBar.addStyleName(MaterialTheme.LABEL_H1);
+        //Headline MedicationPlan Grid
+        medicationGridHeadline = new Label("Medikationsplan:");
+        medicationGridHeadline.addStyleName(MaterialTheme.CARD_0_5);
+        medicationGridHeadline.addStyleName(MaterialTheme.LABEL_H1);
 
         //Save-Button
-
-        saveMedPlan.setCaption("Speichern");
-        saveMedPlan.setDescription("Speichern der Medikation");
-        saveMedPlan.setIcon(new ClassResource("/saveicon.png"));
-
-
-        //Combobox
-        comboBox = new ComboBox<>();
-        comboBox.setCaption("Einnahme");
-        comboBox.setItems("Morgens","Mittags","Abends");
-
+        saveMedicationFormButton = new Button();
+        saveMedicationFormButton.setCaption("Speichern");
+        saveMedicationFormButton.setDescription("Speichern der Medikation");
+        saveMedicationFormButton.setIcon(new ClassResource("/saveicon.png"));
+        
         //Hints Text field setup
         hintsTextField = new TextArea();
         hintsTextField.setCaption("Hinweise");
-        hintsTextField.setWidth("150%");
-        hintsTextField.setHeight("200%");
+        hintsTextField.setWidth("400px");
+        hintsTextField.setHeight("80px");
+
+        //ReasonTextField Setup
+        reasonTextField= new TextField();
+        reasonTextField.setCaption("Grund");
+
+        //ID Field Setup
+        idTextField = new TextField();
+        idTextField.setCaption("ID");
+
+        //Stepper Einnahmezeiten
+        stepperNoon = new FloatStepper();
+        stepperNoon.setStepAmount(1.0f);
+        stepperNoon.setManualInputAllowed(true);
+        stepperNoon.setMinValue(0f);
+        stepperNoon.setMaxValue(2000f);
+        stepperNoon.setNumberOfDecimals(2);
+        stepperNoon.setCaption("Mittag");
 
 
         //Stepper Einnahmezeiten
-        stepperMittag = new FloatStepper();
-        stepperMittag.setStepAmount(1.0f);
-        stepperMittag.setManualInputAllowed(true);
-        stepperMittag.setMinValue(0f);
-        stepperMittag.setMaxValue(2000f);
-        stepperMittag.setNumberOfDecimals(2);
-        stepperMittag.setCaption("Mittag");
+        stepperMorning = new FloatStepper();
+        stepperMorning.setStepAmount(1.0f);
+        stepperMorning.setManualInputAllowed(true);
+        stepperMorning.setMinValue(0f);
+        stepperMorning.setMaxValue(2000f);
+        stepperMorning.setNumberOfDecimals(2);
+        stepperMorning.setCaption("Morgen");
 
 
         //Stepper Einnahmezeiten
-        stepperFrüh = new FloatStepper();
-        stepperFrüh.setStepAmount(1.0f);
-        stepperFrüh.setManualInputAllowed(true);
-        stepperFrüh.setMinValue(0f);
-        stepperFrüh.setMaxValue(2000f);
-        stepperFrüh.setNumberOfDecimals(2);
-        stepperFrüh.setCaption("Morgen");
-
-
-        //Stepper Einnahmezeiten
-        stepperAbend = new FloatStepper();
-        stepperAbend.setStepAmount(1.0f);
-        stepperAbend.setManualInputAllowed(true);
-        stepperAbend.setMinValue(0f);
-        stepperAbend.setMaxValue(2000f);
-        stepperAbend.setNumberOfDecimals(2);
-        stepperAbend.setCaption("Abend");
+        stepperAfternoon = new FloatStepper();
+        stepperAfternoon.setStepAmount(1.0f);
+        stepperAfternoon.setManualInputAllowed(true);
+        stepperAfternoon.setMinValue(0f);
+        stepperAfternoon.setMaxValue(2000f);
+        stepperAfternoon.setNumberOfDecimals(2);
+        stepperAfternoon.setCaption("Abend");
 
         //Stepper Einnahmezeiten
-        stepperNacht = new FloatStepper();
-        stepperNacht.setStepAmount(1.0f);
-        stepperNacht.setManualInputAllowed(true);
-        stepperNacht.setMinValue(0f);
-        stepperNacht.setMaxValue(2000f);
-        stepperNacht.setNumberOfDecimals(2);
-        stepperNacht.setCaption("Nacht");
+        stepperNight = new FloatStepper();
+        stepperNight.setStepAmount(1.0f);
+        stepperNight.setManualInputAllowed(true);
+        stepperNight.setMinValue(0f);
+        stepperNight.setMaxValue(2000f);
+        stepperNight.setNumberOfDecimals(2);
+        stepperNight.setCaption("Nacht");
 
         //Setup Medication Plan Grid
-        medicationPlan = new Grid<>();
-        //medicationPlan.addColumn(DummyMedication::getId).setCaption("ID");
-        medicationPlan.addColumn(DummyMedication::getTradeName).setCaption("Handelsname");
-        medicationPlan.addColumn(DummyMedication::getSubstance).setCaption("Substanz");
-        medicationPlan.addColumn(DummyMedication::getForm).setCaption("Form");
-        medicationPlan.addColumn(DummyMedication::getStrength).setCaption("Stärke");
-        //medicationPlan.addColumn(DummyMedication::getIncompatibleWithAsString).setCaption("Inkompatibel mit ...");
+        medicationPlanGrid = new Grid<>();
+        //medicationPlanGrid.addColumn(DummyMedication::getId).setCaption("ID");
+        medicationPlanGrid.addColumn(DummyMedication::getTradeName).setCaption("Handelsname");
+        medicationPlanGrid.addColumn(DummyMedication::getSubstance).setCaption("Substanz");
+        medicationPlanGrid.addColumn(DummyMedication::getForm).setCaption("Form");
+        medicationPlanGrid.addColumn(DummyMedication::getStrength).setCaption("Stärke");
+        //medicationPlanGrid.addColumn(DummyMedication::getIncompatibleWithAsString).setCaption("Inkompatibel mit ...");
 
         medicationPlanController.loadMedicationSchedule();
 
 
+
         //Grid auto size
-        medicationPlan.setHeight("" + (Integer.valueOf(Page.getCurrent().getBrowserWindowHeight()) - 200 ));
-        medicationPlan.setWidth("" + (Integer.valueOf(Page.getCurrent().getBrowserWindowWidth()) - 350 ));
+        medicationPlanGrid.setHeight("" + (Integer.valueOf(Page.getCurrent().getBrowserWindowHeight()) - 200 ));
+        medicationPlanGrid.setWidth("" + (Integer.valueOf(Page.getCurrent().getBrowserWindowWidth()) - 350 ));
 
         UI.getCurrent().getPage().addBrowserWindowResizeListener(e -> {
-            medicationPlan.setHeight("" + (e.getHeight()));
-            medicationPlan.setWidth("" + (e.getWidth()));
+            medicationPlanGrid.setHeight("" + (e.getHeight()));
+            medicationPlanGrid.setWidth("" + (e.getWidth()));
         });
 
 
-        //Headline Setup
-        headline = new Label("Medikationsplan:");
-        headline.addStyleName(MaterialTheme.CARD_0_5);
-        headline.addStyleName(MaterialTheme.LABEL_H1);
+        //Form Setup
+        medicationPlanFormLayout = new FormLayout();
+        medicationPlanFormLayout.addComponents(idTextField, stepperMorning, stepperNoon, stepperAfternoon, stepperNight);
+        medicationPlanFormLayout.setMargin(new MarginInfo(false,true,false,true));
+        formTextSafeLayout = new VerticalLayout();
+        formTextSafeLayout.addComponents(hintsTextField, reasonTextField, saveMedicationFormButton);
+        formTextSafeLayout.setMargin(new MarginInfo(false,true,false,true));
+        formFinalHorizontalLayout = new HorizontalLayout();
+        formFinalHorizontalLayout.addComponents(medicationPlanFormLayout, formTextSafeLayout);
+        formFinalHorizontalLayout.setMargin(new MarginInfo(false,true,false,true));
 
-        //Medication Plan Vertical Layout Setup
-        //medicationPlanLayout = new VerticalLayout();
-        //medicationPlanLayout.setMargin(true);
-        //medicationPlanLayout.setSpacing(true);
-        //medicationPlanLayout.addComponent(headline);
-        //medicationPlanLayout.addComponent(medicationPlan);
 
-        //Fields
-        textfieldid = new TextField();
-        textfieldid.setCaption("ID");
-        textfieldamount = new TextField();
-        textfieldamount.setCaption("Menge");
 
-        //Add Components to Layout
-        menuBar.addComponents(textfieldid, stepperFrüh, stepperMittag, stepperAbend,stepperNacht, hintsTextField, saveMedPlan);
-        menuBar.setComponentAlignment(saveMedPlan,Alignment.TOP_CENTER);
-        menuBar.setMargin(new MarginInfo(false, false, false, true ));
-
-        verticalLayoutMain.addComponents(captionLabelMenuBar, menuBar, headline,medicationPlan);
+        //FinalLayoutAddComponents
+        verticalLayoutMain.addComponents(medicationFormHeadline, formFinalHorizontalLayout, medicationGridHeadline, medicationPlanGrid);
         return verticalLayoutMain;
     }
 
-    public Label getHeadline() {
-        return headline;
+    public Label getMedicationGridHeadline() {
+        return medicationGridHeadline;
     }
 
-    public void setHeadline(Label headline) {
-        this.headline = headline;
+    public void setMedicationGridHeadline(Label medicationGridHeadline) {
+        this.medicationGridHeadline = medicationGridHeadline;
     }
 
-    public Grid getMedicationPlan() {
-        return medicationPlan;
+    public Grid getMedicationPlanGrid() {
+        return medicationPlanGrid;
     }
 
-    public void setMedicationPlan(Grid medicationPlan) {
-        this.medicationPlan = medicationPlan;
+    public void setMedicationPlanGrid(Grid medicationPlanGrid) {
+        this.medicationPlanGrid = medicationPlanGrid;
     }
 
     public MedicationPlanController getMedicationPlanController() {
