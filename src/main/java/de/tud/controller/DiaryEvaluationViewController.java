@@ -78,6 +78,8 @@ public class DiaryEvaluationViewController {
         if (diaryEvaluationView.getVerticalLayout().getComponentCount() == 2) {
             diaryEvaluationView.getVerticalLayout().removeComponent(diaryEvaluationView.getVerticalLayout().getComponent(1));
         }
+
+
         diaryEvaluationView.getVerticalLayout().addComponent(symptomEvaluationView.getViewComponent());
 
     }
@@ -285,6 +287,8 @@ public class DiaryEvaluationViewController {
         }
 
     }
+
+
 
 
 }

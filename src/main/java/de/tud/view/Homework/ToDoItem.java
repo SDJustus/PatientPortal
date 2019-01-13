@@ -6,15 +6,26 @@ import java.time.ZonedDateTime;
 
 public class ToDoItem extends BasicItem {
 
-   public ToDoItem()
-    {
+    private long id;
 
-        this.setStyleName("state");
+   public ToDoItem(long id)
+    {
+        this.id = id;
+        this.setStyleName("toDoEvent");
 
     }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
     @Override
     public String getStyleName() {
-        return "statetoDo";
+        return "toDoEvent";
     }
 
 

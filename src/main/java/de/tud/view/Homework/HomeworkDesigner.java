@@ -28,6 +28,7 @@ public class HomeworkDesigner extends VerticalLayout {
     protected Button saveButton;
     protected ComboBox<String> combobox;
     protected DateField dataPicker;
+    protected ComboBox<String> repeatBox;
     protected TextField homeworkName;
     protected TextArea homeworkDescription;
     protected Label calenderLabel;

@@ -57,6 +57,8 @@ public class VitalDataEvaluationView extends EvaluationView {
         grid.getColumn("Gewicht").setCaption("Gewicht in kg");
         grid.getColumn("Gewicht").setResizable(false);
 
+
+
         //Körpergröße
         grid.addColumn(DiaryEvaluationUIModel::getHeight).setId("size");
         grid.getColumn("size").setCaption("Größe in cm");
