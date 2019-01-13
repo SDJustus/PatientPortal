@@ -52,27 +52,35 @@ public class HomeworkCalender extends Calendar {
         for(Homework work:homeworkList)
         {
 
-
-            if(work.getName().equals(item.getCaption()) )
+            if(item instanceof ToDoItem == true)
             {
-                name = work.getName();
-                 description = "Beschreibung: "+work.getDescription();
 
-                if(work.isStatus() == true)
-                {
+                ToDoItem toDO = (ToDoItem) item;
 
-                status= "Status: erledigt";
+                if(toDO.getId() == work.getId())  {
+
+                    name = work.getName();
+                    description = "Beschreibung: "+work.getDescription();
+
 
                 }
 
+            }
+            if(item instanceof FinishedItem == true)
+            {
+
+                FinishedItem finished = (FinishedItem) item;
+
+                if(finished.getId() == work.getId())  {
+
+                    name = work.getName();
+                    description = "Beschreibung: "+work.getDescription();
+                    status= "Status: erledigt";
 
 
-
-
+                }
 
             }
-
-
 
         }
 
@@ -88,18 +96,32 @@ public class HomeworkCalender extends Calendar {
 
                     for(Homework work:homeworkList)
                     {
-
-
-                        if(work.getName().equals(item.getCaption()) )
+                        if(item instanceof ToDoItem == true)
                         {
+
+                            ToDoItem toDO = (ToDoItem) item;
+
+                            if(toDO.getId() == work.getId())  {
+
+
+                                manager.setHomeworkStatus(work.getId(), true);
+
+                            }
+
+                        }
+                         if(item instanceof FinishedItem == true)
+                        {
+
+                            FinishedItem finished = (FinishedItem) item;
+
+                            if(finished.getId() == work.getId())  {
 
 
                             manager.setHomeworkStatus(work.getId(), true);
 
-
-
                         }
 
+                        }
 
 
                     }
@@ -124,15 +146,32 @@ public class HomeworkCalender extends Calendar {
                     {
 
 
-                        if(work.getName().equals(item.getCaption()) )
+                        if(item instanceof ToDoItem == true)
                         {
 
+                            ToDoItem toDO = (ToDoItem) item;
 
-                            manager.delete(work.getId());
+                            if(toDO.getId() == work.getId())  {
 
+
+                                manager.delete(work.getId());
+
+                            }
 
                         }
+                        if(item instanceof FinishedItem == true)
+                        {
 
+                            FinishedItem finished = (FinishedItem) item;
+
+                            if(finished.getId() == work.getId())  {
+
+
+                                manager.delete(work.getId());
+
+                            }
+
+                        }
 
 
                     }
