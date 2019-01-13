@@ -5,6 +5,8 @@ import com.vaadin.data.converter.LocalDateTimeToDateConverter;
 import com.vaadin.data.provider.DataProvider;
 import com.vaadin.data.validator.StringLengthValidator;
 import com.vaadin.event.ContextClickEvent;
+import com.vaadin.event.selection.SingleSelectionEvent;
+import com.vaadin.event.selection.SingleSelectionListener;
 import com.vaadin.server.ClassResource;
 import com.vaadin.server.Sizeable;
 import com.vaadin.server.VaadinRequest;
@@ -30,6 +32,7 @@ import org.vaadin.addon.calendar.ui.CalendarComponentEvents;
 
 import javax.xml.crypto.Data;
 import java.time.*;
+import java.time.temporal.ChronoUnit;
 import java.util.*;
 
 public class HomeworkController {
@@ -40,7 +43,7 @@ public class HomeworkController {
 
 
     BasicItemProvider<BasicItem> basicProvider;
-
+    private String repeat;
 
 
     public  HomeworkController(HomeworkSetup designerView)
@@ -53,6 +56,7 @@ public class HomeworkController {
         addTextBoxRestrictions();
 
     }
+
 
 
 
@@ -85,6 +89,8 @@ public class HomeworkController {
 
 
     }
+
+
 
 
     public void setupBlockedTimeSlots() {
@@ -151,8 +157,7 @@ public class HomeworkController {
             }
             if(home.isStatus() == false)
             {
-                ToDoItem basic = new ToDoItem();
-                System.out.println(basic.getStyleName());
+                ToDoItem basic = new ToDoItem(home.getId());
                 basic.setStart(home.getDate());
                 basic.setEnd(home.getDate().plusHours(2));
 
@@ -166,7 +171,7 @@ public class HomeworkController {
 
             if(home.isStatus()==true)
             {
-                FinishedItem basic = new FinishedItem();
+                FinishedItem basic = new FinishedItem(home.getId());
                 basic.setStart(home.getDate());
                 basic.setEnd(home.getDate().plusHours(1));
 
@@ -227,11 +232,14 @@ public class HomeworkController {
                 }
 
 
-
-                Homework h;
+                Homework h = new Homework();
                 LocalDate local= designerView.getDataPicker().getValue();
                 ZonedDateTime zdt = local.atStartOfDay(ZoneOffset.UTC);
                 HomeworkManager manager = new HomeworkManager();
+                ZonedDateTime now = ZonedDateTime.now();
+
+
+
 
                 List<Homework> homeworkList = manager.read();
 
@@ -245,33 +253,59 @@ public class HomeworkController {
 
 
 
-                if(designerView.getCombobox().getValue() == "Fragebogen")
+            if(designerView.getRepeatBox().getValue().equals("Einmalig")) {
+
+
+                    manager.create(createHomeworkFromUI(zdt));
+
+
+            }
+
+
+              if(designerView.getRepeatBox().getValue().equals("Täglich"))
                 {
 
-                    h = new Homework(Homework.Type.QUESTIONNAIRE, designerView.getHomeworkName().getValue()
-                            ,  designerView.getHomeworkDescription().getValue(),
-                            zdt);
-                    manager.create(h);
+
+
+
+                    ZonedDateTime zonedTime = designerView.getDataPicker().getValue().atStartOfDay(ZoneOffset.UTC);
+
+                    System.out.println(zonedTime);
+
+                    int dayDiff = (int) now.until(zonedTime, ChronoUnit.DAYS);
+                    System.out.println("DayDiff:");
+
+                        System.out.println(dayDiff);
+
+                    System.out.println("Now+1: ");
+                        System.out.println(now.plusDays(1));
+                        for(int i =0; i<= dayDiff ; i++)
+                        {
+
+                            manager.create(createHomeworkFromUI(now));
+                            now = now.plusDays(1);
+
+                        }
+
                 }
-                if(designerView.getCombobox().getValue() == "Übung")
+
+
+                if(designerView.getRepeatBox().getValue().equals("Wöchentlich bis Endtermin"))
                 {
 
-                     h = new Homework(Homework.Type.EXERCISE, designerView.getHomeworkName().getValue(),  designerView.getHomeworkDescription().getValue(),
-                            zdt);
-                    manager.create(h);
+                    ZonedDateTime zonedTime = designerView.getDataPicker().getValue().atStartOfDay(ZoneOffset.UTC);
 
-                    System.out.println(h.getName());
-                    System.out.println(h.getId().toString());
-                }
-                if(designerView.getCombobox().getValue() == "Dokument")
-                {
-                    h = new Homework(Homework.Type.DOCUMENT, designerView.getHomeworkName().getValue(),
-                            designerView.getHomeworkDescription().getValue(),
-                            zdt);
-                    manager.create(h);
+                    System.out.println(zonedTime);
+
+                    int dayDiff = (int) now.until(zonedTime, ChronoUnit.WEEKS);
+                    for(int i =0; i<= dayDiff ; i++)
+                    {
+
+                        manager.create(createHomeworkFromUI(now));
+                        now = now.plusDays(7);
+                    }
 
                 }
-
 
                 resetAfterSave();
 
@@ -382,7 +416,36 @@ designerView.getHomeworkName().setMaxLength(12);
 
 
 
+Homework createHomeworkFromUI(ZonedDateTime now)
+    {
+            Homework h = new Homework();
+        if (designerView.getCombobox().getValue() == "Fragebogen") {
 
+            h = new Homework(Homework.Type.QUESTIONNAIRE, designerView.getHomeworkName().getValue()
+                    , designerView.getHomeworkDescription().getValue(),
+                    now);
+
+
+        }
+        if (designerView.getCombobox().getValue() == "Übung") {
+
+            h = new Homework(Homework.Type.EXERCISE, designerView.getHomeworkName().getValue(), designerView.getHomeworkDescription().getValue(),
+                    now);
+
+        }
+        if (designerView.getCombobox().getValue() == "Dokument") {
+            h = new Homework(Homework.Type.DOCUMENT, designerView.getHomeworkName().getValue(),
+                    designerView.getHomeworkDescription().getValue(),
+                    now);
+
+        }
+
+
+        return h;
+
+
+
+    }
 
 
 

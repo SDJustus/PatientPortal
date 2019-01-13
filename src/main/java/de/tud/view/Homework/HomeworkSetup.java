@@ -28,6 +28,15 @@ HomeworkController controller;
     controller.addCalenderListenerForCaptionLabel();
 
 
+    repeatBox.setItems("Einmalig", "Täglich", "Wöchentlich bis Endtermin" );
+    repeatBox.setCaption("Wiederholen:");
+
+    combobox.setCaption("Aufgabentyp:");
+    dataPicker.setCaption("Fälligkeitsdatum/Letzte Wiederholung:");
+
+    repeatBox.setValue("Einmalig");
+
+
 
 
     }
@@ -96,9 +105,12 @@ HomeworkController controller;
         this.calenderLabel = calenderLabel;
     }
 
+    public ComboBox getRepeatBox()
+    {
 
+        return this.repeatBox;
 
-
+    }
 
 
 

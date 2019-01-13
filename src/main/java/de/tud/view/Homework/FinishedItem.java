@@ -4,19 +4,25 @@ import org.vaadin.addon.calendar.item.BasicItem;
 
 import java.time.ZonedDateTime;
 
+
+
 public class FinishedItem extends BasicItem {
 
-   public FinishedItem()
+private long id;
+
+   public FinishedItem(long id)
     {
 
-        this.setStyleName("v-calendar-event-statefinished-all-day");
+        this.id= id;
+
+        this.setStyleName("finishedEvent");
 
 
     }
 
     @Override
     public String getStyleName() {
-        return "statefinished-all-day";
+        return "finishedEvent";
     }
 
     @Override
@@ -35,10 +41,13 @@ public class FinishedItem extends BasicItem {
         return true;
     }
 
+    public long getId() {
+        return id;
+    }
 
-
-
-
+    public void setId(long id) {
+        this.id = id;
+    }
 }
 
 
