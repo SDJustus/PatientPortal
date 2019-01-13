@@ -1,10 +1,14 @@
 package de.tud.view.Homework;
 
 import com.github.appreciated.material.MaterialTheme;
+import com.vaadin.icons.VaadinIcons;
 import com.vaadin.server.Page;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.NativeButton;
 import com.vaadin.ui.Notification;
+import com.vaadin.ui.UI;
+import de.steinwedel.messagebox.ButtonOption;
+import de.steinwedel.messagebox.MessageBox;
 import de.tud.model.Homework;
 import de.tud.model.manager.HomeworkManager;
 import org.vaadin.addon.calendar.Calendar;
@@ -13,14 +17,19 @@ import org.vaadin.addon.calendar.item.BasicItem;
 import org.vaadin.addon.calendar.item.CalendarItemProvider;
 import org.vaadin.addon.calendar.ui.CalendarComponentEvents;
 
+import javax.swing.*;
+import java.awt.*;
 import java.util.List;
 
 public class HomeworkCalender extends Calendar {
 
 
+    HomeworkDesigner designView;
+
     public HomeworkCalender()
     {
         addCalendarEventListeners();
+
 
     }
 
@@ -30,30 +39,156 @@ public class HomeworkCalender extends Calendar {
         HomeworkManager manager = new HomeworkManager();
         List<Homework> homeworkList = manager.read();
 
+        //Setup Dialog
+
+
+        //MEssage Box
+
+
+        String name = "";
+        String status ="Status: zu erledigen";
+        String description =  "";
 
         for(Homework work:homeworkList)
         {
 
-
-            if(work.getName().equals(item.getCaption()) )
+            if(item instanceof ToDoItem == true)
             {
-                System.out.println("Sind drin");
-                notification = new Notification(work.getName()+": ", "Beschreibung: "+work.getDescription(), Notification.Type.HUMANIZED_MESSAGE);
+
+                ToDoItem toDO = (ToDoItem) item;
+
+                if(toDO.getId() == work.getId())  {
+
+                    name = work.getName();
+                    description = "Beschreibung: "+work.getDescription();
+
+
+                }
 
             }
+            if(item instanceof FinishedItem == true)
+            {
 
+                FinishedItem finished = (FinishedItem) item;
+
+                if(finished.getId() == work.getId())  {
+
+                    name = work.getName();
+                    description = "Beschreibung: "+work.getDescription();
+                    status= "Status: erledigt";
+
+
+                }
+
+            }
 
         }
 
 
 
 
-        System.out.println(item.getCaption());
+        MessageBox
+                .createInfo()
+                .withCaption(name)
+                .withMessage(status+"\n"+description)
+                .withNoButton(ButtonOption.caption("Weiter"), ButtonOption.icon(VaadinIcons.ARROW_LEFT))
+                .withYesButton( () -> { System.out.println("Aufgabe erledigt");
 
-        notification.setDelayMsec(100000);
-        notification.show(Page.getCurrent());
+                    for(Homework work:homeworkList)
+                    {
+                        if(item instanceof ToDoItem == true)
+                        {
+
+                            ToDoItem toDO = (ToDoItem) item;
+
+                            if(toDO.getId() == work.getId())  {
 
 
+                                manager.setHomeworkStatus(work.getId(), true);
+
+                            }
+
+                        }
+                         if(item instanceof FinishedItem == true)
+                        {
+
+                            FinishedItem finished = (FinishedItem) item;
+
+                            if(finished.getId() == work.getId())  {
+
+
+                            manager.setHomeworkStatus(work.getId(), true);
+
+                        }
+
+                        }
+
+
+                    }
+                    this.getUI().access(new Runnable() {
+                        @Override
+                        public void run() {
+
+                            UI.getCurrent().getNavigator().navigateTo("Hausaufgaben");
+
+
+                        }
+                    });
+
+
+
+
+
+                }, ButtonOption.caption("Erledigt"))
+                .withCancelButton(()->{
+
+                    for(Homework work:homeworkList)
+                    {
+
+
+                        if(item instanceof ToDoItem == true)
+                        {
+
+                            ToDoItem toDO = (ToDoItem) item;
+
+                            if(toDO.getId() == work.getId())  {
+
+
+                                manager.delete(work.getId());
+
+                            }
+
+                        }
+                        if(item instanceof FinishedItem == true)
+                        {
+
+                            FinishedItem finished = (FinishedItem) item;
+
+                            if(finished.getId() == work.getId())  {
+
+
+                                manager.delete(work.getId());
+
+                            }
+
+                        }
+
+
+                    }
+                    this.getUI().access(new Runnable() {
+                        @Override
+                        public void run() {
+
+                     UI.getCurrent().getNavigator().navigateTo("Hausaufgaben");
+
+
+                        }
+                    });
+
+
+
+                }, ButtonOption.caption("Eintrag löschen"))
+                .open();
 
 
 

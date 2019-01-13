@@ -22,13 +22,18 @@
      <option item="Option3">Option 3</option>
     </vaadin-combo-box>
     <vaadin-date-field _id="dataPicker"></vaadin-date-field>
+    <vaadin-combo-box text-input-allowed="false" data-item-type="java.lang.String" _id="repeatBox">
+     <option item="Option1">Option 1</option>
+     <option item="Option2">Option 2</option>
+     <option item="Option3">Option 3</option>
+    </vaadin-combo-box>
    </vaadin-horizontal-layout>
    <vaadin-horizontal-layout>
     <vaadin-text-field caption="Aufgabenname:" _id="homeworkName"></vaadin-text-field>
-    <vaadin-text-area caption="Beschreibung:" description="Bitte fügen Sie ihre Beschreibung ein!" _id="homeworkDescription"></vaadin-text-area>
+    <vaadin-text-area caption="Beschreibung:" description="Bitte fügen Sie ihre Beschreibung ein!" width="370px" height="37px" _id="homeworkDescription"></vaadin-text-area>
    </vaadin-horizontal-layout>
    <vaadin-horizontal-layout>
-    <vaadin-label plain-text _id="calenderLabel" :middle :center>
+    <vaadin-label visible="false" plain-text _id="calenderLabel" :middle :center>
       Label 
     </vaadin-label>
    </vaadin-horizontal-layout>

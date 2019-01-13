@@ -5,6 +5,8 @@ import com.vaadin.data.converter.LocalDateTimeToDateConverter;
 import com.vaadin.data.provider.DataProvider;
 import com.vaadin.data.validator.StringLengthValidator;
 import com.vaadin.event.ContextClickEvent;
+import com.vaadin.event.selection.SingleSelectionEvent;
+import com.vaadin.event.selection.SingleSelectionListener;
 import com.vaadin.server.ClassResource;
 import com.vaadin.server.Sizeable;
 import com.vaadin.server.VaadinRequest;
@@ -16,8 +18,10 @@ import de.tud.model.Homework;
 import de.tud.model.manager.DiaryManager;
 import de.tud.model.manager.HomeworkManager;
 import de.tud.model.welfare.Welfare;
+import de.tud.view.Homework.FinishedItem;
 import de.tud.view.Homework.HomeworkDesigner;
 import de.tud.view.Homework.HomeworkSetup;
+import de.tud.view.Homework.ToDoItem;
 import de.tud.view.Welfare.WelfareUISetup;
 import org.vaadin.addon.calendar.handler.BasicDateClickHandler;
 import org.vaadin.addon.calendar.handler.BasicItemMoveHandler;
@@ -28,6 +32,7 @@ import org.vaadin.addon.calendar.ui.CalendarComponentEvents;
 
 import javax.xml.crypto.Data;
 import java.time.*;
+import java.time.temporal.ChronoUnit;
 import java.util.*;
 
 public class HomeworkController {
@@ -38,7 +43,7 @@ public class HomeworkController {
 
 
     BasicItemProvider<BasicItem> basicProvider;
-
+    private String repeat;
 
 
     public  HomeworkController(HomeworkSetup designerView)
@@ -51,6 +56,7 @@ public class HomeworkController {
         addTextBoxRestrictions();
 
     }
+
 
 
 
@@ -69,8 +75,8 @@ public class HomeworkController {
 //        calendar.setWeeklyCaptionProvider(date ->  "<br>" + DateTimeFormatter.ofPattern("dd.MM.YYYY", getLocale()).format(date));
 //        calendar.setWeeklyCaptionProvider(date -> DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM).withLocale(getLocale()).format(date));
 
-       // designerView.getCalendar().withVisibleDays(1, 7);
-          designerView.getCalendar().withMonth(ZonedDateTime.now().getMonth());
+        designerView.getCalendar().withVisibleDays(1, 7);
+         // designerView.getCalendar().withMonth(ZonedDateTime.now().getMonth());
 
         //designerView.getCalendar().setStartDate(ZonedDateTime.of(2017, 9, 10, 0,0,0, 0, designerView.getCalendar().getZoneId()));
         // designerView.getCalendar().setEndDate(ZonedDateTime.of(2050, 9, 16, 0,0,0, 0, designerView.getCalendar().getZoneId()));
@@ -83,6 +89,8 @@ public class HomeworkController {
 
 
     }
+
+
 
 
     public void setupBlockedTimeSlots() {
@@ -147,15 +155,32 @@ public class HomeworkController {
                 break;
 
             }
+            if(home.isStatus() == false)
+            {
+                ToDoItem basic = new ToDoItem(home.getId());
+                basic.setStart(home.getDate());
+                basic.setEnd(home.getDate().plusHours(2));
+
+                basic.setDescription(home.getType().toString()+": "+home.getDescription());
+                basic.setCaption(home.getName());
+                basicProvider.addItem(basic);
 
 
-            BasicItem basic = new BasicItem();
-            basic.setStart(home.getDate());
-            basic.setEnd(home.getDate());
+            }
 
-            basic.setDescription(home.getType().toString()+": "+home.getDescription());
-            basic.setCaption(home.getName());
-            basicProvider.addItem(basic);
+
+            if(home.isStatus()==true)
+            {
+                FinishedItem basic = new FinishedItem(home.getId());
+                basic.setStart(home.getDate());
+                basic.setEnd(home.getDate().plusHours(1));
+
+                basic.setDescription(home.getType().toString()+": "+home.getDescription());
+                basic.setCaption(home.getName());
+                basicProvider.addItem(basic);
+
+
+            }
 
 
         }
@@ -207,11 +232,14 @@ public class HomeworkController {
                 }
 
 
-
-                Homework h;
+                Homework h = new Homework();
                 LocalDate local= designerView.getDataPicker().getValue();
                 ZonedDateTime zdt = local.atStartOfDay(ZoneOffset.UTC);
                 HomeworkManager manager = new HomeworkManager();
+                ZonedDateTime now = ZonedDateTime.now();
+
+
+
 
                 List<Homework> homeworkList = manager.read();
 
@@ -225,33 +253,59 @@ public class HomeworkController {
 
 
 
-                if(designerView.getCombobox().getValue() == "Fragebogen")
+            if(designerView.getRepeatBox().getValue().equals("Einmalig")) {
+
+
+                    manager.create(createHomeworkFromUI(zdt));
+
+
+            }
+
+
+              if(designerView.getRepeatBox().getValue().equals("Täglich"))
                 {
 
-                    h = new Homework(Homework.Type.QUESTIONNAIRE, designerView.getHomeworkName().getValue()
-                            ,  designerView.getHomeworkDescription().getValue(),
-                            zdt);
-                    manager.create(h);
+
+
+
+                    ZonedDateTime zonedTime = designerView.getDataPicker().getValue().atStartOfDay(ZoneOffset.UTC);
+
+                    System.out.println(zonedTime);
+
+                    int dayDiff = (int) now.until(zonedTime, ChronoUnit.DAYS);
+                    System.out.println("DayDiff:");
+
+                        System.out.println(dayDiff);
+
+                    System.out.println("Now+1: ");
+                        System.out.println(now.plusDays(1));
+                        for(int i =0; i<= dayDiff ; i++)
+                        {
+
+                            manager.create(createHomeworkFromUI(now));
+                            now = now.plusDays(1);
+
+                        }
+
                 }
-                if(designerView.getCombobox().getValue() == "Übung")
+
+
+                if(designerView.getRepeatBox().getValue().equals("Wöchentlich bis Endtermin"))
                 {
 
-                     h = new Homework(Homework.Type.EXERCISE, designerView.getHomeworkName().getValue(),  designerView.getHomeworkDescription().getValue(),
-                            zdt);
-                    manager.create(h);
+                    ZonedDateTime zonedTime = designerView.getDataPicker().getValue().atStartOfDay(ZoneOffset.UTC);
 
-                    System.out.println(h.getName());
-                    System.out.println(h.getId().toString());
-                }
-                if(designerView.getCombobox().getValue() == "Dokument")
-                {
-                    h = new Homework(Homework.Type.DOCUMENT, designerView.getHomeworkName().getValue(),
-                            designerView.getHomeworkDescription().getValue(),
-                            zdt);
-                    manager.create(h);
+                    System.out.println(zonedTime);
+
+                    int dayDiff = (int) now.until(zonedTime, ChronoUnit.WEEKS);
+                    for(int i =0; i<= dayDiff ; i++)
+                    {
+
+                        manager.create(createHomeworkFromUI(now));
+                        now = now.plusDays(7);
+                    }
 
                 }
-
 
                 resetAfterSave();
 
@@ -283,7 +337,7 @@ public class HomeworkController {
     {
 
 
-designerView.getHomeworkDescription().setMaxLength(25);
+designerView.getHomeworkDescription().setMaxLength(120);
 designerView.getHomeworkName().setMaxLength(12);
 
 
@@ -344,13 +398,15 @@ designerView.getHomeworkName().setMaxLength(12);
 
 
    public void addCalenderListenerForCaptionLabel()
-    {
 
+   {
+
+
+        
         LocalDate startDate = designerView.getCalendar().getStartDate().toLocalDate();
         LocalDate endDate = designerView.getCalendar().getEndDate().toLocalDate();
         String start = startDate.getDayOfMonth()+"."+startDate.getMonthValue()+"."+startDate.getYear();
         String end = endDate.getDayOfMonth()+"."+endDate.getMonthValue()+"."+endDate.getYear();
-
         designerView.getCalenderLabel().setValue(start + " - " + end);
 
 
@@ -360,7 +416,36 @@ designerView.getHomeworkName().setMaxLength(12);
 
 
 
+Homework createHomeworkFromUI(ZonedDateTime now)
+    {
+            Homework h = new Homework();
+        if (designerView.getCombobox().getValue() == "Fragebogen") {
 
+            h = new Homework(Homework.Type.QUESTIONNAIRE, designerView.getHomeworkName().getValue()
+                    , designerView.getHomeworkDescription().getValue(),
+                    now);
+
+
+        }
+        if (designerView.getCombobox().getValue() == "Übung") {
+
+            h = new Homework(Homework.Type.EXERCISE, designerView.getHomeworkName().getValue(), designerView.getHomeworkDescription().getValue(),
+                    now);
+
+        }
+        if (designerView.getCombobox().getValue() == "Dokument") {
+            h = new Homework(Homework.Type.DOCUMENT, designerView.getHomeworkName().getValue(),
+                    designerView.getHomeworkDescription().getValue(),
+                    now);
+
+        }
+
+
+        return h;
+
+
+
+    }
 
 
 
