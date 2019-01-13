@@ -12,6 +12,7 @@ import com.vaadin.ui.renderers.LocalDateRenderer;
 import com.vaadin.ui.renderers.LocalDateTimeRenderer;
 import com.vaadin.ui.renderers.TextRenderer;
 import de.tud.model.symptom.Symptom;
+import de.tud.view.SymptomSelectionView;
 
 import javax.swing.text.DateFormatter;
 import java.awt.*;
@@ -56,7 +57,21 @@ public class SymptomEvaluationView extends EvaluationView{
 
         //Spalte Symptome
         grid.addColumn(DiaryEvaluationUIModel::getSymptom).setId("Ausprägung der Symptome");
-        grid.getColumn("Ausprägung der Symptome").setCaption("Ausprägung der Symptome");
+        grid.getColumn("Ausprägung der Symptome").setCaption("Ausprägung der Symptome").
+                setStyleGenerator(cellRef -> {
+
+                            if(cellRef.getSymptom() == null){
+                                return null;
+                            }
+                            switch (cellRef.getSymptom().getStrength()){
+                                case SEVERE: return "severe";
+                                case WEAK: return "weak";
+                                case MIDDLE: return "middle";
+                            }
+                            return null;
+                        });
+
+
         //grid.sort("Datum", SortDirection.DESCENDING);
 
         grid.setSortOrder(GridSortOrder.desc(grid.getColumn("Datum"))
@@ -86,7 +101,6 @@ public class SymptomEvaluationView extends EvaluationView{
 
         return tableContainer;
     }
-
 
 
 

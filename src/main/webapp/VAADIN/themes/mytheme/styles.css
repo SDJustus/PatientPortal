@@ -35390,3 +35390,19 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	overflow: hidden !important;
 	color: transparent !important;
 }
+
+.mytheme .v-treegrid-cell.severe {
+	background: #F92D2D !important;
+}
+
+.mytheme .v-treegrid-cell.middle {
+	background: #F4D513 !important;
+}
+
+.mytheme .v-treegrid-cell.weak {
+	background: #9FEC0F !important;
+}
+
+.mytheme .v-treegrid-cell.defaulttreegrid {
+	background: #FCFAFA !important;
+}

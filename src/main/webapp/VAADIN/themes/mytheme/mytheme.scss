@@ -310,6 +310,24 @@ $al-bar-background-color: #e9eae8 default;
 
   }
 
+  .v-treegrid-cell.severe  {
+    background: #F92D2D !important;
+  }
+  .v-treegrid-cell.middle {
+    background: #F4D513 !important;
+  }
+  .v-treegrid-cell.weak{
+    background: #9FEC0F !important;
+  }
+
+
+
+
+
+
+
+
+
 
   // Insert your own theme rules here
 }
