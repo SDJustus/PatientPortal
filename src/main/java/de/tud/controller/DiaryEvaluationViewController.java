@@ -44,7 +44,7 @@ public class DiaryEvaluationViewController {
         ArrayList<DiaryEvaluationUIModel> superEntryList = new ArrayList<>();
 
 
-        if (set != null) {
+        if (DiaryManager.getInstance().readDiaryEntriesByDiary(diaryId) != null) {
             for (DiaryEntry diaryEntry : set) {
                 for (Symptom s : diaryEntry.getSymptom()) {
                     symptom = s.toString().substring(0, s.toString().indexOf(":"));
@@ -152,6 +152,7 @@ public class DiaryEvaluationViewController {
             diaryEvaluationView.getSymptomTableButton().addClickListener(new Button.ClickListener() {
                 @Override
                 public void buttonClick(Button.ClickEvent clickEvent) {
+                    set = DiaryManager.getInstance().readDiaryEntriesByDiary(diaryId);
                     activateButtons();
                     diaryEvaluationView.getSymptomTableButton().setEnabled(false);
                     initSymptomTable();
@@ -162,6 +163,7 @@ public class DiaryEvaluationViewController {
             diaryEvaluationView.getVitalDataTableButton().addClickListener(new Button.ClickListener() {
                 @Override
                 public void buttonClick(Button.ClickEvent clickEvent) {
+                    set = DiaryManager.getInstance().readDiaryEntriesByDiary(diaryId);
                     activateButtons();
                     diaryEvaluationView.getVitalDataTableButton().setEnabled(false);
                     initVitalDataTable();
@@ -172,6 +174,7 @@ public class DiaryEvaluationViewController {
             diaryEvaluationView.getWelfareTableButton().addClickListener(new Button.ClickListener() {
                 @Override
                 public void buttonClick(Button.ClickEvent clickEvent) {
+                    set = DiaryManager.getInstance().readDiaryEntriesByDiary(diaryId);
                     activateButtons();
                     diaryEvaluationView.getWelfareTableButton().setEnabled(false);
                     initWelfareTable();

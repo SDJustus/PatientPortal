@@ -13,7 +13,6 @@ import java.util.List;
 
 public class StartViewController {
     private StartView startView;
-    HomeworkManager homeworkManager = new HomeworkManager();
 
 
 
@@ -24,7 +23,7 @@ public class StartViewController {
     private void initGrids(){
         List<Homework> homeworkList = null;
         try {
-           homeworkList = homeworkManager.read();
+           homeworkList = HomeworkManager.getInstance().read();
         }catch (NullPointerException e){
             e.getMessage();
         }
@@ -71,7 +70,7 @@ public class StartViewController {
 
 
     public void checkBoxListener(Long id, CheckBox checkBox){
-        homeworkManager.setHomeworkStatus(id, !checkBox.getValue());
+        HomeworkManager.getInstance().setHomeworkStatus(id, !checkBox.getValue());
         initGrids();
     }
 

@@ -39,7 +39,7 @@ public class EntitiesTests {
 
         Homework hw = new Homework(Homework.Type.DOCUMENT, "Krankenakte", "Krankenakte Patient 586");
         hw.setDate(ZonedDateTime.now());
-        HomeworkManager hm = new HomeworkManager();
+        HomeworkManager hm = HomeworkManager.getInstance();
 
         testId =  hm.create(hw);
 

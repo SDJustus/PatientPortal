@@ -16,10 +16,13 @@ public class MedicationPlanManager extends EntityManager<Medication> {
     private MedicationPlanManager(){
 
     }
-    private static final MedicationPlanManager INSTANCE = new MedicationPlanManager();
+    private static class MedicationPlanManagerInstance {
 
-    public static MedicationPlanManager getInstance(){
-        return INSTANCE;
+        private static final MedicationPlanManager INSTANCE
+                = new MedicationPlanManager();
+    }
+    public static MedicationPlanManager getInstance() {
+        return MedicationPlanManagerInstance.INSTANCE;
     }
 
     @Override
@@ -61,7 +64,7 @@ public class MedicationPlanManager extends EntityManager<Medication> {
         session.getTransaction().begin();
         List<Medication> medications = read();
         for(Medication medication : medications){
-            session.delete(medications);
+            session.delete(medication);
         }
         session.getTransaction().commit();
         session.close();
