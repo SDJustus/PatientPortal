@@ -110,8 +110,15 @@ public class DiaryViewController {
 
 
     public void addNewSymptomSelectionView(){
-        SymptomSelectionView symptomSelectionView = new SymptomSelectionView(this);
+        //sicherstellen, dass Symptom nicht mehrfach auftaucht
+        for(SymptomSelectionViewController s : symptomSelectionViewControllers){
+            if(symptomList.contains(s.getSelectedSymptom())){
+                symptomList.remove(s.getSelectedSymptom());
+            }
+        }
 
+        SymptomSelectionView symptomSelectionView = new SymptomSelectionView(this);
+        System.out.println(symptomList);
         symptomSelectionViewControllers.add(symptomSelectionView.getSymptomSelectionViewController());
         diaryView.getVerticalLayout().addComponents(symptomSelectionView.getViewComponent());
 
