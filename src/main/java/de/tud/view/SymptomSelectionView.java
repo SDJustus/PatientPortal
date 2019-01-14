@@ -10,7 +10,10 @@ import com.vaadin.ui.themes.ValoTheme;
 import de.tud.controller.DiaryViewController;
 import de.tud.controller.SymptomSelectionViewController;
 import de.tud.model.symptom.*;
+
+import java.util.HashSet;
 import java.util.List;
+import java.util.TreeSet;
 
 public class SymptomSelectionView implements View {
     private Label symptomName;
@@ -50,12 +53,12 @@ public class SymptomSelectionView implements View {
 
         //ComboBox erzeugen
         comboBox = new ComboBox<>();
-        comboBox.setItems(diaryViewController.getSymptomList());
+        comboBox.setItems(new TreeSet<>(diaryViewController.getSymptomList()));
         addValueChangeListenerForComboBox();
+
 
         //delete Button
         delete = new Button(VaadinIcons.CLOSE_CIRCLE);
-        delete.setVisible(false);
         addClickListenerDelete();
 
 
@@ -74,19 +77,19 @@ public class SymptomSelectionView implements View {
         goodSmiley = new Image();
         goodSmiley.setWidth("60px");
         goodSmiley.setHeight("60px");
-        goodSmiley.setId("smileybild");
+        goodSmiley.setStyleName("smileybild");
 
 
         middleSmiley = new Image();
         middleSmiley.setWidth("60px");
         middleSmiley.setHeight("60px");
-        middleSmiley.setId("smileybild");
+        middleSmiley.setStyleName("smileybild");
 
 
         badSmiley = new Image();
         badSmiley.setWidth("60px");
         badSmiley.setHeight("60px");
-        badSmiley.setId("smileybild");
+        badSmiley.setStyleName("smileybild");
 
         goodSmiley.setSource(new ClassResource("/gut.png"));
         middleSmiley.setSource(new ClassResource("/mittel.png"));
@@ -131,7 +134,6 @@ public class SymptomSelectionView implements View {
 
         //weiteres Symptom hinzufügen
         addNextSymptom = new Button("weiteres Symptom", VaadinIcons.PLUS_CIRCLE);
-        addNextSymptom.setEnabled(false);
         addNextSymptom.setVisible(false);
         addClickListenerToAddNextSymptom();
 

@@ -35393,6 +35393,10 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	background: #9FEC0F !important;
 }
 
-.mytheme .v-treegrid-cell.defaulttreegrid {
-	background: #FCFAFA !important;
+.mytheme .grayscaleButton {
+	filter: grayscale(1);
+}
+
+.mytheme .smileybild:hover {
+	transform: scale(1.2);
 }
