@@ -30,11 +30,12 @@ public class MedicationPlanView implements View {
     private FloatStepper stepperNoon;
     private FloatStepper stepperAfternoon;
     private FloatStepper stepperNight;
-    private TextField reasonTextField;
+    private TextArea reasonTextField;
+    private ComboBox unitComboBox;
 
     //Medication Plan Grid Components
     private Label medicationGridHeadline;
-    private Grid<DummyMedication> medicationPlanGrid;
+    private Grid<MedicationPlanUIModel> medicationPlanGrid;
 
     //Controller
     private MedicationPlanController medicationPlanController;
@@ -64,6 +65,10 @@ public class MedicationPlanView implements View {
         saveMedicationFormButton.setCaption("Speichern");
         saveMedicationFormButton.setDescription("Speichern der Medikation");
         saveMedicationFormButton.setIcon(new ClassResource("/saveicon.png"));
+
+        //Setup unitComboBox
+        unitComboBox = new ComboBox();
+        unitComboBox.setItems("Ml","g", "cmd3");
         
         //Hints Text field setup
         hintsTextField = new TextArea();
@@ -72,8 +77,10 @@ public class MedicationPlanView implements View {
         hintsTextField.setHeight("80px");
 
         //ReasonTextField Setup
-        reasonTextField= new TextField();
+        reasonTextField= new TextArea();
         reasonTextField.setCaption("Grund");
+        reasonTextField.setWidth("400px");
+        reasonTextField.setHeight("80px");
 
         //ID Field Setup
         idTextField = new TextField();
@@ -119,14 +126,17 @@ public class MedicationPlanView implements View {
 
         //Setup Medication Plan Grid
         medicationPlanGrid = new Grid<>();
-        //medicationPlanGrid.addColumn(DummyMedication::getId).setCaption("ID");
-        medicationPlanGrid.addColumn(DummyMedication::getTradeName).setCaption("Handelsname");
-        medicationPlanGrid.addColumn(DummyMedication::getSubstance).setCaption("Substanz");
-        medicationPlanGrid.addColumn(DummyMedication::getForm).setCaption("Form");
-        medicationPlanGrid.addColumn(DummyMedication::getStrength).setCaption("Stärke");
-        //medicationPlanGrid.addColumn(DummyMedication::getIncompatibleWithAsString).setCaption("Inkompatibel mit ...");
 
-        medicationPlanController.loadMedicationSchedule();
+
+        medicationPlanGrid.addColumn(MedicationPlanUIModel::getDummyMedicationID).setCaption("Medikament ID");
+        medicationPlanGrid.addColumn(MedicationPlanUIModel::getDummyMedicationTradeName).setCaption("Handelsname");
+        medicationPlanGrid.addColumn(MedicationPlanUIModel::getDummyMedicationSubstance).setCaption("Wirkstoff");
+        medicationPlanGrid.addColumn(MedicationPlanUIModel::getDummyMedicationForm).setCaption("Form");
+        medicationPlanGrid.addColumn(MedicationPlanUIModel::getDummyMedicationStrength).setCaption("Stärke");
+        medicationPlanGrid.addColumn(MedicationPlanUIModel::getMedicationAmount).setCaption("Menge");
+        medicationPlanGrid.addColumn(MedicationPlanUIModel::getMedicationDosage).setCaption("Dosierung");
+
+        medicationPlanController.loadMedicationPlan();
 
 
 
@@ -145,10 +155,10 @@ public class MedicationPlanView implements View {
         medicationPlanFormLayout.addComponents(idTextField, stepperMorning, stepperNoon, stepperAfternoon, stepperNight);
         medicationPlanFormLayout.setMargin(new MarginInfo(false,true,false,true));
         formTextSafeLayout = new VerticalLayout();
-        formTextSafeLayout.addComponents(hintsTextField, reasonTextField, saveMedicationFormButton);
+        formTextSafeLayout.addComponents(hintsTextField, reasonTextField);
         formTextSafeLayout.setMargin(new MarginInfo(false,true,false,true));
         formFinalHorizontalLayout = new HorizontalLayout();
-        formFinalHorizontalLayout.addComponents(medicationPlanFormLayout, formTextSafeLayout);
+        formFinalHorizontalLayout.addComponents(medicationPlanFormLayout,unitComboBox, formTextSafeLayout,saveMedicationFormButton);
         formFinalHorizontalLayout.setMargin(new MarginInfo(false,true,false,true));
 
 
