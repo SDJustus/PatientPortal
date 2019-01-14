@@ -35392,7 +35392,3 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 .mytheme .v-treegrid-cell.weak {
 	background: #9FEC0F !important;
 }
-
-.mytheme .v-treegrid-cell.defaulttreegrid {
-	background: #FCFAFA !important;
-}
