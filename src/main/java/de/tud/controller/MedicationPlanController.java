@@ -2,7 +2,7 @@ package de.tud.controller;
 
 import de.tud.model.manager.MedicationPlanManager;
 import de.tud.model.medication.DummyMedication;
-import de.tud.view.MedicationPlanView;
+import de.tud.view.medicationPlan.MedicationPlanView;
 import java.util.List;
 
 public class MedicationPlanController {

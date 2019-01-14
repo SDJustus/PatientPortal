@@ -1,4 +1,4 @@
-package de.tud.view;
+package de.tud.view.medicationPlan;
 
 import com.github.appreciated.material.MaterialTheme;
 import com.vaadin.navigator.View;
