@@ -30,6 +30,7 @@ public class DiaryViewController {
     private HashSet<String> avoidDuplicateSymptomsSet = new HashSet<>();   //Eingabe von doppelten Symptomen vermeiden
     private List<SymptomSelectionViewController> symptomSelectionViewControllers = new ArrayList<>();
     private List<String> symptomList;
+    private int numberOfSymptoms = createSymptomList().size();
     private int counter = 0;
     private boolean editButtoClicked = false;
 
@@ -111,17 +112,12 @@ public class DiaryViewController {
     public void addNewSymptomSelectionView(){
         SymptomSelectionView symptomSelectionView = new SymptomSelectionView(this);
 
-        diaryView.getVerticalLayout().addComponents(symptomSelectionView.getViewComponent());
-        System.out.println(diaryView.getVerticalLayout().getComponentCount());
-
-        //wenn EditButton gerade geklickt wurde, soll Lösch Button erscheinen
-        if(editButtoClicked == true){
-            symptomSelectionView.getDelete().setVisible(true);
-        }
-
         symptomSelectionViewControllers.add(symptomSelectionView.getSymptomSelectionViewController());
+        diaryView.getVerticalLayout().addComponents(symptomSelectionView.getViewComponent());
+
+
         counter++;
-        diaryView.getEdit().setEnabled(true);
+
 
     }
 
@@ -195,7 +191,7 @@ public class DiaryViewController {
                 }
                 if(diaryView.getVerticalLayout().getComponentCount() == 0){
                     editButtoClicked = true;
-                    diaryView.getEdit().click();
+
                 }
                 diaryView.getVerticalLayout().removeAllComponents();
                 symptomSelectionViewControllers.clear();
@@ -206,34 +202,11 @@ public class DiaryViewController {
 
                 counter = 0;
                addNewSymptomSelectionView();
-               diaryView.getEdit().setEnabled(true);
-            }
-        });
-    }
-    public void addNewEditButtonListener(){
-        diaryView.getEdit().addClickListener(new Button.ClickListener() {
-            @Override
-            public void buttonClick(Button.ClickEvent clickEvent) {
-
-                if(editButtoClicked == false){
-                    editButtoClicked = true;
-                    for(SymptomSelectionViewController s : symptomSelectionViewControllers){
-
-                        s.getSymptomSelectionView().getDelete().setVisible(true);
-
-                    }
-                }else{
-                    editButtoClicked = false;
-                    for(SymptomSelectionViewController s : symptomSelectionViewControllers){
-
-                        s.getSymptomSelectionView().getDelete().setVisible(false);
-                    }
-                }
-
 
             }
         });
     }
+
 
 
     public DiaryView getDiaryView(){
@@ -246,5 +219,7 @@ public class DiaryViewController {
         return editButtoClicked;
     }
 
-
+    public int getNumberOfSymptoms(){
+        return numberOfSymptoms;
+    }
 }

@@ -314,9 +314,10 @@ $al-bar-background-color: #e9eae8 default;
   }
 
 
-
-
-
+  .grayscaleButton{
+    filter: grayscale(1);
+  }
+  .smileybild:hover{transform: scale(1.2);}
 
 
 
