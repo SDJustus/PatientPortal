@@ -130,14 +130,14 @@ public class HomeworkController {
 
    public void loadCalendarEntries()
     {
-        HomeworkManager manager = new HomeworkManager();
-        try{manager.read();
+
+        try{HomeworkManager.getInstance().read();
         }catch (NullPointerException e){
             e.getMessage();
             return;
         }
 
-        List<Homework> homeworkList = manager.read();
+        List<Homework> homeworkList = HomeworkManager.getInstance().read();
 
        CalendarItemProvider<BasicItem> provider;
 
@@ -235,13 +235,12 @@ public class HomeworkController {
                 Homework h = new Homework();
                 LocalDate local= designerView.getDataPicker().getValue();
                 ZonedDateTime zdt = local.atStartOfDay(ZoneOffset.UTC);
-                HomeworkManager manager = new HomeworkManager();
                 ZonedDateTime now = ZonedDateTime.now();
 
 
 
 
-                List<Homework> homeworkList = manager.read();
+                List<Homework> homeworkList = HomeworkManager.getInstance().read();
 
                     if(isDateOccupied(zdt) == true)
                     {
@@ -256,7 +255,7 @@ public class HomeworkController {
             if(designerView.getRepeatBox().getValue().equals("Einmalig")) {
 
 
-                    manager.create(createHomeworkFromUI(zdt));
+                    HomeworkManager.getInstance().create(createHomeworkFromUI(zdt));
 
 
             }
@@ -282,7 +281,7 @@ public class HomeworkController {
                         for(int i =0; i<= dayDiff ; i++)
                         {
 
-                            manager.create(createHomeworkFromUI(now));
+                            HomeworkManager.getInstance().create(createHomeworkFromUI(now));
                             now = now.plusDays(1);
 
                         }
@@ -301,7 +300,7 @@ public class HomeworkController {
                     for(int i =0; i<= dayDiff ; i++)
                     {
 
-                        manager.create(createHomeworkFromUI(now));
+                        HomeworkManager.getInstance().create(createHomeworkFromUI(now));
                         now = now.plusDays(7);
                     }
 
@@ -350,9 +349,8 @@ designerView.getHomeworkName().setMaxLength(12);
     {
         LocalDate local= designerView.getDataPicker().getValue();
         ZonedDateTime zdt = local.atStartOfDay(ZoneOffset.UTC);
-        HomeworkManager manager = new HomeworkManager();
 
-        List<Homework> homeworkList = manager.read();
+        List<Homework> homeworkList = HomeworkManager.getInstance().read();
         for(Homework w: homeworkList)
         {
             if(zdt == w.getDate())

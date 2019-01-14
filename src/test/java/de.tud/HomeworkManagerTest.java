@@ -25,7 +25,7 @@ public class HomeworkManagerTest {
     public void setup(){
         hw1 = new Homework(Homework.Type.DOCUMENT,"Statusbericht","Bericht über den Verlauf der letzten Woche", ZonedDateTime.now());
         hw2 = new Homework(Homework.Type.EXERCISE,"Kniebeugen", "Übung Kniebeugen gegen Blutdruck", ZonedDateTime.now());
-        hwm = new HomeworkManager();
+        hwm = HomeworkManager.getInstance();
 
     }
 

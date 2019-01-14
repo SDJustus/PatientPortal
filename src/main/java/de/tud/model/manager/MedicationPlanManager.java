@@ -16,10 +16,13 @@ public class MedicationPlanManager extends EntityManager<Medication> {
     private MedicationPlanManager(){
 
     }
-    private static final MedicationPlanManager INSTANCE = new MedicationPlanManager();
+    private static class MedicationPlanManagerInstance {
 
-    public static MedicationPlanManager getInstance(){
-        return INSTANCE;
+        private static final MedicationPlanManager INSTANCE
+                = new MedicationPlanManager();
+    }
+    public static MedicationPlanManager getInstance() {
+        return MedicationPlanManagerInstance.INSTANCE;
     }
 
     @Override

@@ -10,6 +10,21 @@ import java.util.logging.Logger;
 public class HomeworkManager extends EntityManager<Homework> {
 
     private static final Logger LOGGER = Logger.getLogger(HomeworkManager.class.getName());
+
+    private static class HomeworkManagerInstance {
+
+        private static final HomeworkManager INSTANCE
+                = new HomeworkManager();
+    }
+
+    public static HomeworkManager getInstance() {
+        return HomeworkManagerInstance.INSTANCE;
+    }
+
+    private HomeworkManager(){
+
+    }
+
     @Override
     public List<Homework> read() {
         Session session = getSessionFactory().openSession();

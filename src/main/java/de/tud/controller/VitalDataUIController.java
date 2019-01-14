@@ -19,7 +19,6 @@ public class VitalDataUIController  {
 
     VitalDataView desview;
     private long diaryId;
-    DiaryManager diaryManager;
     Diary diary;
 
 
@@ -28,8 +27,7 @@ public class VitalDataUIController  {
    public  VitalDataUIController(VitalDataView desview)
     {
        this.desview = desview;
-        diaryManager = DiaryManager.getInstance();
-        diary = diaryManager.read().get(0);
+        diary = DiaryManager.getInstance().read().get(0);
         diaryId = diary.getId();
         this.desview.getSaveVitalData().setEnabled(false);
 
@@ -42,7 +40,7 @@ public class VitalDataUIController  {
 
 
         DiaryEntry diaryEntry = new DiaryEntry(datum , symptoms,new VitalData(), new HashSet<>());        //TODO: Replace "new VitalDaraSet","new HashSet" - it is only a placeholder
-        diaryManager.addDiaryEntry(diaryEntry, diaryId);
+        DiaryManager.getInstance().addDiaryEntry(diaryEntry, diaryId);
 
     }
 
@@ -88,8 +86,8 @@ public class VitalDataUIController  {
 
 
     public void saveVitalDataDiaryEntry(LocalDateTime datum, VitalData data){
-        DiaryManager diaryManager = DiaryManager.getInstance();
-        Diary diary = diaryManager.read().get(0);
+
+        Diary diary = DiaryManager.getInstance().read().get(0);
         double diaryId = diary.getId();
 
         DiaryEntry diaryEntry = new DiaryEntry(datum, data);  //TODO: Replace "new VitalDaraSet" - it is only a placeholder

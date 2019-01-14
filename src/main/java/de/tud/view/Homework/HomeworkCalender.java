@@ -36,8 +36,7 @@ public class HomeworkCalender extends Calendar {
     private void onCalendarClick(CalendarComponentEvents.ItemClickEvent event) {
         Notification notification = new Notification("");
         BasicItem item = (BasicItem) event.getCalendarItem();
-        HomeworkManager manager = new HomeworkManager();
-        List<Homework> homeworkList = manager.read();
+        List<Homework> homeworkList = HomeworkManager.getInstance().read();
 
         //Setup Dialog
 
@@ -104,7 +103,7 @@ public class HomeworkCalender extends Calendar {
                             if(toDO.getId() == work.getId())  {
 
 
-                                manager.setHomeworkStatus(work.getId(), true);
+                                HomeworkManager.getInstance().setHomeworkStatus(work.getId(), true);
 
                             }
 
@@ -117,7 +116,7 @@ public class HomeworkCalender extends Calendar {
                             if(finished.getId() == work.getId())  {
 
 
-                            manager.setHomeworkStatus(work.getId(), true);
+                            HomeworkManager.getInstance().setHomeworkStatus(work.getId(), true);
 
                         }
 
@@ -154,7 +153,7 @@ public class HomeworkCalender extends Calendar {
                             if(toDO.getId() == work.getId())  {
 
 
-                                manager.delete(work.getId());
+                                HomeworkManager.getInstance().delete(work.getId());
 
                             }
 
@@ -167,7 +166,7 @@ public class HomeworkCalender extends Calendar {
                             if(finished.getId() == work.getId())  {
 
 
-                                manager.delete(work.getId());
+                                HomeworkManager.getInstance().delete(work.getId());
 
                             }
 

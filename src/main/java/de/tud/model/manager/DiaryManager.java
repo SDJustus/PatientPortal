@@ -6,7 +6,6 @@ import de.tud.model.DiaryEntry;
 import de.tud.model.exceptions.EmptyDataBaseException;
 import org.hibernate.Session;
 
-import javax.validation.constraints.NotNull;
 import java.util.List;
 import java.util.Set;
 import java.util.logging.Level;
@@ -20,10 +19,14 @@ public class DiaryManager extends EntityManager<Diary> {
 
     private static final Logger LOGGER = Logger.getLogger(DiaryManager.class.getName());
 
-    private static final DiaryManager INSTANCE = new DiaryManager();
+    private static class DiaryManagerInstance {
 
-    public static DiaryManager getInstance(){
-        return INSTANCE;
+        private static final DiaryManager INSTANCE
+                = new DiaryManager();
+    }
+
+    public static DiaryManager getInstance() {
+        return DiaryManagerInstance.INSTANCE;
     }
 
 
