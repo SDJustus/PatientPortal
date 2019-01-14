@@ -9,7 +9,15 @@ import java.util.logging.Logger;
 
 public class HomeworkManager extends EntityManager<Homework> {
 
+    /**
+     * Holds the logger of the HomeworkManager.
+     */
     private static final Logger LOGGER = Logger.getLogger(HomeworkManager.class.getName());
+
+    /**
+     * Returns all persistent Homework objects as a list.
+     * @return List of Homework
+     */
     @Override
     public List<Homework> read() {
         Session session = getSessionFactory().openSession();
@@ -22,6 +30,10 @@ public class HomeworkManager extends EntityManager<Homework> {
         return homework;
     }
 
+    /**
+     * Deletes the persistent Homework object matching the given ID.
+     * @param id
+     */
     @Override
     public void delete(Long id) {
         if (id == null|| id <= 0) throw new IllegalArgumentException("Expect HomeworkID to be not null!");
@@ -45,6 +57,11 @@ public class HomeworkManager extends EntityManager<Homework> {
         }
     }
 
+    /**
+     * Returns a persistent Homework object matching the given ID.
+     * @param id
+     * @return instance of Homework
+     */
     @Override
     public Homework findByID(Long id) {
         if (id == null|| id <= 0) throw new IllegalArgumentException("Expect HomeworkID to be not null!");
@@ -55,6 +72,11 @@ public class HomeworkManager extends EntityManager<Homework> {
         return homework;
     }
 
+    /**
+     * Sets the state attribute of the Homework object matching to the given ID.
+     * @param homeworkID
+     * @param bool
+     */
     public void setHomeworkStatus(Long homeworkID, Boolean bool){
         if(homeworkID == null) throw new IllegalArgumentException("Expect HomeworkID to be not null!");
         if(bool == null) throw new IllegalArgumentException("Expect done state to be not null!");
@@ -78,6 +100,11 @@ public class HomeworkManager extends EntityManager<Homework> {
         }
     }
 
+    /**
+     * Replaces the persistent Homework object matching the ID with an other given Homework object.
+     * @param homeworkID
+     * @param homework
+     */
     public void updateHomework(Long homeworkID, Homework homework){
         if(homeworkID == null) throw new IllegalArgumentException("Expect HomeworkID to be not null!");
         Session session = getSessionFactory().openSession();

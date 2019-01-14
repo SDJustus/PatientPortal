@@ -9,9 +9,16 @@ public class BowelDisorder extends Symptom {
         super(strength);
     }
 
+    /**
+     * Constructor of BowelDisorder.
+     */
     public BowelDisorder(){
 
     }
+    /**
+     * Returns a message containing the name of the symptom and its Strength value.
+     * @return
+     */
     @Override
     public String toString() {
         return "Darmstörung: " + this.getStrength();

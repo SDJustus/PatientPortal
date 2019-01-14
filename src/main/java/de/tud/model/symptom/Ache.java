@@ -9,10 +9,16 @@ public class Ache extends Symptom {
         super(strength);
     }
 
+    /**
+     * Constructor of Ache.
+     */
     public Ache(){
 
     }
-
+    /**
+     * Returns a message containing the name of the symptom and its Strength value.
+     * @return
+     */
     @Override
     public String toString() {
         return "Schmerzen: " + this.getStrength();

@@ -14,19 +14,36 @@ import java.util.logging.Logger;
 
 public class DiaryManager extends EntityManager<Diary> {
 
+    /**
+     * Constructor of DiaryManager
+     */
     private DiaryManager(){
 
     }
 
+    /**
+     * Holds the logger of the DiaryManager.
+     */
     private static final Logger LOGGER = Logger.getLogger(DiaryManager.class.getName());
 
+    /**
+     * Holds the singleton instance of the DiaryManager.
+     */
     private static final DiaryManager INSTANCE = new DiaryManager();
 
+    /**
+     * Returns the existing instance of the DiaryManager.
+     * @return instance of DiaryManager
+     */
     public static DiaryManager getInstance(){
         return INSTANCE;
     }
 
 
+    /**
+     * Returns all persistent Diary objects as a list.
+     * @return List of Diary
+     */
     @Override
     public List<Diary> read() {
         Session session = getSessionFactory().openSession();
@@ -41,6 +58,11 @@ public class DiaryManager extends EntityManager<Diary> {
         return diary;
     }
 
+    /**
+     * Returns DiaryEntry objects held in a Diary object by its ID.
+     * @param diaryId
+     * @return List of DiaryEntry
+     */
     public Set<DiaryEntry> readDiaryEntriesByDiary(Long diaryId) {
         if (diaryId<=0 || diaryId == null) throw new IllegalArgumentException("Expected diary ID ");
         Session session = getSessionFactory().openSession();
@@ -50,6 +72,7 @@ public class DiaryManager extends EntityManager<Diary> {
 
         return diaryEntries;
     }
+
 
     @Deprecated
     public void addDiary(Diary diary){
@@ -61,6 +84,11 @@ public class DiaryManager extends EntityManager<Diary> {
         session.close();
     }
 
+    /**
+     * Adds a DiaryEntry object to an existing Diary object matching the given ID.
+     * @param diaryEntry
+     * @param diaryId
+     */
     public void addDiaryEntry(DiaryEntry diaryEntry, Long diaryId){
         if (diaryEntry == null) throw new IllegalArgumentException("Expect DiaryEntry to be not null!");
         if (diaryId == null|| diaryId <= 0) throw new IllegalArgumentException("Expect DiaryID not to be null!");
@@ -74,6 +102,11 @@ public class DiaryManager extends EntityManager<Diary> {
         session.close();
     }
 
+    /**
+     * Removes the given DiaryEntry object from the Diary object matching the given ID.
+     * @param diaryEntry
+     * @param diaryId
+     */
     public void removeDiaryEntry(DiaryEntry diaryEntry, Long diaryId){
         if (diaryEntry == null) throw new IllegalArgumentException("Expect DiaryEntry to be not null!");
         if (diaryId == null|| diaryId <= 0) throw new IllegalArgumentException("Expect DiaryID not to be null!");
@@ -86,6 +119,12 @@ public class DiaryManager extends EntityManager<Diary> {
         session.close();
     }
 
+    /**
+     * Returns a single DiaryEntry object by the given ID from a matching Diary object.
+     * @param diaryId
+     * @param diaryEntryId
+     * @return instance of DiaryEntry
+     */
     public DiaryEntry getDiaryEntryById(Long diaryId, Long diaryEntryId){
         if (diaryEntryId == null|| diaryEntryId <= 0) throw new IllegalArgumentException("Expect DiaryEntryID to be not null!");
         if (diaryId == null|| diaryId <= 0) throw new IllegalArgumentException("Expect DiaryID not to be null!");
@@ -101,6 +140,10 @@ public class DiaryManager extends EntityManager<Diary> {
         return diaryEntry;
     }
 
+    /**
+     * Deletes the persistent Diary object matching the given ID.
+     * @param id
+     */
     @Override
     public void delete(Long id) {
         if (id == null|| id <= 0) throw new IllegalArgumentException("Expect DiaryID to be not null!");
@@ -124,6 +167,11 @@ public class DiaryManager extends EntityManager<Diary> {
         }
     }
 
+    /**
+     * Returns a persistent Diary object matching the given ID.
+     * @param id
+     * @return instance of Diary
+     */
     @Override
     public Diary findByID(Long id) {
         if (id == null|| id <= 0) throw new IllegalArgumentException("Expect DiaryID to be not null!");
@@ -134,6 +182,9 @@ public class DiaryManager extends EntityManager<Diary> {
         return diary;
     }
 
+    /**
+     * Deletes all persistent Diary objects in the database.
+     */
     public void deleteAll() {
         Session session = getSessionFactory().openSession();
         session.getTransaction().begin();
