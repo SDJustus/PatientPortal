@@ -1,6 +1,5 @@
 package de.tud;
 
-import de.tud.model.manager.EntityManager;
 import de.tud.model.manager.MedicationPlanManager;
 import de.tud.model.medication.DummyMedication;
 import de.tud.model.medication.Medication;
@@ -40,7 +39,6 @@ public class MedicationManagerTest {
         Medication returnedMed = session.get(Medication.class, id);
         session.close();
         Assertions.assertEquals(med1.getMorningDosage(), returnedMed.getMorningDosage());
-        Assertions.assertEquals(med1.getDmId(), returnedMed.getDmId());
     }
 
     @Test
