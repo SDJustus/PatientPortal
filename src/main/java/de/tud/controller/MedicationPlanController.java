@@ -16,7 +16,7 @@ import java.util.Set;
 public class MedicationPlanController {
 
     private MedicationPlanView medicationPlanView;
-    private MedicationPlanManager medicationPlanManager;
+    private static MedicationPlanManager medicationPlanManager;
 
     private Set<MedicationPlanUIModel> medicationPlanEntityList;
 
@@ -84,4 +84,10 @@ public class MedicationPlanController {
         loadMedicationPlan();
         return true;
     }
+
+    public static void remove(MedicationPlanUIModel medicationPlanUIModel){
+        medicationPlanManager.delete(medicationPlanUIModel.getMedication().getId());
+        Notification.show("Eintrag erfolgreich gelöscht");
+    }
+
 }

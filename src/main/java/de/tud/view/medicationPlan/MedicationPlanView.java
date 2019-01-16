@@ -1,11 +1,13 @@
 package de.tud.view.medicationPlan;
 
 import com.github.appreciated.material.MaterialTheme;
+import com.vaadin.icons.VaadinIcons;
 import com.vaadin.navigator.View;
 import com.vaadin.server.ClassResource;
 import com.vaadin.server.Page;
 import com.vaadin.shared.ui.MarginInfo;
 import com.vaadin.ui.*;
+import com.vaadin.ui.renderers.ButtonRenderer;
 import de.tud.controller.MedicationPlanController;
 import de.tud.model.medication.DummyMedication;
 import de.tud.model.medication.Unit;
@@ -34,6 +36,7 @@ public class MedicationPlanView implements View {
     private FloatStepper stepperNight;
     private TextArea reasonTextField;
     private ComboBox unitComboBox;
+    private Button delete;
 
     //Medication Plan Grid Components
     private Label medicationGridHeadline;
@@ -92,46 +95,25 @@ public class MedicationPlanView implements View {
         idTextField.setMinValue(0);
 
         //Stepper Einnahmezeiten
-        stepperNoon = new FloatStepper();
-        stepperNoon.setStepAmount(1.0f);
-        stepperNoon.setManualInputAllowed(true);
-        stepperNoon.setMinValue(0f);
-        stepperNoon.setMaxValue(2000f);
-        stepperNoon.setNumberOfDecimals(2);
+        stepperNoon = new CustomFloatStepper();
         stepperNoon.setCaption("Mittag");
 
 
         //Stepper Einnahmezeiten
-        stepperMorning = new FloatStepper();
-        stepperMorning.setStepAmount(1.0f);
-        stepperMorning.setManualInputAllowed(true);
-        stepperMorning.setMinValue(0f);
-        stepperMorning.setMaxValue(2000f);
-        stepperMorning.setNumberOfDecimals(2);
+        stepperMorning = new CustomFloatStepper();
         stepperMorning.setCaption("Morgen");
 
 
         //Stepper Einnahmezeiten
-        stepperAfternoon = new FloatStepper();
-        stepperAfternoon.setStepAmount(1.0f);
-        stepperAfternoon.setManualInputAllowed(true);
-        stepperAfternoon.setMinValue(0f);
-        stepperAfternoon.setMaxValue(2000f);
-        stepperAfternoon.setNumberOfDecimals(2);
+        stepperAfternoon = new CustomFloatStepper();
         stepperAfternoon.setCaption("Abend");
 
         //Stepper Einnahmezeiten
-        stepperNight = new FloatStepper();
-        stepperNight.setStepAmount(1.0f);
-        stepperNight.setManualInputAllowed(true);
-        stepperNight.setMinValue(0f);
-        stepperNight.setMaxValue(2000f);
-        stepperNight.setNumberOfDecimals(2);
+        stepperNight = new CustomFloatStepper();
         stepperNight.setCaption("Nacht");
 
         //Setup Medication Plan Grid
         medicationPlanGrid = new Grid<>();
-
 
         medicationPlanGrid.addColumn(MedicationPlanUIModel::getDummyMedicationID).setCaption("Medikament ID");
         medicationPlanGrid.addColumn(MedicationPlanUIModel::getDummyMedicationTradeName).setCaption("Handelsname");
@@ -147,8 +129,6 @@ public class MedicationPlanView implements View {
         medicationPlanGrid.addColumn(MedicationPlanUIModel::getMedicationReason).setCaption("Grund");
 
         medicationPlanController.loadMedicationPlan();
-
-
 
         //Grid auto size
         medicationPlanGrid.setHeight("" + (Integer.valueOf(Page.getCurrent().getBrowserWindowHeight()) - 200 ));
@@ -236,5 +216,9 @@ public class MedicationPlanView implements View {
 
     public ComboBox getUnitComboBox() {
         return unitComboBox;
+    }
+
+    public Button getDelete() {
+        return delete;
     }
 }
