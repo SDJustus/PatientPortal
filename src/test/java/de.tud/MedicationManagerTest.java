@@ -22,12 +22,11 @@ public class MedicationManagerTest {
         medicationPlanManager = MedicationPlanManager.getInstance();
         med1 = new Medication();
         med2 = new Medication();
-        med1.setAmount(33.1);
         med1.setDmId(1);
-        med1.setDosage("morgens");
-        med2.setAmount(33.1);
+        med1.setMorningDosage(331.11f);
+        med2.setNightDosage(33.1f);
         med2.setDmId(5);
-        med2.setDosage("abends");
+        med2.setMorningDosage(3.1f);
     }
     @AfterCompletion
     public void tearDown(){
@@ -40,7 +39,7 @@ public class MedicationManagerTest {
         Session session = MedicationPlanManager.getInstance().getSessionFactory().openSession();
         Medication returnedMed = session.get(Medication.class, id);
         session.close();
-        Assertions.assertEquals(med1.getAmount(), returnedMed.getAmount());
+        Assertions.assertEquals(med1.getMorningDosage(), returnedMed.getMorningDosage());
         Assertions.assertEquals(med1.getDmId(), returnedMed.getDmId());
     }
 
