@@ -4,9 +4,6 @@ import de.tud.model.EntityObject;
 
 import javax.persistence.*;
 
-enum Unit{
-        MG, PIECES, ML
-        }
 @Entity
 @Table(name = "medication")
 public class Medication extends EntityObject {

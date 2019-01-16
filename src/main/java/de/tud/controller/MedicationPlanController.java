@@ -5,6 +5,7 @@ import com.vaadin.ui.Notification;
 import de.tud.model.manager.MedicationPlanManager;
 import de.tud.model.medication.DummyMedication;
 import de.tud.model.medication.Medication;
+import de.tud.model.medication.Unit;
 import de.tud.view.medicationPlan.MedicationPlanUIModel;
 import de.tud.view.medicationPlan.MedicationPlanView;
 
@@ -77,6 +78,7 @@ public class MedicationPlanController {
         medication.setNightDosage(medicationPlanView.getStepperNight().getValue());
         medication.setHints(medicationPlanView.getHintsTextField().getValue());
         medication.setReason(medicationPlanView.getReasonTextField().getValue());
+        medication.setUnit((Unit) medicationPlanView.getUnitComboBox().getValue());
         medicationPlanManager.create(medication);
 
         loadMedicationPlan();

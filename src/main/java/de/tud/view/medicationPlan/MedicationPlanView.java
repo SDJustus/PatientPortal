@@ -8,6 +8,7 @@ import com.vaadin.shared.ui.MarginInfo;
 import com.vaadin.ui.*;
 import de.tud.controller.MedicationPlanController;
 import de.tud.model.medication.DummyMedication;
+import de.tud.model.medication.Unit;
 import org.vaadin.risto.stepper.FloatStepper;
 import org.vaadin.risto.stepper.IntStepper;
 
@@ -70,7 +71,7 @@ public class MedicationPlanView implements View {
 
         //Setup unitComboBox
         unitComboBox = new ComboBox();
-        unitComboBox.setItems("Ml","g", "cmd3");
+        unitComboBox.setItems(Unit.values());
         
         //Hints Text field setup
         hintsTextField = new TextArea();
@@ -137,6 +138,7 @@ public class MedicationPlanView implements View {
         medicationPlanGrid.addColumn(MedicationPlanUIModel::getDummyMedicationSubstance).setCaption("Wirkstoff");
         medicationPlanGrid.addColumn(MedicationPlanUIModel::getDummyMedicationForm).setCaption("Form");
         medicationPlanGrid.addColumn(MedicationPlanUIModel::getDummyMedicationStrength).setCaption("Stärke");
+        medicationPlanGrid.addColumn(MedicationPlanUIModel::getMedicationUnit).setCaption("Einheit");
         medicationPlanGrid.addColumn(MedicationPlanUIModel::getMedicationMorningDosage).setCaption("Morgens");
         medicationPlanGrid.addColumn(MedicationPlanUIModel::getMedicationNoonDosage).setCaption("Mittag");
         medicationPlanGrid.addColumn(MedicationPlanUIModel::getMedicationAfternoonDosage).setCaption("Nachmittag");

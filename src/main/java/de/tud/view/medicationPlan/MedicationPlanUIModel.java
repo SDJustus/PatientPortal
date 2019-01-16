@@ -2,6 +2,7 @@ package de.tud.view.medicationPlan;
 
 import de.tud.model.medication.DummyMedication;
 import de.tud.model.medication.Medication;
+import de.tud.model.medication.Unit;
 
 
 public class MedicationPlanUIModel {
@@ -56,5 +57,6 @@ public class MedicationPlanUIModel {
     public float getMedicationNightDosage(){return medication.getNightDosage();}
     public String getMedicationHints(){return medication.getHints();}
     public String getMedicationReason(){return medication.getReason();}
+    public Unit getMedicationUnit(){return medication.getUnit();}
 
 }
