@@ -9,6 +9,7 @@ import com.vaadin.ui.*;
 import de.tud.controller.MedicationPlanController;
 import de.tud.model.medication.DummyMedication;
 import org.vaadin.risto.stepper.FloatStepper;
+import org.vaadin.risto.stepper.IntStepper;
 
 public class MedicationPlanView implements View {
     //Main Layout
@@ -24,7 +25,7 @@ public class MedicationPlanView implements View {
     private Label medicationFormHeadline;
     private Button saveMedicationFormButton;
 
-    private TextField idTextField;
+    private IntStepper idTextField;
     private TextArea hintsTextField;
     private FloatStepper stepperMorning;
     private FloatStepper stepperNoon;
@@ -65,6 +66,7 @@ public class MedicationPlanView implements View {
         saveMedicationFormButton.setCaption("Speichern");
         saveMedicationFormButton.setDescription("Speichern der Medikation");
         saveMedicationFormButton.setIcon(new ClassResource("/saveicon.png"));
+        medicationPlanController.addSafeButtonListener();
 
         //Setup unitComboBox
         unitComboBox = new ComboBox();
@@ -83,8 +85,10 @@ public class MedicationPlanView implements View {
         reasonTextField.setHeight("80px");
 
         //ID Field Setup
-        idTextField = new TextField();
+        idTextField = new IntStepper();
         idTextField.setCaption("ID");
+        idTextField.setStepAmount(1);
+        idTextField.setMinValue(0);
 
         //Stepper Einnahmezeiten
         stepperNoon = new FloatStepper();
@@ -133,8 +137,12 @@ public class MedicationPlanView implements View {
         medicationPlanGrid.addColumn(MedicationPlanUIModel::getDummyMedicationSubstance).setCaption("Wirkstoff");
         medicationPlanGrid.addColumn(MedicationPlanUIModel::getDummyMedicationForm).setCaption("Form");
         medicationPlanGrid.addColumn(MedicationPlanUIModel::getDummyMedicationStrength).setCaption("Stärke");
-        medicationPlanGrid.addColumn(MedicationPlanUIModel::getMedicationAmount).setCaption("Menge");
-        medicationPlanGrid.addColumn(MedicationPlanUIModel::getMedicationDosage).setCaption("Dosierung");
+        medicationPlanGrid.addColumn(MedicationPlanUIModel::getMedicationMorningDosage).setCaption("Morgens");
+        medicationPlanGrid.addColumn(MedicationPlanUIModel::getMedicationNoonDosage).setCaption("Mittag");
+        medicationPlanGrid.addColumn(MedicationPlanUIModel::getMedicationAfternoonDosage).setCaption("Nachmittag");
+        medicationPlanGrid.addColumn(MedicationPlanUIModel::getMedicationNightDosage).setCaption("Nacht");
+        medicationPlanGrid.addColumn(MedicationPlanUIModel::getMedicationHints).setCaption("Hinweise");
+        medicationPlanGrid.addColumn(MedicationPlanUIModel::getMedicationReason).setCaption("Grund");
 
         medicationPlanController.loadMedicationPlan();
 
@@ -190,5 +198,41 @@ public class MedicationPlanView implements View {
 
     public void setMedicationPlanController(MedicationPlanController medicationPlanController) {
         this.medicationPlanController = medicationPlanController;
+    }
+
+    public Button getSaveMedicationFormButton() {
+        return saveMedicationFormButton;
+    }
+
+    public IntStepper getIdTextField() {
+        return idTextField;
+    }
+
+    public TextArea getHintsTextField() {
+        return hintsTextField;
+    }
+
+    public FloatStepper getStepperMorning() {
+        return stepperMorning;
+    }
+
+    public FloatStepper getStepperNoon() {
+        return stepperNoon;
+    }
+
+    public FloatStepper getStepperAfternoon() {
+        return stepperAfternoon;
+    }
+
+    public FloatStepper getStepperNight() {
+        return stepperNight;
+    }
+
+    public TextArea getReasonTextField() {
+        return reasonTextField;
+    }
+
+    public ComboBox getUnitComboBox() {
+        return unitComboBox;
     }
 }

@@ -1,5 +1,7 @@
 package de.tud.controller;
 
+import com.vaadin.ui.Button;
+import com.vaadin.ui.Notification;
 import de.tud.model.manager.MedicationPlanManager;
 import de.tud.model.medication.DummyMedication;
 import de.tud.model.medication.Medication;
@@ -36,5 +38,48 @@ public class MedicationPlanController {
         }
 
         medicationPlanView.getMedicationPlanGrid().setItems(medicationPlanEntityList);
+    }
+
+    public void addSafeButtonListener(){
+        medicationPlanView.getSaveMedicationFormButton().addClickListener((Button.ClickListener) clickEvent -> {
+            if(checkIntegrityConditions()){
+                if(safeMedicationPlanEntry()){
+                    Notification.show("Eintrag erfolgreich gespeichert");
+                }
+                else{
+                    Notification.show("Eintrag speichern fehlgeschlagen");
+                }
+            }
+
+        });
+    }
+
+    private boolean checkIntegrityConditions(){
+        if(medicationPlanView.getIdTextField().isEmpty()){
+            Notification.show("Bitte ID eingeben");
+            return false;
+        }
+        else if(medicationPlanView.getUnitComboBox().isEmpty()){
+            Notification.show("Bitte Einheit angeben");
+            return false;
+        }
+        else{
+            return true;
+        }
+    }
+
+    private boolean safeMedicationPlanEntry(){
+        Medication medication = new Medication();
+        medication.setDmId(medicationPlanView.getIdTextField().getValue());
+        medication.setMorningDosage(medicationPlanView.getStepperMorning().getValue());
+        medication.setNoonDosage(medicationPlanView.getStepperNoon().getValue());
+        medication.setAfternoonDosage(medicationPlanView.getStepperAfternoon().getValue());
+        medication.setNightDosage(medicationPlanView.getStepperNight().getValue());
+        medication.setHints(medicationPlanView.getHintsTextField().getValue());
+        medication.setReason(medicationPlanView.getReasonTextField().getValue());
+        medicationPlanManager.create(medication);
+
+        loadMedicationPlan();
+        return true;
     }
 }

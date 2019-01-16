@@ -50,12 +50,11 @@ public class MedicationPlanUIModel {
         return dummyMedication.getForm();
     }
 
-    public double getMedicationAmount(){
-        return medication.getAmount();
-    }
-
-    public String getMedicationDosage(){
-        return medication.getDosage();
-    }
+    public float getMedicationMorningDosage(){return medication.getMorningDosage();}
+    public float getMedicationNoonDosage(){return medication.getNoonDosage();}
+    public float getMedicationAfternoonDosage(){return medication.getAfternoonDosage();}
+    public float getMedicationNightDosage(){return medication.getNightDosage();}
+    public String getMedicationHints(){return medication.getHints();}
+    public String getMedicationReason(){return medication.getReason();}
 
 }
