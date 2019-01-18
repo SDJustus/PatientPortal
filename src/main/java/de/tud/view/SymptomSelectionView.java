@@ -1,5 +1,6 @@
 package de.tud.view;
 
+import com.github.appreciated.material.MaterialTheme;
 import com.vaadin.data.HasValue;
 import com.vaadin.icons.VaadinIcons;
 import com.vaadin.navigator.View;
@@ -15,15 +16,9 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.TreeSet;
 
-public class SymptomSelectionView implements View {
+public class SymptomSelectionView extends ButtonView implements View  {
     private Label symptomName;
 
-    private Image goodSmiley;
-    private Image middleSmiley;
-    private Image badSmiley;
-    private Label goodLabel;
-    private Label middleLabel;
-    private Label badLabel;
     private Symptom.Strength choice;
     private ComboBox<String> comboBox;
     private Button addNextSymptom;
@@ -68,64 +63,10 @@ public class SymptomSelectionView implements View {
         verticalLayout.setHeight("30px");
 
 
-        //Horizontal Layout für Smiley Bilder erzeugen
-        HorizontalLayout horizontalLayout = new HorizontalLayout();
-        horizontalLayout.setWidth("270px");
-        horizontalLayout.setHeight("30px");
-
-        //SmileyBilder zu Horizontal Layout hinzufügen
-        goodSmiley = new Image();
-        goodSmiley.setWidth("60px");
-        goodSmiley.setHeight("60px");
-        goodSmiley.setStyleName("smileybild");
 
 
-        middleSmiley = new Image();
-        middleSmiley.setWidth("60px");
-        middleSmiley.setHeight("60px");
-        middleSmiley.setStyleName("smileybild");
-
-
-        badSmiley = new Image();
-        badSmiley.setWidth("60px");
-        badSmiley.setHeight("60px");
-        badSmiley.setStyleName("smileybild");
-
-        goodSmiley.setSource(new ClassResource("/gut.png"));
-        middleSmiley.setSource(new ClassResource("/mittel.png"));
-        badSmiley.setSource(new ClassResource("/schlecht.png"));
         addClickListenerForSmileys();   //Click Listener hinzufügen
 
-
-        horizontalLayout.addComponents(goodSmiley, middleSmiley, badSmiley);
-        horizontalLayout.setComponentAlignment(goodSmiley, Alignment.TOP_CENTER);
-        horizontalLayout.setComponentAlignment(middleSmiley, Alignment.TOP_CENTER);
-        horizontalLayout.setComponentAlignment(badSmiley, Alignment.TOP_CENTER);
-        horizontalLayout.setSpacing(true);
-        horizontalLayout.setExpandRatio(goodSmiley, 1);
-        horizontalLayout.setExpandRatio(middleSmiley, 1);
-        horizontalLayout.setExpandRatio(badSmiley, 1);
-
-
-        //Beschriftungen der Smileys
-        HorizontalLayout horizontalLayout1 = new HorizontalLayout();
-        horizontalLayout1.setWidth("270px");
-        horizontalLayout1.setHeight("1px");
-
-
-        goodLabel = new Label("schwach");
-        middleLabel = new Label("mäßig");
-        badLabel = new Label("stark");
-
-        horizontalLayout1.addComponents(goodLabel, middleLabel, badLabel);
-        horizontalLayout1.setComponentAlignment(goodLabel, Alignment.MIDDLE_CENTER);
-        horizontalLayout1.setComponentAlignment(middleLabel, Alignment.MIDDLE_CENTER);
-        horizontalLayout1.setComponentAlignment(badLabel, Alignment.MIDDLE_CENTER);
-        horizontalLayout1.setSpacing(true);
-
-
-        //Horizontal Layout als Spacer
-        HorizontalLayout spacer = new HorizontalLayout();
 
         //zweiter Spacer
         VerticalLayout spacer2 = new VerticalLayout();
@@ -169,29 +110,16 @@ public class SymptomSelectionView implements View {
         horizontalLayout1.setHeight("1px");
         symptomName.setWidth("300px");
 
-        return gridLayout;
-    }
+        HorizontalLayout mainLayout = new HorizontalLayout();
+        mainLayout.addStyleName(MaterialTheme.CARD_1);
+        mainLayout.addStyleName("layoutwithborder");
 
-    private void iterateOverContainers(HasComponents component, int width){
-        for(Component c: component){
-            if(c instanceof  Label || c instanceof Button){
-                continue;
-            }
-            if(c instanceof HasComponents){
-                if(0.25*width < 300){
-                    continue;
-                }
-                c.setWidth(""+0.25*width);
-                iterateOverContainers((HasComponents) c, width);
-            }else {
-                c.setWidth(""+0.05*width);
-                c.setHeight(""+0.04*width);
-                if(c instanceof Image) {
-                    c.setHeight("" + 0.05 * width);
-                }
-            }
-        }
+        mainLayout.addComponent(gridLayout);
+
+        return mainLayout;
     }
+    //TODO: Outsource
+
 
     //Listener
     private void addClickListenerDelete(){
@@ -213,24 +141,6 @@ public class SymptomSelectionView implements View {
 
     public Label getSymptomName(){
         return this.symptomName;
-    }
-    public Image getGoodSmiley() {
-        return goodSmiley;
-    }
-    public Image getMiddleSmiley() {
-        return middleSmiley;
-    }
-    public Image getBadSmiley() {
-        return badSmiley;
-    }
-    public Label getGoodLabel() {
-        return goodLabel;
-    }
-    public Label getMiddleLabel() {
-        return middleLabel;
-    }
-    public Label getBadLabel() {
-        return badLabel;
     }
     public Symptom.Strength getChoice() {
         return choice;

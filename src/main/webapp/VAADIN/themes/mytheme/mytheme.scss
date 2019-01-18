@@ -52,7 +52,7 @@ $v-selection-item-height: 30px;
 $v-selection-item-border-radius: 0;
 $valo-menu-background-color: #DCEDC8;
 $v-focus-color: #6eaeea;
-$v-selection-color: #9FEDD7;
+$v-selection-color: #6eaeea;
 $v-hover-styles-enabled: true !default;
 $al-bar-background-color: #e9eae8 default;
 
@@ -319,6 +319,17 @@ $al-bar-background-color: #e9eae8 default;
   }
   .smileybild:hover{transform: scale(1.2);}
 
+  .fixed{
+    min-width: 360px !important;
+  }
+  /*
+  .fixedYellow{
+    min-width: 360px !important;
+  }
+  .fixedRed{
+    min-width: 36px !important;
+  }
+  */
 
 
 

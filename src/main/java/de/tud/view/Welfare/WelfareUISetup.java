@@ -13,9 +13,9 @@ WelfareController welfareController;
 
 public WelfareUISetup() {
 //Layout
-
+/*
     welfareController = new WelfareController(this);
-
+*/
     captionLabel.addStyleName(MaterialTheme.CARD_0_5);
     captionLabel.addStyleName(MaterialTheme.LABEL_H1);
     captionLabel.addStyleName("catbackground");
@@ -92,9 +92,9 @@ public WelfareUISetup() {
     dataPicker.addStyleName(MaterialTheme.DATEFIELD_ALIGN_CENTER);
     captionLabel.setValue("Bitte geben Sie Ihre Daten an:");
 
-    this.addSaveButtonListener();
-    this.addDateTimeFieldChangeListener();
-    welfareController.addRadioButtonListenerPiucture();
+  //  this.addSaveButtonListener();
+   // this.addDateTimeFieldChangeListener();
+    //welfareController.addRadioButtonListenerPiucture();
 
 
 dataPicker.setDefaultValue( LocalDateTime.now());
@@ -102,141 +102,6 @@ dataPicker.setRangeEnd(LocalDateTime.now());
 
 
 }
-
-
-    private void addDateTimeFieldChangeListener(){
-        welfareController.addDateTimeFieldChangeListener();
-    }
-    private void addSaveButtonListener(){
-        welfareController.addSaveButtonListener();
-    }
-
-
-    public HorizontalLayout getConcentration() {
-        return concentration;
-    }
-
-    public void setConcentration(HorizontalLayout concentration) {
-        this.concentration = concentration;
-    }
-
-    public Image getConcentrationPicture() {
-        return concentrationPicture;
-    }
-
-    public void setConcentrationPicture(Image concentrationPicture) {
-        this.concentrationPicture = concentrationPicture;
-    }
-
-    public Label getConcentrationLabel() {
-        return concentrationLabel;
-    }
-
-    public void setConcentrationLabel(Label concentrationLabel) {
-        this.concentrationLabel = concentrationLabel;
-    }
-
-
-
-
-    public HorizontalLayout getSleep() {
-        return sleep;
-    }
-
-    public void setSleep(HorizontalLayout sleep) {
-        this.sleep = sleep;
-    }
-
-    public Image getSleepPicture() {
-        return sleepPicture;
-    }
-
-    public void setSleepPicture(Image sleepPicture) {
-        this.sleepPicture = sleepPicture;
-    }
-
-    public Label getSleepLabel() {
-        return sleepLabel;
-    }
-
-    public void setSleepLabel(Label sleepLabel) {
-        this.sleepLabel = sleepLabel;
-    }
-
-
-
-    public DateTimeField getDataPicker() {
-        return dataPicker;
-    }
-
-    public void setDataPicker(DateTimeField dataPicker) {
-        this.dataPicker = dataPicker;
-    }
-
-    public NativeButton getSave() {
-        return save;
-    }
-
-    public void setSave(NativeButton save) {
-        this.save = save;
-    }
-
-
-    public Label getCaptionLabel() {
-        return captionLabel;
-    }
-
-    public void setCaptionLabel(Label captionLabel) {
-        this.captionLabel = captionLabel;
-    }
-
-    public RadioButtonGroup<String> getFitnessRadioButton() {
-        return fitnessRadioButton;
-    }
-
-    public void setFitnessRadioButton(RadioButtonGroup<String> fitnessRadioButton) {
-        this.fitnessRadioButton = fitnessRadioButton;
-    }
-
-    public RadioButtonGroup<String> getSleepRadioButton() {
-        return sleepRadioButton;
-    }
-
-    public void setSleepRadioButton(RadioButtonGroup<String> sleepRadioButton) {
-        this.sleepRadioButton = sleepRadioButton;
-    }
-
-    public RadioButtonGroup<String> getConcentrationRadioButton() {
-        return concentrationRadioButton;
-    }
-    public void setConcentrationRadioButton(RadioButtonGroup<String> concentrationRadioButton) {
-        this.concentrationRadioButton = concentrationRadioButton;
-    }
-
-    public Image getConcentrationRadiobuttonPicture() {
-        return concentrationRadiobuttonPicture;
-    }
-
-    public void setConcentrationRadiobuttonPicture(Image concentrationRadiobuttonPicture) {
-        this.concentrationRadiobuttonPicture = concentrationRadiobuttonPicture;
-    }
-
-    public Image getFitnessRadiobuttonPicture() {
-        return fitnessRadiobuttonPicture;
-    }
-
-    public void setFitnessRadiobuttonPicture(Image fitnessRadiobuttonPicture) {
-        this.fitnessRadiobuttonPicture = fitnessRadiobuttonPicture;
-    }
-
-    public Image getSleepRadiobuttonPicture() {
-        return sleepRadiobuttonPicture;
-    }
-
-    public void setSleepRadiobuttonPicture(Image sleepRadiobuttonPicture) {
-        this.sleepRadiobuttonPicture = sleepRadiobuttonPicture;
-    }
-
 
 
 }

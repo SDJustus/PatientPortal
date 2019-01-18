@@ -158,9 +158,12 @@ public class DiaryViewController {
                     if(s.getChoice() == null && s.getSelectedSymptom() != null){
                         Notification.show("Es fehlen noch Eingaben für das Symptom: "+ s.getSelectedSymptom(), Notification.Type.HUMANIZED_MESSAGE);
                         return;
-                    }else{
-                        Notification.show("Es fehlen noch Eingaben.", Notification.Type.HUMANIZED_MESSAGE);
                     }
+                    if(s.getSelectedSymptom() == null){
+                        Notification.show("Es fehlen noch Eingaben.", Notification.Type.HUMANIZED_MESSAGE);
+                        return;
+                    }
+
 
                 }
                 saveDiaryEntry(diaryView.getDateTimeField().getValue(), symptoms);

@@ -23,6 +23,7 @@ public class SymptomSelectionViewController {
     private Symptom.Strength choice;
     private int selectionCounter = 0; //um dafür zu sorgen, dass nur einmal der Button "+weiteres Symptom" erscheint
 
+
     public SymptomSelectionViewController(SymptomSelectionView symptomSelectionView, DiaryViewController diaryViewController){
         this.diaryViewController = diaryViewController;
         System.out.println(diaryViewController.getSymptomList());
@@ -136,7 +137,6 @@ public class SymptomSelectionViewController {
         symptomSelectionView.getComboBox().addValueChangeListener(new HasValue.ValueChangeListener<String>() {
             @Override
             public void valueChange(HasValue.ValueChangeEvent<String> valueChangeEvent) {
-
 
                     symptomSelectionView.getSymptomName().setValue(valueChangeEvent.getValue());
                     symptomSelectionView.getSymptomName().addStyleName(ValoTheme.LABEL_BOLD);

@@ -190,7 +190,6 @@ public class VitalDataView extends Composite implements View {
 
 //panel setup
 
-
         panel.setHeight(""+0.67* Page.getCurrent().getBrowserWindowHeight());
         panel.setWidth(""+0.95*Page.getCurrent().getBrowserWindowWidth());
 
@@ -204,6 +203,7 @@ public class VitalDataView extends Composite implements View {
         //heightLabel.addStyleName(MaterialTheme.LABEL_BORDERLESS);
         //heartRateLabel.addStyleName(MaterialTheme.LABEL_BORDERLESS);
         //bloodPressureLabel.addStyleName(MaterialTheme.LABEL_BORDERLESS);
+
 
         weightLabel.setValue("Gewicht (kg)");
         heightLabel.setValue("Körpergröße (cm)");
