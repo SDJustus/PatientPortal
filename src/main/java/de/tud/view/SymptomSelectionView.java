@@ -113,7 +113,7 @@ public class SymptomSelectionView implements View {
         horizontalLayout1.setHeight("1px");
 
 
-        goodLabel = new Label("keine");
+        goodLabel = new Label("schwach");
         middleLabel = new Label("mäßig");
         badLabel = new Label("stark");
 
