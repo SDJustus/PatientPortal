@@ -46,7 +46,6 @@ public class SymptomEvaluationView extends EvaluationView{
         grid.addColumn(DiaryEvaluationUIModel::getDate, new LocalDateRenderer("dd.MM.yyyy")).setId("Datum");
         grid.getColumn("Datum").setCaption("Datum");
         grid.getColumn("Datum").setResizable(false);
-
         grid.setHierarchyColumn("Datum");
 
         grid.addColumn(DiaryEvaluationUIModel::getClock, new LocalDateTimeRenderer("HH:mm")).setId("Uhrzeit");

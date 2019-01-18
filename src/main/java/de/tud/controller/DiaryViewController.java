@@ -155,10 +155,11 @@ public class DiaryViewController {
                 HashSet<Symptom> symptoms = new HashSet<>();
                 for(SymptomSelectionViewController s: symptomSelectionViewControllers){
                     System.out.println(s.getSelectedSymptom()+ " "+s.getChoice());
-                    if(s.getChoice() == null){
+                    if(s.getChoice() == null && s.getSelectedSymptom() != null){
                         Notification.show("Es fehlen noch Eingaben für das Symptom: "+ s.getSelectedSymptom(), Notification.Type.HUMANIZED_MESSAGE);
-
                         return;
+                    }else{
+                        Notification.show("Es fehlen noch Eingaben.", Notification.Type.HUMANIZED_MESSAGE);
                     }
 
                 }
