@@ -18,10 +18,7 @@ import de.tud.view.DiaryView;
 import de.tud.view.SymptomSelectionView;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class DiaryViewController {
 
@@ -29,7 +26,7 @@ public class DiaryViewController {
     private DiaryView diaryView;
     private HashSet<String> avoidDuplicateSymptomsSet = new HashSet<>();   //Eingabe von doppelten Symptomen vermeiden
     private List<SymptomSelectionViewController> symptomSelectionViewControllers = new ArrayList<>();
-    private List<String> symptomList;
+    private TreeSet<String> symptomList;
     private int numberOfSymptoms = createSymptomList().size();
     private int counter = 0;
     private boolean editButtoClicked = false;
@@ -59,13 +56,13 @@ public class DiaryViewController {
         });
 
     }
-    public List<String> getSymptomList(){
+    public TreeSet<String> getSymptomList(){
         return  symptomList;
     }
 
 
-    private List<String> createSymptomList(){
-        List<String> symptomList = new ArrayList<>();
+    private TreeSet<String> createSymptomList(){
+        TreeSet<String> symptomList = new TreeSet<>();
         symptomList.add("Müdigkeit");
         symptomList.add("Gehstörung");
         symptomList.add("Kognitive Störung");
@@ -110,12 +107,6 @@ public class DiaryViewController {
 
 
     public void addNewSymptomSelectionView(){
-        //sicherstellen, dass Symptom nicht mehrfach auftaucht
-        for(SymptomSelectionViewController s : symptomSelectionViewControllers){
-            if(symptomList.contains(s.getSelectedSymptom())){
-                symptomList.remove(s.getSelectedSymptom());
-            }
-        }
 
         SymptomSelectionView symptomSelectionView = new SymptomSelectionView(this);
         System.out.println(symptomList);
@@ -164,7 +155,12 @@ public class DiaryViewController {
                 HashSet<Symptom> symptoms = new HashSet<>();
                 for(SymptomSelectionViewController s: symptomSelectionViewControllers){
                     System.out.println(s.getSelectedSymptom()+ " "+s.getChoice());
-                    symptoms.add(s.getSymptomArt());
+                    if(s.getChoice() == null){
+                        Notification.show("Es fehlen noch Eingaben für das Symptom: "+ s.getSelectedSymptom(), Notification.Type.HUMANIZED_MESSAGE);
+
+                        return;
+                    }
+
                 }
                 saveDiaryEntry(diaryView.getDateTimeField().getValue(), symptoms);
                 diaryView.getNewDiaryEntry().click();
