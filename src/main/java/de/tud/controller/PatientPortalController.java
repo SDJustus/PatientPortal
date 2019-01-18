@@ -120,7 +120,7 @@ public class PatientPortalController extends UI {
                 .add(SubmenuBuilder.get("Patiententagebuch", VaadinIcons.BOOK)
                         .add("Auswertung", VaadinIcons.TABLE, DiaryEvaluationView.class)
                         .add("Vitaldaten", VaadinIcons.HEART, VitalDataView.class)
-                        .add("Wohlbefinden", VaadinIcons.SMILEY_O, WelfareView.class)
+                        .add("Wohlbefinden", VaadinIcons.SMILEY_O, WelfareViewNew.class)
                         .add("Symptomeintrag", VaadinIcons.DOCTOR_BRIEFCASE, DiaryView.class)
                         .build())
                 .add("Hausaufgaben", VaadinIcons.LIST, HomeworkView.class)
