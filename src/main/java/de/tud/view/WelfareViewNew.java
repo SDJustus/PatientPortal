@@ -60,6 +60,19 @@ public class WelfareViewNew implements View {
     @Override
     public Component getViewComponent() {
 
+        UI.getCurrent().getPage().getStyles().add("#smileybild:hover{transform: scale(1.2);}"+
+                "#smileybild:{transition: transform .2s;}+" +
+                ".v-panel{padding-bottom: 80px;}"+
+                "#header-label{font-weight: bold; font-size:40px;}" +
+                "#greyscale{filter: grayscale(100%);" +
+                "-webkit-filter: grayscale(100%);" +
+                "-moz-filter: grayscale(100%);" +
+                "-ms-filter: grayscale(100%);" +
+                "-o-filter:grayscale(100%);" +
+                "filter: url(desaturate.svg#greyscale);" +
+                "filter: gray;" +
+                "-webkit-filter: grayscale(1);}");
+
         mainLayout = new VerticalLayout();
         dateSaveLayout = new HorizontalLayout();
         concentrationLayout = new HorizontalLayout();
