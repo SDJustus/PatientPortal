@@ -16,7 +16,9 @@ import de.tud.view.Welfare.WelfareSelectionView;
 import de.tud.view.Welfare.WelfareView;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class WelfareController  {
@@ -27,10 +29,7 @@ public class WelfareController  {
     private DiaryManager diaryManager;
     private Diary diary;
     private HashSet<Welfare> welfareSet;
-
-
-
-
+    private List<WelfareSelectionController> welfareSelectionControllers = new ArrayList<>();
 
 
     public  WelfareController(WelfareView welfareView)
@@ -42,10 +41,8 @@ public class WelfareController  {
         diaryId = diary.getId();
         */
 
-
-
     }
-    /*
+
     public void saveVitalDataEntry(LocalDateTime datum, Set<Symptom> symptoms){
 
         DiaryEntry diaryEntry = new DiaryEntry(datum , symptoms,new VitalData(), new HashSet<>());        //TODO: Replace "new VitalDaraSet","new HashSet" - it is only a placeholder
@@ -54,8 +51,7 @@ public class WelfareController  {
     }
 
 
-    public void PushßtoßtalkcheckSaveButton(){
-
+    public void checkSaveButton(){
         if(welfareView.getDateTimeField().getValue() != null){
             welfareView.getSave().setEnabled(true);
         }
@@ -73,6 +69,9 @@ public class WelfareController  {
             @Override
             public void buttonClick(Button.ClickEvent clickEvent) {
 
+                for(WelfareSelectionController welfareSelectionController : welfareSelectionControllers){
+                    System.out.println(welfareSelectionController.getWelfareArt());
+                }
 
             }
         });
@@ -99,7 +98,7 @@ public class WelfareController  {
         });
 
     }
-    */
+
 
     public void initWelfare(){
 
@@ -107,14 +106,17 @@ public class WelfareController  {
          WelfareSelectionView fitness = new WelfareSelectionView("fitness");
          WelfareSelectionView concentration = new WelfareSelectionView("concentration");
 
+         welfareSelectionControllers.add(sleep.getWelfareSelectionController());
+         welfareSelectionControllers.add(fitness.getWelfareSelectionController());
+         welfareSelectionControllers.add(concentration.getWelfareSelectionController());
+
        welfareView.getContentLayout()
                .addComponents(sleep.getViewComponent(), fitness.getViewComponent(),
                        concentration.getViewComponent());
 
+        integrityRestrictionsDateTimeField();
+
     }
-
-
-
 
 
 }

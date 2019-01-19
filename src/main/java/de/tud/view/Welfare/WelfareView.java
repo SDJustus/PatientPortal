@@ -5,6 +5,7 @@ import com.vaadin.server.ClassResource;
 import com.vaadin.shared.ui.MarginInfo;
 import com.vaadin.ui.*;
 import de.tud.controller.WelfareController;
+import de.tud.model.welfare.Welfare;
 
 public class WelfareView extends Composite implements View {
 
@@ -15,10 +16,22 @@ public class WelfareView extends Composite implements View {
     private Label captionLabel;
     private Button save;
     private DateTimeField dateTimeField;
+
+
     private WelfareController welfareController;
 
     public WelfareView(){
         welfareController = new WelfareController(this);
+
+        //CSS //TODO: outsource CSS
+        UI.getCurrent().getPage().getStyles().add("#greyscale{filter: grayscale(100%);" +
+                "-webkit-filter: grayscale(100%);" +
+                "-moz-filter: grayscale(100%);" +
+                "-ms-filter: grayscale(100%);" +
+                "-o-filter:grayscale(100%);" +
+                "filter: url(desaturate.svg#greyscale);" +
+                "filter: gray;" +
+                "-webkit-filter: grayscale(1);}");
 
         verticalLayoutMain = new VerticalLayout();
         menuBar = new HorizontalLayout();
@@ -26,8 +39,6 @@ public class WelfareView extends Composite implements View {
         save = new Button();
         captionLabel = new Label();
         dateTimeField = new DateTimeField();
-
-
 
         contentLayout = new VerticalLayout();
         contentLayout.setMargin(true);
@@ -45,6 +56,7 @@ public class WelfareView extends Composite implements View {
         verticalLayoutMain.addComponents(captionLabel, menuBar, panel);
 
         welfareController.initWelfare();
+        addSaveButtonListener();
         setCompositionRoot(verticalLayoutMain);
 
     }
@@ -65,6 +77,9 @@ public class WelfareView extends Composite implements View {
         return panel;
     }
 
+    private void addSaveButtonListener(){
+        welfareController.addSaveButtonListener();
+    }
 
 
 }

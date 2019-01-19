@@ -6,6 +6,9 @@ import com.vaadin.server.ClassResource;
 import com.vaadin.server.Page;
 import com.vaadin.ui.*;
 import de.tud.controller.WelfareSelectionController;
+import de.tud.model.welfare.PhysicalCondition;
+import de.tud.model.welfare.Sleep;
+import de.tud.model.welfare.Welfare;
 import de.tud.view.ButtonView;
 
 
@@ -18,24 +21,28 @@ public class WelfareSelectionView extends ButtonView implements View  {
     private String imagePath;
     private String name;
 
+    private Class<? extends Welfare> className;
 
 
     public WelfareSelectionView(String name){
-        //this.welfareSelectionController = new WelfareSelectionController();
+        this.welfareSelectionController = new WelfareSelectionController(this);
 
         switch (name){
             case "sleep":
                 this.name = "Schlaf:";
                 this.imagePath = "/welfareImages/sleep.png";
+                this.className = Sleep.class;
                 break;
 
             case "fitness":
                 this.name = "Fitness:";
                 this.imagePath = "/welfareImages/fitnesspicture.png";
+                this.className = PhysicalCondition.class;
                 break;
             case "concentration":
                 this.name = "Konzentration:";
                 this.imagePath = "/welfareImages/concentration.png";
+                this.className =  Sleep.class;
                 break;
         }
 
@@ -57,19 +64,21 @@ public class WelfareSelectionView extends ButtonView implements View  {
         middleSmiley.setHeight("80px");
         middleSmiley.setWidth("80px");
 
+        addClickListenerForSmileys();
+
         VerticalLayout goodLayout = new VerticalLayout();
         goodLayout.addComponents(goodSmiley, goodLabel);
         goodLayout.setSpacing(true);
         goodLayout.setComponentAlignment(goodLabel, Alignment.MIDDLE_CENTER);
         goodLayout.setComponentAlignment(goodSmiley, Alignment.MIDDLE_CENTER);
-        goodLayout.setStyleName("fixed");
+        goodLayout.setSizeUndefined();
 
         VerticalLayout middleLayout = new VerticalLayout();
         middleLayout.addComponents(middleSmiley, middleLabel);
         middleLayout.setComponentAlignment(middleSmiley, Alignment.MIDDLE_CENTER);
         middleLayout.setComponentAlignment(middleLabel, Alignment.MIDDLE_CENTER);
         middleLayout.setSpacing(true);
-        middleLayout.setStyleName("fixed");
+        middleLayout.setSizeUndefined();
 
 
         VerticalLayout badLayout = new VerticalLayout();
@@ -77,28 +86,42 @@ public class WelfareSelectionView extends ButtonView implements View  {
         badLayout.setComponentAlignment(badLabel, Alignment.MIDDLE_CENTER);
         badLayout.setComponentAlignment(badSmiley, Alignment.MIDDLE_CENTER);
         badLayout.setSpacing(true);
-        badLayout.setStyleName("fixed");
+        badLayout.setSizeUndefined();
+
+        //GridLayout buttons = new GridLayout(3,1);
+        HorizontalLayout buttons = new HorizontalLayout();
+        buttons.addComponents(goodLayout, middleLayout, badLayout);
 
 
         HorizontalLayout leftContainer = new HorizontalLayout();
         leftContainer.addComponents(picture, label);
-        leftContainer.setComponentAlignment(picture, Alignment.MIDDLE_CENTER);
-        leftContainer.setComponentAlignment(label, Alignment.BOTTOM_CENTER);
+        leftContainer.addStyleName("fixed");
+        leftContainer.setComponentAlignment(picture, Alignment.BOTTOM_CENTER);
+        leftContainer.setComponentAlignment(label, Alignment.BOTTOM_LEFT);
 
 
-        mainContainer.addStyleName("layoutwithborder");
+
         mainContainer.setMargin(true);
         mainContainer.addStyleName(MaterialTheme.CARD_1);
 
-        HorizontalLayout horizontalLayout = new HorizontalLayout();
-        horizontalLayout.addComponents(goodLayout, middleLayout, badLayout);
+        HorizontalLayout spacer = new HorizontalLayout();
+        spacer.setWidth("50px");
 
 
-        mainContainer.addComponents(leftContainer, goodLayout, middleLayout, badLayout, new HorizontalLayout());
-        mainContainer.setWidth("100%");
+        mainContainer.addComponents(leftContainer, buttons, spacer);
+        mainContainer.setWidth("85%");
 
 
 
         return mainContainer;
+    }
+    public Class<? extends Welfare> getWelfare() {
+        return className;
+    }
+    private void addClickListenerForSmileys(){
+        welfareSelectionController.addClickListenerForSmileys();
+    }
+    public WelfareSelectionController getWelfareSelectionController() {
+        return welfareSelectionController;
     }
 }
