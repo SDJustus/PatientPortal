@@ -39,11 +39,11 @@ public class VitalDataUIDesigner extends Panel {
     protected HorizontalLayout bloodPressure;
     protected Image bloodPressurePicture;
     protected Label bloodPressureLabel;
+    protected Label bloodPressureLabel11;
     protected FloatStepper bloodPressureStepper1;
+    protected FloatStepper bloodPressureStepper11;
     protected HorizontalLayout bloodPressure11;
     protected Image bloodPressurePicture11;
-    protected Label bloodPressureLabel11;
-    protected FloatStepper bloodPressureStepper11;
     protected HorizontalLayout heartRate;
     protected Image heartRatePicture;
     protected Label heartRateLabel;

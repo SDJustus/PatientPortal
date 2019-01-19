@@ -45,6 +45,7 @@ public class HomeworkCalender extends Calendar {
 
 
         String name = "";
+        String typ ="";
         String status ="Status: zu erledigen";
         String description =  "";
 
@@ -60,7 +61,7 @@ public class HomeworkCalender extends Calendar {
 
                     name = work.getName();
                     description = "Beschreibung: "+work.getDescription();
-
+                    typ = "Typ: " + work.getType().toString();
 
                 }
 
@@ -89,7 +90,7 @@ public class HomeworkCalender extends Calendar {
         MessageBox
                 .createInfo()
                 .withCaption(name)
-                .withMessage(status+"\n"+description)
+                .withMessage(status+"\n"+typ+"\n"+description)
                 .withNoButton(ButtonOption.caption("Weiter"), ButtonOption.icon(VaadinIcons.ARROW_LEFT))
                 .withYesButton( () -> { System.out.println("Aufgabe erledigt");
 

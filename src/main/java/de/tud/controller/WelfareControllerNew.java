@@ -25,12 +25,20 @@ public class WelfareControllerNew {
     Diary diary;
     HashSet<Welfare> welfareSet;
 
+    /**
+     * Initiate a welfare view.
+     */
+
     public WelfareControllerNew(WelfareViewNew welfareViewNew) {
 
         this.welfareViewNew = welfareViewNew;
 
     }
 
+
+    /**
+     * Adds a listener to the data picker.
+     */
     public void addDateFieldListener() {
 
         welfareViewNew.getDateField().addValueChangeListener((DateTimeField.ValueChangeListener) valueChangeEvent -> {
@@ -41,6 +49,9 @@ public class WelfareControllerNew {
 
     }
 
+    /**
+     * Adds a listener to the save button.
+     */
     public void addSaveButtonListener() {
 
         welfareViewNew.getSaveButton().addClickListener((Button.ClickListener) clickEvent -> {
@@ -52,6 +63,9 @@ public class WelfareControllerNew {
         });
 
     }
+    /**
+     * Adds a listener for the reset button.
+     */
 
     public void addResetButtonListener() {
 
@@ -84,6 +98,10 @@ public class WelfareControllerNew {
         });
 
     }
+
+    /**
+     * Adds a listener for  the interaction with smileys.
+     */
 
     public void addcSmileyClickListener() {
 
@@ -134,6 +152,10 @@ public class WelfareControllerNew {
 
     }
 
+
+    /**
+     * Adds a listener for  the interaction with smileys.
+     */
     public void addfSmileyClickListener() {
 
         welfareViewNew.getfSmileyGood().addClickListener(new MouseEvents.ClickListener() {
@@ -183,6 +205,9 @@ public class WelfareControllerNew {
 
     }
 
+    /**
+     * Adds a listener for  the interaction with smileys.
+     */
     public void addsSmileyClickListener() {
 
         welfareViewNew.getsSmileyGood().addClickListener(new MouseEvents.ClickListener() {
@@ -232,6 +257,11 @@ public class WelfareControllerNew {
 
     }
 
+    /**
+     * Creates a new welfare set.
+     */
+
+
     public void addWelfare() {
 
         welfareSet = new HashSet<>();
@@ -246,6 +276,10 @@ public class WelfareControllerNew {
         if (sleepChoice == "bad") { welfareSet.add(WelfareFactory.createSymptomByClass( "Sleep", Welfare.Strength.SEVERE)); }
 
     }
+
+    /**
+     * Saves the entry to the data base.
+     */
 
     public void saveWelfareDiaryEntry(LocalDateTime datum, HashSet<Welfare> data) {
 

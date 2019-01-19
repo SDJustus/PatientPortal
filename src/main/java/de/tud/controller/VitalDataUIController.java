@@ -24,6 +24,10 @@ public class VitalDataUIController  {
 
 
 
+    /**
+     * Initiate a new controller object.
+     */
+
    public  VitalDataUIController(VitalDataView desview)
     {
        this.desview = desview;
@@ -34,29 +38,10 @@ public class VitalDataUIController  {
 
     }
 
-    public void saveVitalDataEntry(LocalDateTime datum, Set<Symptom> symptoms){
 
-
-
-
-        DiaryEntry diaryEntry = new DiaryEntry(datum , symptoms,new VitalData(), new HashSet<>());        //TODO: Replace "new VitalDaraSet","new HashSet" - it is only a placeholder
-        DiaryManager.getInstance().addDiaryEntry(diaryEntry, diaryId);
-
-    }
-
-
-    public void checkSaveButton(){
-
-        if(desview.getDataPicker().getValue() != null){
-            desview.getSaveVitalData().setEnabled(true);
-        }
-
-    }
-    private void integrityRestrictionsDateTimeField(){
-        //TODO: Integritätsbedingungen in DiaryViewController
-        desview.getDataPicker().setRangeStart(LocalDateTime.now().minusWeeks(3));
-        desview.getDataPicker().setRangeEnd(LocalDateTime.now().plusMinutes(1));
-    }
+    /**
+     * Adds a safe button listener and restrictions.
+     */
 
 
     public void addSaveButtonListener(){
@@ -85,6 +70,10 @@ public class VitalDataUIController  {
     }
 
 
+    /**
+     * Saves the entry to the database.
+     */
+
     public void saveVitalDataDiaryEntry(LocalDateTime datum, VitalData data){
 
         Diary diary = DiaryManager.getInstance().read().get(0);
@@ -94,6 +83,10 @@ public class VitalDataUIController  {
         DiaryManager.getInstance().addDiaryEntry(diaryEntry,(long) diaryId);
 
     }
+
+    /**
+     * Adds a listener to the data picker.
+     */
 
     public void addDateTimeFieldChangeListener(){
         desview.getDataPicker().addValueChangeListener(new HasValue.ValueChangeListener<LocalDateTime>() {

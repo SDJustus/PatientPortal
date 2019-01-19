@@ -15,6 +15,11 @@ import java.time.LocalDateTime;
 public class VitalDataUIDesignerUISetup extends VitalDataUIDesigner implements View {
 
 VitalDataUIController vitalDataUIController;
+
+    /**
+     * Setup of labels, stepper and buttons.
+     */
+
 public VitalDataUIDesignerUISetup()
 {
 
