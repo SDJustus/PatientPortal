@@ -46,7 +46,7 @@ public class HomeworkCalender extends Calendar {
 
         String name = "";
         String typ ="";
-        String status ="Status: zu erledigen";
+        String status ="Offen";
         String description =  "";
 
         for(Homework work:homeworkList)
@@ -68,14 +68,14 @@ public class HomeworkCalender extends Calendar {
             }
             if(item instanceof FinishedItem == true)
             {
-
+                typ = "Typ: " + work.getType().toString();
                 FinishedItem finished = (FinishedItem) item;
 
                 if(finished.getId() == work.getId())  {
 
                     name = work.getName();
                     description = "Beschreibung: "+work.getDescription();
-                    status= "Status: erledigt";
+                    status= "Status: Erledigt";
 
 
                 }

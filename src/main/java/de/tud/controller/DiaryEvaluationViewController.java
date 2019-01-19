@@ -75,7 +75,7 @@ public class DiaryEvaluationViewController {
         });
 
 
-        if (diaryEvaluationView.getVerticalLayout().getComponentCount() == 2) {
+        if (diaryEvaluationView.getVerticalLayout().getComponentCount() == 3) {
             diaryEvaluationView.getVerticalLayout().removeComponent(diaryEvaluationView.getVerticalLayout().getComponent(1));
         }
 
@@ -106,7 +106,7 @@ public class DiaryEvaluationViewController {
         initTableFilters("Vitaldaten", vitalDataEvaluationView,null, vitaDataTableItems);
 
 
-        if (diaryEvaluationView.getVerticalLayout().getComponentCount() == 2) {
+        if (diaryEvaluationView.getVerticalLayout().getComponentCount() == 3) {
             diaryEvaluationView.getVerticalLayout().removeComponent(diaryEvaluationView.getVerticalLayout().getComponent(1));
         }
         diaryEvaluationView.getVerticalLayout().addComponent(vitalDataEvaluationView.getViewComponent());
@@ -142,7 +142,7 @@ public class DiaryEvaluationViewController {
             initTableFilters("Wohlbefinden", welfareEvaluationView, superEntryList, welfareTableItems);
 
 
-            if (diaryEvaluationView.getVerticalLayout().getComponentCount() == 2) {
+            if (diaryEvaluationView.getVerticalLayout().getComponentCount() == 3 ) {
                 diaryEvaluationView.getVerticalLayout().removeComponent(diaryEvaluationView.getVerticalLayout().getComponent(1));
             }
             diaryEvaluationView.getVerticalLayout().addComponent(welfareEvaluationView.getViewComponent());

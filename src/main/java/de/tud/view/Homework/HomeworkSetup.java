@@ -30,7 +30,7 @@ HomeworkController controller;
     controller.addCalenderListenerForCaptionLabel();
 
 
-    repeatBox.setItems("Einmalig", "Täglich", "Wöchentlich bis Endtermin" );
+    repeatBox.setItems("Einmalig", "Täglich", "Wöchentlich" );
     repeatBox.setCaption("Wiederholen:");
 
     combobox.setCaption("Aufgabentyp:");

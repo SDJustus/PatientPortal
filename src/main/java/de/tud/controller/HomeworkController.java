@@ -304,7 +304,7 @@ public class HomeworkController {
                 }
 
 
-                if(designerView.getRepeatBox().getValue().equals("Wöchentlich bis Endtermin"))
+                if(designerView.getRepeatBox().getValue().equals("Wöchentlich"))
                 {
 
                     ZonedDateTime zonedTime = designerView.getDataPicker().getValue().atStartOfDay(ZoneOffset.UTC);
