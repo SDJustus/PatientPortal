@@ -122,6 +122,7 @@ public class WelfareViewNew implements View {
         dateField.setTextFieldEnabled(false);
         dateField.setDefaultValue( LocalDateTime.now());
         dateField.setRangeEnd(LocalDateTime.now());
+        welfareControllerNew.addDateFieldListener();
 
         saveButton.setDescription("Speichern des Wohlbefindens");
         saveButton.setIcon(new ClassResource("/saveicon.png"));
@@ -310,5 +311,7 @@ public class WelfareViewNew implements View {
     public Label getsLabelBad() {
         return sLabelBad;
     }
+
+    public DateTimeField getDateField() { return dateField; }
 
 }
