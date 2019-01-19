@@ -22,7 +22,6 @@ import de.tud.view.Homework.FinishedItem;
 import de.tud.view.Homework.HomeworkDesigner;
 import de.tud.view.Homework.HomeworkSetup;
 import de.tud.view.Homework.ToDoItem;
-import de.tud.view.Welfare.WelfareUISetup;
 import org.vaadin.addon.calendar.handler.BasicDateClickHandler;
 import org.vaadin.addon.calendar.handler.BasicItemMoveHandler;
 import org.vaadin.addon.calendar.item.BasicItem;
