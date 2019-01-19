@@ -51,19 +51,27 @@ $v-selection-overlay-padding-vertical: 6px;
 $v-selection-item-height: 30px;
 $v-selection-item-border-radius: 0;
 $valo-menu-background-color: #DCEDC8;
-$v-focus-color: #026670;
+$v-focus-color: #6eaeea;
 $v-selection-color: #9FEDD7;
 $v-hover-styles-enabled: true !default;
+$al-bar-background-color: #e9eae8 default;
 
 // (You can find colors at materialpalette.com) $v-focus-color is supposed to be your accent color
 // Note: " ... Using colors from the Material Design palette is optional. ... "
 
 @import "../valo/valo.scss";
 @import "../material/material.scss";
+@import "app-layout.scss";
+
+
 @mixin mytheme {
 
   @include valo;
   @include material;
+  @include app-layout;
+
+
+
   .valo-test {
     .v-button-primary.v-button-primary {
       background: #fff;
@@ -234,6 +242,82 @@ $v-hover-styles-enabled: true !default;
 
 
 
+
+
+  .v-calendar-event.v-calendar-event-all-day.v-calendar-event-start.v-calendar-event-end.v-calendar-event-toDoEvent-all-day {
+    background-color: #f8b2b8 !important;
+    color: #000000!important;
+
+
+    .v-calendar-event-content {
+      border: 1px solid #39dc28 !important;
+
+      background-color: rgba(15, 220, 0, 0.8) !important;
+
+      -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+      -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+    }
+
+  }
+
+
+  .v-calendar-event.v-calendar-event-all-day.v-calendar-event-start.v-calendar-event-end.v-calendar-event-finishedEvent-all-day {
+    background-color: #85f877 !important;
+    color: #000000!important;
+
+
+    .v-calendar-event-content {
+      border: 1px solid #39dc28 !important;
+
+      background-color: rgba(15, 220, 0, 0.8) !important;
+
+      -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+      -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+    }
+
+
+
+  }
+
+  .v-calendar-times {
+    width: 0px;
+    font-size: 0.77em;
+    line-height: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    color:transparent;
+  }
+
+  .v-calendar-week-wrapper
+  {
+
+    width: 0px !important;
+    font-size: 0.77em !important;
+    line-height: 1 !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    color:transparent !important;
+
+
+  }
+
+  .v-treegrid-cell.severe  {
+    background: #F92D2D !important;
+  }
+  .v-treegrid-cell.middle {
+    background: #F4D513 !important;
+  }
+  .v-treegrid-cell.weak{
+    background: #9FEC0F !important;
+  }
+
+
+  .grayscaleButton{
+    filter: grayscale(1);
+  }
+  .smileybild:hover{transform: scale(1.2);}
 
 
 

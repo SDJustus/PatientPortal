@@ -231,7 +231,7 @@ class DiaryManagerTest {
 
     @Test
     void getDiaryEntryByIdTest(){
-
+        dm.deleteAll();
         Diary diary = new Diary();
         testDiary.add(testEntry1);
         diary.setDiaryEntries(testDiary);

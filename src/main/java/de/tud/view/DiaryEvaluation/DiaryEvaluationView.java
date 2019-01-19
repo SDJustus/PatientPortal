@@ -16,6 +16,15 @@ public class DiaryEvaluationView extends Composite implements View {
 
 
     public DiaryEvaluationView() {
+        UI.getCurrent().getPage().getStyles().add("#yellow{ background-color: #fdff40 !important;}"+
+                "#green{background-color: #60ec1a !important;}"+
+                "#blue{background-color: #10bbee !important; }");
+
+        symptomTableButton.setId("yellow");
+        vitalDataTableButton.setId("green");
+        welfareTableButton.setId("blue");
+        symptomTableButton.setEnabled(false);
+
         menuBar.addComponents(symptomTableButton, vitalDataTableButton, welfareTableButton);
         verticalLayout.addComponents(menuBar);
         verticalLayout.setComponentAlignment(menuBar, Alignment.MIDDLE_LEFT);

@@ -2,6 +2,8 @@ package de.tud.controller;
 
 import com.vaadin.data.HasValue;
 import com.vaadin.event.MouseEvents;
+import com.vaadin.event.dd.acceptcriteria.Not;
+import com.vaadin.ui.Alignment;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Notification;
 import com.vaadin.ui.themes.ValoTheme;
@@ -16,10 +18,7 @@ import de.tud.view.DiaryView;
 import de.tud.view.SymptomSelectionView;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class DiaryViewController {
 
@@ -27,8 +26,11 @@ public class DiaryViewController {
     private DiaryView diaryView;
     private HashSet<String> avoidDuplicateSymptomsSet = new HashSet<>();   //Eingabe von doppelten Symptomen vermeiden
     private List<SymptomSelectionViewController> symptomSelectionViewControllers = new ArrayList<>();
-    private List<String> symptomList;
+    private TreeSet<String> symptomList;
+    private int numberOfSymptoms = createSymptomList().size();
     private int counter = 0;
+    private boolean editButtoClicked = false;
+
 
     public DiaryViewController(DiaryView diaryView){
         this.diaryView = diaryView;
@@ -54,13 +56,13 @@ public class DiaryViewController {
         });
 
     }
-    public List<String> getSymptomList(){
+    public TreeSet<String> getSymptomList(){
         return  symptomList;
     }
 
 
-    private List<String> createSymptomList(){
-        List<String> symptomList = new ArrayList<>();
+    private TreeSet<String> createSymptomList(){
+        TreeSet<String> symptomList = new TreeSet<>();
         symptomList.add("Müdigkeit");
         symptomList.add("Gehstörung");
         symptomList.add("Kognitive Störung");
@@ -105,15 +107,15 @@ public class DiaryViewController {
 
 
     public void addNewSymptomSelectionView(){
+
         SymptomSelectionView symptomSelectionView = new SymptomSelectionView(this);
+        System.out.println(symptomList);
+        symptomSelectionViewControllers.add(symptomSelectionView.getSymptomSelectionViewController());
         diaryView.getVerticalLayout().addComponents(symptomSelectionView.getViewComponent());
 
-        System.out.println(diaryView.getVerticalLayout().getComponentCount());
 
-
-        symptomSelectionViewControllers.add(symptomSelectionView.getSymptomSelectionViewController());
         counter++;
-        diaryView.getEdit().setEnabled(true);
+
 
     }
 
@@ -153,7 +155,13 @@ public class DiaryViewController {
                 HashSet<Symptom> symptoms = new HashSet<>();
                 for(SymptomSelectionViewController s: symptomSelectionViewControllers){
                     System.out.println(s.getSelectedSymptom()+ " "+s.getChoice());
-                    symptoms.add(s.getSymptomArt());
+                    if(s.getChoice() == null && s.getSelectedSymptom() != null){
+                        Notification.show("Es fehlen noch Eingaben für das Symptom: "+ s.getSelectedSymptom(), Notification.Type.HUMANIZED_MESSAGE);
+                        return;
+                    }else{
+                        Notification.show("Es fehlen noch Eingaben.", Notification.Type.HUMANIZED_MESSAGE);
+                    }
+
                 }
                 saveDiaryEntry(diaryView.getDateTimeField().getValue(), symptoms);
                 diaryView.getNewDiaryEntry().click();
@@ -185,6 +193,10 @@ public class DiaryViewController {
                     Notification.show("Die Einträge werden verworfen");
                     //TODO: Dialog Window with Yes or No
                 }
+                if(diaryView.getVerticalLayout().getComponentCount() == 0){
+                    editButtoClicked = true;
+
+                }
                 diaryView.getVerticalLayout().removeAllComponents();
                 symptomSelectionViewControllers.clear();
                 symptomList.clear();
@@ -194,38 +206,12 @@ public class DiaryViewController {
 
                 counter = 0;
                addNewSymptomSelectionView();
-               diaryView.getOkay().setEnabled(false);
-               diaryView.getEdit().setEnabled(true);
-            }
-        });
-    }
-    public void addNewEditButtonListener(){
-        diaryView.getEdit().addClickListener(new Button.ClickListener() {
-            @Override
-            public void buttonClick(Button.ClickEvent clickEvent) {
 
-                for(SymptomSelectionViewController s : symptomSelectionViewControllers){
-                    if(s.checkComboBox() == true){
-                        s.getSymptomSelectionView().getDelete().setVisible(true);
-                        diaryView.getOkay().setEnabled(true);
-                        diaryView.getEdit().setEnabled(false);
-                    }
-                }
             }
         });
     }
-    public void addOkayButtonListener(){
-        diaryView.getOkay().addClickListener(new Button.ClickListener() {
-            @Override
-            public void buttonClick(Button.ClickEvent clickEvent) {
-                for(SymptomSelectionViewController s: symptomSelectionViewControllers){
-                    s.getSymptomSelectionView().getDelete().setVisible(false);
-                }
-                diaryView.getOkay().setEnabled(false);
-                diaryView.getEdit().setEnabled(true);
-            }
-        });
-    }
+
+
 
     public DiaryView getDiaryView(){
         return  diaryView;
@@ -233,6 +219,11 @@ public class DiaryViewController {
     public List<SymptomSelectionViewController> getSymptomSelectionViewControllers(){
         return this.symptomSelectionViewControllers;
     }
+    public boolean geteditButtonClicked(){
+        return editButtoClicked;
+    }
 
-
+    public int getNumberOfSymptoms(){
+        return numberOfSymptoms;
+    }
 }

@@ -1,0 +1,88 @@
+package de.tud;
+
+import de.tud.model.manager.MedicationPlanManager;
+import de.tud.model.medication.DummyMedication;
+import de.tud.model.medication.Medication;
+import org.hibernate.Session;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import javax.ejb.AfterCompletion;
+import java.util.List;
+
+public class MedicationManagerTest {
+
+    private MedicationPlanManager medicationPlanManager;
+    private Medication med1;
+    private Medication med2;
+    @BeforeEach
+    public void setUp(){
+        medicationPlanManager = MedicationPlanManager.getInstance();
+        med1 = new Medication();
+        med2 = new Medication();
+        med1.setDmId(1);
+        med1.setMorningDosage(331.11f);
+        med2.setNightDosage(33.1f);
+        med2.setDmId(5);
+        med2.setMorningDosage(3.1f);
+    }
+    @AfterCompletion
+    public void tearDown(){
+        medicationPlanManager.deleteAll();
+    }
+
+    @Test
+    public void testCreate(){
+        Long id = medicationPlanManager.create(med1);
+        Session session = MedicationPlanManager.getInstance().getSessionFactory().openSession();
+        Medication returnedMed = session.get(Medication.class, id);
+        session.close();
+        Assertions.assertEquals(med1.getMorningDosage(), returnedMed.getMorningDosage());
+    }
+
+    @Test
+    public void testDelete(){
+        Long medId1 = medicationPlanManager.create(med1);
+        Long medId2 = medicationPlanManager.create(med2);
+        medicationPlanManager.delete(medId1);
+        Assertions.assertEquals(medicationPlanManager.findByID(medId2).getClass(), Medication.class);
+        Assertions.assertThrows(IllegalArgumentException.class, () -> medicationPlanManager.findByID(medId1),
+                "There was no Medication with the given ID!");
+    }
+
+    @Test
+    public void testGetDummyMedicationsByMedicationId(){
+        Long medId1 = medicationPlanManager.create(med1);
+        Long medId2 = medicationPlanManager.create(med2);
+        DummyMedication dummyMedication = medicationPlanManager.getDummyMedicationByMedicationId(medId1);
+        Assertions.assertEquals(dummyMedication.getId(), new Long(1));
+        Assertions.assertEquals(medicationPlanManager.getDummyMedicationByMedicationId(medId2).getId(), new Long(5));
+
+    }
+    @Test
+    public void testGetAllDummyMedications(){
+        List<DummyMedication> dummyMedications = medicationPlanManager.getAllDummyMedication();
+        Assertions.assertFalse(dummyMedications.isEmpty());
+        Assertions.assertTrue(dummyMedications.size()==5);
+    }
+    @Test
+    public void testIsIncompatibleWith(){
+        List<DummyMedication> dummyMedications = medicationPlanManager.getAllDummyMedication();
+
+
+        long id1 = medicationPlanManager.create(med1);
+        long id2 = medicationPlanManager.create(med2);
+
+        Assertions.assertTrue(medicationPlanManager.isIncompatibleWith(4L));
+
+
+    }
+    @Test
+    public void testDeleteAll(){
+        long id = medicationPlanManager.create(med1);
+        medicationPlanManager.deleteAll();
+        Assertions.assertThrows(NullPointerException.class, () -> medicationPlanManager.read(),
+                "There was no Medication in the database.");
+    }
+}

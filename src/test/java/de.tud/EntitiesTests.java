@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.ZonedDateTime;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -37,8 +38,8 @@ public class EntitiesTests {
         long testId = 0;
 
         Homework hw = new Homework(Homework.Type.DOCUMENT, "Krankenakte", "Krankenakte Patient 586");
-
-        HomeworkManager hm = new HomeworkManager();
+        hw.setDate(ZonedDateTime.now());
+        HomeworkManager hm = HomeworkManager.getInstance();
 
         testId =  hm.create(hw);
 

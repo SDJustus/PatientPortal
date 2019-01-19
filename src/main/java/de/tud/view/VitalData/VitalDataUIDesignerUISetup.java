@@ -18,8 +18,9 @@ VitalDataUIController vitalDataUIController;
 public VitalDataUIDesignerUISetup()
 {
 
+    //TODO: Änderungen an Grenzwerten bitte in Vital Data View Klasse
     //Verbindung zu Controller
-    vitalDataUIController = new VitalDataUIController(this);
+    //vitalDataUIController = new VitalDataUIController(this);
 
 //caption setup
     captionLabel.addStyleName(MaterialTheme.CARD_0_5);
@@ -75,11 +76,11 @@ public VitalDataUIDesignerUISetup()
     weightStepper.setDescription("Bitte geben Sie Ihr Gewicht ein.");
     weightStepper.addStyleName(MaterialTheme.COMBOBOX_ALIGN_CENTER);
 
-    heightStepper.setMinValue(0.3f);
-    heightStepper.setMaxValue(3f);
-    heightStepper.setStepAmount(0.01f);
-    heightStepper.setValue(1.7f);
-    heightStepper.setNumberOfDecimals(2);
+    heightStepper.setMinValue(40f);
+    heightStepper.setMaxValue(300f);
+    heightStepper.setStepAmount(1f);
+    heightStepper.setValue(170f);
+    heightStepper.setNumberOfDecimals(0);
     heightStepper.setDescription("Bitte geben Sie Ihre Körpergröße ein.");
     heightStepper.addStyleName(MaterialTheme.COMBOBOX_ALIGN_CENTER);
 
@@ -127,9 +128,12 @@ public VitalDataUIDesignerUISetup()
     bloodPressureLabel.addStyleName(MaterialTheme.LABEL_BORDERLESS);
 
 
-
-
-
+//
+    heightStepper.setInvalidValuesAllowed(false);
+    weightStepper.setInvalidValuesAllowed(false);
+    bloodPressureStepper1.setInvalidValuesAllowed(false);
+    bloodPressureStepper1.setInvalidValuesAllowed(false);
+    heartRateStepper.setInvalidValuesAllowed(false);
 
 form.setSizeUndefined();
 form.addStyleName("overflow");
@@ -304,6 +308,8 @@ this.addDateTimeFieldChangeListener();
     public void setSaveVitalData(NativeButton saveVitalData) {
         this.saveVitalData = saveVitalData;
     }
+
+
 
 
 

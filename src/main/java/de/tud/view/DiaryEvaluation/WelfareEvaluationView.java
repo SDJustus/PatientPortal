@@ -1,23 +1,18 @@
 package de.tud.view.DiaryEvaluation;
 
+import com.vaadin.navigator.View;
 import com.vaadin.server.Page;
 import com.vaadin.shared.data.sort.SortDirection;
 import com.vaadin.ui.*;
+import com.vaadin.ui.renderers.LocalDateRenderer;
+import com.vaadin.ui.renderers.LocalDateTimeRenderer;
 import de.tud.model.welfare.Welfare;
 
-public class WelfareEvaluationView  {
-    Grid<WelfareTable> grid;
-    VerticalLayout tableContainer = new VerticalLayout();
-    ComboBox<String> filterComboBox = new ComboBox<>();
-    DateTimeField fromDate = new DateTimeField();
-    DateTimeField toDate = new DateTimeField();
-    HorizontalLayout filterBar = new HorizontalLayout();
-    int height = 170;
-    int width = 300;
+public class WelfareEvaluationView extends EvaluationView  {
 
 
     public WelfareEvaluationView(){
-        this.grid = new Grid<>();
+
     }
 
     public Component getViewComponent() {
@@ -30,13 +25,20 @@ public class WelfareEvaluationView  {
         filterComboBox.setWidth("250px");
 
         //Spalte Datum
-        grid.addColumn(WelfareTable::getDate).setId("Datum");
+        grid.addColumn(DiaryEvaluationUIModel::getDate, new LocalDateRenderer("dd.MM.yyyy")).setId("Datum");
         grid.getColumn("Datum").setCaption("Datum");
         grid.getColumn("Datum").setResizable(false);
+        grid.setHierarchyColumn("Datum");
         grid.setSizeFull();
 
+        grid.addColumn(DiaryEvaluationUIModel::getClock, new LocalDateTimeRenderer("HH:mm")).setId("Uhrzeit");
+        grid.getColumn("Uhrzeit").setCaption("Uhrzeit");
+        grid.getColumn("Uhrzeit").setResizable(false);
+        grid.getColumn("Uhrzeit").setMaximumWidth(100);
+
+
         //Spalte Welfare
-        grid.addColumn(WelfareTable::getWelfare).setId("Ausprägung des Wohlbefindens");
+        grid.addColumn(DiaryEvaluationUIModel::getWelfare).setId("Ausprägung des Wohlbefindens");
         grid.getColumn("Ausprägung des Wohlbefindens").setCaption("Ausprägung des Wohlbefindens");
         grid.getColumn("Ausprägung des Wohlbefindens").setResizable(false);
 
@@ -54,36 +56,16 @@ public class WelfareEvaluationView  {
 
         });
 
-        filterBar.addComponents(fromDate,toDate,filterComboBox);
+        grid.setSelectionMode(Grid.SelectionMode.NONE);
+
+        filterBar.addComponents(fromDate,toDate,filterComboBox, resetButton);
         tableContainer.addComponents(filterBar,grid);
         tableContainer.setMargin(false);
 
         return tableContainer;
     }
 
-    //helperclass
-    public class WelfareTable {
-        String dateTime;
-        Welfare welfare;
-        public WelfareTable(String dateTime, Welfare welfare ){
-            this.dateTime  = dateTime;
-            this.welfare = welfare;
-        }
-        public String getDate() {
-            return dateTime;
-        }
 
-        public Welfare getWelfare() {
-            return welfare;
-        }
-    }
-
-    public Grid<WelfareEvaluationView.WelfareTable> getGrid() {
-        return grid;
-    }
-    public ComboBox<String> getFilterComboBox() {
-        return filterComboBox;
-    }
 
 
 

@@ -1,6 +1,8 @@
 package de.tud.model.manager;
 
 import de.tud.model.*;
+import de.tud.model.medication.DummyMedication;
+import de.tud.model.medication.Medication;
 import de.tud.model.symptom.*;
 import de.tud.model.welfare.*;
 import org.hibernate.Session;
@@ -39,7 +41,10 @@ public abstract class EntityManager<T extends EntityObject> {
                 .addAnnotatedClass(ConcentrationAbility.class)
                 .addAnnotatedClass(PhysicalCondition.class)
                 .addAnnotatedClass(WelfareFactory.class)
-                .addAnnotatedClass(Homework.class);
+                .addAnnotatedClass(Homework.class)
+                .addAnnotatedClass(DummyMedication.class)
+                .addAnnotatedClass(Medication.class);
+
 
         StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder()
                 .applySettings(configuration.getProperties());

@@ -17,7 +17,7 @@ public class CustomizedErrorHandler implements ErrorHandler {
     private static final Logger LOGGER = Logger.getLogger(CustomizedErrorHandler.class.getSimpleName());
     @Override
     public void error(ErrorEvent event) {
-        LOGGER.log(Level.SEVERE, "An Error accoured: " + event.getThrowable().getLocalizedMessage());
+        LOGGER.log(Level.SEVERE, "An Error accoured: " + event.getThrowable().getMessage(), event.getThrowable());
         // Finds the original source of the error/exception
         AbstractComponent component = DefaultErrorHandler.findAbstractComponent(event);
         if (component != null) {
@@ -43,7 +43,7 @@ public class CustomizedErrorHandler implements ErrorHandler {
         SQLException sqlException = getCauseOfType(t, SQLException.class);
         if (sqlException != null)
             return new UserError(sqlException.getLocalizedMessage(),
-                    AbstractErrorMessage.ContentMode.TEXT, ErrorLevel.ERROR);
+                    AbstractErrorMessage.ContentMode.TEXT, ErrorLevel.CRITICAL);
         EmptyDataBaseException emptyDataBaseException = getCauseOfType(t, EmptyDataBaseException.class);
         if (emptyDataBaseException != null)
             return new UserError(emptyDataBaseException.getLocalizedMessage() +
@@ -51,10 +51,10 @@ public class CustomizedErrorHandler implements ErrorHandler {
         HibernateException hibernateException = getCauseOfType(t, HibernateException.class);
         if (hibernateException != null) {
             return new UserError(hibernateException.getLocalizedMessage(),
-                    AbstractErrorMessage.ContentMode.TEXT, ErrorLevel.ERROR);
+                    AbstractErrorMessage.ContentMode.TEXT, ErrorLevel.SYSTEM);
         }
         else{
-            return new UserError(t.getLocalizedMessage(),AbstractErrorMessage.ContentMode.TEXT, ErrorLevel.ERROR);
+            return new UserError(t.getLocalizedMessage(),AbstractErrorMessage.ContentMode.TEXT, ErrorLevel.CRITICAL);
         }
     }
 

@@ -12,6 +12,7 @@ import de.tud.model.symptom.SymptomFactory;
 import de.tud.view.SymptomSelectionView;
 
 import java.time.LocalDateTime;
+import java.util.concurrent.TimeUnit;
 
 public class SymptomSelectionViewController {
 
@@ -49,12 +50,14 @@ public class SymptomSelectionViewController {
 
                 diaryViewController.getSymptomList().remove(selectedSymptom);
 
+
                 if(diaryViewController.getSymptomList().size() == 2){
                     diaryViewController.setSaveButtonEnabled(false);
                     symptomSelectionView.getAddNextSymptom().setVisible(false);
                     diaryViewController.addNewSymptomSelectionView();
                     return;
                 }
+
                 diaryViewController.addNewSymptomSelectionView();
                 diaryViewController.setSaveButtonEnabled(false);
 
@@ -74,12 +77,14 @@ public class SymptomSelectionViewController {
                     symptomSelectionView.getGoodLabel().setValue("schwach");
                     choice = Symptom.Strength.WEAK;
                     symptomArt = SymptomFactory.createSymptomByClass(selectedSymptom, choice);
+
+                    symptomSelectionView.getGoodSmiley().setId("");
                     symptomSelectionView.getMiddleSmiley().setId("greyscale");
                     symptomSelectionView.getBadSmiley().setId("greyscale");
 
                     checkAddNextSymptomRestrictions();
+                    symptomSelectionView.getComboBox().setEnabled(false);
 
-                    deactivateButtons();
                 }
             }
         });
@@ -92,11 +97,13 @@ public class SymptomSelectionViewController {
                     symptomSelectionView.getMiddleLabel().setValue("mäßig");
                     choice = Symptom.Strength.MIDDLE;
                     symptomArt = SymptomFactory.createSymptomByClass(selectedSymptom, choice);
+
+                    symptomSelectionView.getMiddleSmiley().setId("");
                     symptomSelectionView.getGoodSmiley().setId("greyscale");
                     symptomSelectionView.getBadSmiley().setId("greyscale");
 
                     checkAddNextSymptomRestrictions();
-                    deactivateButtons();
+                    symptomSelectionView.getComboBox().setEnabled(false);
                 }
 
             }
@@ -110,24 +117,31 @@ public class SymptomSelectionViewController {
                     symptomSelectionView.getBadLabel().setValue("stark");
                     choice = Symptom.Strength.SEVERE;
                     symptomArt = SymptomFactory.createSymptomByClass(selectedSymptom, choice);
+
+                    symptomSelectionView.getBadSmiley().setId("");
                     symptomSelectionView.getGoodSmiley().setId("greyscale");
                     symptomSelectionView.getMiddleSmiley().setId("greyscale");
 
                     checkAddNextSymptomRestrictions();
-                    deactivateButtons();
+                    symptomSelectionView.getComboBox().setEnabled(false);
+
                 }
             }
         });
     }
+
+
 
     public void addValueChangeListenerForComboBox(){
         symptomSelectionView.getComboBox().addValueChangeListener(new HasValue.ValueChangeListener<String>() {
             @Override
             public void valueChange(HasValue.ValueChangeEvent<String> valueChangeEvent) {
 
-                symptomSelectionView.getSymptomName().setValue(valueChangeEvent.getValue());
-                symptomSelectionView.getSymptomName().addStyleName(ValoTheme.LABEL_BOLD);
-                selectedSymptom = valueChangeEvent.getValue();
+
+                    symptomSelectionView.getSymptomName().setValue(valueChangeEvent.getValue());
+                    symptomSelectionView.getSymptomName().addStyleName(ValoTheme.LABEL_BOLD);
+                    selectedSymptom = valueChangeEvent.getValue();
+
 
                 if(selectionCounter == 1){
                     symptomSelectionView.getAddNextSymptom().setEnabled(false);
@@ -141,6 +155,7 @@ public class SymptomSelectionViewController {
                     diaryViewController.setSaveButtonEnabled(false);
                     return;
                 }
+
                 if(diaryViewController.getSymptomList().size() == 1){
                     symptomSelectionView.getAddNextSymptom().setVisible(false);
                     return;
@@ -156,10 +171,36 @@ public class SymptomSelectionViewController {
             @Override
             public void buttonClick(Button.ClickEvent clickEvent) {
 
+
                 int index = diaryViewController.getSymptomSelectionViewControllers().indexOf(s);
+
                 Component c = diaryViewController.getDiaryView().getVerticalLayout().getComponent(index);
                 diaryViewController.getDiaryView().getVerticalLayout().removeComponent(c);
                 diaryViewController.getSymptomSelectionViewControllers().remove(s);
+
+                if(s.selectedSymptom!= null){
+                    diaryViewController.getSymptomList().add(s.selectedSymptom);
+                }
+
+
+                checkAddNextSymptomRestrictions();
+                if(diaryViewController.checkSymptomSelection()){
+                    diaryViewController.setSaveButtonEnabled(true);
+                }
+
+                //wenn gelöscht wird, muss der AddNextSymptom Button beim letzten Element in der Liste erscheinen
+
+                int index2 = diaryViewController.getSymptomSelectionViewControllers().size();
+
+                if(index2 >= 1 && index2 < diaryViewController.getNumberOfSymptoms()) {
+
+                    //diaryViewController.getSymptomSelectionViewControllers().get(index2 - 1).getSymptomSelectionView().getAddNextSymptom().setVisible(true);
+                    diaryViewController.getSymptomSelectionViewControllers().get(index2 - 1).selectionCounter = 0;
+                    if(diaryViewController.getSymptomSelectionViewControllers().get(index2-1).selectedSymptom != null){
+                        diaryViewController.getSymptomSelectionViewControllers().get(index2 - 1).getSymptomSelectionView().getAddNextSymptom().setVisible(true);
+                    }
+                    return;
+                }
 
 
                 if(diaryViewController.getDiaryView().getVerticalLayout().getComponentCount() == 0){
@@ -170,31 +211,23 @@ public class SymptomSelectionViewController {
 
     }
 
-    //Auswahl sperren
-    private void deactivateButtons(){
-        symptomSelectionView.getComboBox().setEnabled(false);
-        symptomSelectionView.getBadSmiley().setEnabled(false);
-        symptomSelectionView.getMiddleSmiley().setEnabled(false);
-        symptomSelectionView.getGoodSmiley().setEnabled(false);
-    }
-
-
-    //TODO: Method bugs
     private void checkAddNextSymptomRestrictions(){
-        System.out.println(symptomSelectionView.getComboBox().getValue());
-        System.out.println(selectionCounter);
-        System.out.println(diaryViewController.getSymptomList().size());
-        System.out.println(diaryViewController.getDiaryView().getVerticalLayout().getComponentCount());
+        if(diaryViewController.getNumberOfSymptoms() == diaryViewController.getSymptomSelectionViewControllers().size()){
+            diaryViewController.setSaveButtonEnabled(true);
+            return;
+        }
 
-        if(symptomSelectionView.getComboBox().getValue() != null &&
-                selectionCounter == 0 && diaryViewController.getSymptomList().size() == 1
+        if(symptomSelectionView.getComboBox().getValue() != null
+                &&selectionCounter == 0
+                && diaryViewController.getSymptomList().size() == 1
                 && diaryViewController.getDiaryView().getVerticalLayout().getComponentCount() > 0){
             diaryViewController.setSaveButtonEnabled(true);
             return;
         }
-        if(symptomSelectionView.getComboBox().getValue() != null &&
-                selectionCounter == 0 && diaryViewController.getSymptomList().size() >=2
-        && diaryViewController.getDiaryView().getVerticalLayout().getComponentCount() > 0){
+        if(symptomSelectionView.getComboBox().getValue() != null
+                && selectionCounter == 0
+                && diaryViewController.getSymptomList().size() >=2
+                && diaryViewController.getDiaryView().getVerticalLayout().getComponentCount() > 0){
 
             symptomSelectionView.getAddNextSymptom().setEnabled(true);
             symptomSelectionView.getAddNextSymptom().setVisible(true);
