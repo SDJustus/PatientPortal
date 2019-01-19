@@ -23,7 +23,6 @@ import de.tud.view.DiaryEvaluation.DiaryEvaluationView;
 import de.tud.view.Homework.HomeworkView;
 import de.tud.view.Start.StartView;
 import de.tud.view.VitalData.VitalDataView;
-import de.tud.view.Welfare.WelfareView;
 import de.tud.view.medicationPlan.MedicationPlanView;
 
 
