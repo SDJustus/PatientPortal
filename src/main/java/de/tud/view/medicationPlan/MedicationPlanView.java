@@ -39,6 +39,8 @@ public class MedicationPlanView implements View {
     private Button delete;
 
     //Medication Plan Grid Components
+    private HorizontalLayout gridHeadlineLayout;
+    private Label medicationEditHint;
     private Label medicationGridHeadline;
     private Grid<MedicationPlanUIModel> medicationPlanGrid;
 
@@ -59,6 +61,10 @@ public class MedicationPlanView implements View {
         medicationFormHeadline.setValue("Neue Medikation hinzufügen:");
         medicationFormHeadline.addStyleName(MaterialTheme.CARD_0_5);
         medicationFormHeadline.addStyleName(MaterialTheme.LABEL_H1);
+
+        //Hint setup
+        medicationEditHint = new Label();
+        medicationEditHint.setValue("Klicken Sie doppelt auf einen Eintrag um diesen zu bearbeiten");
 
         //Headline MedicationPlan Grid
         medicationGridHeadline = new Label("Medikationsplan:");
@@ -182,10 +188,13 @@ public class MedicationPlanView implements View {
         formFinalHorizontalLayout.addComponents(medicationPlanFormLayout,unitComboBox, formTextSafeLayout,saveMedicationFormButton, delete);
         formFinalHorizontalLayout.setMargin(new MarginInfo(false,true,false,true));
 
-
+        //Grid Headline Setup
+        gridHeadlineLayout = new HorizontalLayout();
+        gridHeadlineLayout.addComponents(medicationGridHeadline,medicationEditHint);
+        gridHeadlineLayout.setComponentAlignment(medicationEditHint,Alignment.MIDDLE_CENTER);
 
         //FinalLayoutAddComponents
-        verticalLayoutMain.addComponents(medicationFormHeadline, formFinalHorizontalLayout, medicationGridHeadline, medicationPlanGrid);
+        verticalLayoutMain.addComponents(medicationFormHeadline, formFinalHorizontalLayout, gridHeadlineLayout, medicationPlanGrid);
         return verticalLayoutMain;
     }
 
