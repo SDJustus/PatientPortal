@@ -1,7 +1,6 @@
 package de.tud.controller;
 
 import com.vaadin.ui.Button;
-import com.vaadin.ui.Grid;
 import com.vaadin.ui.Notification;
 import com.vaadin.ui.components.grid.ItemClickListener;
 import de.tud.model.manager.MedicationPlanManager;
@@ -84,8 +83,12 @@ public class MedicationPlanController {
             Notification.show("Bitte Einheit angeben");
             return false;
         }
-        else if(checkIfDmIDexists(medicationPlanView.getIdTextField().getValue())){
+        else if(checkIfDmIdAllreadyExists(medicationPlanView.getIdTextField().getValue())){
             Notification.show("Medikation existiert bereits");
+            return false;
+        }
+        else if(!checkIfDmIdExists(medicationPlanView.getIdTextField().getValue())){
+            Notification.show("Dieses Medikament existiert nicht");
             return false;
         }
         else{
@@ -93,10 +96,19 @@ public class MedicationPlanController {
         }
     }
 
-    private boolean checkIfDmIDexists(int dmID){
+    private boolean checkIfDmIdAllreadyExists(int dmID){
         List<Medication> medications = medicationPlanManager.read();
         for(Medication x: medications){
             if(dmID == x.getDmId()){
+                return true;
+            }
+        }
+        return false;
+    }
+    private boolean checkIfDmIdExists(int dmID){
+        List<DummyMedication> dummyMedications = medicationPlanManager.getAllDummyMedication();
+        for(DummyMedication x : dummyMedications){
+            if(x.getId() == dmID){
                 return true;
             }
         }

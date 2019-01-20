@@ -143,7 +143,7 @@ public class MedicationPlanView implements View {
 
         //Setup Medication Plan Grid
         medicationPlanGrid = new Grid<>();
-        medicationPlanGrid.addColumn(MedicationPlanUIModel::getDummyMedicationID).setCaption("ID").setWidth(55);
+        medicationPlanGrid.addColumn(MedicationPlanUIModel::getDummyMedicationID).setCaption("ID").setWidth(55).setId("ID");
         medicationPlanGrid.addColumn(MedicationPlanUIModel::getDummyMedicationTradeName).setCaption("Handelsname").setWidthUndefined().setMinimumWidth(150);
         medicationPlanGrid.addColumn(MedicationPlanUIModel::getDummyMedicationSubstance).setCaption("Wirkstoff").setWidthUndefined().setMinimumWidth(150);
         medicationPlanGrid.addColumn(MedicationPlanUIModel::getDummyMedicationForm).setCaption("Form").setWidth(125);
@@ -158,6 +158,7 @@ public class MedicationPlanView implements View {
         medicationPlanGrid.addColumn(MedicationPlanUIModel::getMedicationReason).setCaption("Grund").setWidthUndefined().setMinimumWidth(150);
 
         medicationPlanController.loadMedicationPlan();
+        medicationPlanGrid.sort("ID");
         medicationPlanController.addDoubleClickListenerToGrid();
 
         //Grid auto size
