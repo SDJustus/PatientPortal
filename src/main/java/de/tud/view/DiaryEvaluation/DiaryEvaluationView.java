@@ -46,6 +46,7 @@ public class DiaryEvaluationView extends Composite implements View {
         //Verbindung zu DiaryEvaluationViewController
         this.diaryEvaluationViewController = new DiaryEvaluationViewController(this);
 
+        diaryEvaluationViewController.addClickListenerForSymptomChartButton();
         addClickListenerForSymptomButton();
         addClickListenerForVitalDataButton();
         addClickListenerForWelfareButton();

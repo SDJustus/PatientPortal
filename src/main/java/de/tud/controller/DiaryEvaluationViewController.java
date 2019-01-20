@@ -76,7 +76,7 @@ public class DiaryEvaluationViewController {
 
 
         if (diaryEvaluationView.getVerticalLayout().getComponentCount() == 3) {
-            diaryEvaluationView.getVerticalLayout().removeComponent(diaryEvaluationView.getVerticalLayout().getComponent(1));
+            diaryEvaluationView.getVerticalLayout().removeComponent(diaryEvaluationView.getVerticalLayout().getComponent(2));
         }
 
 
@@ -107,7 +107,7 @@ public class DiaryEvaluationViewController {
 
 
         if (diaryEvaluationView.getVerticalLayout().getComponentCount() == 3) {
-            diaryEvaluationView.getVerticalLayout().removeComponent(diaryEvaluationView.getVerticalLayout().getComponent(1));
+            diaryEvaluationView.getVerticalLayout().removeComponent(diaryEvaluationView.getVerticalLayout().getComponent(2));
         }
         diaryEvaluationView.getVerticalLayout().addComponent(vitalDataEvaluationView.getViewComponent());
     }
@@ -143,10 +143,26 @@ public class DiaryEvaluationViewController {
 
 
             if (diaryEvaluationView.getVerticalLayout().getComponentCount() == 3 ) {
-                diaryEvaluationView.getVerticalLayout().removeComponent(diaryEvaluationView.getVerticalLayout().getComponent(1));
+                diaryEvaluationView.getVerticalLayout().removeComponent(diaryEvaluationView.getVerticalLayout().getComponent(2));
             }
             diaryEvaluationView.getVerticalLayout().addComponent(welfareEvaluationView.getViewComponent());
         }
+
+    private void initSymptomChart () {
+
+        SymptomChartView symp = new SymptomChartView();
+
+
+        if (diaryEvaluationView.getVerticalLayout().getComponentCount() == 3 ) {
+            diaryEvaluationView.getVerticalLayout().removeComponent(diaryEvaluationView.getVerticalLayout().getComponent(2));
+        }
+        diaryEvaluationView.getVerticalLayout().addComponent(symp.setup());
+    }
+
+
+
+
+
 
     public void addClickListenerForSymptomButton () {
             diaryEvaluationView.getSymptomTableButton().addClickListener(new Button.ClickListener() {
@@ -182,6 +198,21 @@ public class DiaryEvaluationViewController {
             });
 
         }
+
+        public void addClickListenerForSymptomChartButton()
+        {
+            diaryEvaluationView.getSymptomChartButton().addClickListener(new Button.ClickListener() {
+                @Override
+                public void buttonClick(Button.ClickEvent clickEvent) {
+                    activateButtons();
+                    diaryEvaluationView.getSymptomChartButton().setEnabled(false);
+                    initSymptomChart();
+                }
+            });
+
+
+        }
+
     private void activateButtons(){
         diaryEvaluationView.getVitalDataTableButton().setEnabled(true);
         diaryEvaluationView.getWelfareTableButton().setEnabled(true);

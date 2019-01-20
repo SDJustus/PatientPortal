@@ -6,6 +6,7 @@ package de.tud.view.DiaryEvaluation;
 import com.vaadin.addon.charts.model.AxisType;
 import com.vaadin.addon.charts.model.DataSeries;
 import com.vaadin.addon.charts.model.DataSeriesItem;
+import com.vaadin.ui.Component;
 import com.vaadin.ui.declarative.Design;
 import de.tud.model.Diary;
 import de.tud.model.DiaryEntry;
@@ -22,20 +23,22 @@ import java.util.*;
 public class SymptomChartView extends ChartView {
 
 
-
-
+    /**
+     * Returns a layout with a symptomchart.
+     */
     @Override
-    protected void setup() {
+    public Component setup() {
 
         chart.getConfiguration().getxAxis().setType(AxisType.DATETIME);
         chart.getConfiguration().getyAxis().setType(AxisType.LINEAR);
 
 
-        long id = 1;
 
+        DiaryManager diaryManager = DiaryManager.getInstance();
+        Diary diaryInst = diaryManager.read().get(0);
+        long diaryId = diaryInst.getId();
 
-
-        Set<DiaryEntry> diary=  DiaryManager.getInstance().readDiaryEntriesByDiary(id);
+        Set<DiaryEntry> diary=  DiaryManager.getInstance().readDiaryEntriesByDiary(diaryId);
         List<String> symptomNames = new ArrayList<String>();
         Set<Symptom> symptoms = new HashSet<>();
         Map<LocalDateTime,Symptom> symptomMap = new HashMap<>();
@@ -53,6 +56,16 @@ public class SymptomChartView extends ChartView {
 
              }
 
+
+         }
+
+         if(symptomMap.isEmpty() == true)
+         {
+             for(int i =0 ; i<100; i++)
+             {
+                 System.out.println("Fehler!");
+
+             }
 
          }
 
@@ -90,7 +103,8 @@ public class SymptomChartView extends ChartView {
            chart.getConfiguration().addSeries(s);
         }
 
-
+        chartContainer.addComponent(chart);
+        return chartContainer;
 
 
     }
