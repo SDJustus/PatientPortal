@@ -3,8 +3,8 @@ package de.tud.view.Welfare;
 import com.github.appreciated.material.MaterialTheme;
 import com.vaadin.navigator.View;
 import com.vaadin.server.ClassResource;
-import com.vaadin.server.Page;
 import com.vaadin.ui.*;
+import de.tud.controller.WelfareController;
 import de.tud.controller.WelfareSelectionController;
 import de.tud.model.welfare.PhysicalCondition;
 import de.tud.model.welfare.Sleep;
@@ -24,22 +24,23 @@ public class WelfareSelectionView extends ButtonView implements View  {
     private Class<? extends Welfare> className;
 
 
-    public WelfareSelectionView(String name){
-        this.welfareSelectionController = new WelfareSelectionController(this);
+    public WelfareSelectionView(String name, WelfareController welfareController){
+        this.welfareSelectionController = new WelfareSelectionController(this, welfareController);
+
 
         switch (name){
-            case "sleep":
+            case "Sleep":
                 this.name = "Schlaf:";
                 this.imagePath = "/welfareImages/sleep.png";
                 this.className = Sleep.class;
                 break;
 
-            case "fitness":
+            case "PhysicalCondition":
                 this.name = "Fitness:";
                 this.imagePath = "/welfareImages/fitnesspicture.png";
                 this.className = PhysicalCondition.class;
                 break;
-            case "concentration":
+            case "ConcentrationAbility":
                 this.name = "Konzentration:";
                 this.imagePath = "/welfareImages/concentration.png";
                 this.className =  Sleep.class;

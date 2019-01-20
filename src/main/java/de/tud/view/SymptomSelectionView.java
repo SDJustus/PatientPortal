@@ -115,6 +115,7 @@ public class SymptomSelectionView extends ButtonView implements View  {
         mainLayout.addStyleName("layoutwithborder");
 
         mainLayout.addComponent(gridLayout);
+        mainLayout.setWidth("85%");
 
         return mainLayout;
     }

@@ -41,6 +41,18 @@ public class WelfareEvaluationView extends EvaluationView  {
         grid.addColumn(DiaryEvaluationUIModel::getWelfare).setId("Ausprägung des Wohlbefindens");
         grid.getColumn("Ausprägung des Wohlbefindens").setCaption("Ausprägung des Wohlbefindens");
         grid.getColumn("Ausprägung des Wohlbefindens").setResizable(false);
+        grid.getColumn("Ausprägung des Wohlbefindens").setCaption("Ausprägung des Wohlbefindens").
+        setStyleGenerator(cellRef -> {
+            if(cellRef.getWelfare() == null){
+                return null;
+            }
+            switch (cellRef.getWelfare().getStrength()){
+                case SEVERE: return "severe";
+                case WEAK: return "weak";
+                case MIDDLE: return "middle";
+            }
+            return null;
+        });
 
         grid.setFrozenColumnCount(grid.getColumns().size());
         grid.sort("Datum", SortDirection.DESCENDING);

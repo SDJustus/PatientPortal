@@ -45,12 +45,10 @@ public class DiaryViewController {
        diaryView.getDateTimeField().addValueChangeListener(new HasValue.ValueChangeListener<LocalDateTime>() {
             @Override
             public void valueChange(HasValue.ValueChangeEvent<LocalDateTime> valueChangeEvent) {
+                //TODO!
 
-
-                if(diaryView.getDateTimeField().getValue() == null && checkSymptomSelection() && checkDateIntegrity()){
+                if(diaryView.getDateTimeField().getValue() != null && checkSymptomSelection() && checkDateIntegrity()) {
                     diaryView.getSave().setEnabled(true);
-                }else{
-                    Notification.show("unzulässiges Datum gewählt!");
                 }
             }
         });
@@ -155,7 +153,8 @@ public class DiaryViewController {
                 HashSet<Symptom> symptoms = new HashSet<>();
                 for(SymptomSelectionViewController s: symptomSelectionViewControllers){
                     System.out.println(s.getSelectedSymptom()+ " "+s.getChoice());
-                    if(s.getChoice() == null && s.getSelectedSymptom() != null){
+
+                    if(s.getChoice() == null){
                         Notification.show("Es fehlen noch Eingaben für das Symptom: "+ s.getSelectedSymptom(), Notification.Type.HUMANIZED_MESSAGE);
                         return;
                     }
@@ -164,8 +163,11 @@ public class DiaryViewController {
                         return;
                     }
 
+                    symptoms.add(s.getSymptomArt());
+
 
                 }
+                System.out.println("Symptome"+symptoms);
                 saveDiaryEntry(diaryView.getDateTimeField().getValue(), symptoms);
                 diaryView.getNewDiaryEntry().click();
 
@@ -221,9 +223,6 @@ public class DiaryViewController {
     }
     public List<SymptomSelectionViewController> getSymptomSelectionViewControllers(){
         return this.symptomSelectionViewControllers;
-    }
-    public boolean geteditButtonClicked(){
-        return editButtoClicked;
     }
 
     public int getNumberOfSymptoms(){

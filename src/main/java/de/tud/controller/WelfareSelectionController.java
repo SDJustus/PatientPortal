@@ -5,19 +5,18 @@ import de.tud.model.welfare.Welfare;
 import de.tud.model.welfare.WelfareFactory;
 import de.tud.view.Welfare.WelfareSelectionView;
 
-import java.util.ArrayList;
-import java.util.List;
 
 public class WelfareSelectionController {
 
     private WelfareSelectionView welfareSelectionView;
     private Welfare.Strength choice;
     private Welfare welfareArt;
+    private  WelfareController welfareController;
 
 
-    public WelfareSelectionController(
-            WelfareSelectionView selectionView){
+    public WelfareSelectionController(WelfareSelectionView selectionView, WelfareController welfareController){
         this.welfareSelectionView = selectionView;
+        this.welfareController = welfareController;
 
     }
 
@@ -36,6 +35,8 @@ public class WelfareSelectionController {
                     welfareSelectionView.getGoodSmiley().setId("");
                     welfareSelectionView.getMiddleSmiley().setId("greyscale");
                     welfareSelectionView.getBadSmiley().setId("greyscale");
+                    checkSaveButton();
+
 
             }
         });
@@ -53,6 +54,7 @@ public class WelfareSelectionController {
                     welfareSelectionView.getMiddleSmiley().setId("");
                     welfareSelectionView.getGoodSmiley().setId("greyscale");
                     welfareSelectionView.getBadSmiley().setId("greyscale");
+                    checkSaveButton();
 
 
             }
@@ -71,11 +73,21 @@ public class WelfareSelectionController {
                     welfareSelectionView.getBadSmiley().setId("");
                     welfareSelectionView.getGoodSmiley().setId("greyscale");
                     welfareSelectionView.getMiddleSmiley().setId("greyscale");
-
-
-
+                    checkSaveButton();
             }
         });
+    }
+    private void checkSaveButton(){
+        for(WelfareSelectionController s : welfareController.getWelfareSelectionControllers()){
+            if(s.getChoice() == null){
+                welfareController.getWelfareView().getSave().setEnabled(false);
+                return;
+            }
+        }
+        if(welfareController.checkDateIntegrity()) {
+            welfareController.getWelfareView().getSave().setEnabled(true);
+        }
+
     }
     public Welfare.Strength getChoice() {
         return choice;

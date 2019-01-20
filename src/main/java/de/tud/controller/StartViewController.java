@@ -30,7 +30,6 @@ public class StartViewController {
         LocalDate today = LocalDate.now();
         ArrayList<Homework> todayGridList = new ArrayList<>();
         ArrayList<Homework> fulfilledGridList = new ArrayList<>();
-        ArrayList<Homework> nextDaysGridList = new ArrayList<>();
 
         if(homeworkList != null){
             for(Homework s : homeworkList){
@@ -39,10 +38,9 @@ public class StartViewController {
                 }
                 if(s.getDate().toLocalDate().equals(today) && s.isStatus() == false){
                     todayGridList.add(s);
+
                 }else if(s.getDate().toLocalDate().equals(today) && s.isStatus() == true){
                     fulfilledGridList.add(s);
-                }else{
-                    nextDaysGridList.add(s);
                 }
             }
             startView.getTodayGrid().setItems(todayGridList);
@@ -52,8 +50,6 @@ public class StartViewController {
             startView.getFulfilledGrid().setItems(fulfilledGridList);
             startView.getFulfilledGrid().setHeightByRows(startView.getFulfilledGrid().getDataProvider().size(new Query<>())+1);
 
-            startView.getNextDaysGrid().setItems(nextDaysGridList);
-            startView.getNextDaysGrid().setHeightByRows(startView.getNextDaysGrid().getDataProvider().size(new Query<>())+1);
         }
 
     }

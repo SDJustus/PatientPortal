@@ -5,7 +5,6 @@ import com.vaadin.server.ClassResource;
 import com.vaadin.shared.ui.MarginInfo;
 import com.vaadin.ui.*;
 import de.tud.controller.WelfareController;
-import de.tud.model.welfare.Welfare;
 
 public class WelfareView extends Composite implements View {
 
@@ -16,7 +15,7 @@ public class WelfareView extends Composite implements View {
     private Label captionLabel;
     private Button save;
     private DateTimeField dateTimeField;
-
+    private Button resetButton;
 
     private WelfareController welfareController;
 
@@ -39,27 +38,34 @@ public class WelfareView extends Composite implements View {
         save = new Button();
         captionLabel = new Label();
         dateTimeField = new DateTimeField();
+        dateTimeField.setTextFieldEnabled(false);
 
         contentLayout = new VerticalLayout();
         contentLayout.setMargin(true);
         contentLayout.setSpacing(true);
 
+        resetButton = new Button("Alles Zurücksetzen");
 
-        menuBar.addComponents(dateTimeField, save);
+        menuBar.addComponents(dateTimeField, save, resetButton);
         menuBar.setMargin(new MarginInfo(false, false, false, true ));
 
         save.setCaption("Speichern");
         save.setDescription("Speichern der Vitaldaten");
         save.setIcon(new ClassResource("/saveicon.png"));
         panel.setContent(contentLayout);
+        panel.setSizeFull();
 
         verticalLayoutMain.addComponents(captionLabel, menuBar, panel);
 
-        welfareController.initWelfare();
+
         addSaveButtonListener();
+        addDateTimeFieldChangeListener();
         setCompositionRoot(verticalLayoutMain);
+        addResetButtonListener();
+        welfareController.initWelfare();
 
     }
+
 
     public VerticalLayout getContentLayout() {
         return contentLayout;
@@ -81,5 +87,14 @@ public class WelfareView extends Composite implements View {
         welfareController.addSaveButtonListener();
     }
 
+    private void addDateTimeFieldChangeListener(){
+        welfareController.addDateTimeFieldChangeListener();
+    }
 
+    public Button getResetButton() {
+        return resetButton;
+    }
+    private void addResetButtonListener(){
+        welfareController.addResetButtonListener();
+    }
 }

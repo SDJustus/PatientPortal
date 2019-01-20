@@ -215,6 +215,7 @@ public class VitalDataView extends Composite implements View {
 
         //dataPicker.addStyleName(MaterialTheme.DATEFIELD_ALIGN_CENTER);
         //dataPicker.addStyleName("catbackground");
+        dataPicker.setTextFieldEnabled(false);
         addSaveButtonListener();
         addDateTimeFieldChangeListener();
 

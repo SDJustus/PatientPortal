@@ -92,6 +92,9 @@ public class SymptomEvaluationView extends EvaluationView{
 
         });
 
+        
+        //grid.setHeight("100%");
+
 
         filterBar.addComponents(fromDate, toDate, filterComboBox, resetButton);
         filterBar.setResponsive(true);
