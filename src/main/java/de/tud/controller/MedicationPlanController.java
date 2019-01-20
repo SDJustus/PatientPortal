@@ -1,7 +1,9 @@
 package de.tud.controller;
 
 import com.vaadin.ui.Button;
+import com.vaadin.ui.Grid;
 import com.vaadin.ui.Notification;
+import com.vaadin.ui.components.grid.ItemClickListener;
 import de.tud.model.manager.MedicationPlanManager;
 import de.tud.model.medication.DummyMedication;
 import de.tud.model.medication.Medication;
@@ -46,12 +48,30 @@ public class MedicationPlanController {
             if(checkIntegrityConditions()){
                 if(safeMedicationPlanEntry()){
                     Notification.show("Eintrag erfolgreich gespeichert");
+                    clearInputFields();
+                    medicationPlanView.getDelete().setEnabled(false);
                 }
                 else{
                     Notification.show("Eintrag speichern fehlgeschlagen");
                 }
             }
 
+        });
+    }
+
+
+    public void addDeleteButtonListener(){
+        medicationPlanView.getDelete().addClickListener((Button.ClickListener) clickEvent -> {
+            List<Medication> medications = medicationPlanManager.read();
+            for(Medication x : medications){
+                if((long)medicationPlanView.getIdTextField().getValue() == x.getDmId()){
+                    medicationPlanManager.delete(x.getId());
+                    Notification.show("Eintrag erfolgreich gelöscht");
+                }
+            }
+            loadMedicationPlan();
+            clearInputFields();
+            medicationPlanView.getDelete().setEnabled(false);
         });
     }
 
@@ -64,9 +84,23 @@ public class MedicationPlanController {
             Notification.show("Bitte Einheit angeben");
             return false;
         }
+        else if(checkIfDmIDexists(medicationPlanView.getIdTextField().getValue())){
+            Notification.show("Medikation existiert bereits");
+            return false;
+        }
         else{
             return true;
         }
+    }
+
+    private boolean checkIfDmIDexists(int dmID){
+        List<Medication> medications = medicationPlanManager.read();
+        for(Medication x: medications){
+            if(dmID == x.getDmId()){
+                return true;
+            }
+        }
+        return false;
     }
 
     private boolean safeMedicationPlanEntry(){
@@ -85,9 +119,35 @@ public class MedicationPlanController {
         return true;
     }
 
-    public static void remove(MedicationPlanUIModel medicationPlanUIModel){
-        medicationPlanManager.delete(medicationPlanUIModel.getMedication().getId());
-        Notification.show("Eintrag erfolgreich gelöscht");
+    public void addDoubleClickListenerToGrid(){
+        medicationPlanView.getMedicationPlanGrid().addItemClickListener((ItemClickListener) itemClick -> {
+            if(itemClick.getMouseEventDetails().isDoubleClick()){
+                editItemFromDoubleClick((MedicationPlanUIModel) itemClick.getItem());
+                medicationPlanManager.delete(((MedicationPlanUIModel) itemClick.getItem()).getMedication().getId());
+                medicationPlanView.getDelete().setEnabled(true);
+            }
+        });
+    }
+
+    public void editItemFromDoubleClick(MedicationPlanUIModel medicationPlanUIModel){
+        medicationPlanView.getIdTextField().setValue((int) medicationPlanUIModel.getMedication().getDmId());
+        medicationPlanView.getUnitComboBox().setValue(medicationPlanUIModel.getMedication().getUnit());
+        medicationPlanView.getStepperMorning().setValue(medicationPlanUIModel.getMedication().getMorningDosage());
+        medicationPlanView.getStepperNoon().setValue(medicationPlanUIModel.getMedicationNoonDosage());
+        medicationPlanView.getStepperAfternoon().setValue(medicationPlanUIModel.getMedicationAfternoonDosage());
+        medicationPlanView.getHintsTextField().setValue(medicationPlanUIModel.getMedication().getHints());
+        medicationPlanView.getReasonTextField().setValue(medicationPlanUIModel.getMedication().getReason());
+    }
+
+    public void clearInputFields(){
+        medicationPlanView.getIdTextField().setValue(0);
+        medicationPlanView.getUnitComboBox().clear();
+        medicationPlanView.getStepperMorning().setValue(0f);
+        medicationPlanView.getStepperNoon().setValue(0f);
+        medicationPlanView.getStepperAfternoon().setValue(0f);
+        medicationPlanView.getStepperNight().setValue(0f);
+        medicationPlanView.getReasonTextField().clear();
+        medicationPlanView.getHintsTextField().clear();
     }
 
 }

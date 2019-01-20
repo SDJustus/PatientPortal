@@ -72,6 +72,13 @@ public class MedicationPlanView implements View {
         saveMedicationFormButton.setIcon(new ClassResource("/saveicon.png"));
         medicationPlanController.addSafeButtonListener();
 
+        //Delete Button
+        delete = new Button(VaadinIcons.CLOSE_CIRCLE);
+        delete.setCaption("Löschen");
+        delete.setEnabled(false);
+        medicationPlanController.addDeleteButtonListener();
+
+
         //Setup unitComboBox
         unitComboBox = new ComboBox();
         unitComboBox.setItems(Unit.values());
@@ -130,6 +137,7 @@ public class MedicationPlanView implements View {
         medicationPlanGrid.addColumn(MedicationPlanUIModel::getMedicationReason).setCaption("Grund");
 
         medicationPlanController.loadMedicationPlan();
+        medicationPlanController.addDoubleClickListenerToGrid();
 
         //Grid auto size
         medicationPlanGrid.setHeight("" + (Integer.valueOf(Page.getCurrent().getBrowserWindowHeight()) - 200 ));
@@ -149,7 +157,7 @@ public class MedicationPlanView implements View {
         formTextSafeLayout.addComponents(hintsTextField, reasonTextField);
         formTextSafeLayout.setMargin(new MarginInfo(false,true,false,true));
         formFinalHorizontalLayout = new HorizontalLayout();
-        formFinalHorizontalLayout.addComponents(medicationPlanFormLayout,unitComboBox, formTextSafeLayout,saveMedicationFormButton);
+        formFinalHorizontalLayout.addComponents(medicationPlanFormLayout,unitComboBox, formTextSafeLayout,saveMedicationFormButton, delete);
         formFinalHorizontalLayout.setMargin(new MarginInfo(false,true,false,true));
 
 
