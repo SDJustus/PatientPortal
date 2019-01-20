@@ -35,6 +35,7 @@ public class DiaryEvaluationView extends Composite implements View {
 
         symptomChartButton.setId("yellow");
         vitaldataChartButton.setId("green");
+        vitaldataChartButton.setEnabled(false);
         welfareChartButton.setId("blue");
 
         menuBar.addComponents(symptomTableButton, vitalDataTableButton, welfareTableButton);
@@ -47,9 +48,11 @@ public class DiaryEvaluationView extends Composite implements View {
         this.diaryEvaluationViewController = new DiaryEvaluationViewController(this);
 
         diaryEvaluationViewController.addClickListenerForSymptomChartButton();
+        diaryEvaluationViewController.addClickListenerForWelfareChartButton();
         addClickListenerForSymptomButton();
         addClickListenerForVitalDataButton();
         addClickListenerForWelfareButton();
+
 
         setCompositionRoot(verticalLayout);
     }

@@ -13,6 +13,7 @@ import de.tud.model.DiaryEntry;
 import de.tud.model.manager.DiaryManager;
 import de.tud.model.manager.HomeworkManager;
 import de.tud.model.symptom.Symptom;
+import de.tud.model.welfare.Welfare;
 
 import javax.xml.crypto.Data;
 import java.time.LocalDate;
@@ -20,7 +21,7 @@ import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.*;
 
-public class SymptomChartView extends ChartView {
+public class WelfareChartView extends ChartView {
 
 
     /**
@@ -39,47 +40,49 @@ public class SymptomChartView extends ChartView {
         long diaryId = diaryInst.getId();
 
         Set<DiaryEntry> diary=  DiaryManager.getInstance().readDiaryEntriesByDiary(diaryId);
-        List<String> symptomNames = new ArrayList<String>();
-        Set<Symptom> symptoms = new HashSet<>();
-        Map<LocalDateTime,Symptom> symptomMap = new HashMap<>();
+        List<String> welfareNames = new ArrayList<String>();
+        Set<Welfare> Welfare = new HashSet<>();
+        Map<LocalDateTime,Welfare> welfareMap = new HashMap<>();
         Set<DataSeries> series = new HashSet<>();
-         for(DiaryEntry d:diary)
-         {
-             for(Symptom s:d.getSymptom())
-             {
+        for(DiaryEntry d:diary)
+        {
+            for(Welfare w:d.getWelfare())
+            {
 
-                     symptomMap.put(d.getDate(), s);
-                     if(symptomNames.contains(s.toString()) == false)
-                     {
-                         symptomNames.add(s.toString());
-                     }
+                welfareMap.put(d.getDate(), w);
+                if(welfareNames.contains(w.toString()) == false)
+                {
+                    welfareNames.add(w.toString());
+                }
 
-             }
+            }
 
 
-         }
+        }
 
-         if(symptomMap.isEmpty() == true)
-         {
-             for(int i =0 ; i<100; i++)
-             {
-                 System.out.println("Fehler!");
+        if(welfareMap.isEmpty() == true)
+        {
+            for(int i =0 ; i<100; i++)
+            {
+                System.out.println("Fehler!");
 
-             }
+            }
 
-         }
+        }
 
-         for(String s:symptomNames)
-         {
-             DataSeries dataSeries = new DataSeries();
-             dataSeries.setName(s);
-             series.add(dataSeries);
 
-         }
 
-        Iterator entries = symptomMap.entrySet().iterator();
+        for(String s:welfareNames)
+        {
+            DataSeries dataSeries = new DataSeries();
+            dataSeries.setName(s);
+            series.add(dataSeries);
 
-        for (Map.Entry<LocalDateTime,Symptom> entry : symptomMap.entrySet())
+        }
+
+        Iterator entries = welfareMap.entrySet().iterator();
+
+        for (Map.Entry<LocalDateTime,Welfare> entry : welfareMap.entrySet())
         {
 
             for(DataSeries s:series)
@@ -100,9 +103,9 @@ public class SymptomChartView extends ChartView {
 
         for(DataSeries s:series)
         {
-           chart.getConfiguration().addSeries(s);
+            chart.getConfiguration().addSeries(s);
         }
-        chart.getConfiguration().setTitle("Zeitlicher Verlauf aller Symptome");
+        chart.getConfiguration().setTitle("Zeitlicher Verlauf des Wohlbefindens");
         chartContainer.addComponent(chart);
         return chartContainer;
 

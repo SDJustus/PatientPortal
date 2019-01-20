@@ -158,8 +158,32 @@ public class DiaryEvaluationViewController {
         }
         diaryEvaluationView.getVerticalLayout().addComponent(symp.setup());
     }
+    private void initWelfareChart () {
+
+        WelfareChartView welfareChartView = new WelfareChartView();
 
 
+        if (diaryEvaluationView.getVerticalLayout().getComponentCount() == 3 ) {
+            diaryEvaluationView.getVerticalLayout().removeComponent(diaryEvaluationView.getVerticalLayout().getComponent(2));
+        }
+        diaryEvaluationView.getVerticalLayout().addComponent(welfareChartView.setup());
+    }
+
+
+
+    public void addClickListenerForWelfareChartButton()
+    {
+        diaryEvaluationView.getWelfareChartButton().addClickListener(new Button.ClickListener() {
+            @Override
+            public void buttonClick(Button.ClickEvent clickEvent) {
+                activateButtons();
+                diaryEvaluationView.getWelfareChartButton().setEnabled(false);
+                initSymptomChart();
+            }
+        });
+
+
+    }
 
 
 
@@ -217,6 +241,8 @@ public class DiaryEvaluationViewController {
         diaryEvaluationView.getVitalDataTableButton().setEnabled(true);
         diaryEvaluationView.getWelfareTableButton().setEnabled(true);
         diaryEvaluationView.getSymptomTableButton().setEnabled(true);
+        diaryEvaluationView.getWelfareChartButton().setEnabled(true);
+        diaryEvaluationView.getSymptomChartButton().setEnabled(true);
     }
 
     private void initTableFilters(String filterCriteriaForCombobox, EvaluationView view, ArrayList<DiaryEvaluationUIModel> superEntryList,
