@@ -100,7 +100,7 @@ public class WelfareController  {
                 }
                 welfareView.getSave().setEnabled(false);
                 saveWelfareDiaryEntry(welfareView.getDateTimeField().getValue(), welfareHashSet);
-
+                Notification.show("Eintrag erfolgreich gespeichert");
 
             }
         });
