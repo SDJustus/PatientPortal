@@ -58,6 +58,10 @@ public class WelfareViewNew implements View {
     public WelfareViewNew() { this.welfareControllerNew = new WelfareControllerNew(this); }
 
     @Override
+    /**
+     * Setup all welfare components.
+     */
+
     public Component getViewComponent() {
 
         UI.getCurrent().getPage().getStyles().add("#smileybild:hover{transform: scale(1.2);}"+

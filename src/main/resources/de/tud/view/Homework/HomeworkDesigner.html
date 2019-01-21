@@ -13,9 +13,6 @@
  <body>
   <vaadin-vertical-layout size-auto>
    <vaadin-horizontal-layout>
-    <vaadin-button description="Eintrag hinzfügen" plain-text _id="saveButton">
-      Eintrag hinzufügen 
-    </vaadin-button>
     <vaadin-combo-box data-item-type="java.lang.String" _id="combobox">
      <option item="Option1">Option 1</option>
      <option item="Option2">Option 2</option>
@@ -27,6 +24,9 @@
      <option item="Option2">Option 2</option>
      <option item="Option3">Option 3</option>
     </vaadin-combo-box>
+    <vaadin-button description="Eintrag hinzfügen" plain-text _id="saveButton" :middle :center>
+      Speichern 
+    </vaadin-button>
    </vaadin-horizontal-layout>
    <vaadin-horizontal-layout>
     <vaadin-text-field caption="Aufgabenname:" _id="homeworkName"></vaadin-text-field>

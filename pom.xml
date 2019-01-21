@@ -152,6 +152,18 @@
 			<artifactId>messagebox</artifactId>
 			<version>4.0.21</version>
 		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.11</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.vaadin</groupId>
+			<artifactId>vaadin-charts</artifactId>
+			<version>4.1.0.beta1</version>
+		</dependency>
+
 
 
 	</dependencies>

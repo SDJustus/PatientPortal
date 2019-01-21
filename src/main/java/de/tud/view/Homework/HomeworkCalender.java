@@ -45,7 +45,8 @@ public class HomeworkCalender extends Calendar {
 
 
         String name = "";
-        String status ="Status: zu erledigen";
+        String typ ="";
+        String status ="Offen";
         String description =  "";
 
         for(Homework work:homeworkList)
@@ -60,21 +61,21 @@ public class HomeworkCalender extends Calendar {
 
                     name = work.getName();
                     description = "Beschreibung: "+work.getDescription();
-
+                    typ = "Typ: " + work.getType().toString();
 
                 }
 
             }
             if(item instanceof FinishedItem == true)
             {
-
+                typ = "Typ: " + work.getType().toString();
                 FinishedItem finished = (FinishedItem) item;
 
                 if(finished.getId() == work.getId())  {
 
                     name = work.getName();
                     description = "Beschreibung: "+work.getDescription();
-                    status= "Status: erledigt";
+                    status= "Status: Erledigt";
 
 
                 }
@@ -89,7 +90,7 @@ public class HomeworkCalender extends Calendar {
         MessageBox
                 .createInfo()
                 .withCaption(name)
-                .withMessage(status+"\n"+description)
+                .withMessage(status+"\n"+typ+"\n"+description)
                 .withNoButton(ButtonOption.caption("Weiter"), ButtonOption.icon(VaadinIcons.ARROW_LEFT))
                 .withYesButton( () -> { System.out.println("Aufgabe erledigt");
 

@@ -36,19 +36,23 @@
         </vaadin-label>
         <org_vaadin_risto_stepper-float-stepper style-name="Undefined width" responsive width="163px" height="66px" _id="heightStepper" :middle :center></org_vaadin_risto_stepper-float-stepper>
        </vaadin-horizontal-layout>
-       <vaadin-horizontal-layout style-name="layoutwithborder card-1" responsive width="800px" height="160px" margin _id="bloodPressure">
-        <vaadin-image source="waage.png" responsive width="90px" height-full _id="bloodPressurePicture" :middle :center></vaadin-image>
-        <vaadin-label description="systolischer  Blutdruck" responsive width="103px" plain-text _id="bloodPressureLabel" :middle :center>
-          systolischer Blutdruck: 
-        </vaadin-label>
-        <org_vaadin_risto_stepper-float-stepper caption="Wert 1:" description="systolischer Blutdruck" style-name="Undefined width" responsive width="166px" height="66px" _id="bloodPressureStepper1" :middle :center></org_vaadin_risto_stepper-float-stepper>
+       <vaadin-horizontal-layout style-name="layoutwithborder card-1" responsive width="800px" height="251px" margin _id="bloodPressure">
+        <vaadin-image source="waage.png" responsive width="90px" height-full _id="bloodPressurePicture" :middle :right></vaadin-image>
+        <vaadin-vertical-layout size-auto>
+         <vaadin-label description="systolischer  Blutdruck" responsive width="103px" plain-text _id="bloodPressureLabel">
+           systolischer Blutdruck: 
+         </vaadin-label>
+         <vaadin-label description="diastolischer Blutdruck" responsive width="103px" plain-text _id="bloodPressureLabel11" :bottom :center>
+           diastolischer Blutdruck: 
+         </vaadin-label>
+        </vaadin-vertical-layout>
+        <vaadin-vertical-layout size-auto>
+         <org_vaadin_risto_stepper-float-stepper caption="Wert 1:" description="systolischer Blutdruck" style-name="Undefined width" responsive width="166px" height="66px" _id="bloodPressureStepper1"></org_vaadin_risto_stepper-float-stepper>
+         <org_vaadin_risto_stepper-float-stepper caption="Wert 2:" description="diastolischer Blutdruck" style-name="Undefined width" responsive width="169px" height="66px" _id="bloodPressureStepper11"></org_vaadin_risto_stepper-float-stepper>
+        </vaadin-vertical-layout>
        </vaadin-horizontal-layout>
        <vaadin-horizontal-layout style-name="layoutwithborder card-1" responsive width="800px" height="160px" margin _id="bloodPressure11">
         <vaadin-image source="waage.png" responsive width="90px" height-full _id="bloodPressurePicture11" :middle :center></vaadin-image>
-        <vaadin-label description="diastolischer Blutdruck" responsive width="103px" plain-text _id="bloodPressureLabel11" :middle :center>
-          diastolischer Blutdruck: 
-        </vaadin-label>
-        <org_vaadin_risto_stepper-float-stepper caption="Wert 2:" description="diastolischer Blutdruck" style-name="Undefined width" responsive width="169px" height="66px" _id="bloodPressureStepper11" :middle :center></org_vaadin_risto_stepper-float-stepper>
        </vaadin-horizontal-layout>
        <vaadin-horizontal-layout style-name="layoutwithborder card-1" responsive width="800px" height="160px" margin _id="heartRate">
         <vaadin-image source="waage.png" responsive width="90px" height-full _id="heartRatePicture" :middle :center></vaadin-image>

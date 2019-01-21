@@ -75,8 +75,8 @@ public class DiaryEvaluationViewController {
         });
 
 
-        if (diaryEvaluationView.getVerticalLayout().getComponentCount() == 2) {
-            diaryEvaluationView.getVerticalLayout().removeComponent(diaryEvaluationView.getVerticalLayout().getComponent(1));
+        if (diaryEvaluationView.getVerticalLayout().getComponentCount() == 3) {
+            diaryEvaluationView.getVerticalLayout().removeComponent(diaryEvaluationView.getVerticalLayout().getComponent(2));
         }
 
 
@@ -106,8 +106,8 @@ public class DiaryEvaluationViewController {
         initTableFilters("Vitaldaten", vitalDataEvaluationView,null, vitaDataTableItems);
 
 
-        if (diaryEvaluationView.getVerticalLayout().getComponentCount() == 2) {
-            diaryEvaluationView.getVerticalLayout().removeComponent(diaryEvaluationView.getVerticalLayout().getComponent(1));
+        if (diaryEvaluationView.getVerticalLayout().getComponentCount() == 3) {
+            diaryEvaluationView.getVerticalLayout().removeComponent(diaryEvaluationView.getVerticalLayout().getComponent(2));
         }
         diaryEvaluationView.getVerticalLayout().addComponent(vitalDataEvaluationView.getViewComponent());
     }
@@ -142,11 +142,51 @@ public class DiaryEvaluationViewController {
             initTableFilters("Wohlbefinden", welfareEvaluationView, superEntryList, welfareTableItems);
 
 
-            if (diaryEvaluationView.getVerticalLayout().getComponentCount() == 2) {
-                diaryEvaluationView.getVerticalLayout().removeComponent(diaryEvaluationView.getVerticalLayout().getComponent(1));
+            if (diaryEvaluationView.getVerticalLayout().getComponentCount() == 3 ) {
+                diaryEvaluationView.getVerticalLayout().removeComponent(diaryEvaluationView.getVerticalLayout().getComponent(2));
             }
             diaryEvaluationView.getVerticalLayout().addComponent(welfareEvaluationView.getViewComponent());
         }
+
+    private void initSymptomChart () {
+
+        SymptomChartView symp = new SymptomChartView();
+
+
+        if (diaryEvaluationView.getVerticalLayout().getComponentCount() == 3 ) {
+            diaryEvaluationView.getVerticalLayout().removeComponent(diaryEvaluationView.getVerticalLayout().getComponent(2));
+        }
+        diaryEvaluationView.getVerticalLayout().addComponent(symp.setup());
+    }
+    private void initWelfareChart () {
+
+        WelfareChartView welfareChartView = new WelfareChartView();
+
+
+        if (diaryEvaluationView.getVerticalLayout().getComponentCount() == 3 ) {
+            diaryEvaluationView.getVerticalLayout().removeComponent(diaryEvaluationView.getVerticalLayout().getComponent(2));
+        }
+        diaryEvaluationView.getVerticalLayout().addComponent(welfareChartView.setup());
+    }
+
+
+
+    public void addClickListenerForWelfareChartButton()
+    {
+        diaryEvaluationView.getWelfareChartButton().addClickListener(new Button.ClickListener() {
+            @Override
+            public void buttonClick(Button.ClickEvent clickEvent) {
+                activateButtons();
+                diaryEvaluationView.getWelfareChartButton().setEnabled(false);
+                initSymptomChart();
+            }
+        });
+
+
+    }
+
+
+
 
     public void addClickListenerForSymptomButton () {
             diaryEvaluationView.getSymptomTableButton().addClickListener(new Button.ClickListener() {
@@ -182,10 +222,27 @@ public class DiaryEvaluationViewController {
             });
 
         }
+
+        public void addClickListenerForSymptomChartButton()
+        {
+            diaryEvaluationView.getSymptomChartButton().addClickListener(new Button.ClickListener() {
+                @Override
+                public void buttonClick(Button.ClickEvent clickEvent) {
+                    activateButtons();
+                    diaryEvaluationView.getSymptomChartButton().setEnabled(false);
+                    initSymptomChart();
+                }
+            });
+
+
+        }
+
     private void activateButtons(){
         diaryEvaluationView.getVitalDataTableButton().setEnabled(true);
         diaryEvaluationView.getWelfareTableButton().setEnabled(true);
         diaryEvaluationView.getSymptomTableButton().setEnabled(true);
+        diaryEvaluationView.getWelfareChartButton().setEnabled(true);
+        diaryEvaluationView.getSymptomChartButton().setEnabled(true);
     }
 
     private void initTableFilters(String filterCriteriaForCombobox, EvaluationView view, ArrayList<DiaryEvaluationUIModel> superEntryList,
