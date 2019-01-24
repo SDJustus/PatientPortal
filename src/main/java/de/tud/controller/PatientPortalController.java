@@ -23,7 +23,7 @@ import de.tud.view.DiaryEvaluation.DiaryEvaluationView;
 import de.tud.view.Homework.HomeworkView;
 import de.tud.view.Start.StartView;
 import de.tud.view.VitalData.VitalDataView;
-import de.tud.view.Welfare.WelfareView;
+import de.tud.view.Welfare.WelfareViewNew;
 import de.tud.view.medicationPlan.MedicationPlanView;
 
 
@@ -120,7 +120,7 @@ public class PatientPortalController extends UI {
                 .add(SubmenuBuilder.get("Patiententagebuch", VaadinIcons.BOOK)
                         .add("Auswertung", VaadinIcons.TABLE, DiaryEvaluationView.class)
                         .add("Vitaldaten", VaadinIcons.HEART, VitalDataView.class)
-                        .add("Wohlbefinden", VaadinIcons.SMILEY_O, WelfareView.class)
+                        .add("Wohlbefinden", VaadinIcons.SMILEY_O, WelfareViewNew.class)
                         .add("Symptomeintrag", VaadinIcons.DOCTOR_BRIEFCASE, DiaryView.class)
                         .build())
                 .add("Hausaufgaben", VaadinIcons.LIST, HomeworkView.class)

@@ -1,36 +1,19 @@
 package de.tud.controller;
 
 import com.vaadin.data.HasValue;
-import com.vaadin.data.converter.LocalDateTimeToDateConverter;
-import com.vaadin.data.provider.DataProvider;
-import com.vaadin.data.validator.StringLengthValidator;
-import com.vaadin.event.ContextClickEvent;
-import com.vaadin.event.selection.SingleSelectionEvent;
-import com.vaadin.event.selection.SingleSelectionListener;
-import com.vaadin.server.ClassResource;
 import com.vaadin.server.Sizeable;
-import com.vaadin.server.VaadinRequest;
 import com.vaadin.shared.ui.ContentMode;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Notification;
-import de.tud.model.Diary;
 import de.tud.model.Homework;
-import de.tud.model.manager.DiaryManager;
 import de.tud.model.manager.HomeworkManager;
-import de.tud.model.welfare.Welfare;
 import de.tud.view.Homework.FinishedItem;
-import de.tud.view.Homework.HomeworkDesigner;
 import de.tud.view.Homework.HomeworkSetup;
 import de.tud.view.Homework.ToDoItem;
-import de.tud.view.Welfare.WelfareUISetup;
-import org.vaadin.addon.calendar.handler.BasicDateClickHandler;
-import org.vaadin.addon.calendar.handler.BasicItemMoveHandler;
 import org.vaadin.addon.calendar.item.BasicItem;
 import org.vaadin.addon.calendar.item.BasicItemProvider;
 import org.vaadin.addon.calendar.item.CalendarItemProvider;
-import org.vaadin.addon.calendar.ui.CalendarComponentEvents;
 
-import javax.xml.crypto.Data;
 import java.time.*;
 import java.time.temporal.ChronoUnit;
 import java.util.*;

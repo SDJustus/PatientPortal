@@ -1,19 +1,12 @@
 package de.tud.controller;
 
 import com.vaadin.data.HasValue;
-import com.vaadin.event.MouseEvents;
-import com.vaadin.event.dd.acceptcriteria.Not;
-import com.vaadin.ui.Alignment;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Notification;
-import com.vaadin.ui.themes.ValoTheme;
 import de.tud.model.Diary;
 import de.tud.model.DiaryEntry;
-import de.tud.model.VitalData;
 import de.tud.model.manager.DiaryManager;
 import de.tud.model.symptom.Symptom;
-import de.tud.model.symptom.SymptomFactory;
-import de.tud.view.DiaryEvaluation.DiaryEvaluationView;
 import de.tud.view.DiaryView;
 import de.tud.view.SymptomSelectionView;
 
@@ -29,7 +22,6 @@ public class DiaryViewController {
     private TreeSet<String> symptomList;
     private int numberOfSymptoms = createSymptomList().size();
     private int counter = 0;
-    private boolean editButtoClicked = false;
 
 
     public DiaryViewController(DiaryView diaryView){
@@ -111,10 +103,7 @@ public class DiaryViewController {
         symptomSelectionViewControllers.add(symptomSelectionView.getSymptomSelectionViewController());
         diaryView.getVerticalLayout().addComponents(symptomSelectionView.getViewComponent());
 
-
         counter++;
-
-
     }
 
     public void setSaveButtonEnabled(boolean value) {
@@ -152,7 +141,6 @@ public class DiaryViewController {
 
                 HashSet<Symptom> symptoms = new HashSet<>();
                 for(SymptomSelectionViewController s: symptomSelectionViewControllers){
-                    System.out.println(s.getSelectedSymptom()+ " "+s.getChoice());
 
                     if(s.getChoice() == null){
                         Notification.show("Es fehlen noch Eingaben für das Symptom: "+ s.getSelectedSymptom(), Notification.Type.HUMANIZED_MESSAGE);
@@ -164,11 +152,7 @@ public class DiaryViewController {
                     }
                     symptoms.add(s.getSymptomArt());
 
-                    symptoms.add(s.getSymptomArt());
-
-
                 }
-                System.out.println("Symptome"+symptoms);
                 saveDiaryEntry(diaryView.getDateTimeField().getValue(), symptoms);
                 diaryView.getNewDiaryEntry().click();
 
@@ -199,10 +183,7 @@ public class DiaryViewController {
                     Notification.show("Die Einträge werden verworfen");
                     //TODO: Dialog Window with Yes or No
                 }
-                if(diaryView.getVerticalLayout().getComponentCount() == 0){
-                    editButtoClicked = true;
 
-                }
                 diaryView.getVerticalLayout().removeAllComponents();
                 symptomSelectionViewControllers.clear();
                 symptomList.clear();

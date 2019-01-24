@@ -9,7 +9,7 @@ import de.tud.model.DiaryEntry;
 import de.tud.model.manager.DiaryManager;
 import de.tud.model.welfare.Welfare;
 import de.tud.model.welfare.WelfareFactory;
-import de.tud.view.WelfareViewNew;
+import de.tud.view.Welfare.WelfareViewNew;
 
 import java.time.LocalDateTime;
 import java.util.HashSet;
