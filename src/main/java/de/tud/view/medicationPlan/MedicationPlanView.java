@@ -107,6 +107,7 @@ public class MedicationPlanView implements View {
         idTextField.setCaption("ID");
         idTextField.setStepAmount(1);
         idTextField.setMinValue(0);
+        idTextField.setMaxValue(medicationPlanController.getDummyMedicationCount());
 
         //Stepper Einnahmezeiten
         stepperNoon = new FloatStepper();

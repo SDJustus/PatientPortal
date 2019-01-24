@@ -44,6 +44,7 @@ public class MedicationPlanController {
 
     public void addSafeButtonListener(){
         medicationPlanView.getSaveMedicationFormButton().addClickListener((Button.ClickListener) clickEvent -> {
+            medicationPlanView.getIdTextField().setEnabled(true);
             if(checkIntegrityConditions()){
                 if(safeMedicationPlanEntry()){
                     Notification.show("Eintrag erfolgreich gespeichert");
@@ -71,11 +72,12 @@ public class MedicationPlanController {
             loadMedicationPlan();
             clearInputFields();
             medicationPlanView.getDelete().setEnabled(false);
+            medicationPlanView.getIdTextField().setEnabled(true);
         });
     }
 
     private boolean checkIntegrityConditions(){
-        if(medicationPlanView.getIdTextField().isEmpty()){
+        if(medicationPlanView.getIdTextField().getValue()==0){
             Notification.show("Bitte ID eingeben");
             return false;
         }
@@ -137,6 +139,7 @@ public class MedicationPlanController {
                 editItemFromDoubleClick((MedicationPlanUIModel) itemClick.getItem());
                 medicationPlanManager.delete(((MedicationPlanUIModel) itemClick.getItem()).getMedication().getId());
                 medicationPlanView.getDelete().setEnabled(true);
+                medicationPlanView.getIdTextField().setEnabled(false);
             }
         });
     }
@@ -160,6 +163,10 @@ public class MedicationPlanController {
         medicationPlanView.getStepperNight().setValue(0f);
         medicationPlanView.getReasonTextField().clear();
         medicationPlanView.getHintsTextField().clear();
+    }
+
+    public int getDummyMedicationCount(){
+        return medicationPlanManager.getAllDummyMedication().size();
     }
 
 }
