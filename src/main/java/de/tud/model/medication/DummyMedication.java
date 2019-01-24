@@ -24,6 +24,19 @@ public class DummyMedication extends EntityObject {
     @Column (name = "incompatible_with")
     private String incompatipleWith;
 
+    public DummyMedication(long id, String substance, String tradeName, String strength, String form, String incompatipleWith) {
+        this.id = id;
+        this.substance = substance;
+        this.tradeName = tradeName;
+        this.strength = strength;
+        this.form = form;
+        this.incompatipleWith = incompatipleWith;
+    }
+
+    public DummyMedication(){
+
+    }
+
     @Override
     public Long getId() {
         return id;

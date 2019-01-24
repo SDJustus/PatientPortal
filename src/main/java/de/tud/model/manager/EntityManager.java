@@ -11,8 +11,12 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public abstract class EntityManager<T extends EntityObject> {
+
+    private final Logger LOGGER = Logger.getLogger(EntityManager.class.getSimpleName());
 
     public SessionFactory getSessionFactory(){
         Configuration configuration = new Configuration().configure();
@@ -55,7 +59,7 @@ public abstract class EntityManager<T extends EntityObject> {
         session.save(entity);
         session.getTransaction().commit();
         session.close();
-        System.out.println("Successfully created " + entity.toString());
+        LOGGER.log(Level.INFO, "Successfully created " + entity.toString());
         return entity.getId();
     }
     public abstract List<T> read();

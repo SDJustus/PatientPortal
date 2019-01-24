@@ -13,6 +13,8 @@ import de.tud.view.SymptomSelectionView;
 
 import java.time.LocalDateTime;
 import java.util.concurrent.TimeUnit;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class SymptomSelectionViewController {
 
@@ -22,10 +24,11 @@ public class SymptomSelectionViewController {
     private Symptom symptomArt;
     private Symptom.Strength choice;
     private int selectionCounter = 0; //um dafür zu sorgen, dass nur einmal der Button "+weiteres Symptom" erscheint
+    private final Logger LOGGER = Logger.getLogger(SymptomSelectionViewController.class.getSimpleName());
 
     public SymptomSelectionViewController(SymptomSelectionView symptomSelectionView, DiaryViewController diaryViewController){
         this.diaryViewController = diaryViewController;
-        System.out.println(diaryViewController.getSymptomList());
+        LOGGER.log(Level.INFO, diaryViewController.getSymptomList().toString());
         this.symptomSelectionView = symptomSelectionView;
     }
 

@@ -12,6 +12,8 @@ import de.tud.view.SymptomSelectionView;
 
 import java.time.LocalDateTime;
 import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class DiaryViewController {
 
@@ -23,7 +25,7 @@ public class DiaryViewController {
     private int numberOfSymptoms = createSymptomList().size();
     private int counter = 0;
     private boolean editButtoClicked = false;
-
+    private final Logger LOGGER = Logger.getLogger(DiaryViewController.class.getSimpleName());
 
     public DiaryViewController(DiaryView diaryView){
         this.diaryView = diaryView;
@@ -102,7 +104,7 @@ public class DiaryViewController {
     public void addNewSymptomSelectionView(){
 
         SymptomSelectionView symptomSelectionView = new SymptomSelectionView(this);
-        System.out.println(symptomList);
+        LOGGER.log(Level.INFO, symptomList.toString());
         symptomSelectionViewControllers.add(symptomSelectionView.getSymptomSelectionViewController());
         diaryView.getVerticalLayout().addComponents(symptomSelectionView.getViewComponent());
 
@@ -134,10 +136,10 @@ public class DiaryViewController {
                 }
                 for(SymptomSelectionViewController s: symptomSelectionViewControllers){
                     avoidDuplicateSymptomsSet.add(s.getSelectedSymptom());
-                    System.out.println(s.getSelectedSymptom());
+                    LOGGER.log(Level.INFO, s.getSelectedSymptom());
                 }
-                System.out.println(avoidDuplicateSymptomsSet.size());
-                System.out.println(diaryView.getVerticalLayout().getComponentCount());
+                LOGGER.log(Level.INFO, String.valueOf(avoidDuplicateSymptomsSet.size()));
+                LOGGER.log(Level.INFO, String.valueOf(diaryView.getVerticalLayout().getComponentCount()));
 
                 if(avoidDuplicateSymptomsSet.size() < diaryView.getVerticalLayout().getComponentCount()){
                     Notification.show("Symptome dürfen nur einmal angegeben werden!");
@@ -147,7 +149,7 @@ public class DiaryViewController {
 
                 HashSet<Symptom> symptoms = new HashSet<>();
                 for(SymptomSelectionViewController s: symptomSelectionViewControllers){
-                    System.out.println(s.getSelectedSymptom()+ " "+s.getChoice());
+                    LOGGER.log(Level.INFO, s.getSelectedSymptom()+ " "+s.getChoice());
                     if(s.getChoice() == null && s.getSelectedSymptom() != null){
                         Notification.show("Es fehlen noch Eingaben für das Symptom: "+ s.getSelectedSymptom(), Notification.Type.HUMANIZED_MESSAGE);
                         return;

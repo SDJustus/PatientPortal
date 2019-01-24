@@ -5,6 +5,7 @@ import de.tud.model.medication.DummyMedication;
 import de.tud.model.medication.Medication;
 import de.tud.model.medication.Unit;
 import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.junit.jupiter.api.*;
 
 import java.util.List;
@@ -43,6 +44,38 @@ class MedicationManagerTest {
         medicationPlanManager.deleteAll();
         medicationPlanManager.create(med1);
         medicationPlanManager.create(med2);
+    }
+
+    @Test
+    void createDummyMedicationIfNotExisting(){
+        Session session = MedicationPlanManager.getInstance().getSessionFactory().openSession();
+        List<DummyMedication> dummyMedications = session.createQuery("FROM DummyMedication").list();
+        session.close();
+        if(dummyMedications.isEmpty()){
+            DummyMedication dummyMedication1 = new DummyMedication(1,	"Metoprololsuccinat",
+                    "Metoprololsuccinat 1A",	"95mg","Tablette","4");
+            DummyMedication dummyMedication2 = new DummyMedication(2,	"Ramipril",
+                    "Ramipril-ratiopharm",	"5mg","Tablette","1,3");
+            DummyMedication dummyMedication3 = new DummyMedication(3,	"Insulin aspart",
+                    "NovoRapid Penfill",	"100 E/ml","Lösung","1,2");
+            DummyMedication dummyMedication4 = new DummyMedication(4,	"Simvastatin",
+                    "Simva-Aristo",	"40 mg","Tablette","2,3,5");
+            DummyMedication dummyMedication5 = new DummyMedication(5,	"Fentanyl",
+                    "Fentanyl AbZ 75 µg/h",	"2.375 mg","Pflaster","2,4");
+            Session session2 = MedicationPlanManager.getInstance().getSessionFactory().openSession();
+            session2.beginTransaction();
+            session2.save(dummyMedication1);
+            session2.save(dummyMedication2);
+            session2.save(dummyMedication3);
+            session2.save(dummyMedication4);
+            session2.save(dummyMedication5);
+            session2.getTransaction().commit();
+            dummyMedications = session2.createQuery("FROM DummyMedication").list();
+            session.close();
+        }
+
+        Assertions.assertFalse(dummyMedications.isEmpty());
+
     }
 
     @Test

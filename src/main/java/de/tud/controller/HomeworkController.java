@@ -17,13 +17,15 @@ import org.vaadin.addon.calendar.item.CalendarItemProvider;
 import java.time.*;
 import java.time.temporal.ChronoUnit;
 import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class HomeworkController {
 
 
     HomeworkSetup designerView;
     private long diaryId;
-
+    private final Logger LOGGER = Logger.getLogger(HomeworkController.class.getSimpleName());
 
     BasicItemProvider<BasicItem> basicProvider;
     private String repeat;
@@ -252,15 +254,15 @@ public class HomeworkController {
 
                     ZonedDateTime zonedTime = designerView.getDataPicker().getValue().atStartOfDay(ZoneOffset.UTC);
 
-                    System.out.println(zonedTime);
+                    LOGGER.log(Level.INFO, zonedTime.toString());
 
                     int dayDiff = (int) now.until(zonedTime, ChronoUnit.DAYS);
-                    System.out.println("DayDiff:");
+                    LOGGER.log(Level.INFO, "DayDiff:");
 
-                        System.out.println(dayDiff);
+                        LOGGER.log(Level.INFO, String.valueOf(dayDiff));
 
-                    System.out.println("Now+1: ");
-                        System.out.println(now.plusDays(1));
+                    LOGGER.log(Level.INFO, "Now+1: ");
+                        LOGGER.log(Level.INFO, now.plusDays(1).toString());
                         for(int i =0; i<= dayDiff ; i++)
                         {
 
@@ -277,7 +279,7 @@ public class HomeworkController {
 
                     ZonedDateTime zonedTime = designerView.getDataPicker().getValue().atStartOfDay(ZoneOffset.UTC);
 
-                    System.out.println(zonedTime);
+                    LOGGER.log(Level.INFO, zonedTime.toString());
 
                     int dayDiff = (int) now.until(zonedTime, ChronoUnit.WEEKS);
                     for(int i =0; i<= dayDiff ; i++)

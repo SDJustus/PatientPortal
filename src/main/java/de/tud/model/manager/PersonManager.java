@@ -7,9 +7,12 @@ import org.hibernate.Session;
 
 import javax.persistence.Query;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class PersonManager extends EntityManager<Person> {
 
+    private final Logger LOGGER = Logger.getLogger(PersonManager.class.getSimpleName());
     /*
       public static void main(String[] args) {
 
@@ -57,7 +60,7 @@ public class PersonManager extends EntityManager<Person> {
         Session session = getSessionFactory().openSession();
         List<Person> persons = session.createQuery("FROM Person").list();
         session.close();
-        System.out.println("Found " + persons.size() + " persons");
+        LOGGER.log(Level.INFO,"Found " + persons.size() + " persons");
         return persons;
     }
 
@@ -70,12 +73,12 @@ public class PersonManager extends EntityManager<Person> {
             person.setGivenName(p.getGivenName());
             person.setFamilyName(p.getFamilyName());
             session.getTransaction().commit();
-            System.out.println("Successfully updated " + p.toString());
+            LOGGER.log(Level.INFO,"Successfully updated " + p.toString());
         }
         catch(Exception e){
             if (session.getTransaction() != null)
             session.getTransaction().rollback();
-            System.out.println("Upadate on " + p.toString() + " failed");
+            LOGGER.log(Level.INFO, "Upadate on " + p.toString() + " failed");
         }
         finally {
             session.close();
@@ -92,12 +95,12 @@ public class PersonManager extends EntityManager<Person> {
             Person p = findByID(id);
             session.delete(p);
             session.getTransaction().commit();
-            System.out.println("Successfully deleted " + p.toString());
+            LOGGER.log(Level.INFO, "Successfully deleted " + p.toString());
         }
         catch (Exception e){
             if (session.getTransaction() != null){
                 session.getTransaction().rollback();
-                System.out.println("Deletion failed");
+                LOGGER.log(Level.INFO,"Deletion failed");
                 }
         }
         finally {
@@ -122,11 +125,11 @@ public class PersonManager extends EntityManager<Person> {
             Query query = session.createQuery("DELETE FROM Person ");
             query.executeUpdate();
             session.getTransaction().commit();
-            System.out.println("Successfully deleted all persons.");
+            LOGGER.log(Level.INFO,"Successfully deleted all persons.");
         }
         catch (Exception e){
             session.getTransaction().rollback();
-            System.out.println("Deletion of all persons failed");
+            LOGGER.log(Level.INFO,"Deletion of all persons failed");
         }
         finally {
             session.close();
