@@ -7,8 +7,8 @@ import de.tud.model.Diary;
 import de.tud.model.DiaryEntry;
 import de.tud.model.manager.DiaryManager;
 import de.tud.model.symptom.Symptom;
-import de.tud.view.DiaryView;
-import de.tud.view.SymptomSelectionView;
+import de.tud.view.symptoms.SymptomView;
+import de.tud.view.symptoms.SymptomSelectionView;
 
 import java.time.LocalDateTime;
 import java.util.*;
@@ -16,7 +16,7 @@ import java.util.*;
 public class DiaryViewController {
 
 
-    private DiaryView diaryView;
+    private SymptomView symptomView;
     private HashSet<String> avoidDuplicateSymptomsSet = new HashSet<>();   //Eingabe von doppelten Symptomen vermeiden
     private List<SymptomSelectionViewController> symptomSelectionViewControllers = new ArrayList<>();
     private TreeSet<String> symptomList;
@@ -24,23 +24,23 @@ public class DiaryViewController {
     private int counter = 0;
 
 
-    public DiaryViewController(DiaryView diaryView){
-        this.diaryView = diaryView;
+    public DiaryViewController(SymptomView symptomView){
+        this.symptomView = symptomView;
         this.symptomList = createSymptomList();
 
         integrityRestrictionsDateTimeField();
         addNewSymptomSelectionView();
-        diaryView.getDateTimeField().setValue(LocalDateTime.now());
+        symptomView.getDateTimeField().setValue(LocalDateTime.now());
     }
 
     public void addDateTimeFieldChangeListener(){
-       diaryView.getDateTimeField().addValueChangeListener(new HasValue.ValueChangeListener<LocalDateTime>() {
+       symptomView.getDateTimeField().addValueChangeListener(new HasValue.ValueChangeListener<LocalDateTime>() {
             @Override
             public void valueChange(HasValue.ValueChangeEvent<LocalDateTime> valueChangeEvent) {
                 //TODO!
 
-                if(diaryView.getDateTimeField().getValue() != null && checkSymptomSelection() && checkDateIntegrity()) {
-                    diaryView.getSave().setEnabled(true);
+                if(symptomView.getDateTimeField().getValue() != null && checkSymptomSelection() && checkDateIntegrity()) {
+                    symptomView.getSave().setEnabled(true);
                 }
             }
         });
@@ -67,9 +67,9 @@ public class DiaryViewController {
         return symptomList;
     }
     public boolean checkDateIntegrity(){
-        LocalDateTime rangeEnd = diaryView.getDateTimeField().getRangeEnd();
-        LocalDateTime rangeStart = diaryView.getDateTimeField().getRangeStart();
-        LocalDateTime date = diaryView.getDateTimeField().getValue();
+        LocalDateTime rangeEnd = symptomView.getDateTimeField().getRangeEnd();
+        LocalDateTime rangeStart = symptomView.getDateTimeField().getRangeStart();
+        LocalDateTime date = symptomView.getDateTimeField().getValue();
         if(date.isAfter(rangeEnd) || date.isBefore(rangeStart)){
             Notification.show("unzulässiges Datum gewählt!");
             return false;
@@ -90,8 +90,8 @@ public class DiaryViewController {
     }
 
     private void integrityRestrictionsDateTimeField(){
-        diaryView.getDateTimeField().setRangeStart(LocalDateTime.now().minusWeeks(3));
-        diaryView.getDateTimeField().setRangeEnd(LocalDateTime.now().plusMinutes(1));
+        symptomView.getDateTimeField().setRangeStart(LocalDateTime.now().minusWeeks(3));
+        symptomView.getDateTimeField().setRangeEnd(LocalDateTime.now().plusMinutes(1));
     }
 
 
@@ -100,29 +100,29 @@ public class DiaryViewController {
         SymptomSelectionView symptomSelectionView = new SymptomSelectionView(this);
         System.out.println(symptomList);
         symptomSelectionViewControllers.add(symptomSelectionView.getSymptomSelectionViewController());
-        diaryView.getVerticalLayout().addComponents(symptomSelectionView.getViewComponent());
+        symptomView.getVerticalLayout().addComponents(symptomSelectionView.getViewComponent());
 
         counter++;
     }
 
     public void setSaveButtonEnabled(boolean value) {
-        diaryView.getSave().setEnabled(value);
+        symptomView.getSave().setEnabled(value);
     }
 
     //TODO Check Save Button Methode
     public void addSaveButtonListener(){
-        diaryView.getSave().addClickListener(new Button.ClickListener() {
+        symptomView.getSave().addClickListener(new Button.ClickListener() {
             @Override
             public void buttonClick(Button.ClickEvent clickEvent) {
-                if(diaryView.getVerticalLayout().getComponentCount() == 0){
+                if(symptomView.getVerticalLayout().getComponentCount() == 0){
                     return;
                 }
                 if(!checkDateIntegrity()){
                     return;
                 }
-                if(diaryView.getDateTimeField().getValue() == null){
+                if(symptomView.getDateTimeField().getValue() == null){
                     Notification.show("Bitte Datum eingeben!");
-                    diaryView.getSave().setEnabled(false);
+                    symptomView.getSave().setEnabled(false);
                     return;
                 }
                 for(SymptomSelectionViewController s: symptomSelectionViewControllers){
@@ -130,11 +130,11 @@ public class DiaryViewController {
                     System.out.println(s.getSelectedSymptom());
                 }
                 System.out.println(avoidDuplicateSymptomsSet.size());
-                System.out.println(diaryView.getVerticalLayout().getComponentCount());
+                System.out.println(symptomView.getVerticalLayout().getComponentCount());
 
-                if(avoidDuplicateSymptomsSet.size() < diaryView.getVerticalLayout().getComponentCount()){
+                if(avoidDuplicateSymptomsSet.size() < symptomView.getVerticalLayout().getComponentCount()){
                     Notification.show("Symptome dürfen nur einmal angegeben werden!");
-                    diaryView.getSave().setEnabled(false);
+                    symptomView.getSave().setEnabled(false);
                     return;
                 }
 
@@ -152,8 +152,8 @@ public class DiaryViewController {
                     symptoms.add(s.getSymptomArt());
 
                 }
-                saveDiaryEntry(diaryView.getDateTimeField().getValue(), symptoms);
-                diaryView.getNewDiaryEntry().click();
+                saveDiaryEntry(symptomView.getDateTimeField().getValue(), symptoms);
+                symptomView.getNewDiaryEntry().click();
 
 
                 Notification.show("Eintrag erfolgreich gespeichert");
@@ -175,7 +175,7 @@ public class DiaryViewController {
     }
 
     public void addNewDiaryEntryButtonListener(){
-        diaryView.getNewDiaryEntry().addClickListener(new Button.ClickListener() {
+        symptomView.getNewDiaryEntry().addClickListener(new Button.ClickListener() {
             @Override
             public void buttonClick(Button.ClickEvent clickEvent) {
                 if(symptomSelectionViewControllers.size() > 1) {
@@ -183,7 +183,7 @@ public class DiaryViewController {
                     //TODO: Dialog Window with Yes or No
                 }
 
-                diaryView.getVerticalLayout().removeAllComponents();
+                symptomView.getVerticalLayout().removeAllComponents();
                 symptomSelectionViewControllers.clear();
                 symptomList.clear();
                 avoidDuplicateSymptomsSet.clear();
@@ -199,8 +199,8 @@ public class DiaryViewController {
 
 
 
-    public DiaryView getDiaryView(){
-        return  diaryView;
+    public SymptomView getSymptomView(){
+        return symptomView;
     }
     public List<SymptomSelectionViewController> getSymptomSelectionViewControllers(){
         return this.symptomSelectionViewControllers;

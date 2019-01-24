@@ -1,4 +1,4 @@
-package de.tud.view;
+package de.tud.view.symptoms;
 
 import com.github.appreciated.material.MaterialTheme;
 import com.vaadin.data.HasValue;
@@ -11,6 +11,7 @@ import com.vaadin.ui.themes.ValoTheme;
 import de.tud.controller.DiaryViewController;
 import de.tud.controller.SymptomSelectionViewController;
 import de.tud.model.symptom.*;
+import de.tud.view.ButtonView;
 
 import java.util.HashSet;
 import java.util.List;

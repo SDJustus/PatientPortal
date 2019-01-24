@@ -4,15 +4,11 @@ import com.vaadin.data.HasValue;
 import com.vaadin.event.MouseEvents;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Component;
-import com.vaadin.ui.GridLayout;
 import com.vaadin.ui.Notification;
 import com.vaadin.ui.themes.ValoTheme;
 import de.tud.model.symptom.Symptom;
 import de.tud.model.symptom.SymptomFactory;
-import de.tud.view.SymptomSelectionView;
-
-import java.time.LocalDateTime;
-import java.util.concurrent.TimeUnit;
+import de.tud.view.symptoms.SymptomSelectionView;
 
 public class SymptomSelectionViewController {
 
@@ -174,8 +170,8 @@ public class SymptomSelectionViewController {
 
                 int index = diaryViewController.getSymptomSelectionViewControllers().indexOf(s);
 
-                Component c = diaryViewController.getDiaryView().getVerticalLayout().getComponent(index);
-                diaryViewController.getDiaryView().getVerticalLayout().removeComponent(c);
+                Component c = diaryViewController.getSymptomView().getVerticalLayout().getComponent(index);
+                diaryViewController.getSymptomView().getVerticalLayout().removeComponent(c);
                 diaryViewController.getSymptomSelectionViewControllers().remove(s);
 
                 if(s.selectedSymptom!= null){
@@ -203,8 +199,8 @@ public class SymptomSelectionViewController {
                 }
 
 
-                if(diaryViewController.getDiaryView().getVerticalLayout().getComponentCount() == 0){
-                    diaryViewController.getDiaryView().getNewDiaryEntry().click();
+                if(diaryViewController.getSymptomView().getVerticalLayout().getComponentCount() == 0){
+                    diaryViewController.getSymptomView().getNewDiaryEntry().click();
                 }
             }
         });
@@ -220,14 +216,14 @@ public class SymptomSelectionViewController {
         if(symptomSelectionView.getComboBox().getValue() != null
                 &&selectionCounter == 0
                 && diaryViewController.getSymptomList().size() == 1
-                && diaryViewController.getDiaryView().getVerticalLayout().getComponentCount() > 0){
+                && diaryViewController.getSymptomView().getVerticalLayout().getComponentCount() > 0){
             diaryViewController.setSaveButtonEnabled(true);
             return;
         }
         if(symptomSelectionView.getComboBox().getValue() != null
                 && selectionCounter == 0
                 && diaryViewController.getSymptomList().size() >=2
-                && diaryViewController.getDiaryView().getVerticalLayout().getComponentCount() > 0){
+                && diaryViewController.getSymptomView().getVerticalLayout().getComponentCount() > 0){
 
             symptomSelectionView.getAddNextSymptom().setEnabled(true);
             symptomSelectionView.getAddNextSymptom().setVisible(true);

@@ -2,25 +2,10 @@ package de.tud.view.DiaryEvaluation;
 
 
 import com.vaadin.data.provider.GridSortOrder;
-import com.vaadin.icons.VaadinIcons;
-import com.vaadin.navigator.View;
 import com.vaadin.server.Page;
-import com.vaadin.shared.data.sort.SortDirection;
 import com.vaadin.ui.*;
-import com.vaadin.ui.Button;
 import com.vaadin.ui.renderers.LocalDateRenderer;
 import com.vaadin.ui.renderers.LocalDateTimeRenderer;
-import com.vaadin.ui.renderers.TextRenderer;
-import de.tud.model.symptom.Symptom;
-import de.tud.view.SymptomSelectionView;
-
-import javax.swing.text.DateFormatter;
-import java.awt.*;
-import java.text.DateFormat;
-import java.time.Clock;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.ArrayList;
 
 
 public class SymptomEvaluationView extends EvaluationView{

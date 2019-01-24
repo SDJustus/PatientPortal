@@ -1,4 +1,4 @@
-package de.tud.view;
+package de.tud.view.symptoms;
 
 import com.github.appreciated.material.MaterialTheme;
 import com.vaadin.icons.VaadinIcons;
@@ -16,7 +16,7 @@ import de.tud.model.manager.DiaryManager;
 import de.tud.model.symptom.Symptom;
 
 
-public class DiaryView extends Composite implements View {
+public class SymptomView extends Composite implements View {
     private VerticalLayout verticalLayoutMain = new VerticalLayout();        //Seitenstruktur
     private HorizontalLayout menuBar = new HorizontalLayout();
     private VerticalLayout verticalLayout = new VerticalLayout(); //Vertical Layout wird in horizontal Layout gepackt
@@ -28,7 +28,7 @@ public class DiaryView extends Composite implements View {
     private DiaryViewController diaryViewController;
 
 
-    public DiaryView(){
+    public SymptomView(){
         //Verbindung zu DiaryViewController
        diaryViewController = new DiaryViewController(this);
 

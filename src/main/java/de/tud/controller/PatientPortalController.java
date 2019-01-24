@@ -25,6 +25,7 @@ import de.tud.view.Start.StartView;
 import de.tud.view.VitalData.VitalDataView;
 import de.tud.view.Welfare.WelfareViewNew;
 import de.tud.view.medicationPlan.MedicationPlanView;
+import de.tud.view.symptoms.SymptomView;
 
 
 import javax.servlet.annotation.WebServlet;
@@ -121,7 +122,7 @@ public class PatientPortalController extends UI {
                         .add("Auswertung", VaadinIcons.TABLE, DiaryEvaluationView.class)
                         .add("Vitaldaten", VaadinIcons.HEART, VitalDataView.class)
                         .add("Wohlbefinden", VaadinIcons.SMILEY_O, WelfareViewNew.class)
-                        .add("Symptomeintrag", VaadinIcons.DOCTOR_BRIEFCASE, DiaryView.class)
+                        .add("Symptomeintrag", VaadinIcons.DOCTOR_BRIEFCASE, SymptomView.class)
                         .build())
                 .add("Hausaufgaben", VaadinIcons.LIST, HomeworkView.class)
                 .add("Medikationsplan", VaadinIcons.PILLS, MedicationPlanView.class)                        //TODO: check

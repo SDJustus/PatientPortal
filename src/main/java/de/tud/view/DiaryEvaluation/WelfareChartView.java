@@ -3,25 +3,22 @@ package de.tud.view.DiaryEvaluation;
 
 
 
+import com.vaadin.addon.charts.Chart;
 import com.vaadin.addon.charts.model.*;
+import com.vaadin.addon.charts.model.style.SolidColor;
+import com.vaadin.server.Responsive;
 import com.vaadin.ui.Component;
-import com.vaadin.ui.declarative.Design;
 import de.tud.model.Diary;
 import de.tud.model.DiaryEntry;
 import de.tud.model.manager.DiaryManager;
-import de.tud.model.manager.HomeworkManager;
-import de.tud.model.symptom.Symptom;
 import de.tud.model.welfare.ConcentrationAbility;
 import de.tud.model.welfare.PhysicalCondition;
 import de.tud.model.welfare.Sleep;
 import de.tud.model.welfare.Welfare;
-
-import javax.xml.crypto.Data;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
-import java.util.concurrent.locks.Condition;
+
 
 public class WelfareChartView extends ChartView {
 
@@ -31,7 +28,6 @@ public class WelfareChartView extends ChartView {
      */
     @Override
     public Component setup() {
-
         chart.getConfiguration().getxAxis().setType(AxisType.DATETIME);
         chart.getConfiguration().getyAxis().setType(AxisType.LINEAR);
 
@@ -39,132 +35,135 @@ public class WelfareChartView extends ChartView {
 
         DiaryManager diaryManager = DiaryManager.getInstance();
         Diary diaryInst = diaryManager.read().get(0);
-        long diaryId = 1;
+        long diaryId = diaryInst.getId();
 
-        Set<DiaryEntry> diary=  DiaryManager.getInstance().readDiaryEntriesByDiary(diaryId);
-
-        Map<LocalDateTime,Welfare> sleepMap = new HashMap<>();
-        Map<LocalDateTime,Welfare> conditionMap = new HashMap<>();
-        Map<LocalDateTime,Welfare> concentrationMap = new HashMap<>();
         Set<DataSeries> series = new HashSet<>();
 
+        Chart chart = new Chart();
+        chart.setWidth("100%");
+        chart.setHeight("100%");
+        Responsive.makeResponsive(chart);
+        Configuration conf = chart.getConfiguration();
+        conf.getChart().setType(ChartType.LINE);
+        conf.setTitle("Patiententagebuch");
+
+
+        DataSeries seriesPhysicalCondition = new DataSeries("Fitness");
+        DataSeries seriesSleep = new DataSeries("Schlaf");
+        DataSeries seriesConcentrationAbility = new DataSeries("Konzentration");
 
 
 
-        for(DiaryEntry d:diary)
-        {
+        ArrayList<DiaryEntry> diaryEntries = new ArrayList<>(diaryInst.getDiaryEntries());
+
+        Set<DataSeries> dataSeries = new HashSet<>();
 
 
+        Collections.sort(diaryEntries, Comparator.comparing(DiaryEntry::getDate));
 
 
-            for(Welfare w:d.getWelfare())
-            {
+        for(DiaryEntry diaryEntry: diaryEntries){
+            if(diaryEntry.getSymptom() != null){
+                for(Welfare welfare: diaryEntry.getWelfare()){
+
+                    if(welfare instanceof PhysicalCondition){
+                        seriesPhysicalCondition.add(createDataSeriesItem(diaryEntry.getDate(), welfare));
+                        dataSeries.add(seriesPhysicalCondition);
+                    }
+
+                    if(welfare instanceof Sleep){
+                        seriesSleep.add(createDataSeriesItem(diaryEntry.getDate(), welfare));
+                        dataSeries.add(seriesSleep);
+                    }
+
+                    if(welfare instanceof ConcentrationAbility){
+                        seriesConcentrationAbility.add(createDataSeriesItem(diaryEntry.getDate(), welfare));
+                        dataSeries.add(seriesConcentrationAbility);
+                    }
 
 
-
-                if(w instanceof Sleep == true)
-                {
-                   sleepMap.put(d.getDate(), w);
                 }
-                if(w instanceof PhysicalCondition == true)
-                {
-                    conditionMap.put(d.getDate(), w);
-                }
-                if(w instanceof ConcentrationAbility == true)
-                {
-                    concentrationMap.put(d.getDate(), w);
-                }
-
-
-
 
             }
 
+        }
 
+        dataSeries.add(seriesConcentrationAbility);
+        dataSeries.add(seriesPhysicalCondition);
+        dataSeries.add(seriesSleep);
+
+
+        boolean count = true;
+        for(DataSeries dataSeries1: dataSeries){
+            if (dataSeries1.getData() != null){
+                dataSeries1.setVisible(false);
+                if(count == true && dataSeries1.getData().size() >= 4){
+                    dataSeries1.setVisible(true);
+                    conf.addSeries(dataSeries1);
+                    count = false;
+                    continue;
+                }
+                conf.addSeries(dataSeries1);
+            }
         }
 
 
-
-            DataSeries sleep = new DataSeries(); sleep.setName("Schlaf");
-            PlotOptionsLine options = new PlotOptionsLine();
-            options.setStep(StepType.RIGHT);
-            sleep.setPlotOptions(options);
+        XAxis xAxis = new XAxis();
+        xAxis.setTitle("Datum");
+        xAxis.setType(AxisType.DATETIME);
 
 
-            DataSeries concentration = new DataSeries(); concentration.setName("Konzentration");
-            options = new PlotOptionsLine();
-             options.setStep(StepType.CENTER);
-            concentration.setPlotOptions(options);
-
-            DataSeries condition = new DataSeries(); condition.setName("Kondition");
-            options = new PlotOptionsLine();
-            options.setStep(StepType.LEFT);
-             condition.setPlotOptions(options);
-
-            series.add(sleep);
-            series.add(concentration);
-            series.add(condition);
+        conf.addxAxis(xAxis);
+        YAxis yAxis = new YAxis();
+        yAxis.setTitle("Symptomatik");
+        yAxis.setType(AxisType.CATEGORY);
 
 
+        String[] yCat = new String[]{"","gut", "mäßig", "stark"};
+        yAxis.setMax(3);
+        yAxis.setCategories(yCat);
 
 
-
-        Iterator sleepEntries = sleepMap.entrySet().iterator();
-        Iterator concentrationEntries = concentrationMap.entrySet().iterator();
-        Iterator conditionEntries =    conditionMap.entrySet().iterator();
-
-
-        for (Map.Entry<LocalDateTime,Welfare> entry : sleepMap.entrySet())
-        {
-
-
-
-
-                    Date out = Date.from(entry.getKey().atZone(ZoneId.systemDefault()).toInstant());
-
-
-                    sleep.add(new DataSeriesItem(out,entry.getValue().getStrength().ordinal()));
-
-
-
-
-        }
-        for (Map.Entry<LocalDateTime,Welfare> entry : conditionMap.entrySet())
-        {
+        conf.addyAxis(yAxis);
+        conf.getTooltip().setPointFormatter(
+                "function() { " +
+                        "var category = this.y; " +
+                        "switch (category) " +
+                        "{ " +
+                        "   case 1: " +
+                        "       multiplier = 'schwach'; " +
+                        "       break; " +
+                        "   case 2: " +
+                        "       multiplier = 'mäßig'; " +
+                        "       break; " +
+                        "   case 3: " +
+                        "       multiplier = 'stark'; " +
+                        "       break; " +
+                        "}" +
+                        "var tipTxt = this.series.name + ': <b>' + multiplier + '</b><br>'; " +
+                        "return tipTxt; " +
+                        "}"
+        );
 
 
-                    Date out = Date.from(entry.getKey().atZone(ZoneId.systemDefault()).toInstant());
-                    condition.add(new DataSeriesItem(out,entry.getValue().getStrength().ordinal()));
-
-
-
-
-        }
-        for (Map.Entry<LocalDateTime,Welfare> entry : concentrationMap.entrySet())
-        {
-
-
-
-
-                    Date out = Date.from(entry.getKey().atZone(ZoneId.systemDefault()).toInstant());
-                    concentration.add(new DataSeriesItem(out,entry.getValue().getStrength().ordinal()));
-
-
-        }
-
-
-
-            chart.getConfiguration().addSeries(sleep);
-            chart.getConfiguration().addSeries(condition);
-            chart.getConfiguration().addSeries(concentration);
+        PlotOptionsLine serie1Opts = new PlotOptionsLine();
+        serie1Opts.setColor(SolidColor.BLUE);
+        seriesSleep.setPlotOptions(serie1Opts);
 
         chart.getConfiguration().setTitle("Zeitlicher Verlauf des Wohlbefindens");
         chartContainer.addComponent(chart);
         return chartContainer;
 
-
-
-
     }
+    private DataSeriesItem createDataSeriesItem(LocalDateTime localDateTime, Welfare welfare){
+        DataSeriesItem dataSeriesItem = new DataSeriesItem();
+        dataSeriesItem.setX(java.sql.Date.valueOf(localDateTime.toLocalDate()));
+        DateTimeFormatter dateTimeFormatter  = DateTimeFormatter.ofPattern("dd.MM.YYYY hh:mm");
+        dataSeriesItem.setName(localDateTime.format(dateTimeFormatter).toString());
+        dataSeriesItem.setY(welfare.getStrength().ordinal()+1);
+
+        return dataSeriesItem;
+    }
+
 
 }

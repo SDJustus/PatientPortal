@@ -17,10 +17,12 @@ import de.tud.model.manager.HomeworkManager;
 import de.tud.model.symptom.*;
 
 import javax.xml.crypto.Data;
+import java.text.SimpleDateFormat;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 public class SymptomChartView extends ChartView {
@@ -220,7 +222,8 @@ public class SymptomChartView extends ChartView {
     private DataSeriesItem createDataSeriesItem(LocalDateTime localDateTime, Symptom symptom){
         DataSeriesItem dataSeriesItem = new DataSeriesItem();
         dataSeriesItem.setX(java.sql.Date.valueOf(localDateTime.toLocalDate()));
-        dataSeriesItem.setName(localDateTime.toString());
+        DateTimeFormatter dateTimeFormatter  = DateTimeFormatter.ofPattern("dd.MM.YYYY hh:mm");
+        dataSeriesItem.setName(localDateTime.format(dateTimeFormatter).toString());
         dataSeriesItem.setY(symptom.getStrength().ordinal()+1);
         return dataSeriesItem;
     }
