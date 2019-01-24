@@ -116,7 +116,7 @@ public class WelfareViewNew implements View {
         fLabelGood = new Label("gut");
         fLabelMiddle = new Label("mäßig");
         fLabelBad = new Label("stark");
-        sLabelGood = new Label("Gut");
+        sLabelGood = new Label("gut");
         sLabelMiddle = new Label("mäßig");
         sLabelBad = new Label("stark");
 
