@@ -161,6 +161,7 @@ public class DiaryViewController {
                     }else{
                         Notification.show("Es fehlen noch Eingaben.", Notification.Type.HUMANIZED_MESSAGE);
                     }
+                    symptoms.add(s.getSymptomArt());
 
                 }
                 saveDiaryEntry(diaryView.getDateTimeField().getValue(), symptoms);

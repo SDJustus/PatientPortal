@@ -3,18 +3,23 @@ package de.tud.view.DiaryEvaluation;
 
 
 
-import com.vaadin.addon.charts.model.AxisType;
-import com.vaadin.addon.charts.model.DataSeries;
-import com.vaadin.addon.charts.model.DataSeriesItem;
+import com.vaadin.addon.charts.Chart;
+import com.vaadin.addon.charts.model.*;
+import com.vaadin.addon.charts.model.style.SolidColor;
+import com.vaadin.server.Responsive;
 import com.vaadin.ui.Component;
+import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.declarative.Design;
 import de.tud.model.Diary;
 import de.tud.model.DiaryEntry;
 import de.tud.model.manager.DiaryManager;
 import de.tud.model.manager.HomeworkManager;
+import de.tud.model.symptom.Depression;
 import de.tud.model.symptom.Symptom;
+import sun.jvm.hotspot.debugger.cdbg.Sym;
 
 import javax.xml.crypto.Data;
+import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
@@ -43,53 +48,43 @@ public class SymptomChartView extends ChartView {
         Set<Symptom> symptoms = new HashSet<>();
         Map<LocalDateTime,Symptom> symptomMap = new HashMap<>();
         Set<DataSeries> series = new HashSet<>();
-         for(DiaryEntry d:diary)
-         {
-             for(Symptom s:d.getSymptom())
-             {
 
-                     symptomMap.put(d.getDate(), s);
-                     if(symptomNames.contains(s.toString()) == false)
-                     {
-                         symptomNames.add(s.toString());
-                     }
-
-             }
+        Chart chart = new Chart();
+        chart.setWidth("100%");
+        chart.setHeight("100%");
+        Responsive.makeResponsive(chart);
+        Configuration conf = chart.getConfiguration();
+        conf.getChart().setType(ChartType.LINE);
+        conf.setTitle("Patiententagebuch");
 
 
-         }
+        DataSeries serie1 = new DataSeries("Depression");
 
-         if(symptomMap.isEmpty() == true)
-         {
-             for(int i =0 ; i<100; i++)
-             {
-                 System.out.println("Fehler!");
 
-             }
+        ArrayList<DiaryEntry> diaryEntries = new ArrayList<>(diaryInst.getDiaryEntries());
 
-         }
 
-         for(String s:symptomNames)
-         {
-             DataSeries dataSeries = new DataSeries();
-             dataSeries.setName(s);
-             series.add(dataSeries);
+        Collections.sort(diaryEntries, Comparator.comparing(DiaryEntry::getDate));
 
-         }
+        for(DiaryEntry diaryEntry: diaryEntries){
+            if(diaryEntry.getSymptom() != null){
+                for(Symptom s: diaryEntry.getSymptom()){
+                    if(s instanceof Depression){
 
-        Iterator entries = symptomMap.entrySet().iterator();
+                        /*
+                        serie1.add(new DataSeriesItem(java.sql.Date.valueOf(diaryEntry.getDate().toLocalDate()),
+                                s.getStrength().ordinal()+1));
+                                */
 
-        for (Map.Entry<LocalDateTime,Symptom> entry : symptomMap.entrySet())
-        {
 
-            for(DataSeries s:series)
-            {
-                if(entry.getValue().toString().equals(s.getName()))
-                {
+                        DataSeriesItem dataSeriesItem = new DataSeriesItem();
+                        dataSeriesItem.setX(java.sql.Date.valueOf(diaryEntry.getDate().toLocalDate()));
+                        dataSeriesItem.setName(diaryEntry.getDate().toString());
+                        dataSeriesItem.setY(s.getStrength().ordinal()+1);
 
-                    Date out = Date.from(entry.getKey().atZone(ZoneId.systemDefault()).toInstant());
 
-                    s.add(new DataSeriesItem(out,entry.getValue().getStrength().ordinal()));
+                        serie1.add(dataSeriesItem);
+                    }
 
                 }
 
@@ -98,15 +93,75 @@ public class SymptomChartView extends ChartView {
         }
 
 
-        for(DataSeries s:series)
-        {
-           chart.getConfiguration().addSeries(s);
-        }
+
+
+
+        XAxis xAxis = new XAxis();
+        xAxis.setTitle("Datum");
+        xAxis.setType(AxisType.DATETIME);
+
+
+        conf.addxAxis(xAxis);
+        YAxis yAxis = new YAxis();
+        yAxis.setTitle("Symptomatik");
+        yAxis.setType(AxisType.CATEGORY);
+
+
+        String[] yCat = new String[]{"","gut", "mäßig", "stark"};
+        yAxis.setMax(3);
+        yAxis.setCategories(yCat);
+
+
+        conf.addyAxis(yAxis);
+        conf.getTooltip().setPointFormatter(
+                "function() { " +
+                        "var category = this.y; " +
+                        "switch (category) " +
+                        "{ " +
+                        "   case 1: " +
+                        "       symptom = 'schwach'; " +
+                        "       break; " +
+                        "   case 2: " +
+                        "       multiplier = 'mäßig'; " +
+                        "       break; " +
+                        "   case 3: " +
+                        "       multiplier = 'stark'; " +
+                        "       break; " +
+                        "}" +
+                        "var tipTxt = this.series.name + ': <b>' + multiplier + '</b><br>'; " +
+                        "return tipTxt; " +
+                        "}"
+        );
+        conf.getTooltip().setShared(true);
+
+
+        /*
+
+        tooltip.setFooterFormat("{function() { if(this.y == 3) { return this.point.name ='stark'; } " +
+                " if(this.y == 2) { return this.point.name = 'mäßig'; }" +
+                "if(this.y == 1) { return this.point.name = 'schwach'; }}");
+                */
+
+
+
+        conf.addSeries(serie1);
+
+
+        PlotOptionsLine serie1Opts = new PlotOptionsLine();
+        serie1Opts.setColor(SolidColor.BLUE);
+        serie1.setPlotOptions(serie1Opts);
+
+
         chart.getConfiguration().setTitle("Zeitlicher Verlauf aller Symptome");
+
+
+
         chartContainer.addComponent(chart);
         return chartContainer;
 
 
     }
+
+
 
 }
