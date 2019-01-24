@@ -83,6 +83,9 @@ public class DiaryEvaluationViewController {
         diaryEvaluationView.getVerticalLayout().addComponent(symptomEvaluationView.getViewComponent());
 
     }
+    
+
+
     private void initVitalDataTable() {
         vitalDataEvaluationView = new VitalDataEvaluationView();
 

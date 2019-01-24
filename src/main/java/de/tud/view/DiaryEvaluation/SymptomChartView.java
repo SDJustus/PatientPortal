@@ -156,9 +156,9 @@ public class SymptomChartView extends ChartView {
 
         boolean count = true;
         for(DataSeries dataSeries1: dataSeries){
-            if (dataSeries1.getData() != null){
+            if (dataSeries1.getData().size() != 0){
                 dataSeries1.setVisible(false);
-                if(count == true && dataSeries1.getData().size() >= 4){
+                if(count == true && dataSeries1.getData().size() >= 2){
                     dataSeries1.setVisible(true);
                     conf.addSeries(dataSeries1);
                     count = false;

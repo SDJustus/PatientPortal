@@ -13,16 +13,16 @@ import de.tud.view.symptoms.SymptomSelectionView;
 public class SymptomSelectionViewController {
 
     private SymptomSelectionView symptomSelectionView;
-    private DiaryViewController diaryViewController;
+    private SymptomViewController symptomViewController;
     private String selectedSymptom;
     private Symptom symptomArt;
     private Symptom.Strength choice;
     private int selectionCounter = 0; //um dafür zu sorgen, dass nur einmal der Button "+weiteres Symptom" erscheint
 
 
-    public SymptomSelectionViewController(SymptomSelectionView symptomSelectionView, DiaryViewController diaryViewController){
-        this.diaryViewController = diaryViewController;
-        System.out.println(diaryViewController.getSymptomList());
+    public SymptomSelectionViewController(SymptomSelectionView symptomSelectionView, SymptomViewController symptomViewController){
+        this.symptomViewController = symptomViewController;
+        System.out.println(symptomViewController.getSymptomList());
         this.symptomSelectionView = symptomSelectionView;
     }
 
@@ -42,21 +42,21 @@ public class SymptomSelectionViewController {
         symptomSelectionView.getAddNextSymptom().addClickListener(new Button.ClickListener() {
             @Override
             public void buttonClick(Button.ClickEvent clickEvent) {
-                //SymptomSelectionView newSymptomSelectionView= new SymptomSelectionView(diaryViewController);
+                //SymptomSelectionView newSymptomSelectionView= new SymptomSelectionView(symptomViewController);
                 selectionCounter += 1;
 
-                diaryViewController.getSymptomList().remove(selectedSymptom);
+                symptomViewController.getSymptomList().remove(selectedSymptom);
 
 
-                if(diaryViewController.getSymptomList().size() == 2){
-                    diaryViewController.setSaveButtonEnabled(false);
+                if(symptomViewController.getSymptomList().size() == 2){
+                    symptomViewController.setSaveButtonEnabled(false);
                     symptomSelectionView.getAddNextSymptom().setVisible(false);
-                    diaryViewController.addNewSymptomSelectionView();
+                    symptomViewController.addNewSymptomSelectionView();
                     return;
                 }
 
-                diaryViewController.addNewSymptomSelectionView();
-                diaryViewController.setSaveButtonEnabled(false);
+                symptomViewController.addNewSymptomSelectionView();
+                symptomViewController.setSaveButtonEnabled(false);
 
                 symptomSelectionView.getAddNextSymptom().setVisible(false);
             }
@@ -148,11 +148,11 @@ public class SymptomSelectionViewController {
                     symptomSelectionView.getMiddleLabel().setValue("mäßig");
                     symptomSelectionView.getBadLabel().setValue("stark");
                     choice = null;
-                    diaryViewController.setSaveButtonEnabled(false);
+                    symptomViewController.setSaveButtonEnabled(false);
                     return;
                 }
 
-                if(diaryViewController.getSymptomList().size() == 1){
+                if(symptomViewController.getSymptomList().size() == 1){
                     symptomSelectionView.getAddNextSymptom().setVisible(false);
                     return;
                 }
@@ -168,39 +168,39 @@ public class SymptomSelectionViewController {
             public void buttonClick(Button.ClickEvent clickEvent) {
 
 
-                int index = diaryViewController.getSymptomSelectionViewControllers().indexOf(s);
+                int index = symptomViewController.getSymptomSelectionViewControllers().indexOf(s);
 
-                Component c = diaryViewController.getSymptomView().getVerticalLayout().getComponent(index);
-                diaryViewController.getSymptomView().getVerticalLayout().removeComponent(c);
-                diaryViewController.getSymptomSelectionViewControllers().remove(s);
+                Component c = symptomViewController.getSymptomView().getVerticalLayout().getComponent(index);
+                symptomViewController.getSymptomView().getVerticalLayout().removeComponent(c);
+                symptomViewController.getSymptomSelectionViewControllers().remove(s);
 
                 if(s.selectedSymptom!= null){
-                    diaryViewController.getSymptomList().add(s.selectedSymptom);
+                    symptomViewController.getSymptomList().add(s.selectedSymptom);
                 }
 
 
                 checkAddNextSymptomRestrictions();
-                if(diaryViewController.checkSymptomSelection()){
-                    diaryViewController.setSaveButtonEnabled(true);
+                if(symptomViewController.checkSymptomSelection()){
+                    symptomViewController.setSaveButtonEnabled(true);
                 }
 
                 //wenn gelöscht wird, muss der AddNextSymptom Button beim letzten Element in der Liste erscheinen
 
-                int index2 = diaryViewController.getSymptomSelectionViewControllers().size();
+                int index2 = symptomViewController.getSymptomSelectionViewControllers().size();
 
-                if(index2 >= 1 && index2 < diaryViewController.getNumberOfSymptoms()) {
+                if(index2 >= 1 && index2 < symptomViewController.getNumberOfSymptoms()) {
 
-                    //diaryViewController.getSymptomSelectionViewControllers().get(index2 - 1).getSymptomSelectionView().getAddNextSymptom().setVisible(true);
-                    diaryViewController.getSymptomSelectionViewControllers().get(index2 - 1).selectionCounter = 0;
-                    if(diaryViewController.getSymptomSelectionViewControllers().get(index2-1).selectedSymptom != null){
-                        diaryViewController.getSymptomSelectionViewControllers().get(index2 - 1).getSymptomSelectionView().getAddNextSymptom().setVisible(true);
+                    //symptomViewController.getSymptomSelectionViewControllers().get(index2 - 1).getSymptomSelectionView().getAddNextSymptom().setVisible(true);
+                    symptomViewController.getSymptomSelectionViewControllers().get(index2 - 1).selectionCounter = 0;
+                    if(symptomViewController.getSymptomSelectionViewControllers().get(index2-1).selectedSymptom != null){
+                        symptomViewController.getSymptomSelectionViewControllers().get(index2 - 1).getSymptomSelectionView().getAddNextSymptom().setVisible(true);
                     }
                     return;
                 }
 
 
-                if(diaryViewController.getSymptomView().getVerticalLayout().getComponentCount() == 0){
-                    diaryViewController.getSymptomView().getNewDiaryEntry().click();
+                if(symptomViewController.getSymptomView().getVerticalLayout().getComponentCount() == 0){
+                    symptomViewController.getSymptomView().getNewDiaryEntry().click();
                 }
             }
         });
@@ -208,27 +208,27 @@ public class SymptomSelectionViewController {
     }
 
     private void checkAddNextSymptomRestrictions(){
-        if(diaryViewController.getNumberOfSymptoms() == diaryViewController.getSymptomSelectionViewControllers().size()){
-            diaryViewController.setSaveButtonEnabled(true);
+        if(symptomViewController.getNumberOfSymptoms() == symptomViewController.getSymptomSelectionViewControllers().size()){
+            symptomViewController.setSaveButtonEnabled(true);
             return;
         }
 
         if(symptomSelectionView.getComboBox().getValue() != null
                 &&selectionCounter == 0
-                && diaryViewController.getSymptomList().size() == 1
-                && diaryViewController.getSymptomView().getVerticalLayout().getComponentCount() > 0){
-            diaryViewController.setSaveButtonEnabled(true);
+                && symptomViewController.getSymptomList().size() == 1
+                && symptomViewController.getSymptomView().getVerticalLayout().getComponentCount() > 0){
+            symptomViewController.setSaveButtonEnabled(true);
             return;
         }
         if(symptomSelectionView.getComboBox().getValue() != null
                 && selectionCounter == 0
-                && diaryViewController.getSymptomList().size() >=2
-                && diaryViewController.getSymptomView().getVerticalLayout().getComponentCount() > 0){
+                && symptomViewController.getSymptomList().size() >=2
+                && symptomViewController.getSymptomView().getVerticalLayout().getComponentCount() > 0){
 
             symptomSelectionView.getAddNextSymptom().setEnabled(true);
             symptomSelectionView.getAddNextSymptom().setVisible(true);
 
-            diaryViewController.setSaveButtonEnabled(true);
+            symptomViewController.setSaveButtonEnabled(true);
         }
     }
 

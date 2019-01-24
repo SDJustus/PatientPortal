@@ -1,20 +1,15 @@
 package de.tud.view.symptoms;
 
 import com.github.appreciated.material.MaterialTheme;
-import com.vaadin.data.HasValue;
 import com.vaadin.icons.VaadinIcons;
 import com.vaadin.navigator.View;
-import com.vaadin.server.ClassResource;
 import com.vaadin.server.Page;
 import com.vaadin.ui.*;
-import com.vaadin.ui.themes.ValoTheme;
-import de.tud.controller.DiaryViewController;
+import de.tud.controller.SymptomViewController;
 import de.tud.controller.SymptomSelectionViewController;
 import de.tud.model.symptom.*;
 import de.tud.view.ButtonView;
 
-import java.util.HashSet;
-import java.util.List;
 import java.util.TreeSet;
 
 public class SymptomSelectionView extends ButtonView implements View  {
@@ -29,12 +24,12 @@ public class SymptomSelectionView extends ButtonView implements View  {
 
     //Controller
     private SymptomSelectionViewController symptomSelectionViewController;
-    private DiaryViewController diaryViewController;
+    private SymptomViewController symptomViewController;
 
 
-    public SymptomSelectionView(DiaryViewController diaryViewController){
-        this.diaryViewController = diaryViewController;
-        this.symptomSelectionViewController = new SymptomSelectionViewController(this, diaryViewController);
+    public SymptomSelectionView(SymptomViewController symptomViewController){
+        this.symptomViewController = symptomViewController;
+        this.symptomSelectionViewController = new SymptomSelectionViewController(this, symptomViewController);
 
     }
 
@@ -45,11 +40,11 @@ public class SymptomSelectionView extends ButtonView implements View  {
         symptomName = new Label("Bitte ein Symptom auswählen.");
 
         //save Button aussschalten
-        diaryViewController.setSaveButtonEnabled(false);
+        symptomViewController.setSaveButtonEnabled(false);
 
         //ComboBox erzeugen
         comboBox = new ComboBox<>();
-        comboBox.setItems(new TreeSet<>(diaryViewController.getSymptomList()));
+        comboBox.setItems(new TreeSet<>(symptomViewController.getSymptomList()));
         addValueChangeListenerForComboBox();
 
 

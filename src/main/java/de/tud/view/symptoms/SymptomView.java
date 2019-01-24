@@ -1,19 +1,10 @@
 package de.tud.view.symptoms;
 
 import com.github.appreciated.material.MaterialTheme;
-import com.vaadin.icons.VaadinIcons;
 import com.vaadin.ui.*;
-import java.util.ArrayList;
 import com.vaadin.navigator.View;
-import java.time.LocalDateTime;
-import java.util.*;
 import com.vaadin.server.*;
-import de.tud.controller.DiaryViewController;
-import de.tud.model.Diary;
-import de.tud.model.DiaryEntry;
-import de.tud.model.VitalData;
-import de.tud.model.manager.DiaryManager;
-import de.tud.model.symptom.Symptom;
+import de.tud.controller.SymptomViewController;
 
 
 public class SymptomView extends Composite implements View {
@@ -25,12 +16,12 @@ public class SymptomView extends Composite implements View {
     private Button save = new Button("Speichern");
     private Button newDiaryEntry = new Button("Alles Zurücksetzen");
     private Panel panel = new Panel();
-    private DiaryViewController diaryViewController;
+    private SymptomViewController symptomViewController;
 
 
     public SymptomView(){
-        //Verbindung zu DiaryViewController
-       diaryViewController = new DiaryViewController(this);
+        //Verbindung zu SymptomViewController
+       symptomViewController = new SymptomViewController(this);
 
        //CSS
         UI.getCurrent().getPage().getStyles().add("#smileybild:hover{transform: scale(1.2);}"+
@@ -85,13 +76,13 @@ public class SymptomView extends Composite implements View {
 
 
     private void addDateTimeFieldChangeListener(){
-        diaryViewController.addDateTimeFieldChangeListener();
+        symptomViewController.addDateTimeFieldChangeListener();
     }
     private void addSaveButtonListener(){
-        diaryViewController.addSaveButtonListener();
+        symptomViewController.addSaveButtonListener();
     }
     private void addNewDiaryEntryButtonListener(){
-       diaryViewController.addNewDiaryEntryButtonListener();
+       symptomViewController.addNewDiaryEntryButtonListener();
     }
     public VerticalLayout getVerticalLayout() {
         return verticalLayout;

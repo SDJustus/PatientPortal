@@ -13,7 +13,7 @@ import de.tud.view.symptoms.SymptomSelectionView;
 import java.time.LocalDateTime;
 import java.util.*;
 
-public class DiaryViewController {
+public class SymptomViewController {
 
 
     private SymptomView symptomView;
@@ -24,7 +24,7 @@ public class DiaryViewController {
     private int counter = 0;
 
 
-    public DiaryViewController(SymptomView symptomView){
+    public SymptomViewController(SymptomView symptomView){
         this.symptomView = symptomView;
         this.symptomList = createSymptomList();
 
@@ -70,7 +70,7 @@ public class DiaryViewController {
         LocalDateTime rangeEnd = symptomView.getDateTimeField().getRangeEnd();
         LocalDateTime rangeStart = symptomView.getDateTimeField().getRangeStart();
         LocalDateTime date = symptomView.getDateTimeField().getValue();
-        if(date.isAfter(rangeEnd) || date.isBefore(rangeStart)){
+        if(date.isAfter(rangeEnd) || date.isBefore(rangeStart.minusMinutes(1))){
             Notification.show("unzulässiges Datum gewählt!");
             return false;
         }
