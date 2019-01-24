@@ -110,20 +110,21 @@ public class WelfareViewNew implements View {
         sSmileyGood = new Image();
         sSmileyMiddle = new Image();
         sSmileyBad = new Image();
-        cLabelGood = new Label("Gut");
-        cLabelMiddle = new Label("Mäßig");
-        cLabelBad = new Label("Schlecht");
-        fLabelGood = new Label("Gut");
-        fLabelMiddle = new Label("Mäßig");
-        fLabelBad = new Label("Schlecht");
+        cLabelGood = new Label("gut");
+        cLabelMiddle = new Label("mäßig");
+        cLabelBad = new Label("stark");
+        fLabelGood = new Label("gut");
+        fLabelMiddle = new Label("mäßig");
+        fLabelBad = new Label("stark");
         sLabelGood = new Label("Gut");
-        sLabelMiddle = new Label("Mäßig");
-        sLabelBad = new Label("Schlecht");
+        sLabelMiddle = new Label("mäßig");
+        sLabelBad = new Label("stark");
 
         captionLabel.setId("header-label");
         captionLabel.addStyleName(MaterialTheme.LABEL_H1);
 
         dateField.setTextFieldEnabled(false);
+        welfareControllerNew.integrityRestrictionsDateTimeField();
         welfareControllerNew.addDateFieldListener();
 
         saveButton.setDescription("Speichern des Wohlbefindens");

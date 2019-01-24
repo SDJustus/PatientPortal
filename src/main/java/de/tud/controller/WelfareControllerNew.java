@@ -33,7 +33,6 @@ public class WelfareControllerNew {
 
         this.welfareViewNew = welfareViewNew;
 
-        integrityRestrictionsDateTimeField();
     }
 
 
@@ -53,7 +52,7 @@ public class WelfareControllerNew {
      * Adds integrity constraints to data picker.
      */
 
-    private void integrityRestrictionsDateTimeField(){
+    public void integrityRestrictionsDateTimeField(){
         welfareViewNew.getDateField().setRangeStart(LocalDateTime.now().minusWeeks(3));
         welfareViewNew.getDateField().setRangeEnd(LocalDateTime.now().plusMinutes(1));
     }

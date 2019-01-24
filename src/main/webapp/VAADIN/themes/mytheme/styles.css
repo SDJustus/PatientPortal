@@ -2468,7 +2468,7 @@ body:not(.v-touch) .danger.v-button:not(.v-disabled):not(.borderless):not(.borde
 }
 
 body:not(.v-touch) .primary.v-button:not(.v-disabled):not(.borderless):not(.borderless-colored):hover {
-	background: #6df7d0;
+	background: #6eb7fa;
 }
 
 body:not(.v-touch) :not(.v-upload) > * > .v-button.borderless:not(.v-disabled):not(.borderless-colored):not(.primary):not(.friendly):not(.danger):not(.custom):hover {
@@ -2476,7 +2476,7 @@ body:not(.v-touch) :not(.v-upload) > * > .v-button.borderless:not(.v-disabled):n
 }
 
 body:not(.v-touch) .v-button:not(.v-disabled).floating-action:hover {
-	background: #6df7d0;
+	background: #6eb7fa;
 }
 
 body:not(.v-touch) .v-button:not(.v-disabled).floating-action:not(.flat):hover, body.v-touch .v-button.floating-action:not(.flat):active {
@@ -2625,7 +2625,7 @@ body:not(.v-touch) .danger.v-upload:not(.v-disabled):not(.borderless):not(.borde
 }
 
 body:not(.v-touch) .primary.v-upload:not(.v-disabled):not(.borderless):not(.borderless-colored):hover {
-	background: #6df7d0;
+	background: #6eb7fa;
 }
 
 body:not(.v-touch) .v-upload.borderless:not(.v-disabled):not(.borderless-colored):not(.primary):not(.friendly):not(.danger):not(.custom):hover {
@@ -2633,7 +2633,7 @@ body:not(.v-touch) .v-upload.borderless:not(.v-disabled):not(.borderless-colored
 }
 
 body:not(.v-touch) .v-upload:not(.v-disabled).floating-action-upload:hover {
-	background: #6df7d0;
+	background: #6eb7fa;
 }
 
 body:not(.v-touch) .v-upload:not(.v-disabled).floating-action-upload:not(.flat):hover, body.v-touch .v-upload.floating-action-upload:not(.flat):active {
@@ -3964,7 +3964,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-calendar-month-day-selected {
-	background-color: #f5fdfb;
+	background-color: #f0f6fc;
 }
 
 .mytheme .v-calendar-month-day-dragemphasis {
@@ -4066,7 +4066,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	right: 0;
 	bottom: -1px;
 	left: 0;
-	background: #9FEDD7;
+	background: #6eaeea;
 	opacity: 0.5;
 	filter: alpha(opacity=50) ;
 	border-radius: 6px 6px 0 0;
@@ -6352,7 +6352,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	right: 0;
 	bottom: 0;
 	left: 0;
-	background: #29edb5;
+	background: #0f7ce2;
 	opacity: 0.15;
 	filter: alpha(opacity=15.0) ;
 	pointer-events: none;
@@ -6366,9 +6366,9 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-contextmenu .gwt-MenuItem-selected {
-	background: #9FEDD7;
-	color: #0c1b17;
-	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.05);
+	background: #6eaeea;
+	color: #f3f7fa;
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.05);
 }
 
 .mytheme .v-reconnect-dialog {
@@ -6596,7 +6596,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 :root .mytheme .v-checkbox > input:checked ~ label:after {
-	color: #9FEDD7;
+	color: #6eaeea;
 }
 
 .mytheme .v-checkbox > .v-icon, .mytheme .v-checkbox > label .v-icon {
@@ -6717,7 +6717,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 :root .mytheme .v-checkbox-small > input:checked ~ label:after {
-	color: #9FEDD7;
+	color: #6eaeea;
 }
 
 .mytheme .v-checkbox-small > .v-icon, .mytheme .v-checkbox-small > label .v-icon {
@@ -6838,7 +6838,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 :root .mytheme .v-checkbox-large > input:checked ~ label:after {
-	color: #9FEDD7;
+	color: #6eaeea;
 }
 
 .mytheme .v-checkbox-large > .v-icon, .mytheme .v-checkbox-large > label .v-icon {
@@ -7168,7 +7168,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	right: 0;
 	bottom: 0;
 	left: 0;
-	background: #29edb5;
+	background: #0f7ce2;
 	opacity: 0.15;
 	filter: alpha(opacity=15.0) ;
 	pointer-events: none;
@@ -7182,9 +7182,9 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-filterselect-suggestpopup .gwt-MenuItem-selected {
-	background: #9FEDD7;
-	color: #0c1b17;
-	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.05);
+	background: #6eaeea;
+	color: #f3f7fa;
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.05);
 }
 
 .mytheme .v-filterselect-suggestpopup [class$="status"] {
@@ -8343,7 +8343,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-grid .header-drag-table .v-grid-header  > .v-grid-drop-marker {
-	background-color: #9FEDD7;
+	background-color: #6eaeea;
 	position: absolute;
 	width: 3px;
 }
@@ -8472,7 +8472,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-grid-row-selected > td {
-	background: #9FEDD7;
+	background: #6eaeea;
 }
 
 .mytheme .v-grid-row-focused > td {
@@ -8595,7 +8595,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	right: 0;
 	bottom: 0;
 	left: 0;
-	border: 2px solid #9FEDD7;
+	border: 2px solid #6eaeea;
 	display: none;
 	pointer-events: none;
 }
@@ -8771,7 +8771,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	top: 0;
 	left: 0;
 	width: 4px;
-	background-color: #9FEDD7;
+	background-color: #6eaeea;
 	position: absolute;
 	height: 100%;
 	pointer-events: none;
@@ -8825,14 +8825,14 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-grid-row-selected  > .v-grid-cell {
-	background: #9FEDD7;
-	color: #1f5042;
-	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.05);
-	border-color: #83e0c6;
+	background: #6eaeea;
+	color: #dde8f3;
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.05);
+	border-color: #539add;
 }
 
 .mytheme .v-grid-row-selected  > .v-grid-cell-focused:before {
-	border-color: #f5fdfb;
+	border-color: #c7e0f7;
 }
 
 .mytheme .v-grid-editor {
@@ -10028,7 +10028,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-datefield-popup .v-datefield-calendarpanel-day:hover {
-	color: #9FEDD7;
+	color: #6eaeea;
 }
 
 .mytheme .v-datefield-popup .v-datefield-calendarpanel-day-offmonth {
@@ -10043,8 +10043,8 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-datefield-popup .v-datefield-calendarpanel-day.v-datefield-calendarpanel-day-selected, .mytheme .v-datefield-popup .v-datefield-calendarpanel-day.v-datefield-calendarpanel-day-selected:hover {
-	color: #1f5042;
-	background: #9FEDD7;
+	color: #dde8f3;
+	background: #6eaeea;
 	border: none;
 	font-weight: 600;
 }
@@ -10137,7 +10137,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 
 .mytheme .v-datefield-popup td.v-datefield-calendarpanel-month {
 	width: 148px;
-	color: #9FEDD7;
+	color: #6eaeea;
 }
 
 .mytheme .v-datefield-popup .v-datefield-calendarpanel-year td.v-datefield-calendarpanel-month {
@@ -10209,7 +10209,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-datefield-calendarpanel-day:hover {
-	color: #9FEDD7;
+	color: #6eaeea;
 }
 
 .mytheme .v-datefield-calendarpanel-day-offmonth {
@@ -10224,8 +10224,8 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-datefield-calendarpanel-day.v-datefield-calendarpanel-day-selected, .mytheme .v-datefield-calendarpanel-day.v-datefield-calendarpanel-day-selected:hover {
-	color: #1f5042;
-	background: #9FEDD7;
+	color: #dde8f3;
+	background: #6eaeea;
 	border: none;
 	font-weight: 600;
 }
@@ -10318,7 +10318,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 
 .mytheme td.v-datefield-calendarpanel-month {
 	width: 148px;
-	color: #9FEDD7;
+	color: #6eaeea;
 }
 
 .mytheme .v-datefield-calendarpanel-year td.v-datefield-calendarpanel-month {
@@ -10860,7 +10860,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-inline-datefield-calendarpanel-day:hover {
-	color: #9FEDD7;
+	color: #6eaeea;
 }
 
 .mytheme .v-inline-datefield-calendarpanel-day-offmonth {
@@ -10875,8 +10875,8 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-inline-datefield-calendarpanel-day.v-inline-datefield-calendarpanel-day-selected, .mytheme .v-inline-datefield-calendarpanel-day.v-inline-datefield-calendarpanel-day-selected:hover {
-	color: #1f5042;
-	background: #9FEDD7;
+	color: #dde8f3;
+	background: #6eaeea;
 	border: none;
 	font-weight: 600;
 }
@@ -10969,7 +10969,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 
 .mytheme td.v-inline-datefield-calendarpanel-month {
 	width: 148px;
-	color: #9FEDD7;
+	color: #6eaeea;
 }
 
 .mytheme .v-inline-datefield-calendarpanel-year td.v-inline-datefield-calendarpanel-month {
@@ -11218,13 +11218,13 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-menubar > .v-menubar-menuitem-selected {
-	color: #0c1b17;
+	color: #f3f7fa;
 	
 	
 	
 	border-radius: 0;
-	border: 0 solid #6fa596;
-	background: #9FEDD7;
+	border: 0 solid #4d79a3;
+	background: #6eaeea;
 	
 	
 	border-top-width: 0;
@@ -11305,7 +11305,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	right: 0;
 	bottom: 0;
 	left: 0;
-	background: #29edb5;
+	background: #0f7ce2;
 	opacity: 0.15;
 	filter: alpha(opacity=15.0) ;
 	pointer-events: none;
@@ -11331,9 +11331,9 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-menubar-popup .v-menubar-menuitem-selected {
-	background: #9FEDD7;
-	color: #0c1b17;
-	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.05);
+	background: #6eaeea;
+	color: #f3f7fa;
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.05);
 }
 
 .mytheme .v-menubar-popup .v-menubar-separator {
@@ -11411,7 +11411,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	border: none;
 	margin-right: 1px;
 	border-radius: 6px;
-	color: #9FEDD7;
+	color: #6eaeea;
 	padding: 0 12px;
 	-webkit-transition: color 140ms;
 	-moz-transition: color 140ms;
@@ -11427,7 +11427,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-menubar-borderless .v-menubar-menuitem:hover {
-	color: #caf5e9;
+	color: #9bc7f0;
 }
 
 .mytheme .v-menubar-borderless .v-menubar-menuitem:active {
@@ -11436,7 +11436,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 
 .mytheme .v-menubar-borderless .v-menubar-menuitem-checked, .mytheme .v-menubar-borderless .v-menubar-menuitem-checked:first-child {
 	border: 0 solid #b2b2b2;
-	color: #9FEDD7;
+	color: #6eaeea;
 }
 
 .mytheme .v-menubar-borderless .v-menubar-menuitem-checked .v-menubar-menuitem-caption, .mytheme .v-menubar-borderless .v-menubar-menuitem-checked:first-child .v-menubar-menuitem-caption {
@@ -11445,12 +11445,12 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-menubar-borderless .v-menubar-menuitem-selected {
-	color: #0c1b17;
-	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.05);
+	color: #f3f7fa;
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.05);
 }
 
 .mytheme .v-menubar-borderless .v-menubar-menuitem-selected:hover {
-	color: #0c1b17;
+	color: #f3f7fa;
 }
 
 .mytheme .v-menubar-borderless .v-menubar-menuitem-disabled, .mytheme .v-menubar-borderless .v-menubar-menuitem-disabled:hover {
@@ -11537,7 +11537,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 :root .mytheme .v-radiobutton > input:checked ~ label:after {
-	color: #9FEDD7;
+	color: #6eaeea;
 }
 
 .mytheme .v-radiobutton > .v-icon, .mytheme .v-radiobutton > label .v-icon {
@@ -11582,7 +11582,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	height: 7px;
 	top: 6px;
 	left: 6px;
-	background: #9FEDD7;
+	background: #6eaeea;
 }
 
 :root .mytheme .v-radiobutton > input ~ label:before, :root .mytheme .v-radiobutton > input ~ label:after {
@@ -11691,7 +11691,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 :root .mytheme .v-select-optiongroup-small .v-checkbox > input:checked ~ label:after {
-	color: #9FEDD7;
+	color: #6eaeea;
 }
 
 .mytheme .v-select-optiongroup-small .v-checkbox > .v-icon, .mytheme .v-select-optiongroup-small .v-checkbox > label .v-icon {
@@ -11811,7 +11811,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 :root .mytheme .v-select-optiongroup-small .v-radiobutton > input:checked ~ label:after {
-	color: #9FEDD7;
+	color: #6eaeea;
 }
 
 .mytheme .v-select-optiongroup-small .v-radiobutton > .v-icon, .mytheme .v-select-optiongroup-small .v-radiobutton > label .v-icon {
@@ -11856,7 +11856,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	height: 6px;
 	top: 5px;
 	left: 5px;
-	background: #9FEDD7;
+	background: #6eaeea;
 }
 
 :root .mytheme .v-select-optiongroup-small .v-radiobutton > input ~ label:before, :root .mytheme .v-select-optiongroup-small .v-radiobutton > input ~ label:after {
@@ -11965,7 +11965,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 :root .mytheme .v-select-optiongroup-large .v-checkbox > input:checked ~ label:after {
-	color: #9FEDD7;
+	color: #6eaeea;
 }
 
 .mytheme .v-select-optiongroup-large .v-checkbox > .v-icon, .mytheme .v-select-optiongroup-large .v-checkbox > label .v-icon {
@@ -12085,7 +12085,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 :root .mytheme .v-select-optiongroup-large .v-radiobutton > input:checked ~ label:after {
-	color: #9FEDD7;
+	color: #6eaeea;
 }
 
 .mytheme .v-select-optiongroup-large .v-radiobutton > .v-icon, .mytheme .v-select-optiongroup-large .v-radiobutton > label .v-icon {
@@ -12130,7 +12130,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	height: 8px;
 	top: 7px;
 	left: 7px;
-	background: #9FEDD7;
+	background: #6eaeea;
 }
 
 :root .mytheme .v-select-optiongroup-large .v-radiobutton > input ~ label:before, :root .mytheme .v-select-optiongroup-large .v-radiobutton > input ~ label:after {
@@ -12369,7 +12369,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 .mytheme .v-window-closebox:hover, .mytheme .v-window-maximizebox:hover, .mytheme .v-window-restorebox:hover {
 	opacity: 1;
 	filter: none ;
-	color: #9FEDD7;
+	color: #6eaeea;
 }
 
 .mytheme .v-window-closebox:active, .mytheme .v-window-maximizebox:active, .mytheme .v-window-restorebox:active {
@@ -12695,13 +12695,13 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-tree-node-selected {
-	color: #0c1b17;
-	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.05);
+	color: #f3f7fa;
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.05);
 }
 
 .mytheme .v-tree-node-selected:after {
 	opacity: 1;
-	background: #9FEDD7;
+	background: #6eaeea;
 	border: none;
 }
 
@@ -12901,7 +12901,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-tree8 .header-drag-table .v-tree8-header  > .v-tree8-drop-marker {
-	background-color: #9FEDD7;
+	background-color: #6eaeea;
 	position: absolute;
 	width: 3px;
 }
@@ -13030,7 +13030,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-tree8-row-selected > td {
-	background: #9FEDD7;
+	background: #6eaeea;
 }
 
 .mytheme .v-tree8-row-focused > td {
@@ -13153,7 +13153,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	right: 0;
 	bottom: 0;
 	left: 0;
-	border: 2px solid #9FEDD7;
+	border: 2px solid #6eaeea;
 	display: none;
 	pointer-events: none;
 }
@@ -13329,7 +13329,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	top: 0;
 	left: 0;
 	width: 4px;
-	background-color: #9FEDD7;
+	background-color: #6eaeea;
 	position: absolute;
 	height: 100%;
 	pointer-events: none;
@@ -13383,14 +13383,14 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-tree8-row-selected  > .v-tree8-cell {
-	background: #9FEDD7;
-	color: #1f5042;
-	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.05);
-	border-color: #83e0c6;
+	background: #6eaeea;
+	color: #dde8f3;
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.05);
+	border-color: #539add;
 }
 
 .mytheme .v-tree8-row-selected  > .v-tree8-cell-focused:before {
-	border-color: #f5fdfb;
+	border-color: #c7e0f7;
 }
 
 .mytheme .v-tree8-editor {
@@ -13713,7 +13713,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	right: 0;
 	bottom: 0;
 	left: 0;
-	border: 2px solid #9FEDD7;
+	border: 2px solid #6eaeea;
 	display: none;
 	pointer-events: none;
 }
@@ -13781,12 +13781,12 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 
 .mytheme .v-tree8-row-selected::before {
 	display: block;
-	background: #9FEDD7;
+	background: #6eaeea;
 }
 
 .mytheme .v-tree8:focus .v-tree8-row-selected.v-tree8-row-focused::before {
 	border-color: transparent;
-	box-shadow: inset 0 0 0 1px #1f5042;
+	box-shadow: inset 0 0 0 1px #dde8f3;
 }
 
 .mytheme .v-tree8-scroller-vertical {
@@ -13963,7 +13963,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-treegrid .header-drag-table .v-treegrid-header  > .v-treegrid-drop-marker {
-	background-color: #9FEDD7;
+	background-color: #6eaeea;
 	position: absolute;
 	width: 3px;
 }
@@ -14092,7 +14092,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-treegrid-row-selected > td {
-	background: #9FEDD7;
+	background: #6eaeea;
 }
 
 .mytheme .v-treegrid-row-focused > td {
@@ -14215,7 +14215,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	right: 0;
 	bottom: 0;
 	left: 0;
-	border: 2px solid #9FEDD7;
+	border: 2px solid #6eaeea;
 	display: none;
 	pointer-events: none;
 }
@@ -14391,7 +14391,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	top: 0;
 	left: 0;
 	width: 4px;
-	background-color: #9FEDD7;
+	background-color: #6eaeea;
 	position: absolute;
 	height: 100%;
 	pointer-events: none;
@@ -14445,14 +14445,14 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-treegrid-row-selected  > .v-treegrid-cell {
-	background: #9FEDD7;
-	color: #1f5042;
-	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.05);
-	border-color: #83e0c6;
+	background: #6eaeea;
+	color: #dde8f3;
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.05);
+	border-color: #539add;
 }
 
 .mytheme .v-treegrid-row-selected  > .v-treegrid-cell-focused:before {
-	border-color: #f5fdfb;
+	border-color: #c7e0f7;
 }
 
 .mytheme .v-treegrid-editor {
@@ -14775,7 +14775,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	right: 0;
 	bottom: 0;
 	left: 0;
-	border: 2px solid #9FEDD7;
+	border: 2px solid #6eaeea;
 	display: none;
 	pointer-events: none;
 }
@@ -14947,23 +14947,23 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-table [class*="-row"].v-selected {
-	background: #9FEDD7;
+	background: #6eaeea;
 	background-origin: border-box;
-	color: #0c1b17;
-	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.05);
+	color: #f3f7fa;
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.05);
 }
 
 .mytheme .v-table [class*="-row"].v-selected  + .v-selected {
-	background: #9FEDD7;
+	background: #6eaeea;
 }
 
 .mytheme .v-table [class*="-row"].v-selected  + .v-selected td {
-	border-top-color: #9FEDD7;
+	border-top-color: #6eaeea;
 }
 
 .mytheme .v-table [class*="-row"].v-selected .v-table-cell-content {
 	border-color: transparent;
-	border-left-color: #83e0c6;
+	border-left-color: #539add;
 }
 
 .mytheme .v-table [class*="-row"].v-selected .v-table-cell-content:first-child {
@@ -15616,10 +15616,10 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 .mytheme .v-progressbar-indicator {
 	border-radius: 6px;
 	height: inherit;
-	background: #9FEDD7;
+	background: #6eaeea;
 	
 	
-	border: 0 solid #6fa596;
+	border: 0 solid #4d79a3;
 	box-sizing: border-box;
 	max-width: 100%;
 	min-width: 12px;
@@ -15642,10 +15642,10 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	display: inline-block;
 	border-radius: 6px;
 	height: inherit;
-	background: #9FEDD7;
+	background: #6eaeea;
 	
 	
-	border: 0 solid #6fa596;
+	border: 0 solid #4d79a3;
 	box-sizing: border-box;
 	max-width: 100%;
 	width: 9px;
@@ -15708,16 +15708,16 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	left: 11px;
 	width: 12px;
 	border-radius: 6px;
-	border-left: 0 solid #6fa596;
+	border-left: 0 solid #4d79a3;
 }
 
 .mytheme .v-slider-base:after {
 	border-radius: 6px;
 	height: inherit;
-	background: #9FEDD7;
+	background: #6eaeea;
 	
 	
-	border: 0 solid #6fa596;
+	border: 0 solid #4d79a3;
 	box-sizing: border-box;
 	max-width: 100%;
 	content: "";
@@ -15827,13 +15827,13 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	width: auto;
 	height: 12px;
 	border-left: none;
-	border-bottom: 0 solid #6fa596;
+	border-bottom: 0 solid #4d79a3;
 }
 
 .mytheme .v-slider-vertical .v-slider-base:after {
 	height: 101%;
 	margin-left: 0;
-	background: #9FEDD7;
+	background: #6eaeea;
 }
 
 .mytheme .v-slider-vertical .v-slider-handle {
@@ -15919,7 +15919,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-tabsheet-tabitemcell .v-caption:hover {
-	color: #9FEDD7;
+	color: #6eaeea;
 }
 
 .mytheme .v-tabsheet-tabitemcell .v-caption.v-disabled {
@@ -15938,12 +15938,12 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-tabsheet-tabitemcell:focus .v-caption {
-	color: #9FEDD7;
+	color: #6eaeea;
 }
 
 .mytheme .v-tabsheet-tabitemcell .v-tabsheet-tabitem-selected .v-caption.v-caption {
-	border-bottom-color: #9FEDD7;
-	color: #9FEDD7;
+	border-bottom-color: #6eaeea;
+	color: #6eaeea;
 }
 
 .mytheme .v-tabsheet-tabitemcell .v-caption-closable {
@@ -15969,12 +15969,12 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 
 .mytheme .v-tabsheet-tabitemcell .v-tabsheet-caption-close:hover {
 	background: rgba(0, 0, 0, 0.03);
-	color: #9FEDD7;
+	color: #6eaeea;
 }
 
 .mytheme .v-tabsheet-tabitemcell .v-tabsheet-caption-close:active {
-	background: #9FEDD7;
-	color: #1f5042;
+	background: #6eaeea;
+	color: #dde8f3;
 }
 
 .mytheme .v-tabsheet-scroller {
@@ -16025,13 +16025,13 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 .mytheme .v-tabsheet-scroller button:hover {
 	opacity: 1;
 	filter: none ;
-	color: #9FEDD7;
+	color: #6eaeea;
 }
 
 .mytheme .v-tabsheet-scroller button:active {
 	opacity: 0.7;
 	filter: alpha(opacity=70) ;
-	color: #9FEDD7;
+	color: #6eaeea;
 }
 
 .mytheme .v-tabsheet-scroller button::-moz-focus-inner {
@@ -16758,7 +16758,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-calendar-month-day-selected {
-	background-color: #f5fdfb;
+	background-color: #f0f6fc;
 }
 
 .mytheme .v-calendar-month-day-dragemphasis {
@@ -16860,7 +16860,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	right: 0;
 	bottom: -1px;
 	left: 0;
-	background: #9FEDD7;
+	background: #6eaeea;
 	opacity: 0.5;
 	filter: alpha(opacity=50) ;
 	border-radius: 6px 6px 0 0;
@@ -17153,7 +17153,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-label-colored {
-	color: #9FEDD7;
+	color: #6eaeea;
 }
 
 .mytheme .v-label-large {
@@ -18065,13 +18065,13 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 
 .mytheme .valo-menu {
 	height: 100%;
-	background-color: #9FEDD7;
-	background-image: -webkit-linear-gradient(right, #9fedd7 0%, #9FEDD7 9px);
-	background-image: linear-gradient(to left,#9fedd7 0%, #9FEDD7 9px);
-	color: #309679;
+	background-color: #6eaeea;
+	background-image: -webkit-linear-gradient(right, #6eaeea 0%, #6eaeea 9px);
+	background-image: linear-gradient(to left,#6eaeea 0%, #6eaeea 9px);
+	color: #bed6ed;
 	font-size: 14px;
 	line-height: 30px;
-	border-right: 0 solid #6fa596;
+	border-right: 0 solid #4d79a3;
 	white-space: nowrap;
 }
 
@@ -18085,7 +18085,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .valo-menu-part {
-	border-left: 0 solid #82c2b0;
+	border-left: 0 solid #5a8ebf;
 	height: 100%;
 	padding-bottom: 37px;
 	overflow: auto;
@@ -18109,12 +18109,12 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 
 .mytheme .valo-menu-title {
 	line-height: 1.2;
-	background: #9FEDD7;
-	color: black;
-	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.05);
+	background: #6eaeea;
+	color: white;
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.05);
 	padding: 12px 19px;
 	font-size: 14px;
-	border-bottom: 0 solid #6fa596;
+	border-bottom: 0 solid #4d79a3;
 	
 	
 	text-align: center;
@@ -18122,7 +18122,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 
 .mytheme .valo-menu-title .v-menubar.v-menubar {
 	background: transparent;
-	border-color: #6fa596;
+	border-color: #4d79a3;
 	color: inherit;
 	-webkit-box-shadow: none;
 	box-shadow: none;
@@ -18171,7 +18171,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	border: none;
 	margin-right: 1px;
 	border-radius: 6px;
-	color: #9FEDD7;
+	color: #6eaeea;
 	padding: 0 12px;
 	-webkit-transition: color 140ms;
 	-moz-transition: color 140ms;
@@ -18187,7 +18187,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-menubar-user-menu .v-menubar-menuitem:hover {
-	color: #caf5e9;
+	color: #9bc7f0;
 }
 
 .mytheme .v-menubar-user-menu .v-menubar-menuitem:active {
@@ -18196,7 +18196,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 
 .mytheme .v-menubar-user-menu .v-menubar-menuitem-checked, .mytheme .v-menubar-user-menu .v-menubar-menuitem-checked:first-child {
 	border: 0 solid #b2b2b2;
-	color: #9FEDD7;
+	color: #6eaeea;
 }
 
 .mytheme .v-menubar-user-menu .v-menubar-menuitem-checked .v-menubar-menuitem-caption, .mytheme .v-menubar-user-menu .v-menubar-menuitem-checked:first-child .v-menubar-menuitem-caption {
@@ -18205,12 +18205,12 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-menubar-user-menu .v-menubar-menuitem-selected {
-	color: #0c1b17;
-	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.05);
+	color: #f3f7fa;
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.05);
 }
 
 .mytheme .v-menubar-user-menu .v-menubar-menuitem-selected:hover {
-	color: #0c1b17;
+	color: #f3f7fa;
 }
 
 .mytheme .v-menubar-user-menu .v-menubar-menuitem-disabled, .mytheme .v-menubar-user-menu .v-menubar-menuitem-disabled:hover {
@@ -18246,13 +18246,13 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .valo-menu-subtitle {
-	color: #3fcba3;
+	color: #a5c9ea;
 	margin: 7px 0 7px 19px;
-	border-bottom: 0 solid #87c9b6;
+	border-bottom: 0 solid #83baed;
 }
 
 .mytheme .valo-menu-subtitle [class*="badge"] {
-	color: #5f9e8c;
+	color: #a5cbee;
 }
 
 .mytheme .valo-menuitems {
@@ -18266,7 +18266,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	cursor: pointer;
 	position: relative;
 	overflow: hidden;
-	text-shadow: 0 -2px 0 rgba(255, 255, 255, 0.05);
+	text-shadow: 0 2px 0 rgba(0, 0, 0, 0.05);
 	-webkit-transition: background-color 300ms, color 60ms;
 	-moz-transition: background-color 300ms, color 60ms;
 	transition: background-color 300ms, color 60ms;
@@ -18283,24 +18283,24 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .valo-menu-item [class*="badge"] {
-	color: #5f9e8c;
+	color: #a5cbee;
 }
 
 .mytheme .valo-menu-item.selected {
-	background: #b4f1e0;
+	background: #61a7e8;
 }
 
 .mytheme .valo-menu-item.selected .v-icon {
-	color: #caf5e9;
+	color: #9bc7f0;
 }
 
 .mytheme .valo-menu-item.selected [class*="badge"] {
-	background: #caf5e9;
-	color: #235a4b;
+	background: #9bc7f0;
+	color: #1d3852;
 }
 
 .mytheme .valo-menu-item:focus, .mytheme .valo-menu-item:hover, .mytheme .valo-menu-item.selected {
-	color: black;
+	color: white;
 }
 
 .mytheme .valo-menu-item span.v-icon {
@@ -18315,7 +18315,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .valo-menu-item [class*="badge"] {
-	background-color: #b4f1e0;
+	background-color: #84baed;
 	-webkit-transition: background-color 300ms;
 	-moz-transition: background-color 300ms;
 	transition: background-color 300ms;
@@ -18328,7 +18328,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .valo-menu-part.large-icons {
-	background-color: #9FEDD7;
+	background-color: #6eaeea;
 	min-width: 74px;
 	max-width: 111px;
 }
@@ -18359,7 +18359,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	border: none;
 	text-overflow: ellipsis;
 	overflow: hidden;
-	background: #85e8cc;
+	background: #539fe6;
 	font-size: 13px;
 	
 }
@@ -18378,7 +18378,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	line-height: 1;
 	padding: 12px;
 	text-align: center;
-	border-top: 0 solid #95deca;
+	border-top: 0 solid #76b2eb;
 }
 
 .mytheme .valo-menu-part.large-icons .valo-menu-item:first-child {
@@ -18403,7 +18403,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .valo-menu-part.large-icons .valo-menu-item.selected {
-	background: #b4f1e0;
+	background: #61a7e8;
 }
 
 .mytheme .valo-menu-part.large-icons .valo-menu-item.selected .v-icon {
@@ -18411,7 +18411,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .valo-menu-part.large-icons .valo-menu-item.selected [class*="badge"] {
-	border-color: #92ebd2;
+	border-color: #61a7e8;
 }
 
 .mytheme .valo-menu-part.large-icons .valo-menu-item [class*="badge"] {
@@ -18419,7 +18419,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	padding-right: 4px;
 	top: 7px;
 	right: 7px;
-	border: 2px solid #9FEDD7;
+	border: 2px solid #6eaeea;
 }
 
 .mytheme .valo-menu-logo {
@@ -18429,8 +18429,8 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	height: 44px;
 	border-radius: 6px;
 	text-align: center;
-	background: #9FEDD7;
-	color: black;
+	background: #6eaeea;
+	color: white;
 	font-size: 25px;
 	line-height: 44px;
 	margin: 19px auto;
@@ -18443,7 +18443,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .valo-menu-responsive[width-range~="801px-1100px"] .valo-menu-part {
-	background-color: #9FEDD7;
+	background-color: #6eaeea;
 	min-width: 74px;
 	max-width: 111px;
 }
@@ -18474,7 +18474,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	border: none;
 	text-overflow: ellipsis;
 	overflow: hidden;
-	background: #85e8cc;
+	background: #539fe6;
 	font-size: 13px;
 	
 }
@@ -18493,7 +18493,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	line-height: 1;
 	padding: 12px;
 	text-align: center;
-	border-top: 0 solid #95deca;
+	border-top: 0 solid #76b2eb;
 }
 
 .mytheme .valo-menu-responsive[width-range~="801px-1100px"] .valo-menu-part .valo-menu-item:first-child {
@@ -18518,7 +18518,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .valo-menu-responsive[width-range~="801px-1100px"] .valo-menu-part .valo-menu-item.selected {
-	background: #b4f1e0;
+	background: #61a7e8;
 }
 
 .mytheme .valo-menu-responsive[width-range~="801px-1100px"] .valo-menu-part .valo-menu-item.selected .v-icon {
@@ -18526,7 +18526,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .valo-menu-responsive[width-range~="801px-1100px"] .valo-menu-part .valo-menu-item.selected [class*="badge"] {
-	border-color: #92ebd2;
+	border-color: #61a7e8;
 }
 
 .mytheme .valo-menu-responsive[width-range~="801px-1100px"] .valo-menu-part .valo-menu-item [class*="badge"] {
@@ -18534,7 +18534,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	padding-right: 4px;
 	top: 7px;
 	right: 7px;
-	border: 2px solid #9FEDD7;
+	border: 2px solid #6eaeea;
 }
 
 .mytheme .valo-menu-responsive[width-range~="0-800px"] {
@@ -18583,7 +18583,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	margin: 0;
 	padding: 0;
 	height: 37px;
-	color: #309679;
+	color: #bed6ed;
 	max-width: 30%;
 	-webkit-backface-visibility: hidden;
 }
@@ -18604,13 +18604,13 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 
 .mytheme .valo-menu-responsive[width-range~="0-800px"] .valo-menuitems {
 	height: 100%;
-	background-color: #9FEDD7;
-	background-image: -webkit-linear-gradient(right, #9fedd7 0%, #9FEDD7 9px);
-	background-image: linear-gradient(to left,#9fedd7 0%, #9FEDD7 9px);
-	color: #309679;
+	background-color: #6eaeea;
+	background-image: -webkit-linear-gradient(right, #6eaeea 0%, #6eaeea 9px);
+	background-image: linear-gradient(to left,#6eaeea 0%, #6eaeea 9px);
+	color: #bed6ed;
 	font-size: 14px;
 	line-height: 30px;
-	border-right: 0 solid #6fa596;
+	border-right: 0 solid #4d79a3;
 	white-space: nowrap;
 	position: fixed;
 	z-index: 9000;
@@ -18988,7 +18988,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	right: 0;
 	bottom: 0;
 	left: 0;
-	background: #29edb5;
+	background: #0f7ce2;
 	opacity: 0.15;
 	filter: alpha(opacity=15.0) ;
 	pointer-events: none;
@@ -19002,9 +19002,9 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-contextmenu .gwt-MenuItem-selected {
-	background: #9FEDD7;
-	color: #0c1b17;
-	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.05);
+	background: #6eaeea;
+	color: #f3f7fa;
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.05);
 }
 
 .mytheme .v-reconnect-dialog {
@@ -19232,7 +19232,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 :root .mytheme .v-checkbox > input:checked ~ label:after {
-	color: #9FEDD7;
+	color: #6eaeea;
 }
 
 .mytheme .v-checkbox > .v-icon, .mytheme .v-checkbox > label .v-icon {
@@ -19353,7 +19353,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 :root .mytheme .v-checkbox-small > input:checked ~ label:after {
-	color: #9FEDD7;
+	color: #6eaeea;
 }
 
 .mytheme .v-checkbox-small > .v-icon, .mytheme .v-checkbox-small > label .v-icon {
@@ -19474,7 +19474,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 :root .mytheme .v-checkbox-large > input:checked ~ label:after {
-	color: #9FEDD7;
+	color: #6eaeea;
 }
 
 .mytheme .v-checkbox-large > .v-icon, .mytheme .v-checkbox-large > label .v-icon {
@@ -19804,7 +19804,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	right: 0;
 	bottom: 0;
 	left: 0;
-	background: #29edb5;
+	background: #0f7ce2;
 	opacity: 0.15;
 	filter: alpha(opacity=15.0) ;
 	pointer-events: none;
@@ -19818,9 +19818,9 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-filterselect-suggestpopup .gwt-MenuItem-selected {
-	background: #9FEDD7;
-	color: #0c1b17;
-	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.05);
+	background: #6eaeea;
+	color: #f3f7fa;
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.05);
 }
 
 .mytheme .v-filterselect-suggestpopup [class$="status"] {
@@ -20979,7 +20979,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-grid .header-drag-table .v-grid-header  > .v-grid-drop-marker {
-	background-color: #9FEDD7;
+	background-color: #6eaeea;
 	position: absolute;
 	width: 3px;
 }
@@ -21108,7 +21108,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-grid-row-selected > td {
-	background: #9FEDD7;
+	background: #6eaeea;
 }
 
 .mytheme .v-grid-row-focused > td {
@@ -21231,7 +21231,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	right: 0;
 	bottom: 0;
 	left: 0;
-	border: 2px solid #9FEDD7;
+	border: 2px solid #6eaeea;
 	display: none;
 	pointer-events: none;
 }
@@ -21407,7 +21407,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	top: 0;
 	left: 0;
 	width: 4px;
-	background-color: #9FEDD7;
+	background-color: #6eaeea;
 	position: absolute;
 	height: 100%;
 	pointer-events: none;
@@ -21461,14 +21461,14 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-grid-row-selected  > .v-grid-cell {
-	background: #9FEDD7;
-	color: #1f5042;
-	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.05);
-	border-color: #83e0c6;
+	background: #6eaeea;
+	color: #dde8f3;
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.05);
+	border-color: #539add;
 }
 
 .mytheme .v-grid-row-selected  > .v-grid-cell-focused:before {
-	border-color: #f5fdfb;
+	border-color: #c7e0f7;
 }
 
 .mytheme .v-grid-editor {
@@ -22664,7 +22664,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-datefield-popup .v-datefield-calendarpanel-day:hover {
-	color: #9FEDD7;
+	color: #6eaeea;
 }
 
 .mytheme .v-datefield-popup .v-datefield-calendarpanel-day-offmonth {
@@ -22679,8 +22679,8 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-datefield-popup .v-datefield-calendarpanel-day.v-datefield-calendarpanel-day-selected, .mytheme .v-datefield-popup .v-datefield-calendarpanel-day.v-datefield-calendarpanel-day-selected:hover {
-	color: #1f5042;
-	background: #9FEDD7;
+	color: #dde8f3;
+	background: #6eaeea;
 	border: none;
 	font-weight: 600;
 }
@@ -22773,7 +22773,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 
 .mytheme .v-datefield-popup td.v-datefield-calendarpanel-month {
 	width: 148px;
-	color: #9FEDD7;
+	color: #6eaeea;
 }
 
 .mytheme .v-datefield-popup .v-datefield-calendarpanel-year td.v-datefield-calendarpanel-month {
@@ -22845,7 +22845,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-datefield-calendarpanel-day:hover {
-	color: #9FEDD7;
+	color: #6eaeea;
 }
 
 .mytheme .v-datefield-calendarpanel-day-offmonth {
@@ -22860,8 +22860,8 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-datefield-calendarpanel-day.v-datefield-calendarpanel-day-selected, .mytheme .v-datefield-calendarpanel-day.v-datefield-calendarpanel-day-selected:hover {
-	color: #1f5042;
-	background: #9FEDD7;
+	color: #dde8f3;
+	background: #6eaeea;
 	border: none;
 	font-weight: 600;
 }
@@ -22954,7 +22954,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 
 .mytheme td.v-datefield-calendarpanel-month {
 	width: 148px;
-	color: #9FEDD7;
+	color: #6eaeea;
 }
 
 .mytheme .v-datefield-calendarpanel-year td.v-datefield-calendarpanel-month {
@@ -23496,7 +23496,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-inline-datefield-calendarpanel-day:hover {
-	color: #9FEDD7;
+	color: #6eaeea;
 }
 
 .mytheme .v-inline-datefield-calendarpanel-day-offmonth {
@@ -23511,8 +23511,8 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-inline-datefield-calendarpanel-day.v-inline-datefield-calendarpanel-day-selected, .mytheme .v-inline-datefield-calendarpanel-day.v-inline-datefield-calendarpanel-day-selected:hover {
-	color: #1f5042;
-	background: #9FEDD7;
+	color: #dde8f3;
+	background: #6eaeea;
 	border: none;
 	font-weight: 600;
 }
@@ -23605,7 +23605,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 
 .mytheme td.v-inline-datefield-calendarpanel-month {
 	width: 148px;
-	color: #9FEDD7;
+	color: #6eaeea;
 }
 
 .mytheme .v-inline-datefield-calendarpanel-year td.v-inline-datefield-calendarpanel-month {
@@ -23854,13 +23854,13 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-menubar > .v-menubar-menuitem-selected {
-	color: #0c1b17;
+	color: #f3f7fa;
 	
 	
 	
 	border-radius: 0;
-	border: 0 solid #6fa596;
-	background: #9FEDD7;
+	border: 0 solid #4d79a3;
+	background: #6eaeea;
 	
 	
 	border-top-width: 0;
@@ -23941,7 +23941,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	right: 0;
 	bottom: 0;
 	left: 0;
-	background: #29edb5;
+	background: #0f7ce2;
 	opacity: 0.15;
 	filter: alpha(opacity=15.0) ;
 	pointer-events: none;
@@ -23967,9 +23967,9 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-menubar-popup .v-menubar-menuitem-selected {
-	background: #9FEDD7;
-	color: #0c1b17;
-	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.05);
+	background: #6eaeea;
+	color: #f3f7fa;
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.05);
 }
 
 .mytheme .v-menubar-popup .v-menubar-separator {
@@ -24047,7 +24047,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	border: none;
 	margin-right: 1px;
 	border-radius: 6px;
-	color: #9FEDD7;
+	color: #6eaeea;
 	padding: 0 12px;
 	-webkit-transition: color 140ms;
 	-moz-transition: color 140ms;
@@ -24063,7 +24063,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-menubar-borderless .v-menubar-menuitem:hover {
-	color: #caf5e9;
+	color: #9bc7f0;
 }
 
 .mytheme .v-menubar-borderless .v-menubar-menuitem:active {
@@ -24072,7 +24072,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 
 .mytheme .v-menubar-borderless .v-menubar-menuitem-checked, .mytheme .v-menubar-borderless .v-menubar-menuitem-checked:first-child {
 	border: 0 solid #b2b2b2;
-	color: #9FEDD7;
+	color: #6eaeea;
 }
 
 .mytheme .v-menubar-borderless .v-menubar-menuitem-checked .v-menubar-menuitem-caption, .mytheme .v-menubar-borderless .v-menubar-menuitem-checked:first-child .v-menubar-menuitem-caption {
@@ -24081,12 +24081,12 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-menubar-borderless .v-menubar-menuitem-selected {
-	color: #0c1b17;
-	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.05);
+	color: #f3f7fa;
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.05);
 }
 
 .mytheme .v-menubar-borderless .v-menubar-menuitem-selected:hover {
-	color: #0c1b17;
+	color: #f3f7fa;
 }
 
 .mytheme .v-menubar-borderless .v-menubar-menuitem-disabled, .mytheme .v-menubar-borderless .v-menubar-menuitem-disabled:hover {
@@ -24173,7 +24173,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 :root .mytheme .v-radiobutton > input:checked ~ label:after {
-	color: #9FEDD7;
+	color: #6eaeea;
 }
 
 .mytheme .v-radiobutton > .v-icon, .mytheme .v-radiobutton > label .v-icon {
@@ -24218,7 +24218,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	height: 7px;
 	top: 6px;
 	left: 6px;
-	background: #9FEDD7;
+	background: #6eaeea;
 }
 
 :root .mytheme .v-radiobutton > input ~ label:before, :root .mytheme .v-radiobutton > input ~ label:after {
@@ -24327,7 +24327,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 :root .mytheme .v-select-optiongroup-small .v-checkbox > input:checked ~ label:after {
-	color: #9FEDD7;
+	color: #6eaeea;
 }
 
 .mytheme .v-select-optiongroup-small .v-checkbox > .v-icon, .mytheme .v-select-optiongroup-small .v-checkbox > label .v-icon {
@@ -24447,7 +24447,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 :root .mytheme .v-select-optiongroup-small .v-radiobutton > input:checked ~ label:after {
-	color: #9FEDD7;
+	color: #6eaeea;
 }
 
 .mytheme .v-select-optiongroup-small .v-radiobutton > .v-icon, .mytheme .v-select-optiongroup-small .v-radiobutton > label .v-icon {
@@ -24492,7 +24492,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	height: 6px;
 	top: 5px;
 	left: 5px;
-	background: #9FEDD7;
+	background: #6eaeea;
 }
 
 :root .mytheme .v-select-optiongroup-small .v-radiobutton > input ~ label:before, :root .mytheme .v-select-optiongroup-small .v-radiobutton > input ~ label:after {
@@ -24601,7 +24601,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 :root .mytheme .v-select-optiongroup-large .v-checkbox > input:checked ~ label:after {
-	color: #9FEDD7;
+	color: #6eaeea;
 }
 
 .mytheme .v-select-optiongroup-large .v-checkbox > .v-icon, .mytheme .v-select-optiongroup-large .v-checkbox > label .v-icon {
@@ -24721,7 +24721,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 :root .mytheme .v-select-optiongroup-large .v-radiobutton > input:checked ~ label:after {
-	color: #9FEDD7;
+	color: #6eaeea;
 }
 
 .mytheme .v-select-optiongroup-large .v-radiobutton > .v-icon, .mytheme .v-select-optiongroup-large .v-radiobutton > label .v-icon {
@@ -24766,7 +24766,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	height: 8px;
 	top: 7px;
 	left: 7px;
-	background: #9FEDD7;
+	background: #6eaeea;
 }
 
 :root .mytheme .v-select-optiongroup-large .v-radiobutton > input ~ label:before, :root .mytheme .v-select-optiongroup-large .v-radiobutton > input ~ label:after {
@@ -25005,7 +25005,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 .mytheme .v-window-closebox:hover, .mytheme .v-window-maximizebox:hover, .mytheme .v-window-restorebox:hover {
 	opacity: 1;
 	filter: none ;
-	color: #9FEDD7;
+	color: #6eaeea;
 }
 
 .mytheme .v-window-closebox:active, .mytheme .v-window-maximizebox:active, .mytheme .v-window-restorebox:active {
@@ -25331,13 +25331,13 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-tree-node-selected {
-	color: #0c1b17;
-	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.05);
+	color: #f3f7fa;
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.05);
 }
 
 .mytheme .v-tree-node-selected:after {
 	opacity: 1;
-	background: #9FEDD7;
+	background: #6eaeea;
 	border: none;
 }
 
@@ -25537,7 +25537,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-tree8 .header-drag-table .v-tree8-header  > .v-tree8-drop-marker {
-	background-color: #9FEDD7;
+	background-color: #6eaeea;
 	position: absolute;
 	width: 3px;
 }
@@ -25666,7 +25666,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-tree8-row-selected > td {
-	background: #9FEDD7;
+	background: #6eaeea;
 }
 
 .mytheme .v-tree8-row-focused > td {
@@ -25789,7 +25789,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	right: 0;
 	bottom: 0;
 	left: 0;
-	border: 2px solid #9FEDD7;
+	border: 2px solid #6eaeea;
 	display: none;
 	pointer-events: none;
 }
@@ -25965,7 +25965,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	top: 0;
 	left: 0;
 	width: 4px;
-	background-color: #9FEDD7;
+	background-color: #6eaeea;
 	position: absolute;
 	height: 100%;
 	pointer-events: none;
@@ -26019,14 +26019,14 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-tree8-row-selected  > .v-tree8-cell {
-	background: #9FEDD7;
-	color: #1f5042;
-	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.05);
-	border-color: #83e0c6;
+	background: #6eaeea;
+	color: #dde8f3;
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.05);
+	border-color: #539add;
 }
 
 .mytheme .v-tree8-row-selected  > .v-tree8-cell-focused:before {
-	border-color: #f5fdfb;
+	border-color: #c7e0f7;
 }
 
 .mytheme .v-tree8-editor {
@@ -26349,7 +26349,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	right: 0;
 	bottom: 0;
 	left: 0;
-	border: 2px solid #9FEDD7;
+	border: 2px solid #6eaeea;
 	display: none;
 	pointer-events: none;
 }
@@ -26417,12 +26417,12 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 
 .mytheme .v-tree8-row-selected::before {
 	display: block;
-	background: #9FEDD7;
+	background: #6eaeea;
 }
 
 .mytheme .v-tree8:focus .v-tree8-row-selected.v-tree8-row-focused::before {
 	border-color: transparent;
-	box-shadow: inset 0 0 0 1px #1f5042;
+	box-shadow: inset 0 0 0 1px #dde8f3;
 }
 
 .mytheme .v-tree8-scroller-vertical {
@@ -26599,7 +26599,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-treegrid .header-drag-table .v-treegrid-header  > .v-treegrid-drop-marker {
-	background-color: #9FEDD7;
+	background-color: #6eaeea;
 	position: absolute;
 	width: 3px;
 }
@@ -26728,7 +26728,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-treegrid-row-selected > td {
-	background: #9FEDD7;
+	background: #6eaeea;
 }
 
 .mytheme .v-treegrid-row-focused > td {
@@ -26851,7 +26851,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	right: 0;
 	bottom: 0;
 	left: 0;
-	border: 2px solid #9FEDD7;
+	border: 2px solid #6eaeea;
 	display: none;
 	pointer-events: none;
 }
@@ -27027,7 +27027,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	top: 0;
 	left: 0;
 	width: 4px;
-	background-color: #9FEDD7;
+	background-color: #6eaeea;
 	position: absolute;
 	height: 100%;
 	pointer-events: none;
@@ -27081,14 +27081,14 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-treegrid-row-selected  > .v-treegrid-cell {
-	background: #9FEDD7;
-	color: #1f5042;
-	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.05);
-	border-color: #83e0c6;
+	background: #6eaeea;
+	color: #dde8f3;
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.05);
+	border-color: #539add;
 }
 
 .mytheme .v-treegrid-row-selected  > .v-treegrid-cell-focused:before {
-	border-color: #f5fdfb;
+	border-color: #c7e0f7;
 }
 
 .mytheme .v-treegrid-editor {
@@ -27411,7 +27411,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	right: 0;
 	bottom: 0;
 	left: 0;
-	border: 2px solid #9FEDD7;
+	border: 2px solid #6eaeea;
 	display: none;
 	pointer-events: none;
 }
@@ -27583,23 +27583,23 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-table [class*="-row"].v-selected {
-	background: #9FEDD7;
+	background: #6eaeea;
 	background-origin: border-box;
-	color: #0c1b17;
-	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.05);
+	color: #f3f7fa;
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.05);
 }
 
 .mytheme .v-table [class*="-row"].v-selected  + .v-selected {
-	background: #9FEDD7;
+	background: #6eaeea;
 }
 
 .mytheme .v-table [class*="-row"].v-selected  + .v-selected td {
-	border-top-color: #9FEDD7;
+	border-top-color: #6eaeea;
 }
 
 .mytheme .v-table [class*="-row"].v-selected .v-table-cell-content {
 	border-color: transparent;
-	border-left-color: #83e0c6;
+	border-left-color: #539add;
 }
 
 .mytheme .v-table [class*="-row"].v-selected .v-table-cell-content:first-child {
@@ -28252,10 +28252,10 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 .mytheme .v-progressbar-indicator {
 	border-radius: 6px;
 	height: inherit;
-	background: #9FEDD7;
+	background: #6eaeea;
 	
 	
-	border: 0 solid #6fa596;
+	border: 0 solid #4d79a3;
 	box-sizing: border-box;
 	max-width: 100%;
 	min-width: 12px;
@@ -28278,10 +28278,10 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	display: inline-block;
 	border-radius: 6px;
 	height: inherit;
-	background: #9FEDD7;
+	background: #6eaeea;
 	
 	
-	border: 0 solid #6fa596;
+	border: 0 solid #4d79a3;
 	box-sizing: border-box;
 	max-width: 100%;
 	width: 9px;
@@ -28344,16 +28344,16 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	left: 11px;
 	width: 12px;
 	border-radius: 6px;
-	border-left: 0 solid #6fa596;
+	border-left: 0 solid #4d79a3;
 }
 
 .mytheme .v-slider-base:after {
 	border-radius: 6px;
 	height: inherit;
-	background: #9FEDD7;
+	background: #6eaeea;
 	
 	
-	border: 0 solid #6fa596;
+	border: 0 solid #4d79a3;
 	box-sizing: border-box;
 	max-width: 100%;
 	content: "";
@@ -28463,13 +28463,13 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	width: auto;
 	height: 12px;
 	border-left: none;
-	border-bottom: 0 solid #6fa596;
+	border-bottom: 0 solid #4d79a3;
 }
 
 .mytheme .v-slider-vertical .v-slider-base:after {
 	height: 101%;
 	margin-left: 0;
-	background: #9FEDD7;
+	background: #6eaeea;
 }
 
 .mytheme .v-slider-vertical .v-slider-handle {
@@ -28555,7 +28555,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-tabsheet-tabitemcell .v-caption:hover {
-	color: #9FEDD7;
+	color: #6eaeea;
 }
 
 .mytheme .v-tabsheet-tabitemcell .v-caption.v-disabled {
@@ -28574,12 +28574,12 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-tabsheet-tabitemcell:focus .v-caption {
-	color: #9FEDD7;
+	color: #6eaeea;
 }
 
 .mytheme .v-tabsheet-tabitemcell .v-tabsheet-tabitem-selected .v-caption.v-caption {
-	border-bottom-color: #9FEDD7;
-	color: #9FEDD7;
+	border-bottom-color: #6eaeea;
+	color: #6eaeea;
 }
 
 .mytheme .v-tabsheet-tabitemcell .v-caption-closable {
@@ -28605,12 +28605,12 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 
 .mytheme .v-tabsheet-tabitemcell .v-tabsheet-caption-close:hover {
 	background: rgba(0, 0, 0, 0.03);
-	color: #9FEDD7;
+	color: #6eaeea;
 }
 
 .mytheme .v-tabsheet-tabitemcell .v-tabsheet-caption-close:active {
-	background: #9FEDD7;
-	color: #1f5042;
+	background: #6eaeea;
+	color: #dde8f3;
 }
 
 .mytheme .v-tabsheet-scroller {
@@ -28661,13 +28661,13 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 .mytheme .v-tabsheet-scroller button:hover {
 	opacity: 1;
 	filter: none ;
-	color: #9FEDD7;
+	color: #6eaeea;
 }
 
 .mytheme .v-tabsheet-scroller button:active {
 	opacity: 0.7;
 	filter: alpha(opacity=70) ;
-	color: #9FEDD7;
+	color: #6eaeea;
 }
 
 .mytheme .v-tabsheet-scroller button::-moz-focus-inner {
@@ -29394,7 +29394,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-calendar-month-day-selected {
-	background-color: #f5fdfb;
+	background-color: #f0f6fc;
 }
 
 .mytheme .v-calendar-month-day-dragemphasis {
@@ -29496,7 +29496,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	right: 0;
 	bottom: -1px;
 	left: 0;
-	background: #9FEDD7;
+	background: #6eaeea;
 	opacity: 0.5;
 	filter: alpha(opacity=50) ;
 	border-radius: 6px 6px 0 0;
@@ -29789,7 +29789,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-label-colored {
-	color: #9FEDD7;
+	color: #6eaeea;
 }
 
 .mytheme .v-label-large {
@@ -30701,13 +30701,13 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 
 .mytheme .valo-menu {
 	height: 100%;
-	background-color: #9FEDD7;
-	background-image: -webkit-linear-gradient(right, #9fedd7 0%, #9FEDD7 9px);
-	background-image: linear-gradient(to left,#9fedd7 0%, #9FEDD7 9px);
-	color: #309679;
+	background-color: #6eaeea;
+	background-image: -webkit-linear-gradient(right, #6eaeea 0%, #6eaeea 9px);
+	background-image: linear-gradient(to left,#6eaeea 0%, #6eaeea 9px);
+	color: #bed6ed;
 	font-size: 14px;
 	line-height: 30px;
-	border-right: 0 solid #6fa596;
+	border-right: 0 solid #4d79a3;
 	white-space: nowrap;
 }
 
@@ -30721,7 +30721,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .valo-menu-part {
-	border-left: 0 solid #82c2b0;
+	border-left: 0 solid #5a8ebf;
 	height: 100%;
 	padding-bottom: 37px;
 	overflow: auto;
@@ -30745,12 +30745,12 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 
 .mytheme .valo-menu-title {
 	line-height: 1.2;
-	background: #9FEDD7;
-	color: black;
-	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.05);
+	background: #6eaeea;
+	color: white;
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.05);
 	padding: 12px 19px;
 	font-size: 14px;
-	border-bottom: 0 solid #6fa596;
+	border-bottom: 0 solid #4d79a3;
 	
 	
 	text-align: center;
@@ -30758,7 +30758,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 
 .mytheme .valo-menu-title .v-menubar.v-menubar {
 	background: transparent;
-	border-color: #6fa596;
+	border-color: #4d79a3;
 	color: inherit;
 	-webkit-box-shadow: none;
 	box-shadow: none;
@@ -30807,7 +30807,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	border: none;
 	margin-right: 1px;
 	border-radius: 6px;
-	color: #9FEDD7;
+	color: #6eaeea;
 	padding: 0 12px;
 	-webkit-transition: color 140ms;
 	-moz-transition: color 140ms;
@@ -30823,7 +30823,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-menubar-user-menu .v-menubar-menuitem:hover {
-	color: #caf5e9;
+	color: #9bc7f0;
 }
 
 .mytheme .v-menubar-user-menu .v-menubar-menuitem:active {
@@ -30832,7 +30832,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 
 .mytheme .v-menubar-user-menu .v-menubar-menuitem-checked, .mytheme .v-menubar-user-menu .v-menubar-menuitem-checked:first-child {
 	border: 0 solid #b2b2b2;
-	color: #9FEDD7;
+	color: #6eaeea;
 }
 
 .mytheme .v-menubar-user-menu .v-menubar-menuitem-checked .v-menubar-menuitem-caption, .mytheme .v-menubar-user-menu .v-menubar-menuitem-checked:first-child .v-menubar-menuitem-caption {
@@ -30841,12 +30841,12 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-menubar-user-menu .v-menubar-menuitem-selected {
-	color: #0c1b17;
-	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.05);
+	color: #f3f7fa;
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.05);
 }
 
 .mytheme .v-menubar-user-menu .v-menubar-menuitem-selected:hover {
-	color: #0c1b17;
+	color: #f3f7fa;
 }
 
 .mytheme .v-menubar-user-menu .v-menubar-menuitem-disabled, .mytheme .v-menubar-user-menu .v-menubar-menuitem-disabled:hover {
@@ -30882,13 +30882,13 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .valo-menu-subtitle {
-	color: #3fcba3;
+	color: #a5c9ea;
 	margin: 7px 0 7px 19px;
-	border-bottom: 0 solid #87c9b6;
+	border-bottom: 0 solid #83baed;
 }
 
 .mytheme .valo-menu-subtitle [class*="badge"] {
-	color: #5f9e8c;
+	color: #a5cbee;
 }
 
 .mytheme .valo-menuitems {
@@ -30902,7 +30902,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	cursor: pointer;
 	position: relative;
 	overflow: hidden;
-	text-shadow: 0 -2px 0 rgba(255, 255, 255, 0.05);
+	text-shadow: 0 2px 0 rgba(0, 0, 0, 0.05);
 	-webkit-transition: background-color 300ms, color 60ms;
 	-moz-transition: background-color 300ms, color 60ms;
 	transition: background-color 300ms, color 60ms;
@@ -30919,24 +30919,24 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .valo-menu-item [class*="badge"] {
-	color: #5f9e8c;
+	color: #a5cbee;
 }
 
 .mytheme .valo-menu-item.selected {
-	background: #b4f1e0;
+	background: #61a7e8;
 }
 
 .mytheme .valo-menu-item.selected .v-icon {
-	color: #caf5e9;
+	color: #9bc7f0;
 }
 
 .mytheme .valo-menu-item.selected [class*="badge"] {
-	background: #caf5e9;
-	color: #235a4b;
+	background: #9bc7f0;
+	color: #1d3852;
 }
 
 .mytheme .valo-menu-item:focus, .mytheme .valo-menu-item:hover, .mytheme .valo-menu-item.selected {
-	color: black;
+	color: white;
 }
 
 .mytheme .valo-menu-item span.v-icon {
@@ -30951,7 +30951,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .valo-menu-item [class*="badge"] {
-	background-color: #b4f1e0;
+	background-color: #84baed;
 	-webkit-transition: background-color 300ms;
 	-moz-transition: background-color 300ms;
 	transition: background-color 300ms;
@@ -30964,7 +30964,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .valo-menu-part.large-icons {
-	background-color: #9FEDD7;
+	background-color: #6eaeea;
 	min-width: 74px;
 	max-width: 111px;
 }
@@ -30995,7 +30995,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	border: none;
 	text-overflow: ellipsis;
 	overflow: hidden;
-	background: #85e8cc;
+	background: #539fe6;
 	font-size: 13px;
 	
 }
@@ -31014,7 +31014,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	line-height: 1;
 	padding: 12px;
 	text-align: center;
-	border-top: 0 solid #95deca;
+	border-top: 0 solid #76b2eb;
 }
 
 .mytheme .valo-menu-part.large-icons .valo-menu-item:first-child {
@@ -31039,7 +31039,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .valo-menu-part.large-icons .valo-menu-item.selected {
-	background: #b4f1e0;
+	background: #61a7e8;
 }
 
 .mytheme .valo-menu-part.large-icons .valo-menu-item.selected .v-icon {
@@ -31047,7 +31047,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .valo-menu-part.large-icons .valo-menu-item.selected [class*="badge"] {
-	border-color: #92ebd2;
+	border-color: #61a7e8;
 }
 
 .mytheme .valo-menu-part.large-icons .valo-menu-item [class*="badge"] {
@@ -31055,7 +31055,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	padding-right: 4px;
 	top: 7px;
 	right: 7px;
-	border: 2px solid #9FEDD7;
+	border: 2px solid #6eaeea;
 }
 
 .mytheme .valo-menu-logo {
@@ -31065,8 +31065,8 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	height: 44px;
 	border-radius: 6px;
 	text-align: center;
-	background: #9FEDD7;
-	color: black;
+	background: #6eaeea;
+	color: white;
 	font-size: 25px;
 	line-height: 44px;
 	margin: 19px auto;
@@ -31079,7 +31079,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .valo-menu-responsive[width-range~="801px-1100px"] .valo-menu-part {
-	background-color: #9FEDD7;
+	background-color: #6eaeea;
 	min-width: 74px;
 	max-width: 111px;
 }
@@ -31110,7 +31110,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	border: none;
 	text-overflow: ellipsis;
 	overflow: hidden;
-	background: #85e8cc;
+	background: #539fe6;
 	font-size: 13px;
 	
 }
@@ -31129,7 +31129,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	line-height: 1;
 	padding: 12px;
 	text-align: center;
-	border-top: 0 solid #95deca;
+	border-top: 0 solid #76b2eb;
 }
 
 .mytheme .valo-menu-responsive[width-range~="801px-1100px"] .valo-menu-part .valo-menu-item:first-child {
@@ -31154,7 +31154,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .valo-menu-responsive[width-range~="801px-1100px"] .valo-menu-part .valo-menu-item.selected {
-	background: #b4f1e0;
+	background: #61a7e8;
 }
 
 .mytheme .valo-menu-responsive[width-range~="801px-1100px"] .valo-menu-part .valo-menu-item.selected .v-icon {
@@ -31162,7 +31162,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .valo-menu-responsive[width-range~="801px-1100px"] .valo-menu-part .valo-menu-item.selected [class*="badge"] {
-	border-color: #92ebd2;
+	border-color: #61a7e8;
 }
 
 .mytheme .valo-menu-responsive[width-range~="801px-1100px"] .valo-menu-part .valo-menu-item [class*="badge"] {
@@ -31170,7 +31170,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	padding-right: 4px;
 	top: 7px;
 	right: 7px;
-	border: 2px solid #9FEDD7;
+	border: 2px solid #6eaeea;
 }
 
 .mytheme .valo-menu-responsive[width-range~="0-800px"] {
@@ -31219,7 +31219,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	margin: 0;
 	padding: 0;
 	height: 37px;
-	color: #309679;
+	color: #bed6ed;
 	max-width: 30%;
 	-webkit-backface-visibility: hidden;
 }
@@ -31240,13 +31240,13 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 
 .mytheme .valo-menu-responsive[width-range~="0-800px"] .valo-menuitems {
 	height: 100%;
-	background-color: #9FEDD7;
-	background-image: -webkit-linear-gradient(right, #9fedd7 0%, #9FEDD7 9px);
-	background-image: linear-gradient(to left,#9fedd7 0%, #9FEDD7 9px);
-	color: #309679;
+	background-color: #6eaeea;
+	background-image: -webkit-linear-gradient(right, #6eaeea 0%, #6eaeea 9px);
+	background-image: linear-gradient(to left,#6eaeea 0%, #6eaeea 9px);
+	color: #bed6ed;
 	font-size: 14px;
 	line-height: 30px;
-	border-right: 0 solid #6fa596;
+	border-right: 0 solid #4d79a3;
 	white-space: nowrap;
 	position: fixed;
 	z-index: 9000;
@@ -31678,7 +31678,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	height: 46.25px;
 	padding: 0px;
 	border-radius: 100%;
-	background: #9FEDD7;
+	background: #6eaeea;
 	color: white;
 }
 
@@ -31755,8 +31755,8 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme :not(.v-component-group) > .v-textfield:not(.v-datefield-textfield):not(.v-textfield-readonly):not(.v-textfield-error):not(.v-colorpicker-preview-textfield):not(.borderless):not(.floating):not(.custom):focus {
-	border-bottom: 1px solid #9FEDD7;
-	box-shadow: 0 1px 0 0 #9FEDD7;
+	border-bottom: 1px solid #6eaeea;
+	box-shadow: 0 1px 0 0 #6eaeea;
 }
 
 .mytheme :not(.v-component-group) > .v-textfield-error:not(.borderless):not(.floating):not(.custom):focus {
@@ -31800,8 +31800,8 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-filterselect-focus:not(.borderless):not(.floating):not(.custom):not(.v-readonly) [class*="input"] {
-	border-bottom: 1px solid #9FEDD7;
-	box-shadow: 0 1px 0 0 #9FEDD7;
+	border-bottom: 1px solid #6eaeea;
+	box-shadow: 0 1px 0 0 #6eaeea;
 }
 
 .mytheme .v-filterselect.custom [class*="input"] {
@@ -31958,7 +31958,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-slider-handle:before {
-	background: #9FEDD7;
+	background: #6eaeea;
 	box-shadow: none;
 }
 
@@ -32070,8 +32070,8 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-menubar.primary:not(.borderless) {
-	background: #9FEDD7;
-	color: black !important;
+	background: #6eaeea;
+	color: white !important;
 }
 
 .mytheme .v-menubar-borderless.primary .v-menubar-menuitem {
@@ -32079,12 +32079,12 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-menubar.primary > .v-menubar-menuitem:not(.v-menubar-menuitem-disabled):hover, .mytheme .v-menubar.primary > .v-menubar-menuitem-selected, .mytheme .v-menubar.primary > .v-menubar-menuitem-checked {
-	background: rgba(0, 0, 0, 0.25);
+	background: rgba(255, 255, 255, 0.25);
 	color: inherit;
 }
 
 .mytheme .v-menubar.primary.borderless > .v-menubar-menuitem:not(.v-menubar-menuitem-disabled):hover, .mytheme .v-menubar.primary.borderless > .v-menubar-menuitem-selected, .mytheme .v-menubar.primary.borderless > .v-menubar-menuitem-checked {
-	background: rgba(159, 237, 215, 0.2);
+	background: rgba(110, 174, 234, 0.2);
 }
 
 .mytheme .v-menubar.custom:not(.borderless) {
@@ -32176,8 +32176,8 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme :not(.v-component-group) > .v-datefield:not(.borderless):not(.floating):not(.custom) [class*="textfield"]:not(.v-textfield-readonly):focus {
-	border-bottom: 1px solid #9FEDD7;
-	box-shadow: 0 1px 0 0 #9FEDD7;
+	border-bottom: 1px solid #6eaeea;
+	box-shadow: 0 1px 0 0 #6eaeea;
 }
 
 .mytheme :not(.v-component-group) > .v-datefield.custom [class*="textfield"] {
@@ -32538,8 +32538,8 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-grid-select-all-checkbox input[type="checkbox"]:checked + label, .mytheme .v-grid-selection-checkbox input[type="checkbox"]:checked + label {
-	background: #9FEDD7;
-	border-color: #9FEDD7;
+	background: #6eaeea;
+	border-color: #6eaeea;
 }
 
 .mytheme .v-grid-scroller, .mytheme .v-grid-horizontal-scrollbar-deco {
@@ -32586,9 +32586,9 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-checkbox > input:checked ~ label:after {
-	background: #9FEDD7;
+	background: #6eaeea;
 	color: white !important;
-	border: 2px solid #9FEDD7;
+	border: 2px solid #6eaeea;
 }
 
 .mytheme .v-select-optiongroup:not(.large):not(.small) .v-checkbox > input:checked ~ label:after, .mytheme .v-checkbox:not(.large):not(.small) > input:checked ~ label:after {
@@ -32649,7 +32649,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-radiobutton > input ~ label:after {
-	background: #9FEDD7 !important;
+	background: #6eaeea !important;
 	transform: scale(0);
 	transition: transform 0.2s ease-out !important;
 }
@@ -32659,7 +32659,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-radiobutton > input:checked ~ label:before {
-	border: 2px solid #9FEDD7 !important;
+	border: 2px solid #6eaeea !important;
 }
 
 .mytheme .v-radiobutton > input ~ label:before {
@@ -33156,7 +33156,7 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 	height: 56px;
 	padding: 0px;
 	border-radius: 100%;
-	background: #9FEDD7;
+	background: #6eaeea;
 	color: white;
 }
 
@@ -35382,11 +35382,11 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .v-treegrid-cell.severe {
-	background: #F92D2D !important;
+	background: #f8b2b8 !important;
 }
 
 .mytheme .v-treegrid-cell.middle {
-	background: #F4D513 !important;
+	background: #fdff40 !important;
 }
 
 .mytheme .v-treegrid-cell.weak {
@@ -35398,5 +35398,9 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 }
 
 .mytheme .smileybild:hover {
-	transform: scale(1.2);
+	transform: scale(1.2) !important;
+}
+
+.mytheme .fixed {
+	min-width: 360px !important;
 }
