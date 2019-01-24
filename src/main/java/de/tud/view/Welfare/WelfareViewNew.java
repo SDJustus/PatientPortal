@@ -122,6 +122,7 @@ public class WelfareViewNew implements View {
 
         captionLabel.setId("header-label");
         captionLabel.addStyleName(MaterialTheme.LABEL_H1);
+        captionLabel.addStyleName(MaterialTheme.CARD_0_5);
 
         dateField.setTextFieldEnabled(false);
         welfareControllerNew.integrityRestrictionsDateTimeField();

@@ -49,6 +49,8 @@ public class DiaryView extends Composite implements View {
         //Label Id für CSS
         label.setId("header-label");
         label.addStyleName(MaterialTheme.LABEL_H1);
+        label.addStyleName(MaterialTheme.CARD_0_5);
+
 
         //Eingaben vermeiden Date-TimeField
         dateTimeField.setTextFieldEnabled(false);
