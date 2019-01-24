@@ -67,6 +67,10 @@ public class WelfareControllerNew {
         welfareViewNew.getSaveButton().addClickListener((Button.ClickListener) clickEvent -> {
 
             addWelfare();
+            if(!checkDateIntegrity()){
+                return;
+            }
+
             saveWelfareDiaryEntry(welfareViewNew.getDateField().getValue(), welfareSet);
             Notification.show("Eintrag erfolgreich gespeichert");
 
@@ -300,6 +304,21 @@ public class WelfareControllerNew {
         DiaryManager.getInstance().addDiaryEntry(diaryEntry, diaryId);
         return;
 
+    }
+
+    /**
+     * Check Date Integrity
+     */
+
+    public boolean checkDateIntegrity(){
+        LocalDateTime rangeEnd = welfareViewNew.getDateField().getRangeEnd();
+        LocalDateTime rangeStart = welfareViewNew.getDateField().getRangeStart();
+        LocalDateTime date = welfareViewNew.getDateField().getValue();
+        if(date.isAfter(rangeEnd) || date.isBefore(rangeStart)){
+            Notification.show("unzulässiges Datum gewählt!");
+            return false;
+        }
+        return true;
     }
 
 }
