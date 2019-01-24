@@ -14,9 +14,7 @@ import de.tud.model.Diary;
 import de.tud.model.DiaryEntry;
 import de.tud.model.manager.DiaryManager;
 import de.tud.model.manager.HomeworkManager;
-import de.tud.model.symptom.Depression;
-import de.tud.model.symptom.Symptom;
-import sun.jvm.hotspot.debugger.cdbg.Sym;
+import de.tud.model.symptom.*;
 
 import javax.xml.crypto.Data;
 import java.time.Instant;
@@ -43,10 +41,6 @@ public class SymptomChartView extends ChartView {
         Diary diaryInst = diaryManager.read().get(0);
         long diaryId = diaryInst.getId();
 
-        Set<DiaryEntry> diary=  DiaryManager.getInstance().readDiaryEntriesByDiary(diaryId);
-        List<String> symptomNames = new ArrayList<String>();
-        Set<Symptom> symptoms = new HashSet<>();
-        Map<LocalDateTime,Symptom> symptomMap = new HashMap<>();
         Set<DataSeries> series = new HashSet<>();
 
         Chart chart = new Chart();
@@ -58,32 +52,86 @@ public class SymptomChartView extends ChartView {
         conf.setTitle("Patiententagebuch");
 
 
-        DataSeries serie1 = new DataSeries("Depression");
+        DataSeries seriesDepression = new DataSeries("Depression");
+        DataSeries seriesAche = new DataSeries("Schmerzen");
+        DataSeries seriesBladderDisorder = new DataSeries("Blasenstörung");
+        DataSeries seriesBowelDisorder = new DataSeries("Darmstörung");
+        DataSeries seriesCognitiveDisorder = new DataSeries("Kognitive Störung");
+        DataSeries seriesFatigue = new DataSeries("Müdigkeit");
+        DataSeries seriesGaitDisorder = new DataSeries("Gehstörung");
+        DataSeries seriesLeftArmSpasticity = new DataSeries("Spastik im linken Arm");
+        DataSeries seriesLeftLegSpasticity = new DataSeries("Spastik im linken Bein");
+        DataSeries seriesRightArmSpasticity = new DataSeries("Spastik im rechten Arm");
+        DataSeries seriesRightLegSpasticity = new DataSeries("Spastik im rechten Bein");
 
 
         ArrayList<DiaryEntry> diaryEntries = new ArrayList<>(diaryInst.getDiaryEntries());
 
+        Set<DataSeries> dataSeries = new HashSet<>();
+
 
         Collections.sort(diaryEntries, Comparator.comparing(DiaryEntry::getDate));
+
 
         for(DiaryEntry diaryEntry: diaryEntries){
             if(diaryEntry.getSymptom() != null){
                 for(Symptom s: diaryEntry.getSymptom()){
+
+                    if(s instanceof RightLegSpasticity){
+                        seriesRightLegSpasticity.add(createDataSeriesItem(diaryEntry.getDate(), s));
+                        dataSeries.add(seriesRightLegSpasticity);
+                    }
+
+                    if(s instanceof LeftLegSpasticity){
+                        seriesLeftLegSpasticity.add(createDataSeriesItem(diaryEntry.getDate(), s));
+                        dataSeries.add(seriesLeftLegSpasticity);
+                    }
+
+                    if(s instanceof  LeftArmSpasticity){
+                        seriesLeftArmSpasticity.add(createDataSeriesItem(diaryEntry.getDate(), s));
+                        dataSeries.add(seriesLeftArmSpasticity);
+                    }
+
+                    if(s instanceof  GaitDisorder){
+                        seriesGaitDisorder.add(createDataSeriesItem(diaryEntry.getDate(), s));
+                        dataSeries.add(seriesGaitDisorder);
+                    }
+
+
+                    if(s instanceof Fatigue){
+                        seriesFatigue.add(createDataSeriesItem(diaryEntry.getDate(), s));
+                        dataSeries.add(seriesFatigue);
+                    }
+
+
+                    if(s instanceof CognitiveDisorder){
+                        seriesCognitiveDisorder.add(createDataSeriesItem(diaryEntry.getDate(), s));
+                        series.add(seriesCognitiveDisorder);
+                    }
+
+                    if(s instanceof BowelDisorder){
+                        seriesBowelDisorder.add(createDataSeriesItem(diaryEntry.getDate(), s));
+                        series.add(seriesBowelDisorder);
+                    }
+
+                    if(s instanceof BladderDisorder){
+                        seriesBladderDisorder.add(createDataSeriesItem(diaryEntry.getDate(), s));
+                        series.add(seriesBladderDisorder);
+                    }
+
+                    if(s instanceof Ache){
+                        seriesAche.add(createDataSeriesItem(diaryEntry.getDate(), s));
+                        series.add(seriesAche);
+                    }
+
+                    if(s instanceof RightArmSpasticity){
+                        seriesRightArmSpasticity.add(createDataSeriesItem(diaryEntry.getDate(), s));
+                        series.add(seriesRightArmSpasticity);
+                    }
+
                     if(s instanceof Depression){
-
-                        /*
-                        serie1.add(new DataSeriesItem(java.sql.Date.valueOf(diaryEntry.getDate().toLocalDate()),
-                                s.getStrength().ordinal()+1));
-                                */
-
-
-                        DataSeriesItem dataSeriesItem = new DataSeriesItem();
-                        dataSeriesItem.setX(java.sql.Date.valueOf(diaryEntry.getDate().toLocalDate()));
-                        dataSeriesItem.setName(diaryEntry.getDate().toString());
-                        dataSeriesItem.setY(s.getStrength().ordinal()+1);
-
-
-                        serie1.add(dataSeriesItem);
+                        seriesDepression.add(createDataSeriesItem(diaryEntry.getDate(), s));
+                        series.add(seriesDepression);
                     }
 
                 }
@@ -92,10 +140,34 @@ public class SymptomChartView extends ChartView {
 
         }
 
+        dataSeries.add(seriesDepression);
+        dataSeries.add(seriesAche);
+        dataSeries.add(seriesFatigue);
+        dataSeries.add(seriesBladderDisorder);
+        dataSeries.add(seriesBowelDisorder);
+        dataSeries.add(seriesCognitiveDisorder);
+        dataSeries.add(seriesGaitDisorder);
+        dataSeries.add(seriesLeftArmSpasticity);
+        dataSeries.add(seriesRightArmSpasticity);
+        dataSeries.add(seriesRightLegSpasticity);
+        dataSeries.add(seriesLeftLegSpasticity);
+
+        boolean count = true;
+        for(DataSeries dataSeries1: dataSeries){
+            if (dataSeries1.getData() != null){
+                dataSeries1.setVisible(false);
+                if(count == true && dataSeries1.getData().size() >= 4){
+                    dataSeries1.setVisible(true);
+                    conf.addSeries(dataSeries1);
+                    count = false;
+                    continue;
+                }
+                conf.addSeries(dataSeries1);
+            }
+        }
 
 
-
-
+        
         XAxis xAxis = new XAxis();
         xAxis.setTitle("Datum");
         xAxis.setType(AxisType.DATETIME);
@@ -119,7 +191,7 @@ public class SymptomChartView extends ChartView {
                         "switch (category) " +
                         "{ " +
                         "   case 1: " +
-                        "       symptom = 'schwach'; " +
+                        "       multiplier = 'schwach'; " +
                         "       break; " +
                         "   case 2: " +
                         "       multiplier = 'mäßig'; " +
@@ -132,34 +204,25 @@ public class SymptomChartView extends ChartView {
                         "return tipTxt; " +
                         "}"
         );
-        conf.getTooltip().setShared(true);
-
-
-        /*
-
-        tooltip.setFooterFormat("{function() { if(this.y == 3) { return this.point.name ='stark'; } " +
-                " if(this.y == 2) { return this.point.name = 'mäßig'; }" +
-                "if(this.y == 1) { return this.point.name = 'schwach'; }}");
-                */
-
-
-
-        conf.addSeries(serie1);
 
 
         PlotOptionsLine serie1Opts = new PlotOptionsLine();
         serie1Opts.setColor(SolidColor.BLUE);
-        serie1.setPlotOptions(serie1Opts);
-
+        seriesDepression.setPlotOptions(serie1Opts);
 
         chart.getConfiguration().setTitle("Zeitlicher Verlauf aller Symptome");
 
 
-
         chartContainer.addComponent(chart);
         return chartContainer;
-
-
+        
+    }
+    private DataSeriesItem createDataSeriesItem(LocalDateTime localDateTime, Symptom symptom){
+        DataSeriesItem dataSeriesItem = new DataSeriesItem();
+        dataSeriesItem.setX(java.sql.Date.valueOf(localDateTime.toLocalDate()));
+        dataSeriesItem.setName(localDateTime.toString());
+        dataSeriesItem.setY(symptom.getStrength().ordinal()+1);
+        return dataSeriesItem;
     }
 
 
