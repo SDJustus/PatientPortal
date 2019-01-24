@@ -23,8 +23,6 @@ class DiaryTest {
     private Set<Symptom> symptomSet;
     private Set<Symptom> symptomSet2;
     private Set<DiaryEntry> testDiaryEntrySet;
-    private Symptom symptom1;
-    private SymptomFactory factory;
     private static LocalDateTime testTime;
     private Diary testDiary;
     private VitalData vitalData;
@@ -42,10 +40,10 @@ class DiaryTest {
         vitalData.setWeight(70);
 
             symptomSet.add(SymptomFactory.getInstance().createSymptomByClass("Depression", Symptom.Strength.WEAK));
-        symptomSet = new HashSet<>();
-        symptomSet.add(SymptomFactory.getInstance().createSymptomByClass("Müdigkeit", Symptom.Strength.SEVERE));
-        testEntry1 = new DiaryEntry(testTime, symptomSet, vitalData, new HashSet<>());                                  //TODO: "new HashSet" is placeholder for Welfare implementation
-        testEntry2 = new DiaryEntry(testTime, symptomSet2, vitalData, new HashSet<>());                                 //TODO: "new HashSet" is placeholder for Welfare implementation
+        symptomSet2 = new HashSet<>();
+        symptomSet2.add(SymptomFactory.getInstance().createSymptomByClass("Müdigkeit", Symptom.Strength.SEVERE));
+        testEntry1 = new DiaryEntry(testTime, symptomSet, vitalData, new HashSet<>());
+        testEntry2 = new DiaryEntry(testTime, symptomSet2, vitalData, new HashSet<>());
         testDiaryEntrySet = new HashSet<>();
             testDiaryEntrySet.add(testEntry1);
             testDiaryEntrySet.add(testEntry2);

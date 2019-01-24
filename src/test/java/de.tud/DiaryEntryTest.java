@@ -2,10 +2,10 @@ package de.tud;
 
 import de.tud.model.DiaryEntry;
 import de.tud.model.VitalData;
-import de.tud.model.symptom.Depression;
 import de.tud.model.symptom.Fatigue;
 import de.tud.model.symptom.Symptom;
 import de.tud.model.symptom.SymptomFactory;
+import de.tud.model.welfare.Welfare;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -17,25 +17,22 @@ import java.util.Set;
 class DiaryEntryTest {
 
     private DiaryEntry testEntry1;
-    private Set<Symptom> symptomSet;
-    private Set<DiaryEntry> testDiaryEntrySet;
-    private static LocalDateTime testTime;
-
     private VitalData vitalData;
 
     @BeforeEach
     void setUp() {
 
-    testTime =LocalDateTime.of(2018,10,11,12,10);
-    symptomSet =new HashSet<>();
+        LocalDateTime testTime = LocalDateTime.of(2018, 10, 11, 12, 10);
+        Set<Symptom> symptomSet = new HashSet<>();
     vitalData =new VitalData();
+        Set<Welfare> welfareSet = new HashSet<>();
 
 
-            symptomSet.add(SymptomFactory.getInstance().createSymptomByClass("Depression",Symptom.Strength.WEAK));
-        symptomSet.add(SymptomFactory.getInstance().createSymptomByClass("Müdigkeit",Symptom.Strength.SEVERE));
-    testEntry1 =new DiaryEntry(testTime, symptomSet, vitalData, new HashSet<>());                                       //TODO: "new HashSet" is placeholder for Welfare implementation
+    symptomSet.add(SymptomFactory.createSymptomByClass("Depression",Symptom.Strength.WEAK));
+    symptomSet.add(SymptomFactory.createSymptomByClass("Müdigkeit",Symptom.Strength.SEVERE));
+    testEntry1 =new DiaryEntry(testTime, symptomSet, vitalData, welfareSet);
 
-    testDiaryEntrySet =new HashSet<>();
+        Set<DiaryEntry> testDiaryEntrySet = new HashSet<>();
             testDiaryEntrySet.add(testEntry1);
 
 }

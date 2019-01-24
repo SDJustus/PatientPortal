@@ -1,10 +1,6 @@
-package de.tud.view.Homework;
+package de.tud.view.homework;
 
-import com.github.appreciated.material.MaterialTheme;
 import com.vaadin.icons.VaadinIcons;
-import com.vaadin.server.Page;
-import com.vaadin.ui.Label;
-import com.vaadin.ui.NativeButton;
 import com.vaadin.ui.Notification;
 import com.vaadin.ui.UI;
 import de.steinwedel.messagebox.ButtonOption;
@@ -14,11 +10,8 @@ import de.tud.model.manager.HomeworkManager;
 import org.vaadin.addon.calendar.Calendar;
 import org.vaadin.addon.calendar.handler.BasicDateClickHandler;
 import org.vaadin.addon.calendar.item.BasicItem;
-import org.vaadin.addon.calendar.item.CalendarItemProvider;
 import org.vaadin.addon.calendar.ui.CalendarComponentEvents;
 
-import javax.swing.*;
-import java.awt.*;
 import java.util.List;
 
 public class HomeworkCalender extends Calendar {

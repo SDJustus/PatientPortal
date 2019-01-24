@@ -1,8 +1,7 @@
-package de.tud.view.Homework;
+package de.tud.view.homework;
 
 import com.vaadin.ui.*;
 import com.vaadin.navigator.View;
-import de.tud.view.VitalData.VitalDataUIDesignerUISetup;
 
 public class HomeworkView extends Composite implements View {
 

@@ -8,8 +8,7 @@ import de.tud.model.DiaryEntry;
 import de.tud.model.VitalData;
 import de.tud.model.manager.DiaryManager;
 import de.tud.model.symptom.Symptom;
-import de.tud.view.VitalData.VitalDataUIDesignerUISetup;
-import de.tud.view.VitalData.VitalDataView;
+import de.tud.view.vitalData.VitalDataView;
 
 import java.time.LocalDateTime;
 import java.util.HashSet;

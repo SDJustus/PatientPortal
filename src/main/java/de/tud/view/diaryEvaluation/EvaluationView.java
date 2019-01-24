@@ -1,4 +1,4 @@
-package de.tud.view.DiaryEvaluation;
+package de.tud.view.diaryEvaluation;
 
 import com.vaadin.icons.VaadinIcons;
 import com.vaadin.ui.*;

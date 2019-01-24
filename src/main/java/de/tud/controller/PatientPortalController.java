@@ -19,10 +19,10 @@ import com.vaadin.navigator.Navigator;
 import com.vaadin.server.*;
 import com.vaadin.ui.*;
 import de.tud.view.*;
-import de.tud.view.DiaryEvaluation.DiaryEvaluationView;
-import de.tud.view.Homework.HomeworkView;
-import de.tud.view.Start.StartView;
-import de.tud.view.VitalData.VitalDataView;
+import de.tud.view.diaryEvaluation.DiaryEvaluationView;
+import de.tud.view.homework.HomeworkView;
+import de.tud.view.start.StartView;
+import de.tud.view.vitalData.VitalDataView;
 import de.tud.view.medicationPlan.MedicationPlanView;
 
 

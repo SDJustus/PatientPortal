@@ -1,4 +1,4 @@
-package de.tud.view.Start;
+package de.tud.view.start;
 
 
 import com.vaadin.data.provider.Query;

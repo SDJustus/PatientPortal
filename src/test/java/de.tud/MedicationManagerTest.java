@@ -4,20 +4,18 @@ import de.tud.model.manager.MedicationPlanManager;
 import de.tud.model.medication.DummyMedication;
 import de.tud.model.medication.Medication;
 import org.hibernate.Session;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
-import javax.ejb.AfterCompletion;
 import java.util.List;
 
-public class MedicationManagerTest {
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
+class MedicationManagerTest {
 
     private MedicationPlanManager medicationPlanManager;
     private Medication med1;
     private Medication med2;
     @BeforeEach
-    public void setUp(){
+    void setUp(){
         medicationPlanManager = MedicationPlanManager.getInstance();
         med1 = new Medication();
         med2 = new Medication();
@@ -27,13 +25,16 @@ public class MedicationManagerTest {
         med2.setDmId(5);
         med2.setMorningDosage(3.1f);
     }
-    @AfterCompletion
-    public void tearDown(){
+
+    @AfterAll
+    void tearDown(){
         medicationPlanManager.deleteAll();
+        medicationPlanManager.create(med1);
+        medicationPlanManager.create(med2);
     }
 
     @Test
-    public void testCreate(){
+    void testCreate(){
         Long id = medicationPlanManager.create(med1);
         Session session = MedicationPlanManager.getInstance().getSessionFactory().openSession();
         Medication returnedMed = session.get(Medication.class, id);
@@ -42,7 +43,7 @@ public class MedicationManagerTest {
     }
 
     @Test
-    public void testDelete(){
+    void testDelete(){
         Long medId1 = medicationPlanManager.create(med1);
         Long medId2 = medicationPlanManager.create(med2);
         medicationPlanManager.delete(medId1);
@@ -52,7 +53,7 @@ public class MedicationManagerTest {
     }
 
     @Test
-    public void testGetDummyMedicationsByMedicationId(){
+    void testGetDummyMedicationsByMedicationId(){
         Long medId1 = medicationPlanManager.create(med1);
         Long medId2 = medicationPlanManager.create(med2);
         DummyMedication dummyMedication = medicationPlanManager.getDummyMedicationByMedicationId(medId1);
@@ -61,28 +62,24 @@ public class MedicationManagerTest {
 
     }
     @Test
-    public void testGetAllDummyMedications(){
+    void testGetAllDummyMedications(){
         List<DummyMedication> dummyMedications = medicationPlanManager.getAllDummyMedication();
         Assertions.assertFalse(dummyMedications.isEmpty());
-        Assertions.assertTrue(dummyMedications.size()==5);
+        Assertions.assertEquals(5, dummyMedications.size());
     }
     @Test
-    public void testIsIncompatibleWith(){
-        List<DummyMedication> dummyMedications = medicationPlanManager.getAllDummyMedication();
-
-
-        long id1 = medicationPlanManager.create(med1);
-        long id2 = medicationPlanManager.create(med2);
+    void testIsIncompatibleWith(){
+        medicationPlanManager.create(med1);
+        medicationPlanManager.create(med2);
 
         Assertions.assertTrue(medicationPlanManager.isIncompatibleWith(4L));
 
 
     }
     @Test
-    public void testDeleteAll(){
-        long id = medicationPlanManager.create(med1);
+    void testDeleteAll(){
+        medicationPlanManager.create(med1);
         medicationPlanManager.deleteAll();
-        Assertions.assertThrows(NullPointerException.class, () -> medicationPlanManager.read(),
-                "There was no Medication in the database.");
+        Assertions.assertTrue(medicationPlanManager.read().isEmpty());
     }
 }

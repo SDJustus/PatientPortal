@@ -1,19 +1,12 @@
 package de.tud.controller;
 
 import com.vaadin.data.HasValue;
-import com.vaadin.event.MouseEvents;
-import com.vaadin.event.dd.acceptcriteria.Not;
-import com.vaadin.ui.Alignment;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Notification;
-import com.vaadin.ui.themes.ValoTheme;
 import de.tud.model.Diary;
 import de.tud.model.DiaryEntry;
-import de.tud.model.VitalData;
 import de.tud.model.manager.DiaryManager;
 import de.tud.model.symptom.Symptom;
-import de.tud.model.symptom.SymptomFactory;
-import de.tud.view.DiaryEvaluation.DiaryEvaluationView;
 import de.tud.view.DiaryView;
 import de.tud.view.SymptomSelectionView;
 

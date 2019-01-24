@@ -63,10 +63,20 @@ public class HomeworkManager extends EntityManager<Homework> {
         Session session = getSessionFactory().openSession();
         Homework homework = session.get(Homework.class, id);
         session.close();
-        if (homework == null) throw new IllegalArgumentException("There was no Homework with the given ID!");
+        if (homework == null) throw new IllegalArgumentException("There was no homework with the given ID!");
         return homework;
     }
 
+    public void deleteAll() {
+        Session session = getSessionFactory().openSession();
+        session.getTransaction().begin();
+        List<Homework> homeworkList = read();
+        for(Homework hw : homeworkList){
+            session.delete(hw);
+        }
+        session.getTransaction().commit();
+        session.close();
+    }
     public void setHomeworkStatus(Long homeworkID, Boolean bool){
         if(homeworkID == null) throw new IllegalArgumentException("Expect HomeworkID to be not null!");
         if(bool == null) throw new IllegalArgumentException("Expect done state to be not null!");

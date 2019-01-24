@@ -1,11 +1,9 @@
-package de.tud.view.VitalData;
+package de.tud.view.vitalData;
 
 import com.github.appreciated.material.MaterialTheme;
 import com.vaadin.navigator.View;
 import com.vaadin.server.ClassResource;
-import com.vaadin.server.Sizeable;
 import com.vaadin.ui.*;
-import de.tud.controller.DiaryViewController;
 import de.tud.controller.VitalDataUIController;
 import de.tud.view.VitalDataUIDesigner;
 import org.vaadin.risto.stepper.FloatStepper;

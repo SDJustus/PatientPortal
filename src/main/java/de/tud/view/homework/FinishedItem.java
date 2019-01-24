@@ -1,9 +1,6 @@
-package de.tud.view.Homework;
+package de.tud.view.homework;
 
 import org.vaadin.addon.calendar.item.BasicItem;
-
-import java.time.ZonedDateTime;
-
 
 
 public class FinishedItem extends BasicItem {

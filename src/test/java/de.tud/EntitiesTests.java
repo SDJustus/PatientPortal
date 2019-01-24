@@ -8,14 +8,12 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZonedDateTime;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.junit.jupiter.api.Assertions.fail;
+import static org.junit.jupiter.api.Assertions.*;
 
 
 public class EntitiesTests {
 
-    private Address testadress = new Address("Grove Street", "47", 71773, "Los Santos", "United States of America");
+    private Address testAddress = new Address("Grove Street", "47", 71773, "Los Santos", "United States of America");
     private static LocalDate birth = LocalDate.of(1995,05,25);
 
 
@@ -23,14 +21,14 @@ public class EntitiesTests {
     public void adressTestComplete() {
 
 
-        testadress.setStreet("Testgasse");
-        testadress.setNumber("42x");
-        testadress.setPostCode(29811);
-        testadress.setCity("Entenhausen");
-        testadress.setCountry("Germanistan");
+        testAddress.setStreet("Testgasse");
+        testAddress.setNumber("42x");
+        testAddress.setPostCode(29811);
+        testAddress.setCity("Entenhausen");
+        testAddress.setCountry("Germanistan");
 
-        assertTrue(testadress.getStreet() == "Testgasse" && testadress.getNumber() == "42x" && testadress.getPostCode() == 29811
-                && testadress.getCity() == "Entenhausen" && testadress.getCountry() == "Germanistan");
+        assertTrue(testAddress.getStreet() == "Testgasse" && testAddress.getNumber() == "42x" && testAddress.getPostCode() == 29811
+                && testAddress.getCity() == "Entenhausen" && testAddress.getCountry() == "Germanistan");
     }
 
     @Test
@@ -66,7 +64,7 @@ public class EntitiesTests {
 
         de.setVitalData(vd);
 
-        assertTrue(de.getVitalData().equals(vd));
+        assertEquals(de.getVitalData(), vd);
     }
 
     @Test
@@ -77,35 +75,36 @@ public class EntitiesTests {
 
         pers.setGivenName("Jeff");
         pers.setFamilyName("Jefferson");
-        pers.setAddress(testadress);
+        pers.setAddress(testAddress);
         pers.setBirthday(birth);
         pers.setEmail("jayjay@gmail.com");
         pers.setGender(Person.Gender.MALE);
         pers.setPhone("0669-115857577");
         pers.setDiary(new Diary());
 
-                assertTrue(pers.getGivenName().equals("Jeff"));
-                assertTrue(     pers.getFamilyName().equals("Jefferson"));
-                assertTrue(  pers.getAddress().equals(testadress));
-                assertTrue(  pers.getBirthday()==birth);
-                assertTrue(  pers.getEmail()=="jayjay@gmail.com");
-                assertTrue(  pers.getGender().equals(Person.Gender.MALE));
-                assertTrue( pers.getPhone()=="0669-115857577");
-                assertTrue(  pers.getDiary().getDiaryEntries()==null);
+        assertEquals("Jeff", pers.getGivenName());
+        assertEquals("Jefferson", pers.getFamilyName());
+        assertEquals(pers.getAddress(), testAddress);
+        assertSame(pers.getBirthday(), birth);
+        assertSame("jayjay@gmail.com", pers.getEmail());
+        assertEquals(pers.getGender(), Person.Gender.MALE);
+        assertSame("0669-115857577", pers.getPhone());
+        assertNull(pers.getDiary().getDiaryEntries());
     }
 
     @Test
     public void patientTest(){
 
-        Patient patient = new Patient("Jeff", "Jefferson", Person.Gender.MALE, "jayjay@gmail.com", birth, "0669-115857577", testadress);
+        Patient patient = new Patient("Jeff", "Jefferson", Person.Gender.MALE,
+                "jayjay@gmail.com", birth, "0669-115857577", testAddress);
 
-        assertTrue(patient.getGivenName().equals("Jeff"));
-        assertTrue(     patient.getFamilyName().equals("Jefferson"));
-        assertTrue(  patient.getAddress().equals(testadress));
-        assertTrue(  patient.getBirthday()==birth);
-        assertTrue(  patient.getEmail()=="jayjay@gmail.com");
-        assertTrue(  patient.getGender().equals(Person.Gender.MALE));
-        assertTrue( patient.getPhone()=="0669-115857577");
+        assertEquals(patient.getGivenName(), "Jeff");
+        assertEquals(patient.getFamilyName(), "Jefferson");
+        assertEquals(patient.getAddress(), testAddress);
+        assertEquals(patient.getBirthday(),birth);
+        assertEquals(patient.getEmail(),"jayjay@gmail.com");
+        assertEquals(patient.getGender(),Person.Gender.MALE);
+        assertEquals(patient.getPhone(),"0669-115857577");
     }
 }
 

@@ -1,7 +1,6 @@
 package de.tud.controller;
 
 import com.vaadin.data.HasValue;
-import com.vaadin.data.provider.ListDataProvider;
 import com.vaadin.data.provider.TreeDataProvider;
 
 import com.vaadin.ui.*;
@@ -10,10 +9,9 @@ import de.tud.model.VitalData;
 import de.tud.model.manager.DiaryManager;
 import de.tud.model.symptom.Symptom;
 import de.tud.model.welfare.Welfare;
-import de.tud.view.DiaryEvaluation.*;
+import de.tud.view.diaryEvaluation.*;
 
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
@@ -246,12 +244,12 @@ public class DiaryEvaluationViewController {
                 }
 
                 if(fromDate == null){
-                    Notification.show("Start-Datum fehlt!");
+                    Notification.show("start-Datum fehlt!");
                     view.getToDate().getErrorMessage();
                     return;
                 }
                 if(valueChangeEvent.getValue().isBefore(fromDate)){
-                    Notification.show("Start-Datum liegt nach dem Ziel-Datum!");
+                    Notification.show("start-Datum liegt nach dem Ziel-Datum!");
                     return;
                 }
 
