@@ -215,7 +215,7 @@ public class SymptomChartView extends ChartView {
 
         chartContainer.addComponent(chart);
         return chartContainer;
-        
+
     }
     private DataSeriesItem createDataSeriesItem(LocalDateTime localDateTime, Symptom symptom){
         DataSeriesItem dataSeriesItem = new DataSeriesItem();
