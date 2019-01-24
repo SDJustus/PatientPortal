@@ -178,7 +178,7 @@ public class DiaryEvaluationViewController {
             public void buttonClick(Button.ClickEvent clickEvent) {
                 activateButtons();
                 diaryEvaluationView.getWelfareChartButton().setEnabled(false);
-                initSymptomChart();
+                initWelfareChart();
             }
         });
 
