@@ -33,6 +33,7 @@ public class WelfareControllerNew {
 
         this.welfareViewNew = welfareViewNew;
 
+        integrityRestrictionsDateTimeField();
     }
 
 
@@ -48,6 +49,16 @@ public class WelfareControllerNew {
         });
 
     }
+    /**
+     * Adds integrity constraints to data picker.
+     */
+
+    private void integrityRestrictionsDateTimeField(){
+        welfareViewNew.getDateField().setRangeStart(LocalDateTime.now().minusWeeks(3));
+        welfareViewNew.getDateField().setRangeEnd(LocalDateTime.now().plusMinutes(1));
+    }
+
+
 
     /**
      * Adds a listener to the save button.
@@ -80,15 +91,15 @@ public class WelfareControllerNew {
             welfareViewNew.getsSmileyGood().setId("");
             welfareViewNew.getsSmileyMiddle().setId("");
             welfareViewNew.getsSmileyBad().setId("");
-            welfareViewNew.getcLabelGood().setValue("Gut");
-            welfareViewNew.getcLabelMiddle().setValue("Mäßig");
-            welfareViewNew.getcLabelBad().setValue("Schlecht");
-            welfareViewNew.getfLabelGood().setValue("Gut");
-            welfareViewNew.getfLabelMiddle().setValue("Mäßig");
-            welfareViewNew.getfLabelBad().setValue("Schlecht");
-            welfareViewNew.getsLabelGood().setValue("Gut");
-            welfareViewNew.getsLabelMiddle().setValue("Mäßig");
-            welfareViewNew.getsLabelBad().setValue("Schlecht");
+            welfareViewNew.getcLabelGood().setValue("gut");
+            welfareViewNew.getcLabelMiddle().setValue("mäßig");
+            welfareViewNew.getcLabelBad().setValue("stark");
+            welfareViewNew.getfLabelGood().setValue("gut");
+            welfareViewNew.getfLabelMiddle().setValue("mäßig");
+            welfareViewNew.getfLabelBad().setValue("stark");
+            welfareViewNew.getsLabelGood().setValue("gut");
+            welfareViewNew.getsLabelMiddle().setValue("mäßig");
+            welfareViewNew.getsLabelBad().setValue("stark");
             welfareViewNew.getDateField().clear();
             concentrationChoice = "none";
             fitnessChoice = "none";
@@ -112,7 +123,7 @@ public class WelfareControllerNew {
                 welfareViewNew.getcSmileyGood().setId("");
                 welfareViewNew.getcSmileyMiddle().setId("greyscale");
                 welfareViewNew.getcSmileyBad().setId("greyscale");
-                welfareViewNew.getcLabelGood().setValue("Gut");
+                welfareViewNew.getcLabelGood().setValue("gut");
                 welfareViewNew.getcLabelMiddle().setValue("");
                 welfareViewNew.getcLabelBad().setValue("");
                 concentrationChoice = "good";
@@ -128,7 +139,7 @@ public class WelfareControllerNew {
                 welfareViewNew.getcSmileyMiddle().setId("");
                 welfareViewNew.getcSmileyBad().setId("greyscale");
                 welfareViewNew.getcLabelGood().setValue("");
-                welfareViewNew.getcLabelMiddle().setValue("Mäßig");
+                welfareViewNew.getcLabelMiddle().setValue("mäßig");
                 welfareViewNew.getcLabelBad().setValue("");
                 concentrationChoice = "middle";
                 if (fitnessChoice != "none" && sleepChoice != "none" && welfareViewNew.getDateField().getValue() != null) {welfareViewNew.getSaveButton().setEnabled(true);}
@@ -144,7 +155,7 @@ public class WelfareControllerNew {
                 welfareViewNew.getcSmileyBad().setId("");
                 welfareViewNew.getcLabelGood().setValue("");
                 welfareViewNew.getcLabelMiddle().setValue("");
-                welfareViewNew.getcLabelBad().setValue("Schlecht");
+                welfareViewNew.getcLabelBad().setValue("stark");
                 concentrationChoice = "bad";
                 if (fitnessChoice != "none" && sleepChoice != "none" && welfareViewNew.getDateField().getValue() != null) {welfareViewNew.getSaveButton().setEnabled(true);}
 
@@ -165,7 +176,7 @@ public class WelfareControllerNew {
                 welfareViewNew.getfSmileyGood().setId("");
                 welfareViewNew.getfSmileyMiddle().setId("greyscale");
                 welfareViewNew.getfSmileyBad().setId("greyscale");
-                welfareViewNew.getfLabelGood().setValue("Gut");
+                welfareViewNew.getfLabelGood().setValue("gut");
                 welfareViewNew.getfLabelMiddle().setValue("");
                 welfareViewNew.getfLabelBad().setValue("");
                 fitnessChoice = "good";
@@ -181,7 +192,7 @@ public class WelfareControllerNew {
                 welfareViewNew.getfSmileyMiddle().setId("");
                 welfareViewNew.getfSmileyBad().setId("greyscale");
                 welfareViewNew.getfLabelGood().setValue("");
-                welfareViewNew.getfLabelMiddle().setValue("Mäßig");
+                welfareViewNew.getfLabelMiddle().setValue("mäßig");
                 welfareViewNew.getfLabelBad().setValue("");
                 fitnessChoice = "middle";
                 if (concentrationChoice != "none" && sleepChoice != "none" && welfareViewNew.getDateField().getValue() != null) {welfareViewNew.getSaveButton().setEnabled(true);}
@@ -197,7 +208,7 @@ public class WelfareControllerNew {
                 welfareViewNew.getfSmileyBad().setId("");
                 welfareViewNew.getfLabelGood().setValue("");
                 welfareViewNew.getfLabelMiddle().setValue("");
-                welfareViewNew.getfLabelBad().setValue("Schlecht");
+                welfareViewNew.getfLabelBad().setValue("stark");
                 fitnessChoice = "bad";
                 if (concentrationChoice != "none" && sleepChoice != "none" && welfareViewNew.getDateField().getValue() != null) {welfareViewNew.getSaveButton().setEnabled(true);}
 
@@ -217,7 +228,7 @@ public class WelfareControllerNew {
                 welfareViewNew.getsSmileyGood().setId("");
                 welfareViewNew.getsSmileyMiddle().setId("greyscale");
                 welfareViewNew.getsSmileyBad().setId("greyscale");
-                welfareViewNew.getsLabelGood().setValue("Gut");
+                welfareViewNew.getsLabelGood().setValue("gut");
                 welfareViewNew.getsLabelMiddle().setValue("");
                 welfareViewNew.getsLabelBad().setValue("");
                 sleepChoice = "good";
@@ -233,7 +244,7 @@ public class WelfareControllerNew {
                 welfareViewNew.getsSmileyMiddle().setId("");
                 welfareViewNew.getsSmileyBad().setId("greyscale");
                 welfareViewNew.getsLabelGood().setValue("");
-                welfareViewNew.getsLabelMiddle().setValue("Mäßig");
+                welfareViewNew.getsLabelMiddle().setValue("mäßig");
                 welfareViewNew.getsLabelBad().setValue("");
                 sleepChoice = "middle";
                 if (concentrationChoice != "none" && fitnessChoice != "none" && welfareViewNew.getDateField().getValue() != null) {welfareViewNew.getSaveButton().setEnabled(true);}
@@ -249,7 +260,7 @@ public class WelfareControllerNew {
                 welfareViewNew.getsSmileyBad().setId("");
                 welfareViewNew.getsLabelGood().setValue("");
                 welfareViewNew.getsLabelMiddle().setValue("");
-                welfareViewNew.getsLabelBad().setValue("Schlecht");
+                welfareViewNew.getsLabelBad().setValue("stark");
                 sleepChoice = "bad";
                 if (concentrationChoice != "none" && fitnessChoice != "none" && welfareViewNew.getDateField().getValue() != null) {welfareViewNew.getSaveButton().setEnabled(true);}
 

@@ -135,9 +135,6 @@ public class PatientPortalController extends UI {
 
 
 
-
-
-
     @WebServlet(urlPatterns = "/*", name = "MyUIServlet", asyncSupported = true)
     @VaadinServletConfiguration(ui = PatientPortalController.class, productionMode = false)
     public static class MyUIServlet extends VaadinServlet {

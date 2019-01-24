@@ -124,8 +124,6 @@ public class WelfareViewNew implements View {
         captionLabel.addStyleName(MaterialTheme.LABEL_H1);
 
         dateField.setTextFieldEnabled(false);
-        dateField.setDefaultValue( LocalDateTime.now());
-        dateField.setRangeEnd(LocalDateTime.now());
         welfareControllerNew.addDateFieldListener();
 
         saveButton.setDescription("Speichern des Wohlbefindens");

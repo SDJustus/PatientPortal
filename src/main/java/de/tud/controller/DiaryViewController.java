@@ -90,7 +90,6 @@ public class DiaryViewController {
     }
 
     private void integrityRestrictionsDateTimeField(){
-        //TODO: Integritätsbedingungen in DiaryViewController
         diaryView.getDateTimeField().setRangeStart(LocalDateTime.now().minusWeeks(3));
         diaryView.getDateTimeField().setRangeEnd(LocalDateTime.now().plusMinutes(1));
     }

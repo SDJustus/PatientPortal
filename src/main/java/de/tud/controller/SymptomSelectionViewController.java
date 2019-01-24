@@ -75,7 +75,7 @@ public class SymptomSelectionViewController {
                 if(checkComboBox()== true) {
                     symptomSelectionView.getMiddleLabel().setValue("");
                     symptomSelectionView.getBadLabel().setValue("");
-                    symptomSelectionView.getGoodLabel().setValue("schwach");
+                    symptomSelectionView.getGoodLabel().setValue("gut");
                     choice = Symptom.Strength.WEAK;
                     symptomArt = SymptomFactory.createSymptomByClass(selectedSymptom, choice);
 
@@ -148,7 +148,7 @@ public class SymptomSelectionViewController {
                     symptomSelectionView.getAddNextSymptom().setVisible(false);
 
                     //auswahl automatisch zurücksetzen
-                    symptomSelectionView.getGoodLabel().setValue("schwach");
+                    symptomSelectionView.getGoodLabel().setValue("gut");
                     symptomSelectionView.getMiddleLabel().setValue("mäßig");
                     symptomSelectionView.getBadLabel().setValue("stark");
                     choice = null;
