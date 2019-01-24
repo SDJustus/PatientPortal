@@ -19,7 +19,6 @@ public class StartView  extends com.vaadin.ui.Composite implements View {
     private Label nextDaysLabel;
     private Grid<Homework> todayGrid;
     private Grid<Homework> fulfilledGrid;
-    private Grid<Homework> nextDaysGrid;
     int width = 600;
 
 
@@ -100,24 +99,8 @@ public class StartView  extends com.vaadin.ui.Composite implements View {
         });
 
 
-        nextDaysGrid = new Grid<>();
-        nextDaysGrid.setSelectionMode(Grid.SelectionMode.NONE);
-        nextDaysGrid.addColumn(Homework::getName).setCaption("Name");
-        nextDaysGrid.addColumn(Homework::getDescription).setCaption("Beschreibung");
-        nextDaysGrid.addColumn(Homework::getLocalDateTime).setCaption("Datum").setRenderer(new LocalDateTimeRenderer("dd.MM.yyyy"));
-        nextDaysGrid.setSelectionMode(Grid.SelectionMode.NONE);
-        nextDaysGrid.setFrozenColumnCount(nextDaysGrid.getColumns().size());
 
-        nextDaysGrid.setHeightByRows(nextDaysGrid.getDataProvider().size(new Query<>())+1);
-        nextDaysGrid.setWidth("" + (Integer.valueOf(Page.getCurrent().getBrowserWindowWidth()) - Integer.valueOf(width)));
-
-        nextDaysGrid.setHeightByRows(nextDaysGrid.getDataProvider().size(new Query<>())+1);
-        UI.getCurrent().getPage().addBrowserWindowResizeListener(e -> {
-            nextDaysGrid.setWidth("" + (e.getWidth() - Integer.valueOf(width)));
-
-        });
-
-        verticalLayoutMain.addComponents(todayLabel, todayGrid, fulfilledLabel, fulfilledGrid, nextDaysLabel, nextDaysGrid);
+        verticalLayoutMain.addComponents(todayLabel, todayGrid, fulfilledLabel, fulfilledGrid);
         verticalLayoutMain.setSpacing(true);
         verticalLayoutMain.setMargin(true);
 
@@ -133,7 +116,4 @@ public class StartView  extends com.vaadin.ui.Composite implements View {
         return todayGrid;
     }
 
-    public Grid<Homework> getNextDaysGrid() {
-        return nextDaysGrid;
-    }
 }

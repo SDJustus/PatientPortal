@@ -52,7 +52,7 @@ $v-selection-item-height: 30px;
 $v-selection-item-border-radius: 0;
 $valo-menu-background-color: #DCEDC8;
 $v-focus-color: #6eaeea;
-$v-selection-color: #9FEDD7;
+$v-selection-color: #6eaeea;
 $v-hover-styles-enabled: true !default;
 $al-bar-background-color: #e9eae8 default;
 
@@ -304,10 +304,10 @@ $al-bar-background-color: #e9eae8 default;
   }
 
   .v-treegrid-cell.severe  {
-    background: #F92D2D !important;
+    background: #f8b2b8 !important;
   }
   .v-treegrid-cell.middle {
-    background: #F4D513 !important;
+    background:  #fdff40 !important;
   }
   .v-treegrid-cell.weak{
     background: #9FEC0F !important;
@@ -317,8 +317,21 @@ $al-bar-background-color: #e9eae8 default;
   .grayscaleButton{
     filter: grayscale(1);
   }
-  .smileybild:hover{transform: scale(1.2);}
+  .smileybild:hover{transform: scale(1.2) !important;}
 
+
+  .fixed{
+    min-width: 360px !important;
+  }
+
+  /*
+  .fixedYellow{
+    min-width: 360px !important;
+  }
+  .fixedRed{
+    min-width: 36px !important;
+  }
+  */
 
 
 

@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <meta name="design-properties" content="{&quot;RULERS_VISIBLE&quot;:true,&quot;GUIDELINES_VISIBLE&quot;:false,&quot;SNAP_TO_OBJECTS&quot;:true,&quot;SNAP_TO_GRID&quot;:true,&quot;SNAPPING_DISTANCE&quot;:10,&quot;GENERATE_GETTERS&quot;:false,&quot;JAVA_SOURCES_ROOT&quot;:&quot;src/main/java&quot;,&quot;THEME&quot;:&quot;mytheme&quot;}">
+  <meta name="vaadin-version" content="8.1.5">
+ </head>
+ <body>
+  <vaadin-panel responsive width="898px" height-full>
+   <vaadin-form-layout width="812px" height="610px">
+    <vaadin-label plain-text _id="captionLabel">
+      Label 
+    </vaadin-label>
+    <vaadin-horizontal-layout>
+     <vaadin-date-time-field responsive height="19px" _id="dataPicker" :middle :center></vaadin-date-time-field>
+     <vaadin-native-button responsive width="204px" height="41px" plain-text _id="save" :middle :right>
+       Speichern 
+     </vaadin-native-button>
+    </vaadin-horizontal-layout>
+    <vaadin-panel size-auto>
+     <vaadin-vertical-layout responsive size-auto>
+      <vaadin-horizontal-layout responsive width="800px" height="151px" _id="concentration">
+       <vaadin-image responsive _id="concentrationPicture"></vaadin-image>
+       <vaadin-label responsive width="37px" height="18px" plain-text _id="concentrationLabel" :middle>
+         Label 
+       </vaadin-label>
+       <vaadin-radio-button-group data-item-type="java.lang.String" _id="concentrationRadioButton" :middle :center>
+        <option item="Option1">Option 1</option>
+        <option item="Option2">Option 2</option>
+        <option item="Option3">Option 3</option>
+       </vaadin-radio-button-group>
+       <vaadin-image _id="concentrationRadiobuttonPicture"></vaadin-image>
+      </vaadin-horizontal-layout>
+      <vaadin-horizontal-layout responsive width="800px" height="151px" _id="fitnesslay">
+       <vaadin-image responsive _id="fitnessPicture"></vaadin-image>
+       <vaadin-label responsive width="37px" height="18px" plain-text _id="fitnessLabel" :middle>
+         Label 
+       </vaadin-label>
+       <vaadin-radio-button-group data-item-type="java.lang.String" _id="fitnessRadioButton" :middle :center>
+        <option item="Option1">Option 1</option>
+        <option item="Option2">Option 2</option>
+        <option item="Option3">Option 3</option>
+       </vaadin-radio-button-group>
+       <vaadin-image _id="fitnessRadiobuttonPicture"></vaadin-image>
+      </vaadin-horizontal-layout>
+      <vaadin-horizontal-layout responsive width="800px" height="151px" _id="sleep">
+       <vaadin-image responsive _id="sleepPicture"></vaadin-image>
+       <vaadin-label responsive width="37px" height="18px" plain-text _id="sleepLabel" :middle>
+         Label 
+       </vaadin-label>
+       <vaadin-radio-button-group data-item-type="java.lang.String" _id="sleepRadioButton" :middle :center>
+        <option item="Option1">Option 1</option>
+        <option item="Option2">Option 2</option>
+        <option item="Option3">Option 3</option>
+       </vaadin-radio-button-group>
+       <vaadin-image _id="sleepRadiobuttonPicture"></vaadin-image>
+      </vaadin-horizontal-layout>
+     </vaadin-vertical-layout>
+    </vaadin-panel>
+   </vaadin-form-layout>
+  </vaadin-panel>
+ </body>
+</html>
