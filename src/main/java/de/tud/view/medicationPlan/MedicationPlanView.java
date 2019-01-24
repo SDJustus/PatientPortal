@@ -7,9 +7,7 @@ import com.vaadin.server.ClassResource;
 import com.vaadin.server.Page;
 import com.vaadin.shared.ui.MarginInfo;
 import com.vaadin.ui.*;
-import com.vaadin.ui.renderers.ButtonRenderer;
 import de.tud.controller.MedicationPlanController;
-import de.tud.model.medication.DummyMedication;
 import de.tud.model.medication.Unit;
 import org.vaadin.risto.stepper.FloatStepper;
 import org.vaadin.risto.stepper.IntStepper;
@@ -28,7 +26,7 @@ public class MedicationPlanView implements View {
     private Label medicationFormHeadline;
     private Button saveMedicationFormButton;
 
-    private IntStepper idTextField;
+    private IntStepper stepperId;
     private TextArea hintsTextField;
     private FloatStepper stepperMorning;
     private FloatStepper stepperNoon;
@@ -103,11 +101,11 @@ public class MedicationPlanView implements View {
         reasonTextField.setHeight("80px");
 
         //ID Field Setup
-        idTextField = new IntStepper();
-        idTextField.setCaption("ID");
-        idTextField.setStepAmount(1);
-        idTextField.setMinValue(0);
-        idTextField.setMaxValue(medicationPlanController.getDummyMedicationCount());
+        stepperId = new IntStepper();
+        stepperId.setCaption("ID");
+        stepperId.setStepAmount(1);
+        stepperId.setMinValue(0);
+        stepperId.setMaxValue(medicationPlanController.getDummyMedicationCount());
 
         //Stepper Einnahmezeiten
         stepperNoon = new FloatStepper();
@@ -180,7 +178,7 @@ public class MedicationPlanView implements View {
 
         //Form Setup
         medicationPlanFormLayout = new FormLayout();
-        medicationPlanFormLayout.addComponents(idTextField, stepperMorning, stepperNoon, stepperAfternoon, stepperNight);
+        medicationPlanFormLayout.addComponents(stepperId, stepperMorning, stepperNoon, stepperAfternoon, stepperNight);
         medicationPlanFormLayout.setMargin(new MarginInfo(false,true,false,true));
         formTextSafeLayout = new VerticalLayout();
         formTextSafeLayout.addComponents(hintsTextField, reasonTextField);
@@ -199,13 +197,6 @@ public class MedicationPlanView implements View {
         return verticalLayoutMain;
     }
 
-    public Label getMedicationGridHeadline() {
-        return medicationGridHeadline;
-    }
-
-    public void setMedicationGridHeadline(Label medicationGridHeadline) {
-        this.medicationGridHeadline = medicationGridHeadline;
-    }
 
     public Grid getMedicationPlanGrid() {
         return medicationPlanGrid;
@@ -227,8 +218,8 @@ public class MedicationPlanView implements View {
         return saveMedicationFormButton;
     }
 
-    public IntStepper getIdTextField() {
-        return idTextField;
+    public IntStepper getStepperId() {
+        return stepperId;
     }
 
     public TextArea getHintsTextField() {

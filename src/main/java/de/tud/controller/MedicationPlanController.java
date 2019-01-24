@@ -44,7 +44,7 @@ public class MedicationPlanController {
 
     public void addSafeButtonListener(){
         medicationPlanView.getSaveMedicationFormButton().addClickListener((Button.ClickListener) clickEvent -> {
-            medicationPlanView.getIdTextField().setEnabled(true);
+            medicationPlanView.getStepperId().setEnabled(true);
             if(checkIntegrityConditions()){
                 if(safeMedicationPlanEntry()){
                     Notification.show("Eintrag erfolgreich gespeichert");
@@ -64,7 +64,7 @@ public class MedicationPlanController {
         medicationPlanView.getDelete().addClickListener((Button.ClickListener) clickEvent -> {
             List<Medication> medications = medicationPlanManager.read();
             for(Medication x : medications){
-                if((long)medicationPlanView.getIdTextField().getValue() == x.getDmId()){
+                if((long)medicationPlanView.getStepperId().getValue() == x.getDmId()){
                     medicationPlanManager.delete(x.getId());
                     Notification.show("Eintrag erfolgreich gelöscht");
                 }
@@ -72,12 +72,12 @@ public class MedicationPlanController {
             loadMedicationPlan();
             clearInputFields();
             medicationPlanView.getDelete().setEnabled(false);
-            medicationPlanView.getIdTextField().setEnabled(true);
+            medicationPlanView.getStepperId().setEnabled(true);
         });
     }
 
     private boolean checkIntegrityConditions(){
-        if(medicationPlanView.getIdTextField().getValue()==0){
+        if(medicationPlanView.getStepperId().getValue()==0){
             Notification.show("Bitte ID eingeben");
             return false;
         }
@@ -85,11 +85,11 @@ public class MedicationPlanController {
             Notification.show("Bitte Einheit angeben");
             return false;
         }
-        else if(checkIfDmIdAllreadyExists(medicationPlanView.getIdTextField().getValue())){
+        else if(checkIfDmIdAllreadyExists(medicationPlanView.getStepperId().getValue())){
             Notification.show("Medikation existiert bereits");
             return false;
         }
-        else if(!checkIfDmIdExists(medicationPlanView.getIdTextField().getValue())){
+        else if(!checkIfDmIdExists(medicationPlanView.getStepperId().getValue())){
             Notification.show("Dieses Medikament existiert nicht");
             return false;
         }
@@ -119,7 +119,7 @@ public class MedicationPlanController {
 
     private boolean safeMedicationPlanEntry(){
         Medication medication = new Medication();
-        medication.setDmId(medicationPlanView.getIdTextField().getValue());
+        medication.setDmId(medicationPlanView.getStepperId().getValue());
         medication.setMorningDosage(medicationPlanView.getStepperMorning().getValue());
         medication.setNoonDosage(medicationPlanView.getStepperNoon().getValue());
         medication.setAfternoonDosage(medicationPlanView.getStepperAfternoon().getValue());
@@ -136,16 +136,21 @@ public class MedicationPlanController {
     public void addDoubleClickListenerToGrid(){
         medicationPlanView.getMedicationPlanGrid().addItemClickListener((ItemClickListener) itemClick -> {
             if(itemClick.getMouseEventDetails().isDoubleClick()){
-                editItemFromDoubleClick((MedicationPlanUIModel) itemClick.getItem());
-                medicationPlanManager.delete(((MedicationPlanUIModel) itemClick.getItem()).getMedication().getId());
-                medicationPlanView.getDelete().setEnabled(true);
-                medicationPlanView.getIdTextField().setEnabled(false);
+                if(medicationPlanView.getStepperId().getValue()>0){
+                    Notification.show("Bitte den bearbeiteten Eintrag erst speichern!");
+                }
+                else{
+                    editItemFromDoubleClick((MedicationPlanUIModel) itemClick.getItem());
+                    medicationPlanManager.delete(((MedicationPlanUIModel) itemClick.getItem()).getMedication().getId());
+                    medicationPlanView.getDelete().setEnabled(true);
+                    medicationPlanView.getStepperId().setEnabled(false);
+                }
             }
         });
     }
 
     public void editItemFromDoubleClick(MedicationPlanUIModel medicationPlanUIModel){
-        medicationPlanView.getIdTextField().setValue((int) medicationPlanUIModel.getMedication().getDmId());
+        medicationPlanView.getStepperId().setValue((int) medicationPlanUIModel.getMedication().getDmId());
         medicationPlanView.getUnitComboBox().setValue(medicationPlanUIModel.getMedication().getUnit());
         medicationPlanView.getStepperMorning().setValue(medicationPlanUIModel.getMedication().getMorningDosage());
         medicationPlanView.getStepperNoon().setValue(medicationPlanUIModel.getMedicationNoonDosage());
@@ -155,7 +160,7 @@ public class MedicationPlanController {
     }
 
     public void clearInputFields(){
-        medicationPlanView.getIdTextField().setValue(0);
+        medicationPlanView.getStepperId().setValue(0);
         medicationPlanView.getUnitComboBox().clear();
         medicationPlanView.getStepperMorning().setValue(0f);
         medicationPlanView.getStepperNoon().setValue(0f);
