@@ -3,6 +3,7 @@ package de.tud;
 import de.tud.model.manager.MedicationPlanManager;
 import de.tud.model.medication.DummyMedication;
 import de.tud.model.medication.Medication;
+import de.tud.model.medication.Unit;
 import org.hibernate.Session;
 import org.junit.jupiter.api.*;
 
@@ -21,9 +22,20 @@ class MedicationManagerTest {
         med2 = new Medication();
         med1.setDmId(1);
         med1.setMorningDosage(331.11f);
-        med2.setNightDosage(33.1f);
+        med1.setAfternoonDosage(3.4f);
+        med1.setNightDosage(41f);
+        med1.setNoonDosage(1f);
+        med1.setHints("This is a hint");
+        med1.setUnit(Unit.PIECES);
+        med1.setReason("This is a reason");
         med2.setDmId(5);
-        med2.setMorningDosage(3.1f);
+        med2.setMorningDosage(1.11f);
+        med2.setAfternoonDosage(5.4f);
+        med2.setNightDosage(30f);
+        med2.setNoonDosage(1.402f);
+        med2.setHints("This is a second hint");
+        med2.setUnit(Unit.MG);
+        med2.setReason("This is a second reason");
     }
 
     @AfterAll
