@@ -16,17 +16,34 @@ import java.util.Set;
 
 public class MedicationPlanController {
 
+    /**
+     * holds MedicationPlanView object - for UI
+     */
     private MedicationPlanView medicationPlanView;
+    /**
+     * holds MedicationPlanManager
+     */
     private static MedicationPlanManager medicationPlanManager;
-
+    /**
+     * holds MedicationPlanUIModel adapter objects for MediationPlan Grid
+     */
     private Set<MedicationPlanUIModel> medicationPlanEntityList;
 
+    /**
+     * Constructor of MedicationPlanController
+     * @param medicationPlanView
+     */
     public MedicationPlanController(MedicationPlanView medicationPlanView){
 
         this.medicationPlanView = medicationPlanView;
         medicationPlanManager = MedicationPlanManager.getInstance();
     }
-
+    /**
+     * loads Medication Entries from Medication Database Table
+     * creates adapter class entities for all Medication Entries
+     * filly adapter entities with DummyMedication Data according to the Medication Entries inside
+     * provides Items for the MedicationPlan Grid in form of MedicationPlanUIModel adapter objects
+     */
     public void loadMedicationPlan(){
         medicationPlanEntityList = new HashSet<>();
         List<Medication> allMedications = medicationPlanManager.read();
@@ -42,6 +59,10 @@ public class MedicationPlanController {
         medicationPlanView.getMedicationPlanGrid().setItems(medicationPlanEntityList);
     }
 
+    /**
+     * Adds a ButtonClickListener to the Safe Button
+     * When called, enables the StepperID field to end the edit process
+     */
     public void addSafeButtonListener(){
         medicationPlanView.getSaveMedicationFormButton().addClickListener((Button.ClickListener) clickEvent -> {
             medicationPlanView.getStepperId().setEnabled(true);
@@ -59,7 +80,11 @@ public class MedicationPlanController {
         });
     }
 
-
+    /**
+     * deletes the medication that is currently in edit mode - deletes all Medications with this DummyMedicationID
+     * updates MedicationPlan grid and clears Input fields
+     * When called, deactivates the delete Button and activates the StepperID field to end the edit process
+     */
     public void addDeleteButtonListener(){
         medicationPlanView.getDelete().addClickListener((Button.ClickListener) clickEvent -> {
             List<Medication> medications = medicationPlanManager.read();
@@ -75,7 +100,11 @@ public class MedicationPlanController {
             medicationPlanView.getStepperId().setEnabled(true);
         });
     }
-
+    /**
+     * checks integrity conditions for Safe Action
+     * checks: ID not 0, Unit not Null, DmID not already in use, DmId exists, at least one dosage field is filled
+     * @return
+     */
     private boolean checkIntegrityConditions(){
         if(medicationPlanView.getStepperId().getValue()==0){
             Notification.show("Bitte ID eingeben");
@@ -104,7 +133,11 @@ public class MedicationPlanController {
             return true;
         }
     }
-
+    /**
+     * checks in Medication Table if DmID already in use in at least one medication entry
+     * @param dmID
+     * @return
+     */
     private boolean checkIfDmIdAllreadyExists(int dmID){
         List<Medication> medications = medicationPlanManager.read();
         for(Medication x: medications){
@@ -114,6 +147,11 @@ public class MedicationPlanController {
         }
         return false;
     }
+    /**
+     * checks if DmId exists in DummyMedication Table
+     * @param dmID
+     * @return
+     */
     private boolean checkIfDmIdExists(int dmID){
         List<DummyMedication> dummyMedications = medicationPlanManager.getAllDummyMedication();
         for(DummyMedication x : dummyMedications){
@@ -123,7 +161,11 @@ public class MedicationPlanController {
         }
         return false;
     }
-
+    /**
+     * creates new Medication Entry and calls for MedicationPlan Grid update
+     * should check if medication entry is correctly written to Database, not implemented yet due to time limitation
+     * @return
+     */
     private boolean safeMedicationPlanEntry(){
         Medication medication = new Medication();
         medication.setDmId(medicationPlanView.getStepperId().getValue());
@@ -139,7 +181,14 @@ public class MedicationPlanController {
         loadMedicationPlan();
         return true;
     }
-
+    /**
+     * adds ItemClickListener to MedicationPlan Grid - checks for double click event
+     * checks if there is currently an item in edit mode (an DmId is set in the StepperID Field)
+     * on double click deletes selected item to ensure that there is only one Item for each DummyMedication in the Database
+     * calls editItemFromDoubleClick and proceeds the clicked item
+     * enables Delete button
+     * blocks the StepperID field to ensure that the ID will not be changed during the edit process
+     */
     public void addDoubleClickListenerToGrid(){
         medicationPlanView.getMedicationPlanGrid().addItemClickListener((ItemClickListener) itemClick -> {
             if(itemClick.getMouseEventDetails().isDoubleClick()){
@@ -155,7 +204,9 @@ public class MedicationPlanController {
             }
         });
     }
-
+    /**
+     * fills edit form with item values - provided by addDoubleClickListenerToGrid() Method
+     */
     public void editItemFromDoubleClick(MedicationPlanUIModel medicationPlanUIModel){
         medicationPlanView.getStepperId().setValue((int) medicationPlanUIModel.getMedication().getDmId());
         medicationPlanView.getUnitComboBox().setValue(medicationPlanUIModel.getMedication().getUnit());
@@ -165,7 +216,9 @@ public class MedicationPlanController {
         medicationPlanView.getHintsTextField().setValue(medicationPlanUIModel.getMedication().getHints());
         medicationPlanView.getReasonTextField().setValue(medicationPlanUIModel.getMedication().getReason());
     }
-
+    /**
+     * clears all edit form fields
+     */
     public void clearInputFields(){
         medicationPlanView.getStepperId().setValue(0);
         medicationPlanView.getUnitComboBox().clear();
@@ -176,7 +229,10 @@ public class MedicationPlanController {
         medicationPlanView.getReasonTextField().clear();
         medicationPlanView.getHintsTextField().clear();
     }
-
+    /**
+     * returns the count of Dummy Medications in the Dummy Medication Database
+     * @return
+     */
     public int getDummyMedicationCount(){
         return medicationPlanManager.getAllDummyMedication().size();
     }
