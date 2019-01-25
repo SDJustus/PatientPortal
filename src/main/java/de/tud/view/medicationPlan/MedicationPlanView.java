@@ -176,11 +176,11 @@ public class MedicationPlanView implements View {
         medicationPlanGrid.addColumn(MedicationPlanUIModel::getDummyMedicationForm).setCaption("Form").setWidth(125);
         medicationPlanGrid.addColumn(MedicationPlanUIModel::getDummyMedicationStrength).setCaption("Stärke").setWidth(125);
         medicationPlanGrid.addColumn(MedicationPlanUIModel::getMedicationUnit).setCaption("Einheit").setWidth(125);
-        medicationPlanGrid.addColumn(MedicationPlanUIModel::getMedicationMorningDosage).setCaption("Morgens").setWidth(125);
+        medicationPlanGrid.addColumn(MedicationPlanUIModel::getMedicationMorningDosage).setCaption("Morgens").setWidth(100);
 
-        medicationPlanGrid.addColumn(MedicationPlanUIModel::getMedicationNoonDosage).setCaption("Mittag").setWidth(125);
-        medicationPlanGrid.addColumn(MedicationPlanUIModel::getMedicationAfternoonDosage).setCaption("Nachmittag").setWidth(125);
-        medicationPlanGrid.addColumn(MedicationPlanUIModel::getMedicationNightDosage).setCaption("Nacht").setWidth(125);
+        medicationPlanGrid.addColumn(MedicationPlanUIModel::getMedicationNoonDosage).setCaption("Mittag").setWidth(100);
+        medicationPlanGrid.addColumn(MedicationPlanUIModel::getMedicationAfternoonDosage).setCaption("Nachmittag").setWidth(100);
+        medicationPlanGrid.addColumn(MedicationPlanUIModel::getMedicationNightDosage).setCaption("Nacht").setWidth(100);
         medicationPlanGrid.addColumn(MedicationPlanUIModel::getMedicationHints).setCaption("Hinweise").setWidthUndefined().setMinimumWidth(150);
         medicationPlanGrid.addColumn(MedicationPlanUIModel::getMedicationReason).setCaption("Grund").setWidthUndefined().setMinimumWidth(150);
 
