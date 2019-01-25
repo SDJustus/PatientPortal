@@ -5,9 +5,9 @@ Das ist eine kurze Anleitung, wie die Web Applikation zum Laufen
 gebracht wird
 
 
-1 MariaDB installieren (SequelPro als Mac Alternative)
+1 MariaDB installieren 
 ----------------------------------------------------------
-HeidiSQL starten und im Verbindungsmanager folgende Werte eintragen: <br> 
+HeidiSQL (SequelPro als Mac Alternative) starten und im Verbindungsmanager folgende Werte eintragen: <br> 
 Benutzername: root <br>
 Passwort: root <br>
 Port: 3306 <br>
