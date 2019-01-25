@@ -1,4 +1,4 @@
-package de.tud.view.VitalData;
+package de.tud.view.vitalData;
 
 import com.github.appreciated.material.MaterialTheme;
 import com.vaadin.navigator.View;

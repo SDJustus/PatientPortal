@@ -1,12 +1,10 @@
-package de.tud.view.DiaryEvaluation;
+package de.tud.view.diaryEvaluation;
 
-import com.vaadin.navigator.View;
 import com.vaadin.server.Page;
 import com.vaadin.shared.data.sort.SortDirection;
 import com.vaadin.ui.*;
 import com.vaadin.ui.renderers.LocalDateRenderer;
 import com.vaadin.ui.renderers.LocalDateTimeRenderer;
-import de.tud.model.welfare.Welfare;
 
 public class WelfareEvaluationView extends EvaluationView  {
 

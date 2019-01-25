@@ -7,9 +7,9 @@ import com.vaadin.ui.Button;
 import com.vaadin.ui.Notification;
 import de.tud.model.Homework;
 import de.tud.model.manager.HomeworkManager;
-import de.tud.view.Homework.FinishedItem;
-import de.tud.view.Homework.HomeworkSetup;
-import de.tud.view.Homework.ToDoItem;
+import de.tud.view.homework.FinishedItem;
+import de.tud.view.homework.HomeworkSetup;
+import de.tud.view.homework.ToDoItem;
 import org.vaadin.addon.calendar.item.BasicItem;
 import org.vaadin.addon.calendar.item.BasicItemProvider;
 import org.vaadin.addon.calendar.item.CalendarItemProvider;
@@ -17,21 +17,19 @@ import org.vaadin.addon.calendar.item.CalendarItemProvider;
 import java.time.*;
 import java.time.temporal.ChronoUnit;
 import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class HomeworkController {
 
 
     HomeworkSetup designerView;
     private long diaryId;
-
+    private final Logger LOGGER = Logger.getLogger(HomeworkController.class.getSimpleName());
 
     BasicItemProvider<BasicItem> basicProvider;
     private String repeat;
 
-
-    /**
-     * Executes Setup Methods
-     */
 
     public  HomeworkController(HomeworkSetup designerView)
     {
@@ -45,9 +43,7 @@ public class HomeworkController {
     }
 
 
-    /**
-     * Sets size and format of the Calender and executes the loadCalenderEntries Method.
-     */
+
 
     void setUpCalendar()
     {
@@ -80,9 +76,7 @@ public class HomeworkController {
     }
 
 
-    /**
-     * Defines blocked Times.
-     */
+
 
     public void setupBlockedTimeSlots() {
 
@@ -118,10 +112,6 @@ public class HomeworkController {
 
     }
 
-
-    /**
-     * Loads all calendar entries from the database into the calender and formats them.
-     */
 
    public void loadCalendarEntries()
     {
@@ -186,9 +176,7 @@ public class HomeworkController {
 
     }
 
-    /**
-     * Adds a listener to the Datepicker.
-     */
+
     public void addDateTimeFieldChangeListener(){
         designerView.getDataPicker().addValueChangeListener(new HasValue.ValueChangeListener<LocalDate>() {
             @Override
@@ -207,9 +195,7 @@ public class HomeworkController {
         }
 
 
-    /**
-     * Adds a listener to the save button and adds restrictions.
-     */
+
 
     public void addSaveButtonListener() {
         designerView.getSaveButton().addClickListener(new Button.ClickListener() {
@@ -268,15 +254,15 @@ public class HomeworkController {
 
                     ZonedDateTime zonedTime = designerView.getDataPicker().getValue().atStartOfDay(ZoneOffset.UTC);
 
-                    System.out.println(zonedTime);
+                    LOGGER.log(Level.INFO, zonedTime.toString());
 
                     int dayDiff = (int) now.until(zonedTime, ChronoUnit.DAYS);
-                    System.out.println("DayDiff:");
+                    LOGGER.log(Level.INFO, "DayDiff:");
 
-                        System.out.println(dayDiff);
+                        LOGGER.log(Level.INFO, String.valueOf(dayDiff));
 
-                    System.out.println("Now+1: ");
-                        System.out.println(now.plusDays(1));
+                    LOGGER.log(Level.INFO, "Now+1: ");
+                        LOGGER.log(Level.INFO, now.plusDays(1).toString());
                         for(int i =0; i<= dayDiff ; i++)
                         {
 
@@ -288,12 +274,12 @@ public class HomeworkController {
                 }
 
 
-                if(designerView.getRepeatBox().getValue().equals("Wöchentlich"))
+                if(designerView.getRepeatBox().getValue().equals("Wöchentlich bis Endtermin"))
                 {
 
                     ZonedDateTime zonedTime = designerView.getDataPicker().getValue().atStartOfDay(ZoneOffset.UTC);
 
-                    System.out.println(zonedTime);
+                    LOGGER.log(Level.INFO, zonedTime.toString());
 
                     int dayDiff = (int) now.until(zonedTime, ChronoUnit.WEEKS);
                     for(int i =0; i<= dayDiff ; i++)
@@ -313,10 +299,6 @@ public class HomeworkController {
 
     }
 
-    /**
-     * Adds homework types to the combobox.
-     */
-
    public void setupComobobox()
     {
 
@@ -326,10 +308,6 @@ public class HomeworkController {
 
     }
 
-    /**
-     * Adds restrictions to he date picker.
-     */
-
    public void setUpDataPicker()
     {
         designerView.getDataPicker().setDefaultValue(LocalDate.from(LocalDateTime.now()));
@@ -337,11 +315,6 @@ public class HomeworkController {
 
 
     }
-
-
-    /**
-     * Adds max length to the description and name text box.
-     */
 
 
   public  void addTextBoxRestrictions()
@@ -355,9 +328,7 @@ designerView.getHomeworkName().setMaxLength(12);
 
     }
 
-    /**
-     * Checks if a specific time and date is occupied.
-     */
+
 
     public boolean isDateOccupied(ZonedDateTime t)
     {
@@ -381,9 +352,6 @@ designerView.getHomeworkName().setMaxLength(12);
 
     }
 
-    /**
-     * Resets the calendendar and loads the newly added entries. Execute this method only after adding new calendar entries to the database.
-     */
 
     public void resetAfterSave()
     {
@@ -410,9 +378,7 @@ designerView.getHomeworkName().setMaxLength(12);
 
     }
 
-    /**
-     * Changes a calendar label with the first and last date of the current calendar view. (WIP)
-     */
+
 
    public void addCalenderListenerForCaptionLabel()
 
@@ -431,10 +397,6 @@ designerView.getHomeworkName().setMaxLength(12);
     }
 
 
-
-    /**
-     * Creates new homework database entries with data from the user interface.
-     */
 
 
 Homework createHomeworkFromUI(ZonedDateTime now)

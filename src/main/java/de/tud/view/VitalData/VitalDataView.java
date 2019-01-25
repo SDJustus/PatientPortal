@@ -1,15 +1,12 @@
-package de.tud.view.VitalData;
+package de.tud.view.vitalData;
 
 import com.github.appreciated.material.MaterialTheme;
 import com.vaadin.server.ClassResource;
 import com.vaadin.server.Page;
-import com.vaadin.shared.ui.ContentMode;
 import com.vaadin.shared.ui.MarginInfo;
 import com.vaadin.ui.*;
 import com.vaadin.navigator.View;
-import com.vaadin.ui.themes.ValoTheme;
 import de.tud.controller.VitalDataUIController;
-import de.tud.view.VitalData.VitalDataUIDesignerUISetup;
 import org.vaadin.risto.stepper.FloatStepper;
 
 import java.time.LocalDateTime;

@@ -29,9 +29,6 @@ public class MedicationPlanManager extends EntityManager<Medication> {
     public List<Medication> read() {
         Session session = getSessionFactory().openSession();
         List<Medication> medications = session.createQuery("FROM Medication").list();
-        if (medications.isEmpty()){
-            throw new NullPointerException("There was no Medication in the database.");
-        }
         session.close();
         LOGGER.log(Level.INFO, "Read " + medications.size() + " from the database!");
         return medications;

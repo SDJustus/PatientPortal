@@ -1,4 +1,4 @@
-package de.tud.view.DiaryEvaluation;
+package de.tud.view.diaryEvaluation;
 
 import de.tud.model.VitalData;
 import de.tud.model.symptom.Symptom;

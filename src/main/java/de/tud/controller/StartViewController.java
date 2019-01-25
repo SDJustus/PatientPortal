@@ -5,7 +5,7 @@ import com.vaadin.data.provider.Query;
 import com.vaadin.ui.CheckBox;
 import de.tud.model.Homework;
 import de.tud.model.manager.HomeworkManager;
-import de.tud.view.Start.StartView;
+import de.tud.view.start.StartView;
 
 import java.time.LocalDate;
 import java.util.ArrayList;

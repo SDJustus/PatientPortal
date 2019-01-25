@@ -26,7 +26,6 @@ public class WelfareFactory {
     private WelfareFactory(){
 
     }
-    @Deprecated
     public static Welfare createSymptomByClass(String className, Welfare.Strength strength) {
         switch (className) {
             case "PhysicalCondition":
