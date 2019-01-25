@@ -96,13 +96,13 @@ public class WelfareControllerNew {
             welfareViewNew.getsSmileyBad().setId("");
             welfareViewNew.getcLabelGood().setValue("gut");
             welfareViewNew.getcLabelMiddle().setValue("mäßig");
-            welfareViewNew.getcLabelBad().setValue("stark");
+            welfareViewNew.getcLabelBad().setValue("schlecht");
             welfareViewNew.getfLabelGood().setValue("gut");
             welfareViewNew.getfLabelMiddle().setValue("mäßig");
-            welfareViewNew.getfLabelBad().setValue("stark");
+            welfareViewNew.getfLabelBad().setValue("schlecht");
             welfareViewNew.getsLabelGood().setValue("gut");
             welfareViewNew.getsLabelMiddle().setValue("mäßig");
-            welfareViewNew.getsLabelBad().setValue("stark");
+            welfareViewNew.getsLabelBad().setValue("schlecht");
             welfareViewNew.getDateField().clear();
             concentrationChoice = "none";
             fitnessChoice = "none";
@@ -158,7 +158,7 @@ public class WelfareControllerNew {
                 welfareViewNew.getcSmileyBad().setId("");
                 welfareViewNew.getcLabelGood().setValue("");
                 welfareViewNew.getcLabelMiddle().setValue("");
-                welfareViewNew.getcLabelBad().setValue("stark");
+                welfareViewNew.getcLabelBad().setValue("schlecht");
                 concentrationChoice = "bad";
                 if (fitnessChoice != "none" && sleepChoice != "none" && welfareViewNew.getDateField().getValue() != null) {welfareViewNew.getSaveButton().setEnabled(true);}
 
@@ -211,7 +211,7 @@ public class WelfareControllerNew {
                 welfareViewNew.getfSmileyBad().setId("");
                 welfareViewNew.getfLabelGood().setValue("");
                 welfareViewNew.getfLabelMiddle().setValue("");
-                welfareViewNew.getfLabelBad().setValue("stark");
+                welfareViewNew.getfLabelBad().setValue("schlecht");
                 fitnessChoice = "bad";
                 if (concentrationChoice != "none" && sleepChoice != "none" && welfareViewNew.getDateField().getValue() != null) {welfareViewNew.getSaveButton().setEnabled(true);}
 
@@ -263,7 +263,7 @@ public class WelfareControllerNew {
                 welfareViewNew.getsSmileyBad().setId("");
                 welfareViewNew.getsLabelGood().setValue("");
                 welfareViewNew.getsLabelMiddle().setValue("");
-                welfareViewNew.getsLabelBad().setValue("stark");
+                welfareViewNew.getsLabelBad().setValue("schlecht");
                 sleepChoice = "bad";
                 if (concentrationChoice != "none" && fitnessChoice != "none" && welfareViewNew.getDateField().getValue() != null) {welfareViewNew.getSaveButton().setEnabled(true);}
 

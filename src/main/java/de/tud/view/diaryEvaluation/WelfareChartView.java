@@ -119,7 +119,7 @@ public class WelfareChartView extends ChartView {
         yAxis.setType(AxisType.CATEGORY);
 
 
-        String[] yCat = new String[]{"","gut", "mäßig", "stark"};
+        String[] yCat = new String[]{"","gut", "mäßig", "schlecht"};
         yAxis.setMax(3);
         yAxis.setCategories(yCat);
 
@@ -131,13 +131,13 @@ public class WelfareChartView extends ChartView {
                         "switch (category) " +
                         "{ " +
                         "   case 1: " +
-                        "       multiplier = 'schwach'; " +
+                        "       multiplier = 'gut'; " +
                         "       break; " +
                         "   case 2: " +
                         "       multiplier = 'mäßig'; " +
                         "       break; " +
                         "   case 3: " +
-                        "       multiplier = 'stark'; " +
+                        "       multiplier = 'schlecht'; " +
                         "       break; " +
                         "}" +
                         "var tipTxt = this.series.name + ': <b>' + multiplier + '</b><br>'; " +

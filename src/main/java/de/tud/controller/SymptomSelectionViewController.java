@@ -79,7 +79,7 @@ public class SymptomSelectionViewController {
                 if(checkComboBox()== true) {
                     symptomSelectionView.getMiddleLabel().setValue("");
                     symptomSelectionView.getBadLabel().setValue("");
-                    symptomSelectionView.getGoodLabel().setValue("gut");
+                    symptomSelectionView.getGoodLabel().setValue("schwach");
                     choice = Symptom.Strength.WEAK;
                     symptomArt = SymptomFactory.createSymptomByClass(selectedSymptom, choice);
 
@@ -99,7 +99,7 @@ public class SymptomSelectionViewController {
                 if(checkComboBox()== true) {
                     symptomSelectionView.getGoodLabel().setValue("");
                     symptomSelectionView.getBadLabel().setValue("");
-                    symptomSelectionView.getMiddleLabel().setValue("mäßig");
+                    symptomSelectionView.getMiddleLabel().setValue("mittel");
                     choice = Symptom.Strength.MIDDLE;
                     symptomArt = SymptomFactory.createSymptomByClass(selectedSymptom, choice);
 
@@ -157,8 +157,8 @@ public class SymptomSelectionViewController {
                     symptomSelectionView.getAddNextSymptom().setEnabled(false);
                     symptomSelectionView.getAddNextSymptom().setVisible(false);
 
-                    symptomSelectionView.getGoodLabel().setValue("gut");
-                    symptomSelectionView.getMiddleLabel().setValue("mäßig");
+                    symptomSelectionView.getGoodLabel().setValue("schwach");
+                    symptomSelectionView.getMiddleLabel().setValue("mittel");
                     symptomSelectionView.getBadLabel().setValue("stark");
                     choice = null;
                     symptomViewController.setSaveButtonEnabled(false);
