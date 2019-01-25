@@ -20,13 +20,17 @@ public class SymptomSelectionViewController {
     private int selectionCounter = 0; //um dafür zu sorgen, dass nur einmal der Button "+weiteres Symptom" erscheint
 
 
+    /**
+     * Establish a connection between SymptomSelectionView and SymptomViewController.
+     */
     public SymptomSelectionViewController(SymptomSelectionView symptomSelectionView, SymptomViewController symptomViewController){
         this.symptomViewController = symptomViewController;
-        System.out.println(symptomViewController.getSymptomList());
         this.symptomSelectionView = symptomSelectionView;
     }
 
-    //TODO
+    /**
+     * Method for checking the combox (ensure that first a symptom is selected, before smiley choice)
+     */
     public boolean checkComboBox(){
         if(symptomSelectionView.getComboBox().getValue() == null){
             Notification.show("Bitte erst ein Symptom auswählen!");
@@ -36,8 +40,9 @@ public class SymptomSelectionViewController {
     }
 
 
-    //Button darf nur einmal gedrückt werden
-    //TODO Button can be pressed only one time
+    /**
+     * Click listener to add another symptom to the diary entry.
+     */
     public void addClickListenerToAddNextSymptom(){
         symptomSelectionView.getAddNextSymptom().addClickListener(new Button.ClickListener() {
             @Override
@@ -63,6 +68,9 @@ public class SymptomSelectionViewController {
         });
     }
 
+    /**
+     * Click listener for smileys (good, moderate, bad)
+     */
 
     public void addClickListenerForSmileys(){
         symptomSelectionView.getGoodSmiley().addClickListener(new MouseEvents.ClickListener() {
@@ -128,6 +136,12 @@ public class SymptomSelectionViewController {
     }
 
 
+    /**
+     * If a symptom from the combobox is selected, text label above the smileys is activated with
+     * the selected symptom.
+     * Ensures also integrity restrictions (if there is only one symptom in the symptom list over, the add next symptom button
+     * will be disabled.
+     */
 
     public void addValueChangeListenerForComboBox(){
         symptomSelectionView.getComboBox().addValueChangeListener(new HasValue.ValueChangeListener<String>() {
@@ -143,7 +157,6 @@ public class SymptomSelectionViewController {
                     symptomSelectionView.getAddNextSymptom().setEnabled(false);
                     symptomSelectionView.getAddNextSymptom().setVisible(false);
 
-                    //auswahl automatisch zurücksetzen
                     symptomSelectionView.getGoodLabel().setValue("gut");
                     symptomSelectionView.getMiddleLabel().setValue("mäßig");
                     symptomSelectionView.getBadLabel().setValue("stark");
@@ -159,6 +172,9 @@ public class SymptomSelectionViewController {
             }
         });
     }
+    /**
+     * Click listener for the delete button to delete single symptom selections.
+     */
 
     public void addClickListenerForDelete(){
         SymptomSelectionViewController s = this;
@@ -206,6 +222,9 @@ public class SymptomSelectionViewController {
         });
 
     }
+    /**
+     * Method to check integrity restrictions for adding another symptom to the list.
+     */
 
     private void checkAddNextSymptomRestrictions(){
         if(symptomViewController.getNumberOfSymptoms() == symptomViewController.getSymptomSelectionViewControllers().size()){

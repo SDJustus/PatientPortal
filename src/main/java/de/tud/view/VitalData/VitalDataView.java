@@ -84,6 +84,7 @@ public class VitalDataView extends Composite implements View {
         captionLabel.setValue("Bitte tragen Sie ihre Vitaldaten ein:");
         captionLabel.addStyleName(MaterialTheme.CARD_0_5);
         captionLabel.addStyleName(MaterialTheme.LABEL_H1);
+        captionLabel.addStyleName("header-label");
         //captionLabel.addStyleName("catbackground");
 
 

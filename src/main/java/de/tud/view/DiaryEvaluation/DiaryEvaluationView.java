@@ -19,24 +19,22 @@ public class DiaryEvaluationView extends Composite implements View {
     private Button welfareChartButton = new Button("Wohlbefindendiagramm");
 
 
-
     private DiaryEvaluationViewController diaryEvaluationViewController;
-
+    /**
+     * Set up the main diary evaluation view window with buttons to navigate to specific evaluations.
+     */
 
     public DiaryEvaluationView() {
-        UI.getCurrent().getPage().getStyles().add("#yellow{ background-color: #fdff40 !important;}"+
-                "#green{background-color: #60ec1a !important;}"+
-                "#blue{background-color: #10bbee !important; }");
 
-        symptomTableButton.setId("yellow");
-        vitalDataTableButton.setId("green");
-        welfareTableButton.setId("blue");
+        symptomTableButton.addStyleName("yellow");
+        vitalDataTableButton.addStyleName("green");
+        welfareTableButton.addStyleName("blue");
         symptomTableButton.setEnabled(false);
 
-        symptomChartButton.setId("yellow");
-        vitaldataChartButton.setId("green");
+        symptomChartButton.addStyleName("yellow");
+        vitaldataChartButton.addStyleName("green");
         vitaldataChartButton.setEnabled(false);
-        welfareChartButton.setId("blue");
+        welfareChartButton.addStyleName("blue");
 
         menuBar.addComponents(symptomTableButton, vitalDataTableButton, welfareTableButton);
         chartBar.addComponents(symptomChartButton, vitaldataChartButton, welfareChartButton);
@@ -44,7 +42,7 @@ public class DiaryEvaluationView extends Composite implements View {
         verticalLayout.setComponentAlignment(menuBar, Alignment.MIDDLE_LEFT);
         verticalLayout.setComponentAlignment(chartBar, Alignment.MIDDLE_LEFT);
 
-        //Verbindung zu DiaryEvaluationViewController
+
         this.diaryEvaluationViewController = new DiaryEvaluationViewController(this);
 
         diaryEvaluationViewController.addClickListenerForSymptomChartButton();
@@ -83,39 +81,17 @@ public class DiaryEvaluationView extends Composite implements View {
         return welfareTableButton;
     }
 
-
-
-    public HorizontalLayout getChartBar() {
-        return chartBar;
-    }
-
-    public void setChartBar(HorizontalLayout chartBar) {
-        this.chartBar = chartBar;
-    }
-
     public Button getSymptomChartButton() {
         return symptomChartButton;
     }
 
-    public void setSymptomChartButton(Button symptomChartButton) {
-        this.symptomChartButton = symptomChartButton;
-    }
 
-    public Button getVitaldataChartButton() {
-        return vitaldataChartButton;
-    }
 
-    public void setVitaldataChartButton(Button vitaldataChartButton) {
-        this.vitaldataChartButton = vitaldataChartButton;
-    }
 
     public Button getWelfareChartButton() {
         return welfareChartButton;
     }
 
-    public void setWelfareChartButton(Button welfareChartButton) {
-        this.welfareChartButton = welfareChartButton;
-    }
 
 
 }

@@ -39,6 +39,9 @@ public class PatientPortalController extends UI {
     AppBarNotificationButton appBarNotificationButton = new AppBarNotificationButton(notifications, true);
 
 
+    /**
+     * Vaadin init Method for UI Start
+     */
 
     @Override
     public void init(VaadinRequest request) {
@@ -65,6 +68,9 @@ public class PatientPortalController extends UI {
         setContent(buildMenu());
     }
 
+    /**
+     * add click listener for login Button (authentication view)
+     */
     public void addLoginButtonListener(){
         authenticationView.getLogin().addClickListener(new Button.ClickListener() {
             @Override
@@ -75,6 +81,12 @@ public class PatientPortalController extends UI {
             }
         });
     }
+
+    /**
+     * Check login Data (dummy method).
+     * valid Username: admin
+     * valid Password: admin
+     */
     private void checkLogin(){
        if(authenticationView.getUsername().getValue().equals("admin") &&
                authenticationView.getPasswordField().getValue().equals("admin")){
@@ -95,6 +107,9 @@ public class PatientPortalController extends UI {
        }
     }
 
+    /**
+     * Method for building the menu, including Navigation to View Classes.
+     */
     public Component buildMenu() {
         DefaultNotificationHolder notifications = new DefaultNotificationHolder();
         DefaultBadgeHolder badge = new DefaultBadgeHolder();
@@ -129,6 +144,12 @@ public class PatientPortalController extends UI {
                 .addClickable("Logout", VaadinIcons.SIGN_OUT, e -> logout(), Section.FOOTER)
                 .build();
     }
+
+
+    /**
+     * Logout method (dummy).
+     * Executed if the user clicks on the logout button in the menu.
+     */
     private void logout(){
         setContent(authenticationView.getViewComponent());
     }

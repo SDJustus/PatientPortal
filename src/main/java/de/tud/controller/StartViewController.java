@@ -15,11 +15,18 @@ public class StartViewController {
     private StartView startView;
 
 
+    /**
+     * Executes the initGrid() method to setup the tables on the start page.
+     */
 
     public StartViewController(StartView startView){
         this.startView = startView;
         initGrids();
     }
+
+    /**
+     * Initialize exercise/homework overview tables.
+     */
     private void initGrids(){
         List<Homework> homeworkList = null;
         try {
@@ -53,6 +60,9 @@ public class StartViewController {
         }
 
     }
+    /**
+     * Generator method for notifications in the upper right corner of the UI.
+     */
     private void notificationGenerator(ArrayList<Homework> todayList){
         PatientPortalController.getNotifications().clearNotifications();
         if(todayList != null){
@@ -64,6 +74,9 @@ public class StartViewController {
 
     }
 
+    /**
+     * Method for shifting exercise/homework elements if fulfilled into another table.
+     */
 
     public void checkBoxListener(Long id, CheckBox checkBox){
         HomeworkManager.getInstance().setHomeworkStatus(id, !checkBox.getValue());

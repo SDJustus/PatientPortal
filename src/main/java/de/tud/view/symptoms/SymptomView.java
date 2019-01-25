@@ -17,17 +17,17 @@ public class SymptomView extends Composite implements View {
     private Button newDiaryEntry = new Button("Alles Zurücksetzen");
     private Panel panel = new Panel();
     private SymptomViewController symptomViewController;
+    int height = 260;
+    int width = 250;
 
+    /**
+     * setup the symptom diary entry view
+     */
 
     public SymptomView(){
         //Verbindung zu SymptomViewController
        symptomViewController = new SymptomViewController(this);
-
-       //CSS
-        UI.getCurrent().getPage().getStyles().add("#smileybild:hover{transform: scale(1.2);}"+
-                "#smileybild:{transition: transform .2s;}+" +
-                ".v-panel{padding-bottom: 80px;}"+
-                "#header-label{font-weight: bold; font-size:40px;}" +
+        UI.getCurrent().getPage().getStyles().add(".v-panel{padding-bottom: 80px;}"+
                 "#greyscale{filter: grayscale(100%);" +
                 "-webkit-filter: grayscale(100%);" +
                 "-moz-filter: grayscale(100%);" +
@@ -38,7 +38,7 @@ public class SymptomView extends Composite implements View {
                 "-webkit-filter: grayscale(1);}");
 
         //Label Id für CSS
-        label.setId("header-label");
+        label.addStyleName("header-label");
         label.addStyleName(MaterialTheme.LABEL_H1);
         label.addStyleName(MaterialTheme.CARD_0_5);
 
@@ -58,12 +58,13 @@ public class SymptomView extends Composite implements View {
         verticalLayout.setSpacing(true);
         panel.setContent(verticalLayout);
 
-        panel.setHeight(""+0.8*Page.getCurrent().getBrowserWindowHeight());
-        panel.setWidth(""+0.95*Page.getCurrent().getBrowserWindowWidth());
+        panel.setHeight("" + (Integer.valueOf(Page.getCurrent().getBrowserWindowHeight()) - Integer.valueOf(height)));
+        panel.setWidth("" + (Integer.valueOf(Page.getCurrent().getBrowserWindowWidth()) - Integer.valueOf(width)));
 
         UI.getCurrent().getPage().addBrowserWindowResizeListener(e -> {
-            panel.setHeight(""+0.8*e.getHeight());
-            panel.setWidth(""+0.95*e.getWidth());
+            panel.setHeight("" + (e.getHeight() - Integer.valueOf(height)));
+            panel.setWidth("" + (e.getWidth() - Integer.valueOf(width)));
+
         });
 
         addSaveButtonListener();

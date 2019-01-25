@@ -64,10 +64,8 @@ public class WelfareViewNew implements View {
 
     public Component getViewComponent() {
 
-        UI.getCurrent().getPage().getStyles().add("#smileybild:hover{transform: scale(1.2);}"+
-                "#smileybild:{transition: transform .2s;}+" +
+        UI.getCurrent().getPage().getStyles().add(
                 ".v-panel{padding-bottom: 80px;}"+
-                "#header-label{font-weight: bold; font-size:40px;}" +
                 "#greyscale{filter: grayscale(100%);" +
                 "-webkit-filter: grayscale(100%);" +
                 "-moz-filter: grayscale(100%);" +
@@ -120,7 +118,7 @@ public class WelfareViewNew implements View {
         sLabelMiddle = new Label("mäßig");
         sLabelBad = new Label("stark");
 
-        captionLabel.setId("header-label");
+        captionLabel.addStyleName("header-label");
         captionLabel.addStyleName(MaterialTheme.LABEL_H1);
         captionLabel.addStyleName(MaterialTheme.CARD_0_5);
 

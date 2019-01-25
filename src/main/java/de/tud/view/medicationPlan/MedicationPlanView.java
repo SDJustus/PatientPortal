@@ -59,6 +59,7 @@ public class MedicationPlanView implements View {
         medicationFormHeadline.setValue("Neue Medikation hinzufügen:");
         medicationFormHeadline.addStyleName(MaterialTheme.CARD_0_5);
         medicationFormHeadline.addStyleName(MaterialTheme.LABEL_H1);
+        medicationFormHeadline.addStyleName("header-label");
 
         //Headline MedicationPlan Grid
         medicationGridHeadline = new Label("Medikationsplan:");

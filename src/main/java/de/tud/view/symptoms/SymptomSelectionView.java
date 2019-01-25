@@ -14,15 +14,9 @@ import java.util.TreeSet;
 
 public class SymptomSelectionView extends ButtonView implements View  {
     private Label symptomName;
-
-    private Symptom.Strength choice;
     private ComboBox<String> comboBox;
     private Button addNextSymptom;
-
-    //delete Entry Button
     private Button delete;
-
-    //Controller
     private SymptomSelectionViewController symptomSelectionViewController;
     private SymptomViewController symptomViewController;
 
@@ -32,6 +26,10 @@ public class SymptomSelectionView extends ButtonView implements View  {
         this.symptomSelectionViewController = new SymptomSelectionViewController(this, symptomViewController);
 
     }
+
+    /**
+     * returns Symptom Selection View Layout container.
+     */
 
     @Override
     public Component getViewComponent(){
@@ -59,10 +57,7 @@ public class SymptomSelectionView extends ButtonView implements View  {
         verticalLayout.setHeight("30px");
 
 
-
-
         addClickListenerForSmileys();   //Click Listener hinzufügen
-
 
         //zweiter Spacer
         VerticalLayout spacer2 = new VerticalLayout();
@@ -75,7 +70,6 @@ public class SymptomSelectionView extends ButtonView implements View  {
         addClickListenerToAddNextSymptom();
 
         goodLabel.setResponsive(true);
-
 
 
         UI.getCurrent().getPage().addBrowserWindowResizeListener(e -> {
@@ -115,7 +109,6 @@ public class SymptomSelectionView extends ButtonView implements View  {
 
         return mainLayout;
     }
-    //TODO: Outsource
 
 
     //Listener
@@ -138,9 +131,6 @@ public class SymptomSelectionView extends ButtonView implements View  {
 
     public Label getSymptomName(){
         return this.symptomName;
-    }
-    public Symptom.Strength getChoice() {
-        return choice;
     }
     public ComboBox<String> getComboBox() {
         return comboBox;

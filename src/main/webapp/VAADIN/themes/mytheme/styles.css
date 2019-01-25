@@ -35404,3 +35404,20 @@ body:not(.v-touch) .card-hoverable:hover, body.v-touch .card-hoverable:active {
 .mytheme .fixed {
 	min-width: 360px !important;
 }
+
+.mytheme .yellow {
+	background-color: #fdff40 !important;
+}
+
+.mytheme .green {
+	background-color: #60ec1a !important;
+}
+
+.mytheme .blue {
+	background-color: #10bbee !important;
+}
+
+.mytheme .header-label {
+	font-weight: bold;
+	font-size: 40px;
+}

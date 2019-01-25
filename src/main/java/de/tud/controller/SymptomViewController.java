@@ -21,9 +21,12 @@ public class SymptomViewController {
     private List<SymptomSelectionViewController> symptomSelectionViewControllers = new ArrayList<>();
     private TreeSet<String> symptomList;
     private int numberOfSymptoms = createSymptomList().size();
-    private int counter = 0;
 
 
+
+    /**
+     *Method executes integrity Restrictions Method for the Date Picker and add a new Symptom Selection View to the Symptom View container.
+     */
     public SymptomViewController(SymptomView symptomView){
         this.symptomView = symptomView;
         this.symptomList = createSymptomList();
@@ -32,6 +35,12 @@ public class SymptomViewController {
         addNewSymptomSelectionView();
         symptomView.getDateTimeField().setValue(LocalDateTime.now());
     }
+
+
+    /**
+     * Listener for the Date Picker.
+     * Enable Save Button if integrity Restrictions are fulfilled.
+     */
 
     public void addDateTimeFieldChangeListener(){
        symptomView.getDateTimeField().addValueChangeListener(new HasValue.ValueChangeListener<LocalDateTime>() {
@@ -50,6 +59,9 @@ public class SymptomViewController {
         return  symptomList;
     }
 
+    /**
+     * Method for the creation of the Symptom list in the combobox (11 symptoms at all)
+     */
 
     private TreeSet<String> createSymptomList(){
         TreeSet<String> symptomList = new TreeSet<>();
@@ -66,6 +78,12 @@ public class SymptomViewController {
         symptomList.add("Spastik im rechten Bein");
         return symptomList;
     }
+
+    /**
+     * Method to check date integrity (range end and range start is defined by
+     *  integrityRestrictionsDateTimeField methdod)
+     */
+
     public boolean checkDateIntegrity(){
         LocalDateTime rangeEnd = symptomView.getDateTimeField().getRangeEnd();
         LocalDateTime rangeStart = symptomView.getDateTimeField().getRangeStart();
@@ -76,6 +94,11 @@ public class SymptomViewController {
         }
         return true;
     }
+
+    /**
+     * Method to check symptom selection if there are SymptomSelectionViewControllers with no
+     * selected symptom (ensure integrity)
+     */
 
     public boolean checkSymptomSelection(){
         List<Boolean> list = new ArrayList<>();
@@ -89,11 +112,19 @@ public class SymptomViewController {
         return true;
     }
 
+    /**
+     * Method sets a range for DateTimeField to ensure that the user can't pick a date in the future and
+     * a date older than 3 weeks ago.
+     */
     private void integrityRestrictionsDateTimeField(){
         symptomView.getDateTimeField().setRangeStart(LocalDateTime.now().minusWeeks(3));
         symptomView.getDateTimeField().setRangeEnd(LocalDateTime.now().plusMinutes(1));
     }
 
+
+    /**
+     * Executed if the user clicks on the add more symptoms button.
+     */
 
     public void addNewSymptomSelectionView(){
 
@@ -102,14 +133,17 @@ public class SymptomViewController {
         symptomSelectionViewControllers.add(symptomSelectionView.getSymptomSelectionViewController());
         symptomView.getVerticalLayout().addComponents(symptomSelectionView.getViewComponent());
 
-        counter++;
     }
 
     public void setSaveButtonEnabled(boolean value) {
         symptomView.getSave().setEnabled(value);
     }
 
-    //TODO Check Save Button Methode
+    /**
+     * Click Listener for saving the diary entry.
+     * Before saving the entry, integrity restrictions are getting checked.
+     */
+
     public void addSaveButtonListener(){
         symptomView.getSave().addClickListener(new Button.ClickListener() {
             @Override
@@ -162,17 +196,24 @@ public class SymptomViewController {
         });
     }
 
+    /**
+     * Method for saving the diary entry (connection to database)
+     */
+
     public void saveDiaryEntry(LocalDateTime datum, Set<Symptom> symptoms){
         DiaryManager diaryManager = DiaryManager.getInstance();
-        //diaryManager.addDiary(new Diary());
         Diary diary = diaryManager.read().get(0);
         long diaryId = diary.getId();
 
 
-        DiaryEntry diaryEntry = new DiaryEntry(datum, symptoms);  //TODO: Replace "new VitalDaraSet" - it is only a placeholder
+        DiaryEntry diaryEntry = new DiaryEntry(datum, symptoms);
         DiaryManager.getInstance().addDiaryEntry(diaryEntry, diaryId);
         DiaryEvaluationViewController.set = diaryManager.readDiaryEntriesByDiary(diaryId); //Evaluation View aktualisieren
     }
+
+    /**
+     * Click listener for the reset button (reset all selections from the user)
+     */
 
     public void addNewDiaryEntryButtonListener(){
         symptomView.getNewDiaryEntry().addClickListener(new Button.ClickListener() {
@@ -180,7 +221,6 @@ public class SymptomViewController {
             public void buttonClick(Button.ClickEvent clickEvent) {
                 if(symptomSelectionViewControllers.size() > 1) {
                     Notification.show("Die Einträge werden verworfen");
-                    //TODO: Dialog Window with Yes or No
                 }
 
                 symptomView.getVerticalLayout().removeAllComponents();
@@ -190,13 +230,11 @@ public class SymptomViewController {
 
                 symptomList = createSymptomList();
 
-                counter = 0;
                addNewSymptomSelectionView();
 
             }
         });
     }
-
 
 
     public SymptomView getSymptomView(){

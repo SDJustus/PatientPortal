@@ -11,7 +11,7 @@ public abstract class EvaluationView {
     DateField toDate = new DateField();
     HorizontalLayout filterBar = new HorizontalLayout();
     Button resetButton = new Button(VaadinIcons.ARROW_BACKWARD);
-    int height = 250;
+    int height = 260;
     int width = 300;
 
 

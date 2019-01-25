@@ -13,6 +13,9 @@ public class ButtonView {
     protected HorizontalLayout horizontalLayout;
     protected HorizontalLayout horizontalLayout1;
 
+    /**
+     * includes the button view settings for symptom selection view (or in extension other uses of the smiley button selection container)
+     */
 
     public ButtonView(){
         goodSmiley = new Image();
@@ -71,6 +74,10 @@ public class ButtonView {
 
 
     }
+    /**
+     * Resizing of layout container content
+     */
+
     protected void iterateOverContainers(HasComponents component, int width){
         for(Component c: component){
             if(c instanceof  Label || c instanceof Button){

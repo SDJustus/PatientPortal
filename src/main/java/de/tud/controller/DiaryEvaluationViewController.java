@@ -29,11 +29,19 @@ public class DiaryEvaluationViewController {
     static long diaryId = diaryManager.read().iterator().next().getId();
     public static Set<DiaryEntry> set = diaryManager.readDiaryEntriesByDiary(diaryId);
 
+
+    /**
+     * Executes initSymptomTable method as start page for the diary evaluation view.
+     */
+
     public DiaryEvaluationViewController(DiaryEvaluationView diaryEvaluationView) {
         this.diaryEvaluationView = diaryEvaluationView;
         initSymptomTable();
 
     }
+    /**
+     * initalize Table for symptom diary entries.
+     */
     private void initSymptomTable() {
         symptomEvaluationView = new SymptomEvaluationView();
 
@@ -83,8 +91,10 @@ public class DiaryEvaluationViewController {
         diaryEvaluationView.getVerticalLayout().addComponent(symptomEvaluationView.getViewComponent());
 
     }
-    
 
+    /**
+     * initalize Table for vital date diary entries.
+     */
 
     private void initVitalDataTable() {
         vitalDataEvaluationView = new VitalDataEvaluationView();
@@ -114,6 +124,11 @@ public class DiaryEvaluationViewController {
         }
         diaryEvaluationView.getVerticalLayout().addComponent(vitalDataEvaluationView.getViewComponent());
     }
+
+    /**
+     * initalize Table for welfare diary entries.
+     */
+
     private void initWelfareTable () {
             welfareEvaluationView = new WelfareEvaluationView();
 
@@ -151,6 +166,10 @@ public class DiaryEvaluationViewController {
             diaryEvaluationView.getVerticalLayout().addComponent(welfareEvaluationView.getViewComponent());
         }
 
+    /**
+     * initalize chart for symptoms
+     */
+
     private void initSymptomChart () {
 
         SymptomChartView symp = new SymptomChartView();
@@ -161,6 +180,11 @@ public class DiaryEvaluationViewController {
         }
         diaryEvaluationView.getVerticalLayout().addComponent(symp.setup());
     }
+
+    /**
+     * initalize chart for welfare
+     */
+
     private void initWelfareChart () {
 
         WelfareChartView welfareChartView = new WelfareChartView();
@@ -173,6 +197,9 @@ public class DiaryEvaluationViewController {
     }
 
 
+    /**
+     * Click Listener for welfare chart in evaluation view.
+     */
 
     public void addClickListenerForWelfareChartButton()
     {
@@ -188,8 +215,9 @@ public class DiaryEvaluationViewController {
 
     }
 
-
-
+    /**
+     * Click Listener for symptom table in evaluation view.
+     */
 
     public void addClickListenerForSymptomButton () {
             diaryEvaluationView.getSymptomTableButton().addClickListener(new Button.ClickListener() {
@@ -202,6 +230,10 @@ public class DiaryEvaluationViewController {
                 }
             });
         }
+
+    /**
+     * Click Listener for vital data table in evaluation view.
+     */
     public void addClickListenerForVitalDataButton () {
             diaryEvaluationView.getVitalDataTableButton().addClickListener(new Button.ClickListener() {
                 @Override
@@ -213,6 +245,10 @@ public class DiaryEvaluationViewController {
                 }
             });
         }
+
+    /**
+     * Click Listener for welfare table in evaluation view.
+     */
     public void addClickListenerForWelfareButton () {
             diaryEvaluationView.getWelfareTableButton().addClickListener(new Button.ClickListener() {
                 @Override
@@ -226,6 +262,9 @@ public class DiaryEvaluationViewController {
 
         }
 
+    /**
+     * Click Listener for symptom chart in evaluation view.
+     */
         public void addClickListenerForSymptomChartButton()
         {
             diaryEvaluationView.getSymptomChartButton().addClickListener(new Button.ClickListener() {
@@ -240,6 +279,10 @@ public class DiaryEvaluationViewController {
 
         }
 
+    /**
+     * activate all evaluation view buttons.
+     */
+
     private void activateButtons(){
         diaryEvaluationView.getVitalDataTableButton().setEnabled(true);
         diaryEvaluationView.getWelfareTableButton().setEnabled(true);
@@ -247,6 +290,10 @@ public class DiaryEvaluationViewController {
         diaryEvaluationView.getWelfareChartButton().setEnabled(true);
         diaryEvaluationView.getSymptomChartButton().setEnabled(true);
     }
+
+    /**
+     * initalize filters for tables
+     */
 
     private void initTableFilters(String filterCriteriaForCombobox, EvaluationView view, ArrayList<DiaryEvaluationUIModel> superEntryList,
                                    ArrayList<DiaryEvaluationUIModel> gridItems){
@@ -336,6 +383,10 @@ public class DiaryEvaluationViewController {
     }
 
 
+
+    /**
+     * Helper method to generate diary subentries (hierarchy) for Vaadin Tree Grid.
+     */
     private void generateSubEntries(HashSet<LocalDate> localDateHashSet, ArrayList<DiaryEvaluationUIModel> superEntryList,
                                     ArrayList<DiaryEvaluationUIModel>  tableItems ){
         for (LocalDate localDate1:localDateHashSet){

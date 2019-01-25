@@ -33,13 +33,13 @@ public class VitalDataEvaluationView extends EvaluationView {
 
         //Blutdruck erster Wert
         grid.addColumn(DiaryEvaluationUIModel::getBloodPressureFirstValue).setId("RR_sys");
-        grid.getColumn("RR_sys").setCaption("Blutdruck (syst.) mmHg)");
+        grid.getColumn("RR_sys").setCaption("Blutdruck (syst.)(mmHg)");
         grid.getColumn("RR_sys").setResizable(false);
 
 
         //Blutdruck zweiter Wert
         grid.addColumn(DiaryEvaluationUIModel::getBloodPressureSecondValue).setId("RR_dia");
-        grid.getColumn("RR_dia").setCaption("Blutdruck (diast.) mmHg)");
+        grid.getColumn("RR_dia").setCaption("Blutdruck (diast.)(mmHg)");
 
         //Heart Rate
         grid.addColumn(DiaryEvaluationUIModel::getHeartRate).setId("Puls");

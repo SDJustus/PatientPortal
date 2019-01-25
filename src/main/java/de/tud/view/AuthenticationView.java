@@ -26,6 +26,10 @@ public class AuthenticationView extends Composite implements View {
        this.patientPortalController = patientPortalController;
     }
 
+    /**
+     * returns Authentication View
+     */
+
     @Override
     public Component getViewComponent() {
         horizontalLayout.addComponents(verticalLayout);

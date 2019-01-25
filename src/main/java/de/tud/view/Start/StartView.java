@@ -24,17 +24,17 @@ public class StartView  extends com.vaadin.ui.Composite implements View {
 
     private StartViewController startViewController;
 
+    /**
+     * build start page view with tables for exercises/homework
+     */
 
     public StartView(){
-        UI.getCurrent().getPage().getStyles().add("#header-label{font-weight: bold; font-size:40px;}" +
-                ".v-grid-cell.green{color: green;}"+
-                ".v-grid-cell.red{color: red;}");
 
         verticalLayoutMain = new VerticalLayout();
         todayLabel  = new Label("Aufgaben Heute:");
         todayLabel.setId("header-label");
         nextDaysLabel = new Label("Kommende Aufgaben:");
-        nextDaysLabel.setId("header-label");
+        nextDaysLabel.addStyleName("header-label");
 
         todayGrid = new Grid<>();
 
