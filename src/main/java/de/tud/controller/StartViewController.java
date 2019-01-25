@@ -12,6 +12,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class StartViewController {
+
+
+    /**
+     * Holds the Start View.
+     */
     private StartView startView;
 
 

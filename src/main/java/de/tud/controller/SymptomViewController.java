@@ -14,12 +14,26 @@ import java.time.LocalDateTime;
 import java.util.*;
 
 public class SymptomViewController {
-
-
+    /**
+     * Holds the Symptom View.
+     */
     private SymptomView symptomView;
-    private HashSet<String> avoidDuplicateSymptomsSet = new HashSet<>();   //Eingabe von doppelten Symptomen vermeiden
+
+    /**
+     * Set as data structure used to avoid duplicate systems (used for validation)
+     */
+    private HashSet<String> avoidDuplicateSymptomsSet = new HashSet<>();
+    /**
+     * Holds SymptomSelectionViewControllers.
+     */
     private List<SymptomSelectionViewController> symptomSelectionViewControllers = new ArrayList<>();
+    /**
+     * Holds the List of symptoms.
+     */
     private TreeSet<String> symptomList;
+    /**
+     * Holds the number of Symptoms
+     */
     private int numberOfSymptoms = createSymptomList().size();
 
 
@@ -236,14 +250,25 @@ public class SymptomViewController {
         });
     }
 
-
+    /**
+     * Returns the Symptom View.
+     *
+     */
     public SymptomView getSymptomView(){
         return symptomView;
     }
+    /**
+     * Returns the List of SymptomSelectionViewControllers.
+     *
+     */
     public List<SymptomSelectionViewController> getSymptomSelectionViewControllers(){
         return this.symptomSelectionViewControllers;
     }
 
+    /**
+     * Returns the number of symptoms.
+     *
+     */
     public int getNumberOfSymptoms(){
         return numberOfSymptoms;
     }
