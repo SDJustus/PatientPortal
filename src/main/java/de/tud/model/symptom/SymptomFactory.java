@@ -24,6 +24,9 @@ public class SymptomFactory {
         return SymptomFactoryInstance.INSTANCE;
     }
 
+    /**
+     * Private constructor of SymptomFactory.
+     */
     private SymptomFactory(){
 
     }

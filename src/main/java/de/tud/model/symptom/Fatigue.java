@@ -8,10 +8,17 @@ public class Fatigue extends Symptom {
         super(strength);
     }
 
+    /**
+     * Constructor of Fatigue.
+     */
     public Fatigue(){
 
     }
 
+    /**
+     * Returns a message containing the name of the symptom and its Strength value.
+     * @return
+     */
     @Override
     public String toString() {
         return "Müdigkeit: " + this.getStrength();

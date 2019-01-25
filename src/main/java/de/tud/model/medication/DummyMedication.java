@@ -11,16 +11,34 @@ import java.util.List;
 @Table(name = "dummy_medication")
 public class DummyMedication extends EntityObject {
 
+    /**
+     * Holds the ID value of the persistent DummyMedication object.
+     */
     @Id
     private long id;
+    /**
+     * Holds the substance value of the persistent DummyMedication object.
+     */
     @Column (name = "substance")
     private String substance;
+    /**
+     * Holds the trade name value of the persistent DummyMedication object.
+     */
     @Column (name = "trade_name")
     private String tradeName;
+    /**
+     * Holds the strength value of the persistent DummyMedication object.
+     */
     @Column (name = "strength")
     private String strength;
+    /**
+     * Holds the form value of the persistent DummyMedication object.
+     */
     @Column (name = "form")
     private String form;
+    /**
+     * Holds the incompatibility value of the persistent DummyMedication object.
+     */
     @Column (name = "incompatible_with")
     private String incompatipleWith;
 
@@ -37,31 +55,59 @@ public class DummyMedication extends EntityObject {
 
     }
 
+    /**
+     * Returns the ID of the persistent DummyMedication object.
+     * @return
+     */
     @Override
     public Long getId() {
         return id;
     }
 
+    /**
+     * Returns the substance value of the DummyMedication object.
+     * @return
+     */
     public String getSubstance() {
         return substance;
     }
 
+    /**
+     * Returns the tradeName value of the DummyMedication object.
+     * @return
+     */
     public String getTradeName() {
         return tradeName;
     }
 
+    /**
+     * Returns the strength value of the DummyMedication object.
+     * @return
+     */
     public String getStrength() {
         return strength;
     }
 
+    /**
+     * Returns the form value of the DummyMedication object.
+     * @return
+     */
     public String getForm() {
         return form;
     }
 
+    /**
+     * Returns the value of incompatibleWith value of the DummyMedication object
+     * @return
+     */
     public String getIncompatibleWithAsString(){
         return incompatipleWith;
     }
 
+    /**
+     * Returns the ID values of DummyMedication objects which are incompatible with a particular DummyMedication object.
+     * @return
+     */
     public List<Long> getIncompatipleWith(){
         List<Long> dummyIds = new ArrayList<>();
         for (String s : incompatipleWith.split(",")){
