@@ -22,10 +22,13 @@ class DiaryManagerTest {
 
     private Set<DiaryEntry> testDiary;
     private DiaryEntry testEntry1;
+    private DiaryEntry testEntry2;
+    private DiaryEntry testEntry3;
     private static LocalDateTime testTime;
     private DiaryManager dm;
-    private VitalData vds;
-    private Set<Welfare> welfareSet;
+    private VitalData vds1;
+    private Set<Welfare> welfareSet1;
+    private Set<Welfare> welfareSet2;
 
     @BeforeAll
     static void timeSetter(){
@@ -36,21 +39,52 @@ class DiaryManagerTest {
     void initializer(){
         dm = DiaryManager.getInstance();
 
-        vds = new VitalData();
-        vds.setBloodPressureFirstValue(123);
-        vds.setBloodPressureSecondValue(90);
-        vds.setHeartRate(103);
-        vds.setHeight(173);
-        vds.setWeight(80);
+        vds1 = new VitalData();
+        vds1.setBloodPressureFirstValue(123);
+        vds1.setBloodPressureSecondValue(90);
+        vds1.setHeartRate(103);
+        vds1.setHeight(173);
+        vds1.setWeight(80);
+
+        VitalData vds2 = new VitalData();
+        vds2.setBloodPressureFirstValue(110);
+        vds2.setBloodPressureSecondValue(99);
+        vds2.setHeartRate(60);
+        vds2.setHeight(190);
+        vds2.setWeight(100);
+
+        VitalData vds3 = new VitalData();
+        vds3.setBloodPressureFirstValue(200);
+        vds3.setBloodPressureSecondValue(80);
+        vds3.setHeartRate(80);
+        vds3.setHeight(140);
+        vds3.setWeight(60);
 
         Welfare welfare1 = WelfareFactory.getInstance().createSymptomByClass(ConcentrationAbility.class, Welfare.Strength.MIDDLE);
         Welfare welfare2 = WelfareFactory.getInstance().createSymptomByClass(Sleep.class, Welfare.Strength.WEAK);
         Welfare welfare3 = WelfareFactory.getInstance().createSymptomByClass(PhysicalCondition.class, Welfare.Strength.SEVERE);
 
-        welfareSet = new HashSet<>();
-        welfareSet.add(welfare1);
-        welfareSet.add(welfare2);
-        welfareSet.add(welfare3);
+        welfareSet1 = new HashSet<>();
+        welfareSet1.add(welfare1);
+        welfareSet1.add(welfare2);
+        welfareSet1.add(welfare3);
+
+        welfareSet2 = new HashSet<>();
+
+        welfareSet2.add(WelfareFactory.getInstance()
+                .createSymptomByClass(ConcentrationAbility.class, Welfare.Strength.WEAK));
+        welfareSet2.add(WelfareFactory.getInstance()
+                .createSymptomByClass(Sleep.class, Welfare.Strength.SEVERE));
+        welfareSet2.add(WelfareFactory.getInstance()
+                .createSymptomByClass(PhysicalCondition.class, Welfare.Strength.MIDDLE));
+
+        Set<Welfare> welfareSet3 = new HashSet<>();
+        welfareSet3.add(WelfareFactory.getInstance()
+                .createSymptomByClass(ConcentrationAbility.class, Welfare.Strength.SEVERE));
+        welfareSet3.add(WelfareFactory.getInstance()
+                .createSymptomByClass(Sleep.class, Welfare.Strength.MIDDLE));
+        welfareSet3.add(WelfareFactory.getInstance()
+                .createSymptomByClass(PhysicalCondition.class, Welfare.Strength.WEAK));
 
         testDiary = new HashSet<>();
         Set<Symptom> symptom1 = new HashSet<>();
@@ -59,13 +93,23 @@ class DiaryManagerTest {
         Set<Symptom> symptom2 = new HashSet<>();
         symptom2.add(SymptomFactory.createSymptomByClass("Gehstörung",Symptom.Strength.WEAK));
         symptom2.add(SymptomFactory.createSymptomByClass("Schmerzen",Symptom.Strength.WEAK));
-        testEntry1 = new DiaryEntry(testTime , symptom1, vds, welfareSet);
+        symptom2.add(SymptomFactory.createSymptomByClass("Müdigkeit",Symptom.Strength.WEAK));
+        symptom2.add(SymptomFactory.createSymptomByClass("Spastik im rechten Arm",Symptom.Strength.WEAK));
+        Set<Symptom> symptom3 = new HashSet<>();
+        symptom3.add(SymptomFactory.createSymptomByClass("Müdigkeit",Symptom.Strength.SEVERE));
+
+        testEntry1 = new DiaryEntry(testTime , symptom1, vds1, welfareSet1);
+        testEntry2 = new DiaryEntry(testTime.minusDays(3), symptom2, vds2, welfareSet2);
+        testEntry3 = new DiaryEntry(testTime.minusDays(5), symptom3, vds3, welfareSet3);
+
     }
 
     @AfterAll
     void tearDown(){
         dm.deleteAll();
         testDiary.add(testEntry1);
+        testDiary.add(testEntry2);
+        testDiary.add(testEntry3);
         Diary diary = new Diary();
         diary.setDiaryEntries(testDiary);
         dm.create(diary);
@@ -287,7 +331,7 @@ class DiaryManagerTest {
         for(Diary rd : readDiary){
             if(rd.getId().equals(id)){
                 for(DiaryEntry de : rd.getDiaryEntries()){
-                    if(de.getVitalData().equals(vds))
+                    if(de.getVitalData().equals(vds1))
                         assertTrue(true);
                 }
             }
@@ -299,7 +343,7 @@ class DiaryManagerTest {
 
         Diary diary = new Diary();
 
-        testEntry1.setWelfare(welfareSet);
+        testEntry1.setWelfare(welfareSet1);
         testDiary.add(testEntry1);
         diary.setDiaryEntries(testDiary);
 
@@ -310,7 +354,7 @@ class DiaryManagerTest {
         for(Diary rd : readDiary){
             if(rd.getId().equals(id)){
                 for(DiaryEntry de : rd.getDiaryEntries()){
-                    if(de.getWelfare().equals(welfareSet))
+                    if(de.getWelfare().equals(welfareSet1))
                         assertTrue(true);
                 }
             }
