@@ -173,7 +173,7 @@ public class SymptomChartView extends ChartView {
         yAxis.setType(AxisType.CATEGORY);
 
 
-        String[] yCat = new String[]{"","schwach", "mäßig", "stark"};
+        String[] yCat = new String[]{"","schwach", "mittel", "stark"};
         yAxis.setMax(3);
         yAxis.setCategories(yCat);
 
@@ -188,7 +188,7 @@ public class SymptomChartView extends ChartView {
                         "       multiplier = 'schwach'; " +
                         "       break; " +
                         "   case 2: " +
-                        "       multiplier = 'mäßig'; " +
+                        "       multiplier = 'mittel'; " +
                         "       break; " +
                         "   case 3: " +
                         "       multiplier = 'stark'; " +
