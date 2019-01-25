@@ -13,15 +13,23 @@ import org.vaadin.risto.stepper.FloatStepper;
 import org.vaadin.risto.stepper.IntStepper;
 
 public class MedicationPlanView implements View {
-    //Main Layout
+
+    /**
+     * Holds Main Vertical Layout
+     */
     private VerticalLayout verticalLayoutMain;
 
-
-    // Medication Plan Form Components
+    /**
+     * Holds Form layouts
+     */
+    // Medication Plan Form Layout
     private HorizontalLayout formFinalHorizontalLayout;
     private VerticalLayout formTextSafeLayout;
     private FormLayout medicationPlanFormLayout;
 
+    /**
+     * Hold Form Components
+     */
     //Medication Form Components
     private Label medicationFormHeadline;
     private Button saveMedicationFormButton;
@@ -36,25 +44,37 @@ public class MedicationPlanView implements View {
     private ComboBox unitComboBox;
     private Button delete;
 
+    /**
+     * Holds Medication Plan Grid layout and components
+     */
     //Medication Plan Grid Components
     private HorizontalLayout gridHeadlineLayout;
     private Label medicationEditHint;
     private Label medicationGridHeadline;
     private Grid<MedicationPlanUIModel> medicationPlanGrid;
 
-    //Controller
+    /**
+     * Holds Medication Plan Controller
+     */
     private MedicationPlanController medicationPlanController;
 
+    /**
+     * Constructor for MedicationPlanView - creates new MedicationPlanController
+     */
     public MedicationPlanView(){
         this.medicationPlanController = new MedicationPlanController(this);
     }
 
+    /**
+     * returns the View Components
+     * @return
+     */
     @Override
     public Component getViewComponent(){
-        //main Components Setup
-        verticalLayoutMain = new VerticalLayout();
-
-        //HeadlineForm
+        /**
+        * Setup for Form components
+        */
+        //Setup Form Headline
         medicationFormHeadline = new Label();
         medicationFormHeadline.setValue("Neue Medikation hinzufügen:");
         medicationFormHeadline.addStyleName(MaterialTheme.CARD_0_5);
@@ -83,7 +103,6 @@ public class MedicationPlanView implements View {
         delete.setEnabled(false);
         medicationPlanController.addDeleteButtonListener();
 
-
         //Setup unitComboBox
         unitComboBox = new ComboBox();
         unitComboBox.setItems(Unit.values());
@@ -100,24 +119,17 @@ public class MedicationPlanView implements View {
         reasonTextField.setWidth("400px");
         reasonTextField.setHeight("80px");
 
-        //ID Field Setup
+        /**
+         * Setup for ID, Morning, Noon, Afternoon and Night Steppers
+         */
+        //ID Stepper Setup
         stepperId = new IntStepper();
         stepperId.setCaption("ID");
         stepperId.setStepAmount(1);
         stepperId.setMinValue(0);
         stepperId.setMaxValue(medicationPlanController.getDummyMedicationCount());
 
-        //Stepper Einnahmezeiten
-        stepperNoon = new FloatStepper();
-        stepperNoon.setCaption("Mittag");
-        stepperNoon.setStepAmount(1.0f);
-        stepperNoon.setManualInputAllowed(true);
-        stepperNoon.setMinValue(0f);
-        stepperNoon.setMaxValue(2000f);
-        stepperNoon.setNumberOfDecimals(2);
-
-
-        //Stepper Einnahmezeiten
+        //Stepper Morning
         stepperMorning = new FloatStepper();
         stepperMorning.setCaption("Morgen");
         stepperMorning.setStepAmount(1.0f);
@@ -126,8 +138,16 @@ public class MedicationPlanView implements View {
         stepperMorning.setMaxValue(2000f);
         stepperMorning.setNumberOfDecimals(2);
 
+        //Stepper Noon
+        stepperNoon = new FloatStepper();
+        stepperNoon.setCaption("Mittag");
+        stepperNoon.setStepAmount(1.0f);
+        stepperNoon.setManualInputAllowed(true);
+        stepperNoon.setMinValue(0f);
+        stepperNoon.setMaxValue(2000f);
+        stepperNoon.setNumberOfDecimals(2);
 
-        //Stepper Einnahmezeiten
+        //Stepper Afternoon
         stepperAfternoon = new FloatStepper();
         stepperAfternoon.setCaption("Abend");
         stepperAfternoon.setStepAmount(1.0f);
@@ -136,7 +156,7 @@ public class MedicationPlanView implements View {
         stepperAfternoon.setMaxValue(2000f);
         stepperAfternoon.setNumberOfDecimals(2);
 
-        //Stepper Einnahmezeiten
+        //Stepper Night
         stepperNight = new FloatStepper();
         stepperNight.setCaption("Nacht");
         stepperNight.setStepAmount(1.0f);
@@ -146,7 +166,9 @@ public class MedicationPlanView implements View {
         stepperNight.setNumberOfDecimals(2);
 
 
-        //Setup Medication Plan Grid
+        /**
+         * Setup for Medication Plan Grid - define Columns, call to loadMedicationPlan and add auto resize function to Grid
+         */
         medicationPlanGrid = new Grid<>();
         medicationPlanGrid.addColumn(MedicationPlanUIModel::getDummyMedicationID).setCaption("ID").setWidth(55).setId("ID");
         medicationPlanGrid.addColumn(MedicationPlanUIModel::getDummyMedicationTradeName).setCaption("Handelsname").setWidthUndefined().setMinimumWidth(150);
@@ -176,7 +198,9 @@ public class MedicationPlanView implements View {
         });
 
 
-        //Form Setup
+        /**
+         * Setup for Medication Form - add components to layout, set margin
+         */
         medicationPlanFormLayout = new FormLayout();
         medicationPlanFormLayout.addComponents(stepperId, stepperMorning, stepperNoon, stepperAfternoon, stepperNight);
         medicationPlanFormLayout.setMargin(new MarginInfo(false,true,false,true));
@@ -187,69 +211,103 @@ public class MedicationPlanView implements View {
         formFinalHorizontalLayout.addComponents(medicationPlanFormLayout,unitComboBox, formTextSafeLayout,saveMedicationFormButton, delete);
         formFinalHorizontalLayout.setMargin(new MarginInfo(false,true,false,true));
 
-        //Grid Headline Setup
+        /**
+         * Setup Medication Grid Headline - add components to layout, set alignment
+         */
         gridHeadlineLayout = new HorizontalLayout();
         gridHeadlineLayout.addComponents(medicationGridHeadline,medicationEditHint);
         gridHeadlineLayout.setComponentAlignment(medicationEditHint,Alignment.MIDDLE_CENTER);
 
-        //FinalLayoutAddComponents
+        /**
+         * setup main vertical layout and adding components
+         */
+        verticalLayoutMain = new VerticalLayout();
         verticalLayoutMain.addComponents(medicationFormHeadline, formFinalHorizontalLayout, gridHeadlineLayout, medicationPlanGrid);
+
         return verticalLayoutMain;
     }
 
-
+    /**
+     * returns the MedicationPLan Grid
+     * @return
+     */
     public Grid getMedicationPlanGrid() {
         return medicationPlanGrid;
     }
 
-    public void setMedicationPlanGrid(Grid medicationPlanGrid) {
-        this.medicationPlanGrid = medicationPlanGrid;
-    }
-
-    public MedicationPlanController getMedicationPlanController() {
-        return medicationPlanController;
-    }
-
-    public void setMedicationPlanController(MedicationPlanController medicationPlanController) {
-        this.medicationPlanController = medicationPlanController;
-    }
-
+    /**
+     * returns the Safe Button
+     * @return
+     */
     public Button getSaveMedicationFormButton() {
         return saveMedicationFormButton;
     }
 
+    /**
+     * returns the ID Stepper
+     * @return
+     */
     public IntStepper getStepperId() {
         return stepperId;
     }
 
+    /**
+     * returns the Hints Text Area
+     * @return
+     */
     public TextArea getHintsTextField() {
         return hintsTextField;
     }
 
+    /**
+     * returns the Morning Floatstepper
+     * @return
+     */
     public FloatStepper getStepperMorning() {
         return stepperMorning;
     }
-
+    /**
+     * returns the Noon Floatstepper
+     * @return
+     */
     public FloatStepper getStepperNoon() {
         return stepperNoon;
     }
-
+    /**
+     * returns the Afternoon Floatstepper
+     * @return
+     */
     public FloatStepper getStepperAfternoon() {
         return stepperAfternoon;
     }
-
+    /**
+     * returns the Night Floatstepper
+     * @return
+     */
     public FloatStepper getStepperNight() {
         return stepperNight;
     }
 
+    /**
+     * returns the Reason Text Area
+     * @return
+     */
     public TextArea getReasonTextField() {
         return reasonTextField;
     }
 
+    /**
+     * returns the Unit Combo Box
+     * @return
+     */
     public ComboBox getUnitComboBox() {
         return unitComboBox;
     }
 
+    /**
+     * returns the Delete Button
+     * @return
+     */
     public Button getDelete() {
         return delete;
     }
