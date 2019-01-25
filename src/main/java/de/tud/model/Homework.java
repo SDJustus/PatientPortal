@@ -42,6 +42,8 @@ public class Homework extends EntityObject {
     @Column(name="homework_type")
     private Type type;
 
+
+
     /**
      * Determines the possible type values of the Homework object.
      */
@@ -69,7 +71,12 @@ public class Homework extends EntityObject {
         this.status=false;
         this.date = date;
     }
-
+    public Homework(Type document, String name, String description) {
+        this.type=type;
+        this.name=name;
+        this.description = description;
+        this.status=false;
+    }
     /**
      * Returns the ID of the persistent Homework object.
      * @return value of id
