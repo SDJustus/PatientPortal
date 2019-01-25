@@ -93,6 +93,13 @@ public class MedicationPlanController {
             Notification.show("Dieses Medikament existiert nicht");
             return false;
         }
+        else if(medicationPlanView.getStepperMorning().getValue()==0 &&
+                medicationPlanView.getStepperNoon().getValue()==0 &&
+                medicationPlanView.getStepperAfternoon().getValue()==0 &&
+                medicationPlanView.getStepperNight().getValue()==0){
+            Notification.show("Bitte geben Sie eine Dodierung an");
+            return false;
+        }
         else{
             return true;
         }
