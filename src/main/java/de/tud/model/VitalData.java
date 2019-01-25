@@ -1,8 +1,5 @@
 package de.tud.model;
 
-import org.hibernate.annotations.GenericGenerator;
-
-
 import javax.persistence.*;
 import javax.persistence.Entity;
 import javax.persistence.Table;
@@ -156,7 +153,7 @@ public class VitalData extends EntityObject {
      * @return calculated value of BMI
      */
     public float getBMI(){
-        return (float) Math.round((this.getWeight()/(this.getHeight()*this.getHeight()))*100)/100;
+        return (float) Math.round((this.getWeight()/((this.getHeight()/100)*(this.getHeight()/100)))*100)/100;
     }
 
     /**
