@@ -13,6 +13,10 @@ Passwort: root <br>
 Port: 3306 <br>
 Nach dem Herstellen der Verbindung eine neue Datenbank mit dem Namen *testdb* erstellen.
 
+
+Link zur MariaDB Installationsanleitung für Mac(via Homebrew): 
+https://mariadb.com/kb/en/library/installing-mariadb-on-macos-using-homebrew/
+
 2 Projekt von GitHub laden und starten
 ------------------------------
 Dieses Projekt in einer IDE klonen und in der Komandozeile den Maven Befehl *mvn package* ausführen. <br>
