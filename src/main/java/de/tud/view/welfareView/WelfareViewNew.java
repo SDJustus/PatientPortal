@@ -1,4 +1,4 @@
-package de.tud.view.Welfare;
+package de.tud.view.welfareView;
 
 import com.github.appreciated.material.MaterialTheme;
 import com.vaadin.navigator.View;

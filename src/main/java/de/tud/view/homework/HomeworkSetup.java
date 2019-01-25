@@ -1,16 +1,10 @@
-package de.tud.view.Homework;
+package de.tud.view.homework;
 
-import com.github.appreciated.material.MaterialTheme;
-import com.vaadin.icons.VaadinIcons;
+
 import com.vaadin.navigator.View;
 import com.vaadin.server.ClassResource;
 import com.vaadin.ui.*;
 import de.tud.controller.HomeworkController;
-import org.vaadin.addon.calendar.Calendar;
-
-import java.time.LocalDate;
-import java.time.Month;
-import java.util.Locale;
 
 public class HomeworkSetup extends HomeworkDesigner implements View {
 

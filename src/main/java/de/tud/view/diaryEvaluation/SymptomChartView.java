@@ -1,4 +1,4 @@
-package de.tud.view.DiaryEvaluation;
+package de.tud.view.diaryEvaluation;
 
 
 
@@ -8,20 +8,12 @@ import com.vaadin.addon.charts.model.*;
 import com.vaadin.addon.charts.model.style.SolidColor;
 import com.vaadin.server.Responsive;
 import com.vaadin.ui.Component;
-import com.vaadin.ui.HorizontalLayout;
-import com.vaadin.ui.declarative.Design;
 import de.tud.model.Diary;
 import de.tud.model.DiaryEntry;
 import de.tud.model.manager.DiaryManager;
-import de.tud.model.manager.HomeworkManager;
 import de.tud.model.symptom.*;
 
-import javax.xml.crypto.Data;
-import java.text.SimpleDateFormat;
-import java.time.Instant;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
 
