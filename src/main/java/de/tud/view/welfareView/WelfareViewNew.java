@@ -110,13 +110,13 @@ public class WelfareViewNew implements View {
         sSmileyBad = new Image();
         cLabelGood = new Label("gut");
         cLabelMiddle = new Label("mäßig");
-        cLabelBad = new Label("stark");
+        cLabelBad = new Label("schlecht");
         fLabelGood = new Label("gut");
         fLabelMiddle = new Label("mäßig");
-        fLabelBad = new Label("stark");
+        fLabelBad = new Label("schlecht");
         sLabelGood = new Label("gut");
         sLabelMiddle = new Label("mäßig");
-        sLabelBad = new Label("stark");
+        sLabelBad = new Label("schlecht");
 
         captionLabel.addStyleName("header-label");
         captionLabel.addStyleName(MaterialTheme.LABEL_H1);

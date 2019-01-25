@@ -62,8 +62,8 @@ public class ButtonView {
         horizontalLayout1.setHeight("1px");
 
 
-        goodLabel = new Label("gut");
-        middleLabel = new Label("mäßig");
+        goodLabel = new Label("schwach");
+        middleLabel = new Label("mittel");
         badLabel = new Label("stark");
 
         horizontalLayout1.addComponents(goodLabel, middleLabel, badLabel);

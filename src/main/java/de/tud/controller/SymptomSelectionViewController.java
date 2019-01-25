@@ -12,12 +12,32 @@ import de.tud.view.symptoms.SymptomSelectionView;
 
 public class SymptomSelectionViewController {
 
+    /**
+     * Holds a SymptomSelectionView.
+     *
+     */
     private SymptomSelectionView symptomSelectionView;
+    /**
+     * Holds a SymptomViewController.
+     */
     private SymptomViewController symptomViewController;
+
+    /**
+     * Holds the selected symptom.
+     */
     private String selectedSymptom;
+    /**
+     * Holds the symptom type.
+     */
     private Symptom symptomArt;
+    /**
+     * Holds the chosen strength.
+     */
     private Symptom.Strength choice;
-    private int selectionCounter = 0; //um dafür zu sorgen, dass nur einmal der Button "+weiteres Symptom" erscheint
+    /**
+     * Variable used to ensure that the add next symptom button can be pressed only once.
+     */
+    private int selectionCounter = 0;
 
 
     /**
@@ -79,7 +99,7 @@ public class SymptomSelectionViewController {
                 if(checkComboBox()== true) {
                     symptomSelectionView.getMiddleLabel().setValue("");
                     symptomSelectionView.getBadLabel().setValue("");
-                    symptomSelectionView.getGoodLabel().setValue("gut");
+                    symptomSelectionView.getGoodLabel().setValue("schwach");
                     choice = Symptom.Strength.WEAK;
                     symptomArt = SymptomFactory.createSymptomByClass(selectedSymptom, choice);
 
@@ -99,7 +119,7 @@ public class SymptomSelectionViewController {
                 if(checkComboBox()== true) {
                     symptomSelectionView.getGoodLabel().setValue("");
                     symptomSelectionView.getBadLabel().setValue("");
-                    symptomSelectionView.getMiddleLabel().setValue("mäßig");
+                    symptomSelectionView.getMiddleLabel().setValue("mittel");
                     choice = Symptom.Strength.MIDDLE;
                     symptomArt = SymptomFactory.createSymptomByClass(selectedSymptom, choice);
 
@@ -157,8 +177,8 @@ public class SymptomSelectionViewController {
                     symptomSelectionView.getAddNextSymptom().setEnabled(false);
                     symptomSelectionView.getAddNextSymptom().setVisible(false);
 
-                    symptomSelectionView.getGoodLabel().setValue("gut");
-                    symptomSelectionView.getMiddleLabel().setValue("mäßig");
+                    symptomSelectionView.getGoodLabel().setValue("schwach");
+                    symptomSelectionView.getMiddleLabel().setValue("mittel");
                     symptomSelectionView.getBadLabel().setValue("stark");
                     choice = null;
                     symptomViewController.setSaveButtonEnabled(false);
@@ -251,15 +271,30 @@ public class SymptomSelectionViewController {
         }
     }
 
+    /**
+     * Returns the selected symptom.
+     */
     public String getSelectedSymptom(){
         return selectedSymptom;
     }
+
+    /**
+     * Returns the strength of the selected symptom.
+     */
     public Symptom.Strength getChoice(){
         return this.choice;
     }
+
+    /**
+     * Returns the symptom type.
+     */
     public Symptom getSymptomArt(){
         return this.symptomArt;
     }
+
+    /**
+     * Returns the SymptomSelectionView.
+     */
     public SymptomSelectionView getSymptomSelectionView(){ return symptomSelectionView;}
 
 
