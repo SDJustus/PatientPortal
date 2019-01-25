@@ -5,13 +5,17 @@ Das ist eine kurze Anleitung, wie die Web Applikation zum Laufen
 gebracht wird
 
 
-1 MariaDB installieren (SequelPro als Mac Alternative)
+1 MariaDB installieren 
 ----------------------------------------------------------
-HeidiSQL starten und im Verbindungsmanager folgende Werte eintragen: <br> 
+HeidiSQL (SequelPro als Mac Alternative) starten und im Verbindungsmanager folgende Werte eintragen: <br> 
 Benutzername: root <br>
 Passwort: root <br>
 Port: 3306 <br>
 Nach dem Herstellen der Verbindung eine neue Datenbank mit dem Namen *testdb* erstellen.
+
+
+Link zur MariaDB Installationsanleitung für Mac(via Homebrew): 
+https://mariadb.com/kb/en/library/installing-mariadb-on-macos-using-homebrew/
 
 2 Projekt von GitHub laden und starten
 ------------------------------

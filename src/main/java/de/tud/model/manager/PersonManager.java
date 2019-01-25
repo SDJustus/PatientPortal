@@ -56,6 +56,10 @@ public class PersonManager extends EntityManager<Person> {
       }
   */
 
+    /**
+     * Returns all persistent Person objects as a list.
+     * @return List of Person
+     */
     public List<Person> read() {
         Session session = getSessionFactory().openSession();
         List<Person> persons = session.createQuery("FROM Person").list();
@@ -64,6 +68,10 @@ public class PersonManager extends EntityManager<Person> {
         return persons;
     }
 
+    /**
+     * Replaces a persistent Person object with a Person object which has the same ID.
+     * @param p
+     */
     public void update(Person p) {
         Session session = getSessionFactory().openSession();
 
@@ -85,6 +93,10 @@ public class PersonManager extends EntityManager<Person> {
         }
     }
 
+    /**
+     * Deletes the persistent Person object matching the ID.
+     * @param id
+     */
     @Override
     public void delete(Long id) {
 
@@ -108,6 +120,11 @@ public class PersonManager extends EntityManager<Person> {
         }
     }
 
+    /**
+     * Returns a persistent Person object matching the given ID.
+     * @param id
+     * @return instance of Person
+     */
     @Override
     public Person findByID(Long id) {
         Session session = getSessionFactory().openSession();
@@ -117,6 +134,9 @@ public class PersonManager extends EntityManager<Person> {
     }
 
 
+    /**
+     * Deletes all persistent Person objects in the database.
+     */
     public void deleteAll() {
         Session session = getSessionFactory().openSession();
 

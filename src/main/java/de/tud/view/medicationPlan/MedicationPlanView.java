@@ -37,6 +37,8 @@ public class MedicationPlanView implements View {
     private Button delete;
 
     //Medication Plan Grid Components
+    private HorizontalLayout gridHeadlineLayout;
+    private Label medicationEditHint;
     private Label medicationGridHeadline;
     private Grid<MedicationPlanUIModel> medicationPlanGrid;
 
@@ -57,7 +59,10 @@ public class MedicationPlanView implements View {
         medicationFormHeadline.setValue("Neue Medikation hinzufügen:");
         medicationFormHeadline.addStyleName(MaterialTheme.CARD_0_5);
         medicationFormHeadline.addStyleName(MaterialTheme.LABEL_H1);
-        medicationFormHeadline.addStyleName("header-label");
+
+        //Hint setup
+        medicationEditHint = new Label();
+        medicationEditHint.setValue("Klicken Sie doppelt auf einen Eintrag um diesen zu bearbeiten");
 
         //Headline MedicationPlan Grid
         medicationGridHeadline = new Label("Medikationsplan:");
@@ -71,10 +76,18 @@ public class MedicationPlanView implements View {
         saveMedicationFormButton.setIcon(new ClassResource("/saveicon.png"));
         medicationPlanController.addSafeButtonListener();
 
+        //Delete Button
+        delete = new Button(VaadinIcons.CLOSE_CIRCLE);
+        delete.setCaption("Löschen");
+        delete.setDescription("Löscht den aktuell ausgewählten Eintrag");
+        delete.setEnabled(false);
+        medicationPlanController.addDeleteButtonListener();
+
+
         //Setup unitComboBox
         unitComboBox = new ComboBox();
         unitComboBox.setItems(Unit.values());
-        
+
         //Hints Text field setup
         hintsTextField = new TextArea();
         hintsTextField.setCaption("Hinweise");
@@ -95,29 +108,49 @@ public class MedicationPlanView implements View {
         stepperId.setMaxValue(medicationPlanController.getDummyMedicationCount());
 
         //Stepper Einnahmezeiten
-        stepperNoon = new CustomFloatStepper();
+        stepperNoon = new FloatStepper();
         stepperNoon.setCaption("Mittag");
+        stepperNoon.setStepAmount(1.0f);
+        stepperNoon.setManualInputAllowed(true);
+        stepperNoon.setMinValue(0f);
+        stepperNoon.setMaxValue(2000f);
+        stepperNoon.setNumberOfDecimals(2);
 
 
         //Stepper Einnahmezeiten
-        stepperMorning = new CustomFloatStepper();
+        stepperMorning = new FloatStepper();
         stepperMorning.setCaption("Morgen");
+        stepperMorning.setStepAmount(1.0f);
+        stepperMorning.setManualInputAllowed(true);
+        stepperMorning.setMinValue(0f);
+        stepperMorning.setMaxValue(2000f);
+        stepperMorning.setNumberOfDecimals(2);
 
 
         //Stepper Einnahmezeiten
-        stepperAfternoon = new CustomFloatStepper();
+        stepperAfternoon = new FloatStepper();
         stepperAfternoon.setCaption("Abend");
+        stepperAfternoon.setStepAmount(1.0f);
+        stepperAfternoon.setManualInputAllowed(true);
+        stepperAfternoon.setMinValue(0f);
+        stepperAfternoon.setMaxValue(2000f);
+        stepperAfternoon.setNumberOfDecimals(2);
 
         //Stepper Einnahmezeiten
-        stepperNight = new CustomFloatStepper();
+        stepperNight = new FloatStepper();
         stepperNight.setCaption("Nacht");
+        stepperNight.setStepAmount(1.0f);
+        stepperNight.setManualInputAllowed(true);
+        stepperNight.setMinValue(0f);
+        stepperNight.setMaxValue(2000f);
+        stepperNight.setNumberOfDecimals(2);
+
 
         //Setup Medication Plan Grid
         medicationPlanGrid = new Grid<>();
-
-        medicationPlanGrid.addColumn(MedicationPlanUIModel::getDummyMedicationID).setCaption("ID").setWidth(60);
-        medicationPlanGrid.addColumn(MedicationPlanUIModel::getDummyMedicationTradeName).setCaption("Handelsname");
-        medicationPlanGrid.addColumn(MedicationPlanUIModel::getDummyMedicationSubstance).setCaption("Wirkstoff");
+        medicationPlanGrid.addColumn(MedicationPlanUIModel::getDummyMedicationID).setCaption("ID").setWidth(55).setId("ID");
+        medicationPlanGrid.addColumn(MedicationPlanUIModel::getDummyMedicationTradeName).setCaption("Handelsname").setWidthUndefined().setMinimumWidth(150);
+        medicationPlanGrid.addColumn(MedicationPlanUIModel::getDummyMedicationSubstance).setCaption("Wirkstoff").setWidthUndefined().setMinimumWidth(150);
         medicationPlanGrid.addColumn(MedicationPlanUIModel::getDummyMedicationForm).setCaption("Form").setWidth(125);
         medicationPlanGrid.addColumn(MedicationPlanUIModel::getDummyMedicationStrength).setCaption("Stärke").setWidth(125);
         medicationPlanGrid.addColumn(MedicationPlanUIModel::getMedicationUnit).setCaption("Einheit").setWidth(125);
@@ -126,18 +159,20 @@ public class MedicationPlanView implements View {
         medicationPlanGrid.addColumn(MedicationPlanUIModel::getMedicationNoonDosage).setCaption("Mittag").setWidth(125);
         medicationPlanGrid.addColumn(MedicationPlanUIModel::getMedicationAfternoonDosage).setCaption("Nachmittag").setWidth(125);
         medicationPlanGrid.addColumn(MedicationPlanUIModel::getMedicationNightDosage).setCaption("Nacht").setWidth(125);
-        medicationPlanGrid.addColumn(MedicationPlanUIModel::getMedicationHints).setCaption("Hinweise");
-        medicationPlanGrid.addColumn(MedicationPlanUIModel::getMedicationReason).setCaption("Grund");
+        medicationPlanGrid.addColumn(MedicationPlanUIModel::getMedicationHints).setCaption("Hinweise").setWidthUndefined().setMinimumWidth(150);
+        medicationPlanGrid.addColumn(MedicationPlanUIModel::getMedicationReason).setCaption("Grund").setWidthUndefined().setMinimumWidth(150);
 
         medicationPlanController.loadMedicationPlan();
+        medicationPlanGrid.sort("ID");
+        medicationPlanController.addDoubleClickListenerToGrid();
 
         //Grid auto size
         medicationPlanGrid.setHeight("" + (Integer.valueOf(Page.getCurrent().getBrowserWindowHeight()) - 200 ));
         medicationPlanGrid.setWidth("" + (Integer.valueOf(Page.getCurrent().getBrowserWindowWidth()) - 350 ));
 
         UI.getCurrent().getPage().addBrowserWindowResizeListener(e -> {
-            medicationPlanGrid.setHeight("" + (e.getHeight()));
-            medicationPlanGrid.setWidth("" + (e.getWidth()));
+            medicationPlanGrid.setHeight("" + (e.getHeight()- 200 ));
+            medicationPlanGrid.setWidth("" + (e.getWidth()- 350 ));
         });
 
 
@@ -149,13 +184,16 @@ public class MedicationPlanView implements View {
         formTextSafeLayout.addComponents(hintsTextField, reasonTextField);
         formTextSafeLayout.setMargin(new MarginInfo(false,true,false,true));
         formFinalHorizontalLayout = new HorizontalLayout();
-        formFinalHorizontalLayout.addComponents(medicationPlanFormLayout,unitComboBox, formTextSafeLayout,saveMedicationFormButton);
+        formFinalHorizontalLayout.addComponents(medicationPlanFormLayout,unitComboBox, formTextSafeLayout,saveMedicationFormButton, delete);
         formFinalHorizontalLayout.setMargin(new MarginInfo(false,true,false,true));
 
-
+        //Grid Headline Setup
+        gridHeadlineLayout = new HorizontalLayout();
+        gridHeadlineLayout.addComponents(medicationGridHeadline,medicationEditHint);
+        gridHeadlineLayout.setComponentAlignment(medicationEditHint,Alignment.MIDDLE_CENTER);
 
         //FinalLayoutAddComponents
-        verticalLayoutMain.addComponents(medicationFormHeadline, formFinalHorizontalLayout, medicationGridHeadline, medicationPlanGrid);
+        verticalLayoutMain.addComponents(medicationFormHeadline, formFinalHorizontalLayout, gridHeadlineLayout, medicationPlanGrid);
         return verticalLayoutMain;
     }
 

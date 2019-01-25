@@ -7,22 +7,24 @@ public class WelfareFactory {
 
     private static final Logger logger = Logger.getLogger(WelfareFactory.class.getName());
 
-    /**
-     * The class to get the singleton instance.
-     */
+
     private static class WelfareFactoryInstance
     {
         private static final WelfareFactory INSTANCE = new WelfareFactory();
     }
 
     /**
-     * @return the singleton instance of this factory.
+     * Returns the instance of the WelfareFactory.
+     * @return
      */
     public static WelfareFactory getInstance()
     {
         return WelfareFactoryInstance.INSTANCE;
     }
 
+    /**
+     * Constructor of WelfareFactory.
+     */
     private WelfareFactory(){
 
     }
@@ -39,6 +41,13 @@ public class WelfareFactory {
         }
 
     }
+
+    /**
+     * Returns a desired Welfare object fitting the delivered welfare name.
+     * @param className
+     * @param strength
+     * @return
+     */
     public Welfare createSymptomByClass(Class<? extends Welfare> className, Welfare.Strength strength) {
         try {
             Welfare welfare = className.newInstance();

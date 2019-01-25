@@ -18,6 +18,10 @@ public abstract class EntityManager<T extends EntityObject> {
 
     private final Logger LOGGER = Logger.getLogger(EntityManager.class.getSimpleName());
 
+    /**
+     * Returns an instance of the Hibernate SessionFactory.
+     * @return instance of SessionFactory
+     */
     public SessionFactory getSessionFactory(){
         Configuration configuration = new Configuration().configure();
         configuration.addAnnotatedClass(Diary.class)
@@ -52,6 +56,12 @@ public abstract class EntityManager<T extends EntityObject> {
                 .buildSessionFactory(builder.build());
         return sessionFactory;
     }
+
+    /**
+     * Saves an EntityObject to the database and returns its unique ID.
+     * @param entity
+     * @return value of id
+     */
     public long create(T entity){
         if (entity == null) throw new NullPointerException("Expected entity not to be null.");
         Session session = getSessionFactory().openSession();
@@ -62,7 +72,23 @@ public abstract class EntityManager<T extends EntityObject> {
         LOGGER.log(Level.INFO, "Successfully created " + entity.toString());
         return entity.getId();
     }
+
+    /**
+     * Returns all persistent objects of a generic EntityObject as a List.
+     * @return
+     */
     public abstract List<T> read();
+
+    /**
+     * Deletes the EntityObject matching the provided ID.
+     * @param id
+     */
     public abstract void delete(Long id);
+
+    /**
+     * Returns a single generic EntityObject matching the given ID.
+     * @param id
+     * @return
+     */
     public abstract T findByID(Long id);
 }

@@ -107,5 +107,3 @@ public class EntitiesTests {
         assertEquals(patient.getPhone(),"0669-115857577");
     }
 }
-
-
