@@ -17,6 +17,9 @@ public class VitalDataEvaluationView extends EvaluationView {
     public VitalDataEvaluationView(){
 
     }
+    /**
+     * Returns a layout with vital data evaluation table
+     */
 
     public VerticalLayout getViewComponent() {
         //datePicker

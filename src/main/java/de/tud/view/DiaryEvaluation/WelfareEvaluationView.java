@@ -15,6 +15,9 @@ public class WelfareEvaluationView extends EvaluationView  {
 
     }
 
+    /**
+     * Returns a layout with welfare evaluation table
+     */
     public Component getViewComponent() {
         //datePicker
         fromDate.setPlaceholder("von...");

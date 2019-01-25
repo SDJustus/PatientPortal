@@ -15,6 +15,10 @@ public class SymptomEvaluationView extends EvaluationView{
 
     }
 
+    /**
+     * Returns a layout with a symptom evaluation table
+     */
+
     public VerticalLayout getViewComponent() {
 
         //datePicker

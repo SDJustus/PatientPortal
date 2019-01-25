@@ -8,6 +8,8 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
+
+
 public class DiaryEvaluationUIModel extends VitalData {
     //Symptom Table
     private Symptom symptom;
