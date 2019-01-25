@@ -71,7 +71,7 @@ public class Homework extends EntityObject {
         this.status=false;
         this.date = date;
     }
-    public Homework(Type document, String name, String description) {
+    public Homework(Type type, String name, String description) {
         this.type=type;
         this.name=name;
         this.description = description;
