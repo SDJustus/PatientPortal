@@ -1,8 +1,6 @@
 package de.tud.view.homework;
 
-
 import com.vaadin.navigator.View;
-import com.vaadin.server.ClassResource;
 import com.vaadin.ui.*;
 import de.tud.controller.HomeworkController;
 
@@ -24,17 +22,13 @@ HomeworkController controller;
     controller.addCalenderListenerForCaptionLabel();
 
 
-    repeatBox.setItems("Einmalig", "Täglich", "Wöchentlich" );
+    repeatBox.setItems("Einmalig", "Täglich", "Wöchentlich bis Endtermin" );
     repeatBox.setCaption("Wiederholen:");
 
     combobox.setCaption("Aufgabentyp:");
     dataPicker.setCaption("Fälligkeitsdatum/Letzte Wiederholung:");
 
     repeatBox.setValue("Einmalig");
-
-        saveButton.setCaption("Speichern");
-        saveButton.setDescription("Speichern des Kalendereintrags");
-        saveButton.setIcon(new ClassResource("/saveicon.png"));
 
 
 
