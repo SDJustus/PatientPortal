@@ -3,9 +3,16 @@ package de.tud.view.homework;
 import org.vaadin.addon.calendar.item.BasicItem;
 
 public class ToDoItem extends BasicItem {
-
+    /**
+     * Identification number for calendar elements.
+     * The same id is used in the database.
+     */
     private long id;
 
+
+    /**
+     * Sets id and style name.
+     */
    public ToDoItem(long id)
     {
         this.id = id;

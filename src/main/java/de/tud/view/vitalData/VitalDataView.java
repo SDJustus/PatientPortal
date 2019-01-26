@@ -116,7 +116,7 @@ public class VitalDataView extends Composite implements View {
         bloodPressure.addStyleName("layoutwithborder");
         bloodPressure.setSpacing(true);
         bloodPressure.addStyleName(MaterialTheme.CARD_1_5);
-        bloodPressure.addStyleName("catbackground");
+        //bloodPressure.addStyleName("catbackground");
         bloodPressure.setWidth(width);
         bloodPressure.setHeight(heights);
         bloodPressure.addComponents(bloodPressurePicture, bloodPressureLabel, bloodPressureStepper1);
@@ -124,7 +124,7 @@ public class VitalDataView extends Composite implements View {
         bloodPressure11.addStyleName("layoutwithborder");
         bloodPressure11.setSpacing(true);
         bloodPressure11.addStyleName(MaterialTheme.CARD_1_5);
-        bloodPressure11.addStyleName("catbackground");
+         //bloodPressure11.addStyleName("catbackground");
         bloodPressure11.setWidth(width);
         bloodPressure11.setHeight(heights);
         bloodPressure11.addComponents(bloodPressurePicture11, bloodPressureLabel11, bloodPressureStepper11);
@@ -138,7 +138,7 @@ public class VitalDataView extends Composite implements View {
 
 
 //Setup Stepper
-        weightStepper.setMinValue(0.0f);
+        weightStepper.setMinValue(5f);
         weightStepper.setMaxValue(1000f);
         weightStepper.setStepAmount(1f);
         weightStepper.setValue(70f);
@@ -146,11 +146,11 @@ public class VitalDataView extends Composite implements View {
         weightStepper.setDescription("Bitte geben Sie Ihr Gewicht ein.");
         weightStepper.addStyleName(MaterialTheme.COMBOBOX_ALIGN_CENTER);
 
-        heightStepper.setMinValue(0.3f);
-        heightStepper.setMaxValue(3f);
-        heightStepper.setStepAmount(0.01f);
-        heightStepper.setValue(1.7f);
-        heightStepper.setNumberOfDecimals(2);
+        heightStepper.setMinValue(20f);
+        heightStepper.setMaxValue(300f);
+        heightStepper.setStepAmount(1f);
+        heightStepper.setValue(170f);
+        heightStepper.setNumberOfDecimals(0);
         heightStepper.setDescription("Bitte geben Sie Ihre Körpergröße ein.");
         heightStepper.addStyleName(MaterialTheme.COMBOBOX_ALIGN_CENTER);
 
@@ -178,6 +178,8 @@ public class VitalDataView extends Composite implements View {
         bloodPressureStepper11.setNumberOfDecimals(0);
         bloodPressureStepper11.setDescription("Bitte geben Sie Ihren Blutdruck ein.");
         bloodPressureStepper11.addStyleName(MaterialTheme.COMBOBOX_ALIGN_CENTER);
+
+
 
 //save button config
         saveVitalData.setCaption("Speichern");
@@ -220,7 +222,9 @@ public class VitalDataView extends Composite implements View {
         dataPicker.setDefaultValue(LocalDateTime.now());
         dataPicker.setRangeEnd(LocalDateTime.now());
 
-        form.addComponents(weight, height, heartRate, bloodPressure, bloodPressure11);
+
+
+        form.addComponents(weight, height, heartRate, bloodPressure,bloodPressure11);
         panel.setContent(form);
 
         menuBar.addComponents(dataPicker, saveVitalData);

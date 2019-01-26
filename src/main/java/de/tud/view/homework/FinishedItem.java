@@ -5,7 +5,16 @@ import org.vaadin.addon.calendar.item.BasicItem;
 
 public class FinishedItem extends BasicItem {
 
+    /**
+     * Identification number for calendar elements.
+     * The same id is used in the database.
+     */
+
 private long id;
+
+    /**
+     * Sets and style name.
+     */
 
    public FinishedItem(long id)
     {
@@ -18,6 +27,7 @@ private long id;
     }
 
     @Override
+
     public String getStyleName() {
         return "finishedEvent";
     }

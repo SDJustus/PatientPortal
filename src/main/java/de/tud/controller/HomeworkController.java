@@ -23,14 +23,26 @@ import java.util.logging.Logger;
 public class HomeworkController {
 
 
+    /**
+     * This variable grants access to the UI.
+     */
     HomeworkSetup designerView;
-    private long diaryId;
+
+
+
+
     private final Logger LOGGER = Logger.getLogger(HomeworkController.class.getSimpleName());
 
+    /**
+     * Data Structure for UI calendar items.
+     */
+
     BasicItemProvider<BasicItem> basicProvider;
-    private String repeat;
 
 
+    /**
+     * Setup for the calender zu element.
+     */
     public  HomeworkController(HomeworkSetup designerView)
     {
         this.designerView = designerView;
@@ -44,6 +56,10 @@ public class HomeworkController {
 
 
 
+
+    /**
+     * Sets properties for the calendar.
+     */
 
     void setUpCalendar()
     {
@@ -75,43 +91,9 @@ public class HomeworkController {
 
     }
 
-
-
-
-    public void setupBlockedTimeSlots() {
-
-
-        java.util.Calendar cal = java.util.Calendar.getInstance();
-        cal.set(java.util.Calendar.HOUR_OF_DAY, 0); // ! clear would not reset the hour of day !
-        cal.clear(java.util.Calendar.MINUTE);
-        cal.clear(java.util.Calendar.SECOND);
-        cal.clear(java.util.Calendar.MILLISECOND);
-
-        GregorianCalendar bcal = new GregorianCalendar(designerView.getCalendar().getLocale());
-        bcal.clear();
-
-        long start = bcal.getTimeInMillis();
-
-        bcal.add(java.util.Calendar.HOUR, 7);
-        bcal.add(java.util.Calendar.MINUTE, 30);
-        long end = bcal.getTimeInMillis();
-
-        designerView.getCalendar().addTimeBlock(start, end, "my-blocky-style");
-
-        cal.add(java.util.Calendar.DAY_OF_WEEK, 1);
-
-        bcal.clear();
-        bcal.add(java.util.Calendar.HOUR, 14);
-        bcal.add(java.util.Calendar.MINUTE, 30);
-        start = bcal.getTimeInMillis();
-
-        bcal.add(java.util.Calendar.MINUTE, 60);
-        end = bcal.getTimeInMillis();
-
-        designerView.getCalendar().addTimeBlock(start, end);
-
-    }
-
+    /**
+     * Loads all data base entries into the calendar.
+     */
 
    public void loadCalendarEntries()
     {
@@ -176,7 +158,9 @@ public class HomeworkController {
 
     }
 
-
+    /**
+     * Adds listener for date picker element.
+     */
     public void addDateTimeFieldChangeListener(){
         designerView.getDataPicker().addValueChangeListener(new HasValue.ValueChangeListener<LocalDate>() {
             @Override
@@ -195,7 +179,9 @@ public class HomeworkController {
         }
 
 
-
+    /**
+     * Adds listener and save function to the save button.
+     */
 
     public void addSaveButtonListener() {
         designerView.getSaveButton().addClickListener(new Button.ClickListener() {
@@ -299,6 +285,10 @@ public class HomeworkController {
 
     }
 
+    /**
+     * Adds task types to the combobox.
+     */
+
    public void setupComobobox()
     {
 
@@ -308,6 +298,10 @@ public class HomeworkController {
 
     }
 
+    /**
+     * Adds restrictions for the date picker.
+     */
+
    public void setUpDataPicker()
     {
         designerView.getDataPicker().setDefaultValue(LocalDate.from(LocalDateTime.now()));
@@ -316,6 +310,10 @@ public class HomeworkController {
 
     }
 
+
+    /**
+     * Adds restrictions for both text boxes on the homework view.
+     */
 
   public  void addTextBoxRestrictions()
     {
@@ -353,6 +351,11 @@ designerView.getHomeworkName().setMaxLength(12);
     }
 
 
+    /**
+     * Reloads the homework view.
+     * Use this in combination with saving.
+     */
+
     public void resetAfterSave()
     {
 
@@ -379,7 +382,9 @@ designerView.getHomeworkName().setMaxLength(12);
     }
 
 
-
+    /**
+     * Unused function for a not implemented element.
+     */
    public void addCalenderListenerForCaptionLabel()
 
    {
@@ -397,6 +402,10 @@ designerView.getHomeworkName().setMaxLength(12);
     }
 
 
+
+    /**
+     * Creates new homework objects and saves them to the database.
+     */
 
 
 Homework createHomeworkFromUI(ZonedDateTime now)

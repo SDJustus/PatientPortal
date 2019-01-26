@@ -1,16 +1,22 @@
 package de.tud.view.homework;
 
 import com.vaadin.navigator.View;
+import com.vaadin.server.ClassResource;
+import com.vaadin.server.Resource;
 import com.vaadin.ui.*;
 import de.tud.controller.HomeworkController;
 
 public class HomeworkSetup extends HomeworkDesigner implements View {
 
-
+    /**
+     * Adds functions the UI elements in the calendar view.
+     */
 
 HomeworkController controller;
 
-
+    /**
+     * Adds captions and listener to the project.
+     */
     HomeworkSetup() {
 
 
@@ -30,7 +36,7 @@ HomeworkController controller;
 
     repeatBox.setValue("Einmalig");
 
-
+        saveButton.setIcon(new ClassResource("/saveicon.png"));
 
 
     }
