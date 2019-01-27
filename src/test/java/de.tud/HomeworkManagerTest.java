@@ -18,16 +18,21 @@ class HomeworkManagerTest {
 
     private Homework hw1;
     private Homework hw2;
+    private Homework hw3;
+    private Homework hw4;
     private HomeworkManager hwm;
     private List<Homework> readList;
     private long hwID;
+    private ZonedDateTime zonedDateTime;
 
 
 
     @BeforeEach
     void setup(){
-        hw1 = new Homework(Homework.Type.DOCUMENT,"Statusbericht","Bericht über den Verlauf der letzten Woche", ZonedDateTime.now());
-        hw2 = new Homework(Homework.Type.EXERCISE,"Kniebeugen", "Übung Kniebeugen gegen Blutdruck", ZonedDateTime.now());
+        hw1 = new Homework(Homework.Type.DOCUMENT,"Statusbericht","Bericht über den Verlauf der letzten Woche", ZonedDateTime.now().withHour(1).withMinute(0));
+        hw2 = new Homework(Homework.Type.EXERCISE,"Kniebeugen", "Übung Kniebeugen gegen Blutdruck", ZonedDateTime.now().withHour(1).withMinute(0));
+        hw3 = new Homework(Homework.Type.QUESTIONNAIRE, "Umfrage", "Umfrage über Kundenzufriedenheit ausfüllen", ZonedDateTime.now().plusDays(2).withHour(1).withMinute(0));
+        hw4 = new Homework(Homework.Type.DOCUMENT, "neuer Statusbericht", "Bericht über Verlauf der letzten Tage", ZonedDateTime.now().plusDays(4));
         hwm = HomeworkManager.getInstance();
 
     }
@@ -37,6 +42,8 @@ class HomeworkManagerTest {
         hwm.deleteAll();
         hwm.create(hw1);
         hwm.create(hw2);
+        hwm.create(hw3);
+        hwm.create(hw4);
     }
 
 

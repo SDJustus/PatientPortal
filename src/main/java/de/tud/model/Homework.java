@@ -64,7 +64,7 @@ public class Homework extends EntityObject {
      * @param name
      * @param description
      */
-    public Homework(Type type, String name, String description, ZonedDateTime date){                           //neue homework mit Status False erzeugt da keine Aufgabe direkt erledig sein soll
+    public Homework(Type type, String name, String description, ZonedDateTime date){
         this.type=type;
         this.name=name;
         this.description = description;

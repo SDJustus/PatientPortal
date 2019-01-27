@@ -16,15 +16,17 @@ class MedicationManagerTest {
     private MedicationPlanManager medicationPlanManager;
     private Medication med1;
     private Medication med2;
+    private Medication med3;
     @BeforeEach
     void setUp(){
         medicationPlanManager = MedicationPlanManager.getInstance();
         med1 = new Medication();
         med2 = new Medication();
+        med3 = new Medication();
         med1.setDmId(1);
-        med1.setMorningDosage(331.11f);
-        med1.setAfternoonDosage(3.4f);
-        med1.setNightDosage(41f);
+        med1.setMorningDosage(1f);
+        med1.setAfternoonDosage(3f);
+        med1.setNightDosage(4f);
         med1.setNoonDosage(1f);
         med1.setHints("This is a hint");
         med1.setUnit(Unit.PIECES);
@@ -33,10 +35,18 @@ class MedicationManagerTest {
         med2.setMorningDosage(1.11f);
         med2.setAfternoonDosage(5.4f);
         med2.setNightDosage(30f);
-        med2.setNoonDosage(1.402f);
+        med2.setNoonDosage(1.4f);
         med2.setHints("This is a second hint");
         med2.setUnit(Unit.MG);
         med2.setReason("This is a second reason");
+        med3.setDmId(3);
+        med3.setMorningDosage(100f);
+        med3.setAfternoonDosage(205f);
+        med3.setNightDosage(30f);
+        med3.setNoonDosage(150f);
+        med3.setHints("This is a third hint");
+        med3.setUnit(Unit.ML);
+        med3.setReason("This is a third reason");
     }
 
     @AfterAll
@@ -44,6 +54,7 @@ class MedicationManagerTest {
         medicationPlanManager.deleteAll();
         medicationPlanManager.create(med1);
         medicationPlanManager.create(med2);
+        medicationPlanManager.create(med3);
     }
 
     @Test

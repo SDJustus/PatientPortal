@@ -2,7 +2,7 @@ PatientPortal Installationsanleitung
 ==============
 
 Das ist eine kurze Anleitung, wie die Web Applikation zum Laufen
-gebracht wird
+gebracht wird.
 
 
 1 MariaDB installieren 
