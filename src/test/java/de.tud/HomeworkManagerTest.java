@@ -32,7 +32,7 @@ class HomeworkManagerTest {
         hw1 = new Homework(Homework.Type.DOCUMENT,"Statusbericht","Bericht über den Verlauf der letzten Woche", ZonedDateTime.now().withHour(1).withMinute(0));
         hw2 = new Homework(Homework.Type.EXERCISE,"Kniebeugen", "Übung Kniebeugen gegen Blutdruck", ZonedDateTime.now().withHour(1).withMinute(0));
         hw3 = new Homework(Homework.Type.QUESTIONNAIRE, "Umfrage", "Umfrage über Kundenzufriedenheit ausfüllen", ZonedDateTime.now().plusDays(2).withHour(1).withMinute(0));
-        hw4 = new Homework(Homework.Type.DOCUMENT, "neuer Statusbericht", "Bericht über Verlauf der letzten Tage", ZonedDateTime.now().plusDays(4));
+        hw4 = new Homework(Homework.Type.DOCUMENT, "neuer Statusbericht", "Bericht über Verlauf der letzten Tage", ZonedDateTime.now().plusDays(4).withHour(1).withMinute(0));
         hwm = HomeworkManager.getInstance();
 
     }
