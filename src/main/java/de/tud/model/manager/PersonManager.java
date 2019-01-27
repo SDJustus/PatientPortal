@@ -1,6 +1,5 @@
 package de.tud.model.manager;
 
-import de.tud.model.DiaryEntry;
 import de.tud.model.Person;
 
 import org.hibernate.Session;
@@ -10,51 +9,12 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+/**
+ * in development
+ */
 public class PersonManager extends EntityManager<Person> {
 
     private final Logger LOGGER = Logger.getLogger(PersonManager.class.getSimpleName());
-    /*
-      public static void main(String[] args) {
-
-          Address address = new Address("as", "1", 19287, "abc", "abc");
-          Person person1 = new Person("Max", "Mustermann", Person.Gender.MALE,
-                  "max.mustermann@musterprovider.de", null, "01234567890", address);
-          Person person2 = new Person("Maxi", "Musterfrau", Person.Gender.FEMALE,
-                  "maxi.musterfrau@musterprovider.de", LocalDate.of(2000,1,1), "01234567890", address);
-          System.out.println(" =======CREATE =======");
-          personManager.create(person1);
-
-          System.out.println(" =======READ =======");
-          List<Person> personList = read();
-          for(Person p: personList) {
-              System.out.println(p.toString());
-          }
-          System.out.println(" =======UPDATE =======");
-          person1.setFamilyName("newName");
-          person1.setGivenName("Mary Rose");
-          update(person1);
-          System.out.println(" =======READ =======");
-          List<Person> personList2 = read();
-          for(Person p: personList2) {
-              System.out.println(p.toString());
-          }
-          System.out.println(" =======DELETE ======= ");
-          delete(person2.getId());
-          System.out.println(" =======READ =======");
-          List<Person> personList3 = read();
-          for(Person p: personList3) {
-              System.out.println(p.toString());
-          }
-          System.out.println(" =======DELETE ALL ======= ");
-          deleteAll();
-          System.out.println(" =======READ =======");
-          List<Person> personList4 = read();
-          for(Person p: personList4) {
-              System.out.println(p.toString());
-          }
-          System.exit(0);
-      }
-  */
 
     /**
      * Returns all persistent Person objects as a list.
